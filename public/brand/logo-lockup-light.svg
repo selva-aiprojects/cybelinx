@@ -1,0 +1,53 @@
+<svg width="960" height="260" viewBox="0 0 960 260" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="globeGrad2" cx="35%" cy="30%" r="75%">
+      <stop offset="0%" stop-color="#4FD8FF"/>
+      <stop offset="45%" stop-color="#0D47FF"/>
+      <stop offset="100%" stop-color="#061034"/>
+    </radialGradient>
+    <linearGradient id="barGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0D47FF"/>
+      <stop offset="100%" stop-color="#00C2FF"/>
+    </linearGradient>
+    <clipPath id="globeClip2">
+      <circle cx="130" cy="130" r="100"/>
+    </clipPath>
+  </defs>
+
+  <!-- ICON, scaled -->
+  <g transform="translate(30,30)">
+    <circle cx="100" cy="100" r="112" fill="none" stroke="url(#barGrad)" stroke-width="1" opacity="0.35"/>
+    <circle cx="100" cy="100" r="100" fill="url(#globeGrad2)"/>
+    <g clip-path="url(#globeClip2)" transform="translate(30,30)" stroke="#BFE9FF" stroke-width="0.9" fill="none" opacity="0.5">
+      <ellipse cx="100" cy="100" rx="100" ry="34"/>
+      <ellipse cx="100" cy="100" rx="100" ry="67"/>
+      <ellipse cx="100" cy="100" rx="34" ry="100"/>
+      <ellipse cx="100" cy="100" rx="67" ry="100"/>
+    </g>
+    <ellipse cx="88" cy="82" rx="43" ry="29" fill="#FFFFFF" opacity="0.14"/>
+    <circle cx="100" cy="100" r="62" fill="none" stroke="#F5F9FF" stroke-width="28"
+            stroke-dasharray="312 77" stroke-dashoffset="350"/>
+  </g>
+
+  <!-- WORDMARK -->
+  <g font-family="Poppins" font-weight="700" font-size="72" fill="#0A0F1C">
+    <text x="250" y="150">CYB</text>
+    <text x="250" y="150">
+      <tspan dx="150"></tspan>
+    </text>
+  </g>
+
+  <!-- stylized bar "E" -->
+  <g transform="translate(410,98)">
+    <rect x="0" y="0" width="86" height="13" rx="6.5" fill="url(#barGrad)"/>
+    <rect x="0" y="24" width="66" height="13" rx="6.5" fill="url(#barGrad)"/>
+    <rect x="0" y="48" width="46" height="13" rx="6.5" fill="url(#barGrad)"/>
+  </g>
+
+  <g font-family="Poppins" font-weight="700" font-size="72" fill="#0A0F1C">
+    <text x="512" y="150">LINX</text>
+  </g>
+
+  <!-- tagline -->
+  <text x="252" y="196" font-family="Poppins" font-weight="300" font-size="20" letter-spacing="4" fill="#0D47FF">ENGINEERING INTELLIGENT ENTERPRISES</text>
+</svg>

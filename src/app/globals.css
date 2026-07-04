@@ -1,0 +1,48 @@
+@import "tailwindcss";
+
+:root {
+  --font-poppins: "Poppins", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #0a0f1c;
+  color: #e6ebf2;
+  font-family: var(--font-poppins);
+}
+
+/* Glassmorphism card surface */
+.glass {
+  background: rgba(230, 235, 242, 0.04);
+  border: 1px solid rgba(230, 235, 242, 0.1);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* Signature dotted world-map texture, low opacity, single-use background */
+.map-texture {
+  background-image: radial-gradient(rgba(0, 194, 255, 0.18) 1px, transparent 1px);
+  background-size: 14px 14px;
+}
+
+::selection {
+  background: #0d47ff;
+  color: #ffffff;
+}
+
+:focus-visible {
+  outline: 2px solid #00c2ff;
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

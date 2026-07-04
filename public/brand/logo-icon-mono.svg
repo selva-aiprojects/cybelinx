@@ -1,0 +1,23 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="monoGrad" cx="35%" cy="30%" r="75%">
+      <stop offset="0%" stop-color="#C7CDD6"/>
+      <stop offset="45%" stop-color="#7A8291"/>
+      <stop offset="100%" stop-color="#2B2F38"/>
+    </radialGradient>
+    <clipPath id="globeClipM">
+      <circle cx="256" cy="256" r="208"/>
+    </clipPath>
+  </defs>
+  <circle cx="256" cy="256" r="230" fill="none" stroke="#9AA3AF" stroke-width="2" opacity="0.35"/>
+  <circle cx="256" cy="256" r="208" fill="url(#monoGrad)"/>
+  <g clip-path="url(#globeClipM)" stroke="#E7EAEE" stroke-width="1.4" fill="none" opacity="0.5">
+    <ellipse cx="256" cy="256" rx="208" ry="70"/>
+    <ellipse cx="256" cy="256" rx="208" ry="140"/>
+    <ellipse cx="256" cy="256" rx="70" ry="208"/>
+    <ellipse cx="256" cy="256" rx="140" ry="208"/>
+  </g>
+  <ellipse cx="190" cy="170" rx="90" ry="60" fill="#FFFFFF" opacity="0.16"/>
+  <circle cx="256" cy="256" r="128" fill="none" stroke="#FFFFFF" stroke-width="58"
+          stroke-dasharray="646 158" stroke-dashoffset="725"/>
+</svg>
