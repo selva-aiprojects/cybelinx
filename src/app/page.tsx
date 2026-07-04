@@ -1,46 +1,12 @@
 import Hero from "@/components/Hero";
 import Section from "@/components/Section";
+import TrustBar from "@/components/TrustBar";
 import ProductCard from "@/components/ProductCard";
-import StatBand from "@/components/StatBand";
-import CustomerLogoStrip from "@/components/CustomerLogoStrip";
+import FeatureCard from "@/components/FeatureCard";
 import CTABand from "@/components/CTABand";
+import AnimatedSection from "@/components/AnimatedSection";
+import { capabilities, industries, whyCybelink } from "@/lib/content";
 import { products } from "@/lib/products";
-import { Globe2, ShieldCheck, Cpu, TrendingUp, Handshake, Network } from "lucide-react";
-
-const pillars = [
-  {
-    icon: Globe2,
-    title: "Global Reach",
-    description: "Designed for multi-location, multi-tenant operations that need consistency at scale.",
-  },
-  {
-    icon: Cpu,
-    title: "AI Innovation",
-    description: "Practical AI embedded into workflows teams already rely on every day.",
-  },
-  {
-    icon: ShieldCheck,
-    title: "Security & Trust",
-    description: "Enterprise-ready architecture with isolation, governance, and resilience in mind.",
-  },
-  {
-    icon: TrendingUp,
-    title: "Scalable Growth",
-    description: "Expand from one site or team to many without re-platforming your operations.",
-  },
-  {
-    icon: Handshake,
-    title: "Partnership",
-    description: "We work alongside your leadership and operators through rollout, adoption, and growth.",
-  },
-  {
-    icon: Network,
-    title: "Engineering Excellence",
-    description: "Product engineering built for reliability, maintainability, and long-term performance.",
-  },
-];
-
-const ehms = products.find((p) => p.slug === "ehms")!;
 
 export default function HomePage() {
   return (
@@ -48,52 +14,143 @@ export default function HomePage() {
       <Hero />
 
       <Section>
-        <div className="mb-12 max-w-2xl">
-          <span className="text-xs font-semibold uppercase tracking-widest text-cyan">Products</span>
-          <h2 className="mt-3 text-3xl font-bold text-white md:text-4xl">
-            Purpose-built platforms for high-complexity operations.
-          </h2>
-        </div>
-        <div className="grid gap-6 md:grid-cols-3">
-          {products.map((p) => (
-            <ProductCard key={p.slug} product={p} />
-          ))}
-          <div className="glass flex flex-col items-start justify-center rounded-2xl border-dashed p-8 text-slate">
-            <span className="text-sm font-semibold">More products</span>
-            <p className="mt-2 text-sm">Coming soon to the Cybelinx portfolio.</p>
+        <AnimatedSection>
+          <TrustBar />
+        </AnimatedSection>
+      </Section>
+
+      <Section id="outcomes">
+        <AnimatedSection>
+          <div className="mb-10 max-w-3xl">
+            <span className="text-xs font-semibold uppercase tracking-[0.28em] text-cyan">Enterprise outcomes</span>
+            <h2 className="font-display mt-3 text-3xl font-bold text-white md:text-4xl">
+              From strategy and architecture to launch and scale.
+            </h2>
+            <p className="mt-4 text-base leading-8 text-surface/80">
+              We help enterprise teams move with clarity, speed, and governance across every stage of the product lifecycle.
+            </p>
           </div>
+        </AnimatedSection>
+        <div className="grid gap-6 lg:grid-cols-3">
+          {[
+            {
+              title: "AI-ready product delivery",
+              description: "Turn emerging technology into durable value with design-led execution and measurable adoption.",
+            },
+            {
+              title: "Cloud-native platform acceleration",
+              description: "Build scalable foundations for growth, resilience, and rapid feature release across teams.",
+            },
+            {
+              title: "Regulated industry confidence",
+              description: "Deliver secure, compliant solutions with the rigor required for high-stakes enterprise environments.",
+            },
+          ].map((outcome, index) => (
+            <AnimatedSection key={outcome.title} delay={index * 0.05}>
+              <div className="glass rounded-[1.5rem] border border-white/10 p-7">
+                <h3 className="font-display text-xl font-semibold text-white">{outcome.title}</h3>
+                <p className="mt-3 text-sm leading-7 text-surface/80">{outcome.description}</p>
+              </div>
+            </AnimatedSection>
+          ))}
         </div>
       </Section>
 
-      <Section textured>
-        <div className="mb-12 max-w-2xl">
-          <span className="text-xs font-semibold uppercase tracking-widest text-cyan">Why Cybelinx</span>
-          <h2 className="mt-3 text-3xl font-bold text-white md:text-4xl">
-            Engineered for trust, scale, and operational clarity.
-          </h2>
+      <Section textured id="capabilities">
+        <AnimatedSection>
+          <div className="mb-12 max-w-2xl">
+            <span className="text-xs font-semibold uppercase tracking-widest text-cyan">Product Engineering</span>
+            <h2 className="font-display mt-3 text-3xl font-bold text-white md:text-4xl">
+              Full-stack engineering capability for digital products at scale.
+            </h2>
+          </div>
+        </AnimatedSection>
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {capabilities.map((capability, index) => (
+            <AnimatedSection key={capability.title} delay={index * 0.05}>
+              <FeatureCard
+                title={capability.title}
+                description={capability.description}
+                icon={capability.icon}
+                href={
+                  capability.title.includes("Cloud")
+                    ? "/cloud-platform"
+                    : capability.title.includes("AI")
+                      ? "/ai-services"
+                      : "/solutions"
+                }
+              />
+            </AnimatedSection>
+          ))}
         </div>
-        <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3">
-          {pillars.map((pillar) => (
-            <div key={pillar.title} className="glass rounded-2xl p-6">
-              <pillar.icon className="h-6 w-6 text-cyan" />
-              <h3 className="mt-4 text-base font-semibold text-white">{pillar.title}</h3>
-              <p className="mt-2 text-sm text-slate">{pillar.description}</p>
-            </div>
+      </Section>
+
+      <Section id="industries">
+        <AnimatedSection>
+          <div className="mb-12 max-w-2xl">
+            <span className="text-xs font-semibold uppercase tracking-widest text-cyan">Industry Solutions</span>
+            <h2 className="font-display mt-3 text-3xl font-bold text-white md:text-4xl">
+              Deep domain expertise across regulated and high-scale industries.
+            </h2>
+          </div>
+        </AnimatedSection>
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {industries.map((industry, index) => (
+            <AnimatedSection key={industry.slug} delay={index * 0.04}>
+              <FeatureCard
+                title={industry.name}
+                description={industry.description}
+                icon={industry.icon}
+                href={`/industries#${industry.slug}`}
+              />
+            </AnimatedSection>
+          ))}
+        </div>
+      </Section>
+
+      <Section textured id="products">
+        <AnimatedSection>
+          <div className="mb-12 max-w-2xl">
+            <span className="text-xs font-semibold uppercase tracking-widest text-cyan">Product Portfolio</span>
+            <h2 className="font-display mt-3 text-3xl font-bold text-white md:text-4xl">
+              Cybe* platforms engineered for enterprise outcomes.
+            </h2>
+          </div>
+        </AnimatedSection>
+        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+          {products.map((product, index) => (
+            <AnimatedSection key={product.slug} delay={index * 0.05}>
+              <ProductCard product={product} />
+            </AnimatedSection>
+          ))}
+        </div>
+      </Section>
+
+      <Section id="why-cybelink">
+        <AnimatedSection>
+          <div className="mb-12 max-w-2xl">
+            <span className="text-xs font-semibold uppercase tracking-widest text-cyan">Why Cybelink</span>
+            <h2 className="font-display mt-3 text-3xl font-bold text-white md:text-4xl">
+              A partner built for product leaders and engineering executives.
+            </h2>
+          </div>
+        </AnimatedSection>
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {whyCybelink.map((pillar, index) => (
+            <AnimatedSection key={pillar.title} delay={index * 0.06}>
+              <FeatureCard title={pillar.title} description={pillar.description} icon={pillar.icon} />
+            </AnimatedSection>
           ))}
         </div>
       </Section>
 
       <Section>
-        <div className="mb-10 max-w-2xl">
-          <span className="text-xs font-semibold uppercase tracking-widest text-cyan">Proof in production</span>
-          <h2 className="mt-3 text-3xl font-bold text-white md:text-4xl">Operational performance you can see in action.</h2>
-        </div>
-        {ehms.stats && <StatBand stats={ehms.stats} />}
-        <div className="mt-8">{ehms.customers && <CustomerLogoStrip customers={ehms.customers} />}</div>
-      </Section>
-
-      <Section>
-        <CTABand />
+        <AnimatedSection>
+          <CTABand
+            heading="Ready to accelerate your next product initiative?"
+            subheading="Talk with our engineering leaders about solutions, platforms, and industry programs."
+          />
+        </AnimatedSection>
       </Section>
     </>
   );

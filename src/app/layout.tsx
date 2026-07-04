@@ -1,28 +1,38 @@
 import type { Metadata } from "next";
-import { Poppins } from "next/font/google";
+import { Inter, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { brand } from "@/lib/content";
 
-const poppins = Poppins({
+const inter = Inter({
   subsets: ["latin"],
-  weight: ["300", "400", "600", "700"],
-  variable: "--font-poppins",
+  variable: "--font-inter",
+  display: "swap",
+});
+
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  variable: "--font-space-grotesk",
   display: "swap",
 });
 
 export const metadata: Metadata = {
   title: {
-    default: "Cybelinx — Engineering Intelligent Enterprises",
-    template: "%s | Cybelinx",
+    default: `${brand.name} — ${brand.tagline}`,
+    template: `%s | ${brand.name}`,
   },
-  description:
-    "Cybelinx builds AI-native, multi-tenant SaaS platforms — including CogniHR and eHMS — for teams who can't afford disconnected tools.",
+  description: brand.description,
+  openGraph: {
+    title: brand.name,
+    description: brand.description,
+    type: "website",
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={poppins.variable}>
+    <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable}`}>
       <body className="min-h-screen bg-background font-sans text-surface antialiased">
         <Navbar />
         <main>{children}</main>

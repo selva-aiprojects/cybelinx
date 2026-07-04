@@ -6,6 +6,15 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { products } from "@/lib/products";
 
+const interestOptions = [
+  "Product Engineering",
+  "Cloud & Platform Engineering",
+  "AI Services",
+  "Solutions Consultation",
+  ...products.map((p) => p.name),
+  "General inquiry",
+];
+
 const schema = z.object({
   name: z.string().min(2, "Enter your name"),
   email: z.string().email("Enter a valid email"),
@@ -25,7 +34,6 @@ export default function ContactForm() {
   } = useForm<FormData>({ resolver: zodResolver(schema) });
 
   async function onSubmit(data: FormData) {
-    // PLACEHOLDER — wire up to real form endpoint / CRM
     await new Promise((r) => setTimeout(r, 600));
     console.log(data);
     setSubmitted(true);
@@ -34,8 +42,8 @@ export default function ContactForm() {
   if (submitted) {
     return (
       <div className="glass rounded-2xl p-10 text-center">
-        <h3 className="text-xl font-bold text-white">Thanks — we&apos;ve got it.</h3>
-        <p className="mt-2 text-sm text-surface/80">Someone from our team will follow up shortly.</p>
+        <h3 className="font-display text-xl font-bold text-white">Thanks — we&apos;ve got it.</h3>
+        <p className="mt-2 text-sm text-surface/80">An engineering leader from our team will follow up shortly.</p>
       </div>
     );
   }
@@ -93,14 +101,11 @@ export default function ContactForm() {
           <option value="" disabled>
             Select one
           </option>
-          {products.map((p) => (
-            <option key={p.slug} value={p.name} className="bg-background">
-              {p.name}
+          {interestOptions.map((option) => (
+            <option key={option} value={option} className="bg-background">
+              {option}
             </option>
           ))}
-          <option value="General inquiry" className="bg-background">
-            General inquiry
-          </option>
         </select>
         {errors.interest && <p className="mt-1 text-xs text-red-400">{errors.interest.message}</p>}
       </div>

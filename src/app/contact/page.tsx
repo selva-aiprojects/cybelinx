@@ -1,22 +1,23 @@
 import type { Metadata } from "next";
 import Section from "@/components/Section";
+import PageHeader from "@/components/PageHeader";
 import ContactForm from "@/components/ContactForm";
+import { brand } from "@/lib/content";
 import { Mail, MapPin, Phone } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Contact",
-  description: "Get in touch with Cybelinx about CogniHR, eHMS, or a general inquiry.",
+  description: `Contact ${brand.name} about solutions, products, and enterprise engineering programs.`,
 };
 
 export default function ContactPage() {
   return (
     <Section className="pt-16">
-      <span className="text-xs font-semibold uppercase tracking-widest text-cyan">Contact</span>
-      <h1 className="mt-3 max-w-xl text-4xl font-bold text-white md:text-5xl">Let&apos;s build something exceptional.</h1>
-      <p className="mt-5 max-w-xl text-surface/80">
-        Share your goals, your operating environment, or the challenges you want to solve, and we&apos;ll connect you with
-        the right team.
-      </p>
+      <PageHeader
+        eyebrow="Contact"
+        title="Let's engineer your next platform."
+        description="Share your goals, operating environment, or modernization priorities — we'll connect you with the right leaders."
+      />
 
       <div className="mt-12 grid gap-10 md:grid-cols-[1.2fr,0.8fr]">
         <ContactForm />
@@ -26,24 +27,21 @@ export default function ContactPage() {
             <Mail className="mt-1 h-5 w-5 text-cyan" />
             <div>
               <div className="text-xs font-semibold uppercase tracking-wide text-slate">Email</div>
-              {/* PLACEHOLDER — confirm real contact email */}
-              <div className="mt-1 text-sm text-white">hello@cybelinx.com</div>
+              <div className="mt-1 text-sm text-white">{brand.email}</div>
             </div>
           </div>
           <div className="glass flex items-start gap-4 rounded-2xl p-6">
             <Phone className="mt-1 h-5 w-5 text-cyan" />
             <div>
               <div className="text-xs font-semibold uppercase tracking-wide text-slate">Phone</div>
-              {/* PLACEHOLDER — confirm real contact number */}
               <div className="mt-1 text-sm text-white">+1 (123) 456-7890</div>
             </div>
           </div>
           <div className="glass flex items-start gap-4 rounded-2xl p-6">
             <MapPin className="mt-1 h-5 w-5 text-cyan" />
             <div>
-              <div className="text-xs font-semibold uppercase tracking-wide text-slate">Office</div>
-              {/* PLACEHOLDER — confirm real office address */}
-              <div className="mt-1 text-sm text-white">Address on request</div>
+              <div className="text-xs font-semibold uppercase tracking-wide text-slate">Global delivery</div>
+              <div className="mt-1 text-sm text-white">Offices across 12 countries — details on request</div>
             </div>
           </div>
         </div>

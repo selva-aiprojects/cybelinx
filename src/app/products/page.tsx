@@ -1,42 +1,37 @@
 import type { Metadata } from "next";
 import Section from "@/components/Section";
+import PageHeader from "@/components/PageHeader";
 import ProductCard from "@/components/ProductCard";
 import CTABand from "@/components/CTABand";
 import { products } from "@/lib/products";
+import { brand } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "Products",
-  description: "Explore CogniHR and eHMS — Cybelinx's AI-native, multi-tenant SaaS platforms.",
+  description: `Explore the ${brand.name} Cybe* product portfolio — CybeBank, CybeHealth, CybeHCM, CybePharma, and CybeAI Suite.`,
 };
 
 export default function ProductsPage() {
   return (
     <>
       <Section className="pt-16">
-        <span className="text-xs font-semibold uppercase tracking-widest text-cyan">Products</span>
-        <h1 className="mt-3 max-w-2xl text-4xl font-bold text-white md:text-5xl">
-          Purpose-built software for demanding operational environments.
-        </h1>
-        <p className="mt-5 max-w-xl text-surface/80">
-          Each Cybelinx platform is designed to solve a specific set of operational challenges with depth, precision,
-          and long-term scalability.
-        </p>
+        <PageHeader
+          eyebrow="Products"
+          title="Cybe* platforms for enterprise outcomes."
+          description="A portfolio of AI-powered products engineered for regulated, high-scale operating environments."
+        />
       </Section>
 
-      <Section>
-        <div className="grid gap-6 md:grid-cols-3">
-          {products.map((p) => (
-            <ProductCard key={p.slug} product={p} />
+      <Section textured>
+        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+          {products.map((product) => (
+            <ProductCard key={product.slug} product={product} />
           ))}
-          <div className="glass flex flex-col items-start justify-center rounded-2xl border-dashed p-8 text-slate">
-            <span className="text-sm font-semibold">More products</span>
-            <p className="mt-2 text-sm">Coming soon to the Cybelinx portfolio.</p>
-          </div>
         </div>
       </Section>
 
       <Section>
-        <CTABand />
+        <CTABand heading="Not sure which platform fits?" subheading="Our product strategists will map capabilities to your industry and roadmap." />
       </Section>
     </>
   );

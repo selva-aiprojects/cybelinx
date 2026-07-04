@@ -1,7 +1,8 @@
 @import "tailwindcss";
 
 :root {
-  --font-poppins: "Poppins", sans-serif;
+  --font-inter: "Inter", sans-serif;
+  --font-space-grotesk: "Space Grotesk", sans-serif;
 }
 
 html {
@@ -9,35 +10,68 @@ html {
 }
 
 body {
-  background: radial-gradient(circle at top left, rgba(0, 194, 255, 0.16), transparent 28%), #0a0f1c;
+  position: relative;
+  overflow-x: hidden;
+  background:
+    radial-gradient(circle at top left, rgba(0, 191, 255, 0.18), transparent 28%),
+    radial-gradient(circle at 85% 15%, rgba(139, 92, 246, 0.14), transparent 22%),
+    #0a0f1c;
   color: #e6ebf2;
-  font-family: var(--font-poppins);
+  font-family: var(--font-inter);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
 
-/* Glassmorphism card surface */
-.glass {
-  background: rgba(230, 235, 242, 0.04);
-  border: 1px solid rgba(230, 235, 242, 0.1);
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  pointer-events: none;
+  z-index: 0;
+  filter: blur(70px);
+  opacity: 0.35;
 }
 
-/* Signature dotted world-map texture, low opacity, single-use background */
+body::before {
+  top: -100px;
+  left: -80px;
+  width: 260px;
+  height: 260px;
+  background: rgba(0, 191, 255, 0.5);
+}
+
+body::after {
+  right: -90px;
+  bottom: -120px;
+  width: 320px;
+  height: 320px;
+  background: rgba(139, 92, 246, 0.4);
+}
+
+.font-display {
+  font-family: var(--font-space-grotesk);
+}
+
+.glass {
+  background: linear-gradient(135deg, rgba(230, 235, 242, 0.08), rgba(10, 15, 28, 0.45));
+  border: 1px solid rgba(230, 235, 242, 0.12);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.24);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
 .map-texture {
   background-image: radial-gradient(rgba(0, 194, 255, 0.18) 1px, transparent 1px);
   background-size: 14px 14px;
 }
 
 ::selection {
-  background: #0d47ff;
+  background: #1E90FF;
   color: #ffffff;
 }
 
 :focus-visible {
-  outline: 2px solid #00c2ff;
+  outline: 2px solid #00BFFF;
   outline-offset: 2px;
 }
 

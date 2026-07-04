@@ -1,43 +1,43 @@
 import type { Metadata } from "next";
 import Section from "@/components/Section";
+import PageHeader from "@/components/PageHeader";
 import Button from "@/components/Button";
+import { brand } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "Careers",
-  description: "Join Cybelinx and help build AI-native SaaS platforms.",
+  description: `Join ${brand.name} and help build AI-powered enterprise products and platforms.`,
 };
 
-const values = ["Innovative", "Reliable", "Intelligent", "Collaborative", "Impactful"];
+const values = ["Innovation First", "Product Mindset", "Global Delivery", "Trusted Partnership"];
 
 export default function CareersPage() {
   return (
     <>
       <Section className="pt-16">
-        <span className="text-xs font-semibold uppercase tracking-widest text-cyan">Careers</span>
-        <h1 className="mt-3 max-w-2xl text-4xl font-bold text-white md:text-5xl">Build with us.</h1>
-        <p className="mt-5 max-w-xl text-surface/80">
-          We're a small, product-obsessed team building platforms that run real operations. If that sounds like your
-          kind of work, we'd like to hear from you.
-        </p>
+        <PageHeader
+          eyebrow="Careers"
+          title="Build intelligent products with us."
+          description="Join product engineers, platform architects, and AI specialists shipping platforms for global enterprises."
+        />
       </Section>
 
       <Section>
         <div className="flex flex-wrap gap-3">
-          {values.map((v) => (
-            <span key={v} className="glass rounded-full px-5 py-2 text-sm text-surface">
-              {v}
+          {values.map((value) => (
+            <span key={value} className="glass rounded-full px-5 py-2 text-sm text-surface">
+              {value}
             </span>
           ))}
         </div>
       </Section>
 
       <Section>
-        {/* PLACEHOLDER — connect to ATS/open roles feed once available */}
         <div className="glass rounded-2xl p-10 text-center">
-          <h2 className="text-2xl font-bold text-white">No open roles listed right now</h2>
+          <h2 className="font-display text-2xl font-bold text-white">Open roles coming soon</h2>
           <p className="mx-auto mt-3 max-w-md text-sm text-surface/80">
-            We're not actively hiring for a specific role at the moment, but we're always open to hearing from
-            people who want to build with us.
+            We&apos;re expanding engineering teams across product, cloud, and AI. Share your profile and we&apos;ll reach out
+            when a matching role opens.
           </p>
           <Button href="/contact" className="mt-6">
             Get in touch
