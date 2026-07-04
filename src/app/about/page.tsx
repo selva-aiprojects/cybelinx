@@ -19,10 +19,12 @@ export default function AboutPage() {
     <>
       <Section className="pt-16">
         <span className="text-xs font-semibold uppercase tracking-widest text-cyan">About Cybelinx</span>
-        <h1 className="mt-3 max-w-2xl text-4xl font-bold text-white md:text-5xl">Engineering Intelligent Enterprises</h1>
+        <h1 className="mt-3 max-w-2xl text-4xl font-bold text-white md:text-5xl">
+          Building software that becomes a strategic advantage.
+        </h1>
         <p className="mt-5 max-w-xl text-surface/80">
-          Cybelinx is a product company. We build AI-native, multi-tenant SaaS platforms — deep, focused tools for
-          the teams running HR and hospitality operations today, with more verticals ahead.
+          Cybelinx is a product company focused on creating AI-native, multi-tenant platforms that help demanding
+          organizations run operations with greater clarity, control, and speed.
         </p>
       </Section>
 
@@ -42,10 +44,9 @@ export default function AboutPage() {
         <div className="glass rounded-2xl p-8 md:p-10">
           <h2 className="text-2xl font-bold text-white">Our story</h2>
           <p className="mt-4 max-w-2xl text-sm leading-relaxed text-surface/80">
-            {/* PLACEHOLDER — replace with the real founding story once provided */}
-            Cybelinx started with a simple observation: most enterprise software is built wide, not deep. We build
-            the opposite — platforms that go all the way into one vertical, built multi-tenant and AI-native from
-            day one, so the teams using them get a system that actually fits how they work.
+            Cybelinx was founded on a simple belief: operational software should feel like a true capability layer for
+            the business, not another layer of complexity. We build focused products that go deep into vertical
+            workflows, combining strong product design, modern architecture, and AI where it creates measurable value.
           </p>
         </div>
       </Section>

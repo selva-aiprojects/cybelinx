@@ -8,12 +8,36 @@ import { products } from "@/lib/products";
 import { Globe2, ShieldCheck, Cpu, TrendingUp, Handshake, Network } from "lucide-react";
 
 const pillars = [
-  { icon: Globe2, title: "Global Reach", description: "Built to serve organizations wherever they operate." },
-  { icon: Cpu, title: "AI Innovation", description: "AI-native workflows, not AI bolted on after the fact." },
-  { icon: ShieldCheck, title: "Security & Trust", description: "Multi-tenant architecture built with isolation in mind." },
-  { icon: TrendingUp, title: "Scalable Growth", description: "Platforms that grow from one team to many properties." },
-  { icon: Handshake, title: "Partnership", description: "We work alongside your team through rollout and beyond." },
-  { icon: Network, title: "Engineering Excellence", description: "Real infrastructure, not a thin layer over spreadsheets." },
+  {
+    icon: Globe2,
+    title: "Global Reach",
+    description: "Designed for multi-location, multi-tenant operations that need consistency at scale.",
+  },
+  {
+    icon: Cpu,
+    title: "AI Innovation",
+    description: "Practical AI embedded into workflows teams already rely on every day.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Security & Trust",
+    description: "Enterprise-ready architecture with isolation, governance, and resilience in mind.",
+  },
+  {
+    icon: TrendingUp,
+    title: "Scalable Growth",
+    description: "Expand from one site or team to many without re-platforming your operations.",
+  },
+  {
+    icon: Handshake,
+    title: "Partnership",
+    description: "We work alongside your leadership and operators through rollout, adoption, and growth.",
+  },
+  {
+    icon: Network,
+    title: "Engineering Excellence",
+    description: "Product engineering built for reliability, maintainability, and long-term performance.",
+  },
 ];
 
 const ehms = products.find((p) => p.slug === "ehms")!;
@@ -26,7 +50,9 @@ export default function HomePage() {
       <Section>
         <div className="mb-12 max-w-2xl">
           <span className="text-xs font-semibold uppercase tracking-widest text-cyan">Products</span>
-          <h2 className="mt-3 text-3xl font-bold text-white md:text-4xl">Two platforms. One engineering standard.</h2>
+          <h2 className="mt-3 text-3xl font-bold text-white md:text-4xl">
+            Purpose-built platforms for high-complexity operations.
+          </h2>
         </div>
         <div className="grid gap-6 md:grid-cols-3">
           {products.map((p) => (
@@ -43,7 +69,7 @@ export default function HomePage() {
         <div className="mb-12 max-w-2xl">
           <span className="text-xs font-semibold uppercase tracking-widest text-cyan">Why Cybelinx</span>
           <h2 className="mt-3 text-3xl font-bold text-white md:text-4xl">
-            Every product is built on the same foundation.
+            Engineered for trust, scale, and operational clarity.
           </h2>
         </div>
         <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3">
@@ -60,7 +86,7 @@ export default function HomePage() {
       <Section>
         <div className="mb-10 max-w-2xl">
           <span className="text-xs font-semibold uppercase tracking-widest text-cyan">Proof in production</span>
-          <h2 className="mt-3 text-3xl font-bold text-white md:text-4xl">eHMS, running live today.</h2>
+          <h2 className="mt-3 text-3xl font-bold text-white md:text-4xl">Operational performance you can see in action.</h2>
         </div>
         {ehms.stats && <StatBand stats={ehms.stats} />}
         <div className="mt-8">{ehms.customers && <CustomerLogoStrip customers={ehms.customers} />}</div>

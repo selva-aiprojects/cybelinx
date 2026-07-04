@@ -9,15 +9,18 @@ html {
 }
 
 body {
-  background-color: #0a0f1c;
+  background: radial-gradient(circle at top left, rgba(0, 194, 255, 0.16), transparent 28%), #0a0f1c;
   color: #e6ebf2;
   font-family: var(--font-poppins);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
 /* Glassmorphism card surface */
 .glass {
   background: rgba(230, 235, 242, 0.04);
   border: 1px solid rgba(230, 235, 242, 0.1);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
 }

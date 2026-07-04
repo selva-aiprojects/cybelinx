@@ -12,9 +12,10 @@ export default function ContactPage() {
   return (
     <Section className="pt-16">
       <span className="text-xs font-semibold uppercase tracking-widest text-cyan">Contact</span>
-      <h1 className="mt-3 max-w-xl text-4xl font-bold text-white md:text-5xl">Let&apos;s talk.</h1>
+      <h1 className="mt-3 max-w-xl text-4xl font-bold text-white md:text-5xl">Let&apos;s build something exceptional.</h1>
       <p className="mt-5 max-w-xl text-surface/80">
-        Tell us which product you&apos;re interested in and we&apos;ll route you to the right person.
+        Share your goals, your operating environment, or the challenges you want to solve, and we&apos;ll connect you with
+        the right team.
       </p>
 
       <div className="mt-12 grid gap-10 md:grid-cols-[1.2fr,0.8fr]">

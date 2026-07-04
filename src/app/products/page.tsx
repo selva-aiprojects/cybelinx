@@ -15,10 +15,11 @@ export default function ProductsPage() {
       <Section className="pt-16">
         <span className="text-xs font-semibold uppercase tracking-widest text-cyan">Products</span>
         <h1 className="mt-3 max-w-2xl text-4xl font-bold text-white md:text-5xl">
-          Built for the operations you actually run.
+          Purpose-built software for demanding operational environments.
         </h1>
         <p className="mt-5 max-w-xl text-surface/80">
-          Each Cybelinx product is a dedicated, deep platform for one vertical — not a generic suite stretched thin.
+          Each Cybelinx platform is designed to solve a specific set of operational challenges with depth, precision,
+          and long-term scalability.
         </p>
       </Section>
 

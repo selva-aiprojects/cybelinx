@@ -25,9 +25,9 @@ export const products: Product[] = [
     tagline: "People Intelligence Platform",
     category: "AI-Powered HRMS",
     summary:
-      "An AI-powered, multi-tenant HRMS built for Indian statutory compliance — from employee records to payroll, in one platform.",
+      "An AI-enabled HRMS for organizations that need compliance, employee experience, and operational visibility in one secure platform.",
     problem:
-      "Spreadsheets, disconnected tools, and manual compliance tracking slow HR teams down and put statutory compliance at risk.",
+      "Fragmented HR processes create compliance exposure, inconsistent experiences, and unnecessary administrative drag across the business.",
     modules: [
       {
         title: "Employee Records",
@@ -55,9 +55,9 @@ export const products: Product[] = [
       },
     ],
     differentiators: [
-      "AI-powered automation across core HR workflows",
-      "Indian statutory compliance built into payroll, not bolted on",
-      "Multi-tenant architecture built for organizations of any size",
+      "AI-enabled automation across core HR workflows",
+      "Compliance-first design for Indian statutory requirements",
+      "Multi-tenant architecture that scales across teams and locations",
     ],
     isPlaceholderContent: true,
   },
@@ -67,9 +67,9 @@ export const products: Product[] = [
     tagline: "Enterprise Hospitality Management System",
     category: "AI-Powered Hospitality Platform",
     summary:
-      "A multi-tenant hospitality management platform covering front desk to finance — built for hotels, serviced apartments, rentals, and workplace services.",
+      "A hospitality operating platform that unifies front office, housekeeping, maintenance, finance, and guest experience for modern properties.",
     problem:
-      "Disconnected front-desk, housekeeping, and finance systems create errors, slow operations, and make it hard to scale across properties.",
+      "Disconnected operations create delays, reporting gaps, and inconsistent service quality across properties and teams.",
     modules: [
       { title: "Front Desk", description: "Reservations, check-in/out, and guest workflows in one place." },
       { title: "Housekeeping", description: "Real-time room status and task coordination across properties." },
@@ -82,9 +82,9 @@ export const products: Product[] = [
       { title: "Admin Suite", description: "Tenant, role, and property configuration for operations teams." },
     ],
     differentiators: [
-      "Schema-isolated multi-tenancy — each tenant runs on its own dedicated database schema",
-      "Per-tenant vertical and feature subscription model",
-      "Built to serve Hotels & Resorts, Serviced Apartments, Apartment Rentals, and Workplace Services from one platform",
+      "Schema-isolated multi-tenancy for secure, scalable deployment",
+      "Flexible per-tenant vertical and feature subscription model",
+      "Built to serve hotels, serviced apartments, rentals, and workplace services from a single platform",
     ],
     stats: [
       { label: "Tables per tenant", value: "136+" },

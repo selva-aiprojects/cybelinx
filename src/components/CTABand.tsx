@@ -1,8 +1,8 @@
 import Button from "./Button";
 
 export default function CTABand({
-  heading = "See it running on your data",
-  subheading = "Book a walkthrough with our team and we'll show you exactly how it fits your organization.",
+  heading = "See how Cybelinx can modernize your operation",
+  subheading = "Book a strategy session and discover how our platforms support growth, reliability, and clearer decision-making.",
 }: {
   heading?: string;
   subheading?: string;

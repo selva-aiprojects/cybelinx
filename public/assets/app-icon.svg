@@ -1,0 +1,32 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0A0F1C"/>
+      <stop offset="100%" stop-color="#0D1B3A"/>
+    </linearGradient>
+    <radialGradient id="globeGrad3" cx="35%" cy="30%" r="75%">
+      <stop offset="0%" stop-color="#4FD8FF"/>
+      <stop offset="45%" stop-color="#0D47FF"/>
+      <stop offset="100%" stop-color="#061034"/>
+    </radialGradient>
+    <clipPath id="roundedSquare">
+      <rect x="0" y="0" width="512" height="512" rx="112"/>
+    </clipPath>
+    <clipPath id="globeClip3">
+      <circle cx="256" cy="256" r="150"/>
+    </clipPath>
+  </defs>
+  <g clip-path="url(#roundedSquare)">
+    <rect width="512" height="512" fill="url(#bgGrad)"/>
+    <circle cx="256" cy="256" r="150" fill="url(#globeGrad3)"/>
+    <g clip-path="url(#globeClip3)" stroke="#BFE9FF" stroke-width="1" fill="none" opacity="0.5">
+      <ellipse cx="256" cy="256" rx="150" ry="50"/>
+      <ellipse cx="256" cy="256" rx="150" ry="100"/>
+      <ellipse cx="256" cy="256" rx="50" ry="150"/>
+      <ellipse cx="256" cy="256" rx="100" ry="150"/>
+    </g>
+    <ellipse cx="220" cy="210" rx="65" ry="44" fill="#FFFFFF" opacity="0.14"/>
+    <circle cx="256" cy="256" r="92" fill="none" stroke="#F5F9FF" stroke-width="42"
+            stroke-dasharray="463 114" stroke-dashoffset="521"/>
+  </g>
+</svg>
