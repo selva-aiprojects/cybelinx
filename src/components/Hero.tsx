@@ -23,8 +23,8 @@ export default function Hero() {
         <div className="relative mx-auto max-w-6xl px-6">
           <span className="slugline">SaaS Products. Live Today.</span>
 
-          <div className="mt-8 grid items-center gap-12 lg:grid-cols-[1.05fr,0.95fr]">
-            <div>
+          <div className="mt-8 flex items-center gap-8 lg:gap-16">
+            <div className="min-w-0 flex-1">
               <h1 className="font-display max-w-3xl text-4xl font-semibold leading-[1.1] text-surface md:text-5xl lg:text-6xl">
                 AI-powered products that{" "}
                 <span className="bg-glow-gradient bg-clip-text text-transparent">run your enterprise</span>.
@@ -56,7 +56,7 @@ export default function Hero() {
               </div>
             </div>
 
-            <motion.div style={{ y }} className="flex items-center justify-center">
+            <motion.div style={{ y }} className="hidden shrink-0 md:block">
               <GlobeScene />
             </motion.div>
           </div>
