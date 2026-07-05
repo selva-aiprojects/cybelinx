@@ -67,7 +67,7 @@ export default function Footer() {
           <span className="font-slug text-[11px] tracking-widest text-slate">
             &copy; {new Date().getFullYear()} {brand.name}. All rights reserved.
           </span>
-          <span className="font-slug text-[11px] uppercase tracking-widest text-slate">Bengaluru &middot; Global Delivery</span>
+          <span className="font-slug text-[11px] uppercase tracking-widest text-slate">Bangalore &middot; Global Delivery</span>
         </div>
       </div>
     </footer>

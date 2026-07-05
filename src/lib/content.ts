@@ -28,7 +28,7 @@ export const brand = {
   description:
     "Cybelinx builds multi-tenant SaaS platforms \u2014 CybeHRM for HR and compliance, CybeHMS for hospitality operations, and more in development. Ship ready, live today.",
   email: "hello@cybelinx.com",
-  address: "No. 42, 89/5, Horamavu Agara Rd, 1st Block, Mallappa Layout, Hennur Gardens, Bengaluru, Karnataka 560113",
+  address: "No. 41 & 42, 89/5, Prakruthi Township, 1st Block, Horamavu Agara Main Road, Bangalore, Karnataka 560113.",
 };
 
 export const trustMetrics = [

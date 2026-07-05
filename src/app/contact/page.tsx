@@ -41,10 +41,7 @@ export default function ContactPage() {
             <MapPin className="mt-1 h-5 w-5 text-primary" />
             <div>
               <div className="slugline">Head Office</div>
-              <div className="mt-1 text-sm text-surface">
-                No. 42, 89/5, Horamavu Agara Rd, 1st Block, Mallappa Layout, Hennur Gardens, Bengaluru, Karnataka
-                560113
-              </div>
+              <div className="mt-1 text-sm text-surface">{brand.address}</div>
             </div>
           </div>
         </div>
