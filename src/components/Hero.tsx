@@ -56,10 +56,8 @@ export default function Hero() {
               </div>
             </div>
 
-            <motion.div style={{ y }} className="relative mx-auto w-full max-w-[460px] lg:max-w-none">
-              <div className="frame relative flex aspect-square items-center justify-center overflow-hidden !rounded-full p-4">
-                <GlobeScene />
-              </div>
+            <motion.div style={{ y }} className="flex items-center justify-center">
+              <GlobeScene />
             </motion.div>
           </div>
         </div>
