@@ -24,7 +24,14 @@ export default function ProductCard({ product }: { product: Product }) {
       <div>
         <div className="flex items-center justify-between gap-3">
           <span className="slugline">{product.category}</span>
-          <Badge tone={statusTone[product.status]}>{statusLabel[product.status]}</Badge>
+          <div className="flex items-center gap-2">
+            {product.appUrl && (
+              <span className="rounded-full bg-emerald-500/10 px-2.5 py-0.5 text-[11px] font-semibold text-emerald-400 border border-emerald-500/20 shadow-[0_0_12px_rgba(16,185,129,0.15)]">
+                Live App
+              </span>
+            )}
+            <Badge tone={statusTone[product.status]}>{statusLabel[product.status]}</Badge>
+          </div>
         </div>
         <h3 className="font-display mt-4 text-2xl font-semibold text-surface">{product.name}</h3>
         <p className="mt-1 font-slug text-xs tracking-wide text-primary">{product.tagline}</p>

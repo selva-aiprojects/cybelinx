@@ -16,6 +16,8 @@ export type Product = {
   stats?: { label: string; value: string }[];
   customers?: Customer[];
   isPlaceholderContent?: boolean;
+  appUrl?: string;
+  demoUrl?: string;
 };
 
 export const products: Product[] = [
@@ -52,6 +54,8 @@ export const products: Product[] = [
     summary:
       "A hospitality operating platform unifying front office, housekeeping, maintenance, finance, and guest experience.",
     status: "live",
+    appUrl: "https://ehms-app.vercel.app/",
+    demoUrl: "https://ehms-app.vercel.app/",
     problem:
       "Disconnected operations create delays, reporting gaps, and inconsistent service quality across properties.",
     modules: [

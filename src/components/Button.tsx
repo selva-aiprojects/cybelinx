@@ -6,9 +6,11 @@ type ButtonProps = {
   children: ReactNode;
   variant?: "primary" | "secondary" | "ghost";
   className?: string;
+  target?: string;
+  rel?: string;
 };
 
-export default function Button({ href, children, variant = "primary", className = "" }: ButtonProps) {
+export default function Button({ href, children, variant = "primary", className = "", target, rel }: ButtonProps) {
   const base =
     "inline-flex items-center justify-center gap-2 rounded-lg px-6 py-3 text-sm font-semibold tracking-wide transition-all duration-200 hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-primary";
 
@@ -19,7 +21,7 @@ export default function Button({ href, children, variant = "primary", className 
   };
 
   return (
-    <Link href={href} className={`${base} ${variants[variant]} ${className}`}>
+    <Link href={href} target={target} rel={rel} className={`${base} ${variants[variant]} ${className}`}>
       {children}
     </Link>
   );

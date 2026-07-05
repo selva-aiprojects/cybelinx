@@ -9,7 +9,7 @@ export default function Footer() {
       <div className="mx-auto grid max-w-6xl grid-cols-2 gap-10 px-6 pt-4 md:grid-cols-4 lg:grid-cols-5">
         <div className="col-span-2 lg:col-span-2">
           <div className="flex items-center">
-            <LogoMark size={42} />
+            <LogoMark size={84} />
           </div>
           <p className="mt-4 max-w-sm text-sm text-slate">{brand.description}</p>
           <p className="mt-4 max-w-sm font-slug text-xs leading-relaxed text-slate/80">{brand.address}</p>

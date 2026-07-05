@@ -6,8 +6,8 @@ export default function GlobeScene() {
       <Image
         src="/assets/cybelinx-logo.png"
         alt="Cybelinx"
-        width={240}
-        height={66}
+        width={480}
+        height={132}
         priority
       />
     </div>

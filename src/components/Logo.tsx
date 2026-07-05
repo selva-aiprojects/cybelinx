@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { brand } from "@/lib/content";
 
-export function LogoMark({ size = 36 }: { size?: number }) {
+export function LogoMark({ size = 72 }: { size?: number }) {
   return (
     <Image
       src="/assets/logo.png"
@@ -14,7 +14,7 @@ export function LogoMark({ size = 36 }: { size?: number }) {
   );
 }
 
-export function LogoLockup({ height = 32 }: { height?: number }) {
+export function LogoLockup({ height = 64 }: { height?: number }) {
   return (
     <Image
       src="/assets/logo.png"

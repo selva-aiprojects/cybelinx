@@ -65,7 +65,7 @@ export default function Navbar() {
     <header className="sticky top-6 z-50 border-b border-surface/10 bg-background/85 backdrop-blur-md relative">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
         <Link href="/" className="flex items-center">
-          <LogoMark size={132} />
+          <LogoMark size={264} />
         </Link>
 
         <nav className="hidden items-center gap-7 xl:flex">

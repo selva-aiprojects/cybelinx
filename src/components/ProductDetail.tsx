@@ -35,8 +35,19 @@ export default function ProductDetail({ product, faqs = [], showPricing = false 
         <p className="mt-2 font-slug text-sm tracking-wide text-primary">{product.tagline}</p>
         <p className="mt-5 max-w-xl text-surface/85">{product.summary}</p>
         <div className="mt-8 flex flex-wrap gap-4">
-          <Button href="/contact">Request a Demo</Button>
-          <Button href="/contact" variant="secondary">Start Free Trial</Button>
+          {product.appUrl ? (
+            <>
+              <Button href={product.appUrl} target="_blank" rel="noopener noreferrer">
+                Launch Live App 🚀
+              </Button>
+              <Button href="/contact" variant="secondary">Request Walkthrough</Button>
+            </>
+          ) : (
+            <>
+              <Button href="/contact">Request a Demo</Button>
+              <Button href="/contact" variant="secondary">Start Free Trial</Button>
+            </>
+          )}
         </div>
       </Section>
 
