@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function GlobeScene() {
   return (
     <div className="relative h-full w-full" aria-hidden="true">
@@ -11,9 +13,14 @@ export default function GlobeScene() {
       <div className="absolute right-[18%] top-[30%] h-2.5 w-2.5 rounded-full bg-violet shadow-[0_0_20px_#3281C1]" />
       <div className="absolute bottom-[24%] left-[24%] h-2 w-2 rounded-full bg-cyan shadow-[0_0_18px_#60C8E0]" />
       <div className="absolute bottom-[20%] right-[26%] h-2.5 w-2.5 rounded-full bg-primary shadow-[0_0_18px_#4A9FDF]" />
-      <div className="absolute left-1/2 top-1/2 h-28 w-28 -translate-x-1/2 -translate-y-1/2 rounded-full border border-primary/30 bg-primary/10 shadow-[0_0_80px_rgba(74,159,223,0.35)]" />
-      <div className="absolute left-1/2 top-1/2 flex h-14 w-14 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-primary/40 bg-[radial-gradient(circle,rgba(74,159,223,0.25),rgba(13,71,255,0.12),transparent)] text-4xl font-bold text-white shadow-[0_0_40px_rgba(74,159,223,0.3)]">
-        C
+      <div className="absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 items-center justify-center">
+        <Image
+          src="/assets/cybelinx-logo.png"
+          alt="Cybelinx"
+          width={160}
+          height={44}
+          priority
+        />
       </div>
     </div>
   );
