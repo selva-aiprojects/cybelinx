@@ -29,6 +29,8 @@ export const products: Product[] = [
     summary:
       "An AI-enabled HRMS platform for Indian statutory compliance, employee experience, and workforce visibility across enterprises.",
     status: "live",
+    appUrl: "https://cybehrm.vercel.app/",
+    demoUrl: "https://cybehrm.vercel.app/",
     problem:
       "Fragmented HR processes create compliance exposure, inconsistent experiences, and unnecessary administrative drag.",
     modules: [
