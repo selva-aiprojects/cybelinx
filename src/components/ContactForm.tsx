@@ -7,10 +7,10 @@ import { z } from "zod";
 import { products } from "@/lib/products";
 
 const interestOptions = [
-  "Product Engineering",
-  "Cloud & Platform Engineering",
-  "AI Services",
-  "Solutions Consultation",
+  "CybeHRM Demo",
+  "CybeHMS Demo",
+  "Products Consultation",
+  "Enterprise Pricing",
   ...products.map((p) => p.name),
   "General inquiry",
 ];
@@ -42,7 +42,7 @@ export default function ContactForm() {
   if (submitted) {
     return (
       <div className="glass rounded-2xl p-10 text-center">
-        <h3 className="font-display text-xl font-bold text-white">Thanks — we&apos;ve got it.</h3>
+        <h3 className="font-display text-xl font-bold text-surface">Thanks — we&apos;ve got it.</h3>
         <p className="mt-2 text-sm text-surface/80">An engineering leader from our team will follow up shortly.</p>
       </div>
     );
@@ -58,7 +58,7 @@ export default function ContactForm() {
           <input
             id="name"
             {...register("name")}
-            className="mt-2 w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-sm text-white outline-none focus-visible:border-cyan"
+            className="mt-2 w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-sm text-surface outline-none focus-visible:border-primary"
           />
           {errors.name && <p className="mt-1 text-xs text-red-400">{errors.name.message}</p>}
         </div>
@@ -70,7 +70,7 @@ export default function ContactForm() {
             id="email"
             type="email"
             {...register("email")}
-            className="mt-2 w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-sm text-white outline-none focus-visible:border-cyan"
+            className="mt-2 w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-sm text-surface outline-none focus-visible:border-primary"
           />
           {errors.email && <p className="mt-1 text-xs text-red-400">{errors.email.message}</p>}
         </div>
@@ -83,7 +83,7 @@ export default function ContactForm() {
         <input
           id="company"
           {...register("company")}
-          className="mt-2 w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-sm text-white outline-none focus-visible:border-cyan"
+          className="mt-2 w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-sm text-surface outline-none focus-visible:border-primary"
         />
         {errors.company && <p className="mt-1 text-xs text-red-400">{errors.company.message}</p>}
       </div>
@@ -96,7 +96,7 @@ export default function ContactForm() {
           id="interest"
           {...register("interest")}
           defaultValue=""
-          className="mt-2 w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-sm text-white outline-none focus-visible:border-cyan"
+          className="mt-2 w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-sm text-surface outline-none focus-visible:border-primary"
         >
           <option value="" disabled>
             Select one
@@ -118,7 +118,7 @@ export default function ContactForm() {
           id="message"
           rows={4}
           {...register("message")}
-          className="mt-2 w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-sm text-white outline-none focus-visible:border-cyan"
+          className="mt-2 w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-sm text-surface outline-none focus-visible:border-primary"
         />
         {errors.message && <p className="mt-1 text-xs text-red-400">{errors.message.message}</p>}
       </div>
@@ -128,7 +128,7 @@ export default function ContactForm() {
         disabled={isSubmitting}
         className="bg-brand-gradient mt-2 inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-semibold text-white transition-transform duration-200 hover:-translate-y-0.5 disabled:opacity-60"
       >
-        {isSubmitting ? "Sending…" : "Send message"}
+        {isSubmitting ? "Sending\u2026" : "Send message"}
       </button>
     </form>
   );

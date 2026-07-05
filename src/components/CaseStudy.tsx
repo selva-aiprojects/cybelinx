@@ -20,11 +20,11 @@ export default function CaseStudy({ title, challenge, solution, impact, metrics,
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay }}
-      className="group relative flex h-full flex-col rounded-2xl border border-white/10 bg-gradient-to-br from-white/5 to-transparent p-8 transition-all hover:border-cyan/50 hover:from-cyan/10"
+      className="group relative flex h-full flex-col rounded-2xl border border-surface/10 bg-gradient-to-br from-surface/[0.05] to-transparent p-8 transition-all hover:border-primary/50 hover:from-primary/10"
     >
       <div className="mb-6 flex items-start justify-between">
-        <h3 className="font-display text-xl font-bold text-white">{title}</h3>
-        {href && <ArrowUpRight className="h-5 w-5 text-cyan opacity-0 transition-all group-hover:opacity-100" />}
+        <h3 className="font-display text-xl font-bold text-surface">{title}</h3>
+        {href && <ArrowUpRight className="h-5 w-5 text-primary opacity-0 transition-all group-hover:opacity-100" />}
       </div>
 
       <div className="space-y-6 flex-1">
@@ -39,14 +39,14 @@ export default function CaseStudy({ title, challenge, solution, impact, metrics,
         </div>
 
         <div>
-          <p className="text-xs font-semibold uppercase tracking-wide text-cyan">Impact</p>
-          <p className="mt-2 text-sm font-semibold leading-6 text-white">{impact}</p>
+          <p className="text-xs font-semibold uppercase tracking-wide text-primary">Impact</p>
+          <p className="mt-2 text-sm font-semibold leading-6 text-surface">{impact}</p>
         </div>
 
         {metrics && metrics.length > 0 && (
           <div className="flex flex-wrap gap-2">
             {metrics.map((metric) => (
-              <span key={metric} className="rounded-full bg-cyan/10 px-3 py-1 text-xs font-medium text-cyan">
+              <span key={metric} className="rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary">
                 {metric}
               </span>
             ))}
@@ -55,9 +55,9 @@ export default function CaseStudy({ title, challenge, solution, impact, metrics,
       </div>
 
       {href && (
-        <div className="mt-6 pt-6 border-t border-white/5">
-          <p className="text-xs font-semibold uppercase tracking-wide text-surface/60 transition-colors group-hover:text-cyan">
-            Learn More →
+        <div className="mt-6 pt-6 border-t border-surface/10">
+          <p className="text-xs font-semibold uppercase tracking-wide text-surface/60 transition-colors group-hover:text-primary">
+            Learn More &rarr;
           </p>
         </div>
       )}

@@ -1,6 +1,6 @@
 "use client";
 
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 
 interface FlowStep {
@@ -21,10 +21,10 @@ export default function ArchitectureFlow({ title, steps, outcome, icon }: Archit
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
-      className="rounded-2xl border border-white/10 bg-gradient-to-br from-white/5 to-transparent p-8"
+      className="rounded-2xl border border-surface/10 bg-gradient-to-br from-surface/[0.05] to-transparent p-8"
     >
       <div className="mb-8">
-        <h3 className="font-display text-2xl font-bold text-white">{title}</h3>
+        <h3 className="font-display text-2xl font-bold text-surface">{title}</h3>
       </div>
 
       <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:gap-2">
@@ -34,9 +34,9 @@ export default function ArchitectureFlow({ title, steps, outcome, icon }: Archit
               initial={{ opacity: 0, scale: 0.8 }}
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.4, delay: index * 0.1 }}
-              className="flex min-w-fit items-center gap-2 rounded-lg bg-gradient-to-r from-cyan/20 to-primary/20 px-3 py-2"
+              className="flex min-w-fit items-center gap-2 rounded-lg bg-gradient-to-r from-primary/20 to-cyan/20 px-3 py-2"
             >
-              <span className="text-xs font-semibold uppercase tracking-wide text-cyan">{step.label}</span>
+              <span className="text-xs font-semibold uppercase tracking-wide text-primary">{step.label}</span>
             </motion.div>
             {index < steps.length - 1 && (
               <ArrowRight className="hidden h-4 w-4 flex-shrink-0 text-slate/50 sm:block" />
@@ -45,12 +45,12 @@ export default function ArchitectureFlow({ title, steps, outcome, icon }: Archit
         ))}
       </div>
 
-      <p className="mb-6 text-sm leading-7 text-surface/80">{steps.map((s) => s.description).join(" → ")}</p>
+      <p className="mb-6 text-sm leading-7 text-surface/80">{steps.map((s) => s.description).join(" \u2192 ")}</p>
 
-      <div className="rounded-lg border border-cyan/30 bg-cyan/10 p-4">
-        <p className="text-sm font-semibold text-cyan">
+      <div className="rounded-lg border border-primary/30 bg-primary/10 p-4">
+        <p className="text-sm font-semibold text-primary">
           <span className="block text-xs uppercase tracking-wide text-slate/60">Outcome</span>
-          <span className="mt-2 text-white">{outcome}</span>
+          <span className="mt-2 text-surface">{outcome}</span>
         </p>
       </div>
     </motion.div>

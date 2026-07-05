@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Circle } from "lucide-react";
 import Badge from "./Badge";
 import { Product } from "@/lib/products";
 
@@ -19,7 +19,7 @@ export default function ProductCard({ product }: { product: Product }) {
   return (
     <Link
       href={`/products/${product.slug}`}
-      className="frame group flex flex-col justify-between rounded-md p-8 transition-colors duration-200 hover:border-primary/40"
+      className="frame group flex flex-col justify-between rounded-2xl p-8 transition-all duration-200 hover:border-primary/40 hover:shadow-[0_0_40px_rgba(42,119,173,0.08)]"
     >
       <div>
         <div className="flex items-center justify-between gap-3">
@@ -27,8 +27,8 @@ export default function ProductCard({ product }: { product: Product }) {
           <Badge tone={statusTone[product.status]}>{statusLabel[product.status]}</Badge>
         </div>
         <h3 className="font-display mt-4 text-2xl font-semibold text-surface">{product.name}</h3>
-        <p className="mt-1 font-slug text-xs tracking-wide text-slate">{product.tagline}</p>
-        <p className="mt-4 text-sm leading-relaxed text-surface/70">{product.summary}</p>
+        <p className="mt-1 font-slug text-xs tracking-wide text-primary">{product.tagline}</p>
+        <p className="mt-4 text-sm leading-relaxed text-surface/85">{product.summary}</p>
       </div>
       <div className="mt-8 flex items-center gap-2 text-sm font-semibold text-primary">
         Explore {product.name}

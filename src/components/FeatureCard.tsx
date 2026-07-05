@@ -11,7 +11,9 @@ type FeatureCardProps = {
 export default function FeatureCard({ title, description, icon: Icon, href }: FeatureCardProps) {
   const inner = (
     <>
-      <Icon className="h-6 w-6 text-primary" />
+      <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10">
+        <Icon className="h-5 w-5 text-primary" />
+      </div>
       <h3 className="mt-4 text-base font-semibold text-surface">{title}</h3>
       <p className="mt-2 text-sm leading-relaxed text-slate">{description}</p>
       {href && (
@@ -25,11 +27,11 @@ export default function FeatureCard({ title, description, icon: Icon, href }: Fe
 
   if (href) {
     return (
-      <Link href={href} className="frame group block rounded-md p-6 transition-colors duration-200 hover:border-primary/30">
+      <Link href={href} className="frame group block rounded-2xl p-6 transition-colors duration-200 hover:border-primary/30">
         {inner}
       </Link>
     );
   }
 
-  return <div className="frame rounded-md p-6">{inner}</div>;
+  return <div className="frame rounded-2xl p-6">{inner}</div>;
 }

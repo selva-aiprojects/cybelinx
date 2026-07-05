@@ -11,33 +11,27 @@ export default function Section({ children, className = "", id, textured = false
   return (
     <section id={id} className={`relative py-20 md:py-28 ${className}`}>
       {textured && (
-        <div className="map-texture pointer-events-none absolute inset-0 opacity-[0.15]" aria-hidden="true" />
+        <div className="map-texture pointer-events-none absolute inset-0 opacity-[0.12]" aria-hidden="true" />
       )}
       <div className="relative mx-auto max-w-6xl px-6">{children}</div>
     </section>
   );
 }
 
-export function SceneHeading({
-  scene,
-  slug,
+export function SectionHeading({
+  eyebrow,
   title,
   description,
 }: {
-  scene: string;
-  slug: string;
+  eyebrow: string;
   title: string;
   description?: string;
 }) {
   return (
     <div className="mb-12 max-w-2xl">
-      <div className="slugline flex flex-wrap items-center gap-3">
-        <span>{scene}</span>
-        <span className="text-surface/25">·</span>
-        <span>{slug}</span>
-      </div>
+      <span className="slugline">{eyebrow}</span>
       <h2 className="font-display mt-3 text-3xl font-semibold text-surface md:text-4xl">{title}</h2>
-      {description && <p className="mt-4 max-w-2xl text-base leading-8 text-surface/70">{description}</p>}
+      {description && <p className="mt-4 max-w-2xl text-base leading-8 text-surface/85">{description}</p>}
     </div>
   );
 }

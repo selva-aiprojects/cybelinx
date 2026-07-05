@@ -7,24 +7,24 @@ import { Brain, Cpu, Sparkles } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "AI Services",
-  description: "Applied AI, data engineering, and intelligent automation for enterprise products.",
+  description: "AI capabilities built natively into Cybelinx product platforms.",
 };
 
 const services = [
   {
     icon: Brain,
-    title: "Applied AI Engineering",
-    description: "Embed copilots, classification, and decision support into operational workflows.",
+    title: "Embedded AI Copilots",
+    description: "Intelligent assistants inside payroll, compliance, and operational workflows \u2014 not bolted on as chatbots.",
   },
   {
     icon: Cpu,
-    title: "Data Platform Engineering",
-    description: "Lakehouse, streaming, and analytics foundations for AI-ready enterprises.",
+    title: "Document Intelligence",
+    description: "Extract, classify, and route unstructured documents across enterprise workflows automatically.",
   },
   {
     icon: Sparkles,
-    title: "AI Product Integration",
-    description: "Ship AI features with guardrails, observability, and enterprise governance.",
+    title: "Intelligent Automation",
+    description: "AI-powered decision support, anomaly detection, and process automation built into every product.",
   },
 ];
 
@@ -33,9 +33,9 @@ export default function AIServicesPage() {
     <>
       <Section className="pt-16">
         <PageHeader
-          eyebrow="AI Services"
-          title="Intelligence engineered into products—not bolted on."
-          description="Cybelinx helps enterprises move from AI experiments to production systems with measurable ROI."
+          eyebrow="AI Capabilities"
+          title="Intelligence engineered into products\u2014not bolted on."
+          description="Cybelinx platforms ship with AI built into core workflows \u2014 payroll, compliance, operations \u2014 from day one."
         />
       </Section>
 
@@ -48,7 +48,7 @@ export default function AIServicesPage() {
       </Section>
 
       <Section>
-        <CTABand heading="Start an AI readiness assessment" subheading="Identify high-impact use cases and a pragmatic path to production." />
+        <CTABand heading="See AI in action" subheading="Book a demo to see how AI transforms payroll, compliance, and operations." />
       </Section>
     </>
   );

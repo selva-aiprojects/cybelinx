@@ -26,8 +26,8 @@ export default function ArchitectureEcosystem({ title, description, components }
   return (
     <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
       <div className="mb-12">
-        <h3 className="font-display text-2xl font-bold text-white">{title}</h3>
-        <p className="mt-3 max-w-2xl text-surface/80">{description}</p>
+        <h3 className="font-display text-2xl font-bold text-surface">{title}</h3>
+        <p className="mt-3 max-w-2xl text-surface/85">{description}</p>
       </div>
 
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -44,14 +44,14 @@ export default function ArchitectureEcosystem({ title, description, components }
               <div className="mb-3 flex items-start justify-between">
                 <div>
                   <p className="text-xs font-semibold uppercase tracking-wide text-slate/60">{comp.sublabel}</p>
-                  <h4 className="mt-2 font-display text-sm font-bold text-white">{comp.label}</h4>
+                  <h4 className="mt-2 font-display text-sm font-bold text-surface">{comp.label}</h4>
                 </div>
                 {comp.icon && <div className="text-2xl">{comp.icon}</div>}
               </div>
 
-              <div className="mt-3 space-y-1 border-t border-white/10 pt-3">
+              <div className="mt-3 space-y-1 border-t border-surface/10 pt-3">
                 {comp.items.map((item) => (
-                  <p key={item} className="text-xs text-surface/70">
+                  <p key={item} className="text-xs text-surface/85">
                     {item}
                   </p>
                 ))}

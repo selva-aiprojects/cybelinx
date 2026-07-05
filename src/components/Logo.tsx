@@ -4,7 +4,7 @@ import { brand } from "@/lib/content";
 export function LogoMark({ size = 36 }: { size?: number }) {
   return (
     <Image
-      src="/brand/logo-icon.svg"
+      src="/assets/logo.png"
       alt={brand.name}
       width={size}
       height={size}
@@ -17,11 +17,12 @@ export function LogoMark({ size = 36 }: { size?: number }) {
 export function LogoLockup({ height = 32 }: { height?: number }) {
   return (
     <Image
-      src="/brand/logo-lockup-dark.svg"
-      alt={`${brand.name} — ${brand.tagline}`}
+      src="/assets/logo.png"
+      alt={`${brand.name}`}
       width={height * 3.7}
       height={height}
       priority
+      className="rounded"
     />
   );
 }

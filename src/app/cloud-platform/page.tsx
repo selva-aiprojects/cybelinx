@@ -7,24 +7,24 @@ import { Cloud, Layers, ShieldCheck } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Cloud & Platform Engineering",
-  description: "Cloud-native platform engineering, SRE, and developer experience at enterprise scale.",
+  description: "Cloud-native foundations powering every Cybelinx product platform.",
 };
 
 const offerings = [
   {
     icon: Cloud,
-    title: "Cloud-Native Platforms",
-    description: "Design and build platforms on AWS, Azure, and GCP with security and cost governance.",
+    title: "Cloud-Native Architecture",
+    description: "Every product runs on AWS with auto-scaling, multi-region DR, and enterprise-grade security.",
   },
   {
     icon: Layers,
-    title: "Internal Developer Platforms",
-    description: "Golden paths, self-service environments, and platform teams that accelerate delivery.",
+    title: "Multi-Tenant Core",
+    description: "Schema-isolated tenants with per-tenant configuration, feature flags, and subscription management.",
   },
   {
     icon: ShieldCheck,
-    title: "Reliability & SRE",
-    description: "Observability, incident readiness, and SLO-driven operations for mission-critical systems.",
+    title: "Reliability & Compliance",
+    description: "99.9% uptime SLA, SOC2-aligned controls, and audit-ready compliance for regulated industries.",
   },
 ];
 
@@ -33,9 +33,9 @@ export default function CloudPlatformPage() {
     <>
       <Section className="pt-16">
         <PageHeader
-          eyebrow="Cloud & Platform Engineering"
-          title="Platforms that scale teams—not just infrastructure."
-          description="Cybelinx engineers cloud-native foundations so product teams ship faster with confidence."
+          eyebrow="Platform Foundation"
+          title="Enterprise infrastructure. Product simplicity."
+          description="Every Cybelinx product ships on a shared cloud-native, multi-tenant platform engineered for scale and compliance."
         />
       </Section>
 
@@ -48,7 +48,7 @@ export default function CloudPlatformPage() {
       </Section>
 
       <Section>
-        <CTABand heading="Platform strategy workshop" subheading="Align platform investments with product velocity and operational resilience." />
+        <CTABand heading="Explore the platform" subheading="Book an architecture deep-dive with our engineering team." />
       </Section>
     </>
   );

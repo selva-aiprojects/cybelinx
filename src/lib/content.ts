@@ -24,18 +24,18 @@ import {
 
 export const brand = {
   name: "Cybelinx",
-  tagline: "Engineering Intelligent Products. Accelerating Digital Enterprises.",
+  tagline: "AI-powered products that run your enterprise.",
   description:
-    "Cybelinx designs, builds, modernizes, and scales AI-powered products and cloud-native platforms for global enterprises.",
+    "Cybelinx builds multi-tenant SaaS platforms \u2014 CybeHRM for HR and compliance, CybeHMS for hospitality operations, and more in development. Ship ready, live today.",
   email: "hello@cybelinx.com",
   address: "No. 42, 89/5, Horamavu Agara Rd, 1st Block, Mallappa Layout, Hennur Gardens, Bengaluru, Karnataka 560113",
 };
 
 export const trustMetrics = [
-  { value: "15+", label: "Years engineering" },
-  { value: "12", label: "Countries delivered" },
-  { value: "200+", label: "Enterprise programs" },
-  { value: "99.9%", label: "Platform uptime" },
+  { value: "15+", label: "Years engineering products" },
+  { value: "12", label: "Countries with live deployments" },
+  { value: "200+", label: "Enterprise customers" },
+  { value: "99.9%", label: "Platform uptime SLA" },
 ];
 
 export const customerLogos = [
@@ -56,33 +56,33 @@ export type Capability = {
 export const capabilities: Capability[] = [
   {
     icon: Package,
-    title: "Product Engineering",
-    description: "End-to-end product design, development, and lifecycle ownership for enterprise-grade platforms.",
+    title: "Multi-Tenant Architecture",
+    description: "Every product shares a schema-isolated multi-tenant core — new customers are configuration, not a fork.",
   },
   {
     icon: Cloud,
-    title: "Cloud & Platform Engineering",
-    description: "Cloud-native architecture, platform engineering, and scalable infrastructure for global operations.",
+    title: "Cloud-Native by Default",
+    description: "All platforms run on cloud-native foundations with auto-scaling, disaster recovery, and global availability.",
   },
   {
     icon: Brain,
-    title: "AI & Data Engineering",
-    description: "Applied AI, intelligent automation, and data platforms that turn insight into competitive advantage.",
+    title: "AI Built In",
+    description: "Intelligence is designed into core workflows — payroll, compliance, operations — not layered on as a chatbot.",
   },
   {
     icon: Link2,
-    title: "Enterprise Integration",
-    description: "Connect legacy and modern systems with secure, reliable integration patterns at enterprise scale.",
+    title: "Enterprise Integrations",
+    description: "Pre-built connectors for ERP, banking, statutory portals, and third-party systems out of the box.",
   },
   {
     icon: ShieldCheck,
-    title: "Quality Engineering",
-    description: "Shift-left quality, automation, and reliability engineering built into every delivery stream.",
+    title: "Compliance as a Feature",
+    description: "Statutory and regulatory rules are first-class product requirements, maintained and updated by our product team.",
   },
   {
     icon: RefreshCw,
-    title: "Product Modernization",
-    description: "Modernize monoliths, uplift UX, and re-platform products without disrupting the business.",
+    title: "Continuous Delivery",
+    description: "Bi-weekly releases, zero-downtime deployments, and feature flags for safe rollouts to every tenant.",
   },
 ];
 
@@ -153,23 +153,23 @@ export const industries: Industry[] = [
 export const whyCybelinx = [
   {
     icon: Lightbulb,
-    title: "Innovation First",
-    description: "We embed emerging technology where it creates measurable business outcomes—not for novelty.",
+    title: "Product-First",
+    description: "We ship SaaS products, not consulting engagements. One codebase, every tenant, continuous delivery.",
   },
   {
     icon: Cpu,
-    title: "Product Mindset",
-    description: "Every engagement is engineered like a product: durable architecture, clear UX, and long-term ownership.",
+    title: "AI-Native Architecture",
+    description: "Intelligence is embedded into every product workflow — payroll, compliance, operations — from day one.",
   },
   {
     icon: Globe2,
-    title: "Global Delivery",
-    description: "Distributed engineering with enterprise governance, security, and delivery excellence at scale.",
+    title: "Enterprise Grade",
+    description: "Multi-tenant, cloud-native, compliance-ready. Built for the security and scale requirements of global enterprises.",
   },
   {
     icon: Sparkles,
-    title: "Trusted Partnership",
-    description: "We work alongside CIOs and product leaders as an extension of their team—from strategy to scale.",
+    title: "Customer-Obsessed",
+    description: "Every product decision starts with the customer. We ship features, listen to feedback, and iterate in production.",
   },
 ];
 

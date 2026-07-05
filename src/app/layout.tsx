@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import { Inter, Fraunces, Courier_Prime } from "next/font/google";
+import { Inter, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import ScrollReel from "@/components/ScrollReel";
+import ScrollProgress from "@/components/ScrollReel";
 import { brand } from "@/lib/content";
 
 const inter = Inter({
@@ -12,17 +12,10 @@ const inter = Inter({
   display: "swap",
 });
 
-const fraunces = Fraunces({
+const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
-  variable: "--font-fraunces",
-  display: "swap",
-  axes: ["opsz", "SOFT", "WONK"],
-});
-
-const courierPrime = Courier_Prime({
-  subsets: ["latin"],
-  weight: ["400", "700"],
-  variable: "--font-courier",
+  weight: ["500", "600", "700"],
+  variable: "--font-space",
   display: "swap",
 });
 
@@ -41,9 +34,9 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${inter.variable} ${fraunces.variable} ${courierPrime.variable}`}>
+    <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable}`}>
       <body className="min-h-screen bg-background font-sans text-surface antialiased">
-        <ScrollReel />
+        <ScrollProgress />
         <Navbar />
         <main>{children}</main>
         <Footer />

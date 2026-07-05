@@ -17,11 +17,11 @@ export default function FAQAccordion({ items }: { items: FAQItem[] }) {
             <button
               onClick={() => setOpenIndex(isOpen ? null : i)}
               aria-expanded={isOpen}
-              className="flex w-full items-center justify-between text-left text-white"
+              className="flex w-full items-center justify-between text-left text-surface"
             >
               <span className="text-base font-semibold">{item.question}</span>
               <ChevronDown
-                className={`h-5 w-5 flex-shrink-0 text-cyan transition-transform duration-200 ${
+                className={`h-5 w-5 flex-shrink-0 text-primary transition-transform duration-200 ${
                   isOpen ? "rotate-180" : ""
                 }`}
               />

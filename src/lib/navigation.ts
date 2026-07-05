@@ -10,32 +10,20 @@ export const mainNav: NavGroup[] = [
   {
     label: "Products",
     items: [
-      { href: "/products/cognihr", label: "CogniHRM", description: "AI-powered HRMS with statutory compliance" },
-      { href: "/products/ehms", label: "eHMS", description: "Enterprise hospitality management system" },
-      { href: "/products/cybepharma", label: "CybePharma Suite", description: "Pharma commercial & compliance — in progress" },
+      { href: "/products/cybehrm", label: "CybeHRM", description: "AI-powered HRMS with statutory compliance — Live" },
+      { href: "/products/cybehms", label: "CybeHMS", description: "Enterprise hospitality management — Live" },
+      { href: "/products/cybepharma", label: "CybePharma Suite", description: "Pharma commercial & compliance" },
       { href: "/products/cybebank", label: "CybeBank", description: "Digital banking & FinTech platform" },
       { href: "/products/cybehealth", label: "CybeHealth", description: "Healthcare & clinical operations" },
       { href: "/products/cybeai-suite", label: "CybeAI Suite", description: "Enterprise AI product suite" },
     ],
   },
-  { label: "Solutions", href: "/solutions" },
   { label: "Industries", href: "/industries" },
-  {
-    label: "Capabilities",
-    items: [
-      { href: "/technologies", label: "Technologies", description: "Modern engineering stack" },
-      { href: "/ai-services", label: "AI Services", description: "Applied AI & data engineering" },
-      {
-        href: "/cloud-platform",
-        label: "Cloud & Platform Engineering",
-        description: "Cloud-native platforms at scale",
-      },
-    ],
-  },
+  { label: "Case Studies", href: "/case-studies" },
   {
     label: "Resources",
     items: [
-      { href: "/case-studies", label: "Case Studies", description: "Outcomes in production" },
+      { href: "/technologies", label: "Technologies", description: "Modern engineering stack" },
       { href: "/insights", label: "Insights", description: "Perspectives from our teams" },
     ],
   },
@@ -44,6 +32,7 @@ export const mainNav: NavGroup[] = [
     items: [
       { href: "/company", label: "About Cybelinx", description: "Mission, story, and leadership" },
       { href: "/careers", label: "Careers", description: "Build with our product teams" },
+      { href: "/contact", label: "Contact", description: "Get in touch with our team" },
     ],
   },
 ];
@@ -55,6 +44,12 @@ export const footerNav = {
     { href: "/careers", label: "Careers" },
     { href: "/contact", label: "Contact" },
   ],
-  capabilities: mainNav[3].items ?? [],
-  resources: mainNav[4].items ?? [],
+  capabilities: [
+    { href: "/industries", label: "Industries" },
+    { href: "/technologies", label: "Technologies" },
+  ],
+  resources: [
+    { href: "/case-studies", label: "Case Studies" },
+    { href: "/insights", label: "Insights" },
+  ],
 };

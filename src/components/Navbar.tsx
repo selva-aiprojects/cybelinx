@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
+import { useRouter } from "next/navigation";
 import { ChevronDown, Menu, X } from "lucide-react";
 import Button from "./Button";
 import { LogoMark } from "./Logo";
@@ -10,6 +11,19 @@ import { mainNav, type NavGroup } from "@/lib/navigation";
 
 function NavDropdown({ group }: { group: NavGroup }) {
   const [open, setOpen] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
+  const router = useRouter();
+
+  useEffect(() => {
+    if (!open) return;
+    function handleClick(e: MouseEvent) {
+      if (menuRef.current && !menuRef.current.contains(e.target as Node)) {
+        setOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClick);
+    return () => document.removeEventListener("mousedown", handleClick);
+  }, [open]);
 
   if (!group.items) {
     return (
@@ -19,29 +33,27 @@ function NavDropdown({ group }: { group: NavGroup }) {
     );
   }
 
-  const handleItemClick = (href: string) => {
-    window.location.href = href;
-  };
-
   return (
-    <div className="relative pointer-events-auto" onMouseEnter={() => setOpen(true)} onMouseLeave={() => setOpen(false)}>
-      <button className="pointer-events-auto flex items-center gap-1 font-slug text-xs tracking-wide text-surface/75 transition-colors hover:text-primary">
+    <div ref={menuRef} className="relative" onMouseEnter={() => setOpen(true)} onMouseLeave={() => setOpen(false)}>
+      <button className="flex items-center gap-1 font-slug text-xs tracking-wide text-surface/75 transition-colors hover:text-primary">
         {group.label.toUpperCase()} <ChevronDown className="h-3.5 w-3.5" />
       </button>
-      {open && (
-        <div className="frame pointer-events-auto absolute left-0 top-full z-[9999] mt-2 w-72 rounded-md p-2 bg-ink/95 shadow-2xl">
-          {group.items.map((item) => (
-            <div
-              key={item.href}
-              onClick={() => handleItemClick(item.href)}
-              className="pointer-events-auto cursor-pointer block w-full rounded-sm px-4 py-3 transition-colors hover:bg-primary/10"
-            >
-              <span className="text-sm font-semibold text-surface">{item.label}</span>
-              {item.description && <span className="mt-1 block text-xs text-slate">{item.description}</span>}
-            </div>
-          ))}
-        </div>
-      )}
+      <div className="absolute left-1/2 -translate-x-1/2 pt-2">
+        {open && (
+          <div className="z-[9999] w-64 min-w-0 rounded-2xl border border-surface/10 p-2 bg-ink shadow-2xl">
+            {group.items.map((item) => (
+              <div
+                key={item.href}
+                onClick={() => { router.push(item.href); setOpen(false); }}
+                className="cursor-pointer rounded-lg px-4 py-3 transition-colors hover:bg-primary/10"
+              >
+                <span className="text-sm font-semibold text-surface">{item.label}</span>
+                {item.description && <span className="mt-0.5 block text-xs text-slate">{item.description}</span>}
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
     </div>
   );
 }
@@ -50,11 +62,10 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-6 z-50 border-b border-surface/10 bg-background/85 backdrop-blur-md">
+    <header className="sticky top-6 z-50 border-b border-surface/10 bg-background/85 backdrop-blur-md relative">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-        <Link href="/" className="flex items-center gap-2">
-          <LogoMark size={34} />
-          <span className="font-display text-lg font-semibold text-surface">{brand.name}</span>
+        <Link href="/" className="flex items-center">
+          <LogoMark size={132} />
         </Link>
 
         <nav className="hidden items-center gap-7 xl:flex">
@@ -63,8 +74,9 @@ export default function Navbar() {
           ))}
         </nav>
 
-        <div className="hidden xl:block">
-          <Button href="/contact">Contact</Button>
+        <div className="hidden items-center gap-3 xl:flex">
+          <Button href="/contact" variant="secondary">Sign In</Button>
+          <Button href="/contact">Get a Demo</Button>
         </div>
 
         <button className="text-surface xl:hidden" onClick={() => setOpen(!open)} aria-label="Toggle menu">
@@ -73,7 +85,7 @@ export default function Navbar() {
       </div>
 
       {open && (
-        <div className="border-t border-surface/10 px-6 py-4 xl:hidden">
+        <div className="absolute left-0 right-0 top-full z-50 border-t border-surface/10 bg-background px-6 py-4 xl:hidden">
           <div className="flex flex-col gap-4">
             {mainNav.map((group) =>
               group.items ? (
@@ -96,7 +108,7 @@ export default function Navbar() {
             <Link href="/contact" className="text-sm text-surface/85" onClick={() => setOpen(false)}>
               Contact
             </Link>
-            <Button href="/contact">Talk to Us</Button>
+            <Button href="/contact">Get a Demo</Button>
           </div>
         </div>
       )}

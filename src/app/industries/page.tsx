@@ -7,7 +7,7 @@ import { industries } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "Industries",
-  description: "Industry solutions across Banking, Healthcare, Pharma, HCM, Manufacturing, Retail, Logistics, Telecom, and Energy.",
+  description: "Industry solutions across Banking, Healthcare, Pharma, HCM, Manufacturing, Retail, Logistics, Telecom, and Energy \u2014 powered by Cybelinx products.",
 };
 
 export default function IndustriesPage() {
@@ -16,8 +16,8 @@ export default function IndustriesPage() {
       <Section className="pt-16">
         <PageHeader
           eyebrow="Industries"
-          title="Domain depth for regulated and high-scale sectors."
-          description="Cybelinx combines product engineering with industry context to ship platforms that meet compliance, scale, and user experience expectations."
+          title="Our products run in regulated, high-scale sectors."
+          description="Cybelinx platforms are built for Banking, Healthcare, Pharma, HCM, Manufacturing, Retail, Logistics, Telecom, and Energy \u2014 with compliance and scale built in."
         />
       </Section>
 
@@ -32,7 +32,7 @@ export default function IndustriesPage() {
       </Section>
 
       <Section>
-        <CTABand heading="Explore industry programs" subheading="Connect with our domain leads to map solutions to your operating model." />
+        <CTABand heading="See your industry on our platform" subheading="Connect with our domain leads to map products to your operating model." />
       </Section>
     </>
   );

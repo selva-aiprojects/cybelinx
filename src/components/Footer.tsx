@@ -6,14 +6,10 @@ import { footerNav } from "@/lib/navigation";
 export default function Footer() {
   return (
     <footer className="border-t border-surface/10 py-14">
-      <div className="mx-auto max-w-6xl px-6">
-        <div className="slugline mb-10">Roll Credits</div>
-      </div>
-      <div className="mx-auto grid max-w-6xl grid-cols-2 gap-10 px-6 md:grid-cols-4 lg:grid-cols-5">
+      <div className="mx-auto grid max-w-6xl grid-cols-2 gap-10 px-6 pt-4 md:grid-cols-4 lg:grid-cols-5">
         <div className="col-span-2 lg:col-span-2">
-          <div className="flex items-center gap-2">
-            <LogoMark size={32} />
-            <span className="font-display text-lg font-semibold text-surface">{brand.name}</span>
+          <div className="flex items-center">
+            <LogoMark size={42} />
           </div>
           <p className="mt-4 max-w-sm text-sm text-slate">{brand.description}</p>
           <p className="mt-4 max-w-sm font-slug text-xs leading-relaxed text-slate/80">{brand.address}</p>
@@ -33,9 +29,9 @@ export default function Footer() {
         </div>
 
         <div>
-          <h4 className="font-slug text-[10px] tracking-widest text-slate">Capabilities</h4>
+          <h4 className="font-slug text-[10px] tracking-widest text-slate">Resources</h4>
           <ul className="mt-4 space-y-3">
-            {footerNav.capabilities.map((item) => (
+            {footerNav.resources.map((item) => (
               <li key={item.href}>
                 <Link href={item.href} className="text-sm text-surface/85 transition-colors hover:text-primary">
                   {item.label}
@@ -55,7 +51,7 @@ export default function Footer() {
                 </Link>
               </li>
             ))}
-            {footerNav.resources.map((item) => (
+            {footerNav.capabilities.map((item) => (
               <li key={item.href}>
                 <Link href={item.href} className="text-sm text-surface/85 transition-colors hover:text-primary">
                   {item.label}
@@ -69,9 +65,9 @@ export default function Footer() {
       <div className="mx-auto mt-10 max-w-6xl border-t border-surface/10 px-6 pt-6">
         <div className="flex flex-wrap items-center justify-between gap-3">
           <span className="font-slug text-[11px] tracking-widest text-slate">
-            © {new Date().getFullYear()} {brand.name}. All rights reserved.
+            &copy; {new Date().getFullYear()} {brand.name}. All rights reserved.
           </span>
-          <span className="font-slug text-[11px] tracking-widest text-slate">Fin.</span>
+          <span className="font-slug text-[11px] uppercase tracking-widest text-slate">Bengaluru &middot; Global Delivery</span>
         </div>
       </div>
     </footer>

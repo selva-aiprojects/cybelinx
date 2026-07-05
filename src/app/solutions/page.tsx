@@ -8,7 +8,7 @@ import { Package } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Solutions",
-  description: "Product engineering solutions for digital transformation, modernization, and AI-powered platforms.",
+  description: "Industry solutions built on our multi-tenant SaaS platforms for enterprise operations.",
 };
 
 export default function SolutionsPage() {
@@ -17,8 +17,8 @@ export default function SolutionsPage() {
       <Section className="pt-16">
         <PageHeader
           eyebrow="Solutions"
-          title="Engineering programs that move enterprises forward."
-          description="From greenfield platforms to legacy modernization, Cybelinx delivers outcomes with product discipline and enterprise rigor."
+          title="One platform, every industry."
+          description="Cybelinx products are built on a shared multi-tenant core that adapts to Banking, Healthcare, Pharma, HCM, Manufacturing, Retail, Logistics, Telecom, and Energy."
         />
       </Section>
 
@@ -36,7 +36,7 @@ export default function SolutionsPage() {
       </Section>
 
       <Section>
-        <CTABand heading="Discuss your next initiative" subheading="Our solution architects partner with your leadership team from discovery through delivery." />
+        <CTABand heading="See a product demo" subheading="Our solution architects will walk you through the platform tailored to your industry." />
       </Section>
     </>
   );

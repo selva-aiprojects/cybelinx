@@ -8,7 +8,7 @@ import { ArrowUpRight } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Case Studies",
-  description: "Enterprise outcomes delivered by Cybelinx product engineering teams.",
+  description: "Enterprise outcomes delivered by Cybelinx product platforms.",
 };
 
 export default function CaseStudiesPage() {
@@ -18,7 +18,7 @@ export default function CaseStudiesPage() {
         <PageHeader
           eyebrow="Case Studies"
           title="Proof in production."
-          description="Selected programs demonstrating scale, reliability, and business impact across industries."
+          description="Selected programs demonstrating scale, reliability, and business impact powered by Cybelinx products."
         />
       </Section>
 
@@ -28,14 +28,14 @@ export default function CaseStudiesPage() {
             <Link
               key={study.slug}
               href="/contact"
-              className="glass group flex flex-col justify-between gap-4 rounded-2xl p-8 transition-colors hover:border-cyan/30 md:flex-row md:items-center"
+              className="glass group flex flex-col justify-between gap-4 rounded-2xl p-8 transition-colors hover:border-primary/30 md:flex-row md:items-center"
             >
               <div>
-                <span className="text-xs font-semibold uppercase tracking-widest text-cyan">{study.industry}</span>
-                <h2 className="font-display mt-2 text-2xl font-bold text-white">{study.title}</h2>
+                <span className="text-xs font-semibold uppercase tracking-widest text-primary">{study.industry}</span>
+                <h2 className="font-display mt-2 text-2xl font-bold text-surface">{study.title}</h2>
                 <p className="mt-2 text-sm text-slate">{study.outcome}</p>
               </div>
-              <div className="flex items-center gap-2 text-sm font-semibold text-cyan">
+              <div className="flex items-center gap-2 text-sm font-semibold text-primary">
                 Request full story
                 <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
               </div>

@@ -20,8 +20,8 @@ export type Product = {
 
 export const products: Product[] = [
   {
-    slug: "cognihr",
-    name: "CogniHRM",
+    slug: "cybehrm",
+    name: "CybeHRM",
     tagline: "AI-Powered HRMS Platform",
     category: "HR & Compliance",
     summary:
@@ -45,8 +45,8 @@ export const products: Product[] = [
     isPlaceholderContent: true,
   },
   {
-    slug: "ehms",
-    name: "eHMS",
+    slug: "cybehms",
+    name: "CybeHMS",
     tagline: "Enterprise Hospitality Management System",
     category: "Hospitality",
     summary:
@@ -141,8 +141,8 @@ export const products: Product[] = [
   },
 ];
 
-/** Back-compat alias — eHMS is now a first-class entry in `products`. */
-export const ehmsProduct: Product = products.find((p) => p.slug === "ehms")!;
+/** Back-compat alias — CybeHMS is now a first-class entry in `products`. */
+export const cybehmsProduct: Product = products.find((p) => p.slug === "cybehms")!;
 
 export function getProduct(slug: string) {
   return products.find((p) => p.slug === slug);

@@ -17,8 +17,8 @@ export default function InsightsPage() {
       <Section className="pt-16">
         <PageHeader
           eyebrow="Insights"
-          title="Perspectives from the engineering front line."
-          description="Articles and briefs on building intelligent products and scaling digital enterprises."
+          title="Perspectives from the product front line."
+          description="Articles and briefs on building and scaling enterprise SaaS platforms."
         />
       </Section>
 
@@ -28,15 +28,15 @@ export default function InsightsPage() {
             <Link
               key={article.slug}
               href="/contact"
-              className="glass group rounded-2xl p-8 transition-colors hover:border-cyan/30"
+              className="glass group rounded-2xl p-8 transition-colors hover:border-primary/30"
             >
               <div className="flex flex-wrap items-center gap-3 text-xs uppercase tracking-wide text-slate">
                 <span>{article.category}</span>
-                <span>·</span>
+                <span>&middot;</span>
                 <span>{article.date}</span>
               </div>
-              <h2 className="font-display mt-3 text-2xl font-bold text-white">{article.title}</h2>
-              <div className="mt-4 flex items-center gap-2 text-sm font-semibold text-cyan">
+              <h2 className="font-display mt-3 text-2xl font-bold text-surface">{article.title}</h2>
+              <div className="mt-4 flex items-center gap-2 text-sm font-semibold text-primary">
                 Read article
                 <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
               </div>
@@ -46,7 +46,7 @@ export default function InsightsPage() {
       </Section>
 
       <Section>
-        <CTABand heading="Subscribe to engineering briefs" subheading="Get periodic insights on product engineering and platform strategy." />
+        <CTABand heading="Subscribe to product updates" subheading="Get periodic insights on enterprise SaaS and product engineering." />
       </Section>
     </>
   );
