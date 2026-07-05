@@ -35,7 +35,7 @@ export default function AIServicesPage() {
         <PageHeader
           eyebrow="AI Services"
           title="Intelligence engineered into products—not bolted on."
-          description="Cybelink helps enterprises move from AI experiments to production systems with measurable ROI."
+          description="Cybelinx helps enterprises move from AI experiments to production systems with measurable ROI."
         />
       </Section>
 

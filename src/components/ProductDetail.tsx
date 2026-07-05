@@ -31,9 +31,9 @@ export default function ProductDetail({ product, faqs = [], showPricing = false 
     <>
       <Section className="pt-16">
         <Badge tone={statusTone[product.status]}>{statusLabel[product.status]}</Badge>
-        <h1 className="font-display mt-5 max-w-2xl text-4xl font-bold text-white md:text-5xl">{product.name}</h1>
-        <p className="mt-2 text-lg text-cyan">{product.tagline}</p>
-        <p className="mt-5 max-w-xl text-surface/80">{product.summary}</p>
+        <h1 className="font-display mt-5 max-w-2xl text-4xl font-semibold text-surface md:text-5xl">{product.name}</h1>
+        <p className="mt-2 font-slug text-sm tracking-wide text-primary">{product.tagline}</p>
+        <p className="mt-5 max-w-xl text-surface/70">{product.summary}</p>
         <div className="mt-8">
           <Button href="/contact">Request a Demo</Button>
         </div>
@@ -41,21 +41,21 @@ export default function ProductDetail({ product, faqs = [], showPricing = false 
 
       {product.problem && (
         <Section>
-          <div className="glass rounded-2xl p-8 md:p-10">
-            <span className="text-xs font-semibold uppercase tracking-widest text-cyan">The challenge</span>
-            <p className="mt-3 max-w-2xl text-lg text-white">{product.problem}</p>
+          <div className="frame rounded-md p-8 md:p-10">
+            <span className="slugline">The Challenge</span>
+            <p className="mt-3 max-w-2xl text-lg text-surface">{product.problem}</p>
           </div>
         </Section>
       )}
 
       {product.modules && product.modules.length > 0 && (
         <Section textured>
-          <span className="text-xs font-semibold uppercase tracking-widest text-cyan">What&apos;s inside</span>
-          <h2 className="font-display mt-3 text-3xl font-bold text-white md:text-4xl">Built for enterprise depth.</h2>
+          <span className="slugline">What&apos;s Inside</span>
+          <h2 className="font-display mt-3 text-3xl font-semibold text-surface md:text-4xl">Built for enterprise depth.</h2>
           <div className="mt-10 grid gap-6 sm:grid-cols-2 md:grid-cols-3">
             {product.modules.map((module) => (
-              <div key={module.title} className="glass rounded-2xl p-6">
-                <h3 className="text-base font-semibold text-white">{module.title}</h3>
+              <div key={module.title} className="frame rounded-md p-6">
+                <h3 className="text-base font-semibold text-surface">{module.title}</h3>
                 <p className="mt-2 text-sm text-slate">{module.description}</p>
               </div>
             ))}
@@ -65,10 +65,10 @@ export default function ProductDetail({ product, faqs = [], showPricing = false 
 
       {product.differentiators && product.differentiators.length > 0 && (
         <Section>
-          <span className="text-xs font-semibold uppercase tracking-widest text-cyan">Why {product.name}</span>
+          <span className="slugline">Why {product.name}</span>
           <ul className="mt-6 grid gap-4 md:grid-cols-3">
             {product.differentiators.map((item) => (
-              <li key={item} className="glass rounded-2xl p-6 text-sm text-surface/90">
+              <li key={item} className="frame rounded-md p-6 text-sm text-surface/85">
                 {item}
               </li>
             ))}
@@ -78,7 +78,7 @@ export default function ProductDetail({ product, faqs = [], showPricing = false 
 
       {product.stats && (
         <Section textured>
-          <span className="text-xs font-semibold uppercase tracking-widest text-cyan">Platform scale</span>
+          <span className="slugline">Platform Scale</span>
           <div className="mt-6">
             <StatBand stats={product.stats} />
           </div>
@@ -92,15 +92,15 @@ export default function ProductDetail({ product, faqs = [], showPricing = false 
 
       {showPricing && (
         <Section>
-          <span className="mb-6 block text-xs font-semibold uppercase tracking-widest text-cyan">Pricing</span>
+          <span className="slugline mb-6 block">Pricing</span>
           <PricingPlaceholder productName={product.name} />
         </Section>
       )}
 
       {faqs.length > 0 && (
         <Section>
-          <span className="text-xs font-semibold uppercase tracking-widest text-cyan">FAQ</span>
-          <h2 className="font-display mt-3 text-3xl font-bold text-white">Common questions</h2>
+          <span className="slugline">FAQ</span>
+          <h2 className="font-display mt-3 text-3xl font-semibold text-surface">Common questions</h2>
           <div className="mt-8">
             <FAQAccordion items={faqs} />
           </div>

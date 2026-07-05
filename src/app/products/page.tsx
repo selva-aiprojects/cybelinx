@@ -8,7 +8,7 @@ import { brand } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "Products",
-  description: `Explore the ${brand.name} Cybe* product portfolio — CybeBank, CybeHealth, CybeHCM, CybePharma, and CybeAI Suite.`,
+  description: `Explore the ${brand.name} product portfolio — CogniHRM and eHMS, live today, plus CybePharma Suite, CybeBank, CybeHealth, and CybeAI Suite in progress.`,
 };
 
 export default function ProductsPage() {
@@ -17,8 +17,8 @@ export default function ProductsPage() {
       <Section className="pt-16">
         <PageHeader
           eyebrow="Products"
-          title="Cybe* platforms for enterprise outcomes."
-          description="A portfolio of AI-powered products engineered for regulated, high-scale operating environments."
+          title="Multi-tenant platforms, built to scale."
+          description="CogniHRM and eHMS are live today. The rest of the portfolio is in active development with domain partners."
         />
       </Section>
 

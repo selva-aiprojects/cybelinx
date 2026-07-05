@@ -5,22 +5,26 @@ import { footerNav } from "@/lib/navigation";
 
 export default function Footer() {
   return (
-    <footer className="border-t border-white/5 py-14">
+    <footer className="border-t border-surface/10 py-14">
+      <div className="mx-auto max-w-6xl px-6">
+        <div className="slugline mb-10">Roll Credits</div>
+      </div>
       <div className="mx-auto grid max-w-6xl grid-cols-2 gap-10 px-6 md:grid-cols-4 lg:grid-cols-5">
         <div className="col-span-2 lg:col-span-2">
           <div className="flex items-center gap-2">
             <LogoMark size={32} />
-            <span className="font-display text-lg font-bold text-white">{brand.name}</span>
+            <span className="font-display text-lg font-semibold text-surface">{brand.name}</span>
           </div>
           <p className="mt-4 max-w-sm text-sm text-slate">{brand.description}</p>
+          <p className="mt-4 max-w-sm font-slug text-xs leading-relaxed text-slate/80">{brand.address}</p>
         </div>
 
         <div>
-          <h4 className="text-xs font-semibold uppercase tracking-wide text-slate">Products</h4>
+          <h4 className="font-slug text-[10px] tracking-widest text-slate">Products</h4>
           <ul className="mt-4 space-y-3">
             {footerNav.products.map((item) => (
               <li key={item.href}>
-                <Link href={item.href} className="text-sm text-surface transition-colors hover:text-white">
+                <Link href={item.href} className="text-sm text-surface/85 transition-colors hover:text-primary">
                   {item.label}
                 </Link>
               </li>
@@ -29,11 +33,11 @@ export default function Footer() {
         </div>
 
         <div>
-          <h4 className="text-xs font-semibold uppercase tracking-wide text-slate">Capabilities</h4>
+          <h4 className="font-slug text-[10px] tracking-widest text-slate">Capabilities</h4>
           <ul className="mt-4 space-y-3">
             {footerNav.capabilities.map((item) => (
               <li key={item.href}>
-                <Link href={item.href} className="text-sm text-surface transition-colors hover:text-white">
+                <Link href={item.href} className="text-sm text-surface/85 transition-colors hover:text-primary">
                   {item.label}
                 </Link>
               </li>
@@ -42,18 +46,18 @@ export default function Footer() {
         </div>
 
         <div>
-          <h4 className="text-xs font-semibold uppercase tracking-wide text-slate">Company</h4>
+          <h4 className="font-slug text-[10px] tracking-widest text-slate">Company</h4>
           <ul className="mt-4 space-y-3">
             {footerNav.company.map((item) => (
               <li key={item.href}>
-                <Link href={item.href} className="text-sm text-surface transition-colors hover:text-white">
+                <Link href={item.href} className="text-sm text-surface/85 transition-colors hover:text-primary">
                   {item.label}
                 </Link>
               </li>
             ))}
             {footerNav.resources.map((item) => (
               <li key={item.href}>
-                <Link href={item.href} className="text-sm text-surface transition-colors hover:text-white">
+                <Link href={item.href} className="text-sm text-surface/85 transition-colors hover:text-primary">
                   {item.label}
                 </Link>
               </li>
@@ -62,8 +66,13 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="mx-auto mt-10 max-w-6xl border-t border-white/5 px-6 pt-6 text-xs text-slate">
-        © {new Date().getFullYear()} {brand.name}. All rights reserved.
+      <div className="mx-auto mt-10 max-w-6xl border-t border-surface/10 px-6 pt-6">
+        <div className="flex flex-wrap items-center justify-between gap-3">
+          <span className="font-slug text-[11px] tracking-widest text-slate">
+            © {new Date().getFullYear()} {brand.name}. All rights reserved.
+          </span>
+          <span className="font-slug text-[11px] tracking-widest text-slate">Fin.</span>
+        </div>
       </div>
     </footer>
   );

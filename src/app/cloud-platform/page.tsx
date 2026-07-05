@@ -35,7 +35,7 @@ export default function CloudPlatformPage() {
         <PageHeader
           eyebrow="Cloud & Platform Engineering"
           title="Platforms that scale teams—not just infrastructure."
-          description="Cybelink engineers cloud-native foundations so product teams ship faster with confidence."
+          description="Cybelinx engineers cloud-native foundations so product teams ship faster with confidence."
         />
       </Section>
 

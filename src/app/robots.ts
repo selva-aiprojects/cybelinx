@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://cybelink.com/sitemap.xml",
+    sitemap: "https://cybelinx.com/sitemap.xml",
   };
 }

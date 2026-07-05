@@ -1,13 +1,13 @@
 import type { MetadataRoute } from "next";
 
-const baseUrl = "https://cybelink.com";
+const baseUrl = "https://cybelinx.com";
 
 const routes = [
   "",
   "/products",
   "/products/cybebank",
   "/products/cybehealth",
-  "/products/cybehcm",
+  "/products/cognihr",
   "/products/cybepharma",
   "/products/cybeai-suite",
   "/products/ehms",

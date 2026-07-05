@@ -17,7 +17,7 @@ export default function IndustriesPage() {
         <PageHeader
           eyebrow="Industries"
           title="Domain depth for regulated and high-scale sectors."
-          description="Cybelink combines product engineering with industry context to ship platforms that meet compliance, scale, and user experience expectations."
+          description="Cybelinx combines product engineering with industry context to ship platforms that meet compliance, scale, and user experience expectations."
         />
       </Section>
 

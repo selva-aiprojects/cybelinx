@@ -23,11 +23,12 @@ import {
 } from "lucide-react";
 
 export const brand = {
-  name: "Cybelink",
+  name: "Cybelinx",
   tagline: "Engineering Intelligent Products. Accelerating Digital Enterprises.",
   description:
-    "Cybelink designs, builds, modernizes, and scales AI-powered products and cloud-native platforms for global enterprises.",
-  email: "hello@cybelink.com",
+    "Cybelinx designs, builds, modernizes, and scales AI-powered products and cloud-native platforms for global enterprises.",
+  email: "hello@cybelinx.com",
+  address: "No. 42, 89/5, Horamavu Agara Rd, 1st Block, Mallappa Layout, Hennur Gardens, Bengaluru, Karnataka 560113",
 };
 
 export const trustMetrics = [
@@ -149,7 +150,7 @@ export const industries: Industry[] = [
   },
 ];
 
-export const whyCybelink = [
+export const whyCybelinx = [
   {
     icon: Lightbulb,
     title: "Innovation First",

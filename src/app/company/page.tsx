@@ -3,12 +3,12 @@ import Section from "@/components/Section";
 import PageHeader from "@/components/PageHeader";
 import FeatureCard from "@/components/FeatureCard";
 import CTABand from "@/components/CTABand";
-import { whyCybelink } from "@/lib/content";
+import { whyCybelinx } from "@/lib/content";
 import { Building2 } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Company",
-  description: "About Cybelink — product engineering for global enterprises.",
+  description: "About Cybelinx — product engineering for global enterprises.",
 };
 
 export default function CompanyPage() {
@@ -18,7 +18,7 @@ export default function CompanyPage() {
         <PageHeader
           eyebrow="Company"
           title="Engineering intelligent products for global enterprises."
-          description="Cybelink is a product engineering company delivering AI-powered digital products, cloud-native platforms, and industry solutions."
+          description="Cybelinx is a product engineering company delivering AI-powered digital products, cloud-native platforms, and industry solutions."
         />
       </Section>
 
@@ -26,7 +26,7 @@ export default function CompanyPage() {
         <div className="glass rounded-2xl p-8 md:p-10">
           <h2 className="font-display text-2xl font-bold text-white">Our story</h2>
           <p className="mt-4 max-w-3xl text-sm leading-relaxed text-surface/80">
-            Cybelink partners with CIOs, CTOs, and product leaders to design and deliver platforms that become strategic
+            Cybelinx partners with CIOs, CTOs, and product leaders to design and deliver platforms that become strategic
             advantages. We combine product mindset, global delivery, and deep engineering craft across Banking, Healthcare,
             Pharma, HCM, Manufacturing, Retail, Logistics, Telecom, and Energy.
           </p>
@@ -39,7 +39,7 @@ export default function CompanyPage() {
           <h2 className="font-display mt-3 text-3xl font-bold text-white">How we show up for customers.</h2>
         </div>
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {whyCybelink.map((pillar) => (
+          {whyCybelinx.map((pillar) => (
             <FeatureCard key={pillar.title} title={pillar.title} description={pillar.description} icon={pillar.icon} />
           ))}
         </div>
@@ -57,7 +57,7 @@ export default function CompanyPage() {
       </Section>
 
       <Section>
-        <CTABand heading="Partner with Cybelink" subheading="Let's discuss your product roadmap, platform strategy, or modernization program." />
+        <CTABand heading="Partner with Cybelinx" subheading="Let's discuss your product roadmap, platform strategy, or modernization program." />
       </Section>
     </>
   );

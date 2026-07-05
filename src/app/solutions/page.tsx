@@ -18,7 +18,7 @@ export default function SolutionsPage() {
         <PageHeader
           eyebrow="Solutions"
           title="Engineering programs that move enterprises forward."
-          description="From greenfield platforms to legacy modernization, Cybelink delivers outcomes with product discipline and enterprise rigor."
+          description="From greenfield platforms to legacy modernization, Cybelinx delivers outcomes with product discipline and enterprise rigor."
         />
       </Section>
 

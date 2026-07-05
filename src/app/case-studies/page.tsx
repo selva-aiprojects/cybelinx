@@ -8,7 +8,7 @@ import { ArrowUpRight } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Case Studies",
-  description: "Enterprise outcomes delivered by Cybelink product engineering teams.",
+  description: "Enterprise outcomes delivered by Cybelinx product engineering teams.",
 };
 
 export default function CaseStudiesPage() {

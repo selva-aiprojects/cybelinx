@@ -1,79 +1,88 @@
 "use client";
 
 import dynamic from "next/dynamic";
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import Button from "./Button";
 
-const GlobeScene = dynamic(() => import("./GlobeScene"), {
+const ApertureScene = dynamic(() => import("./ApertureScene"), {
   ssr: false,
-  loading: () => (
-    <div className="flex h-full min-h-[320px] items-center justify-center">
-      <div className="h-64 w-64 animate-pulse rounded-full border border-cyan/20 bg-brand-gradient opacity-20" />
-    </div>
-  ),
+  loading: () => <div className="h-64 w-64 animate-pulse rounded-full border border-primary/20" />,
 });
 
 export default function Hero() {
-  const highlights = ["AI-native delivery", "Cloud-first platforms", "Regulated industry expertise"];
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
+  const y = useTransform(scrollYProgress, [0, 1], [0, 120]);
+  const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
+
+  const highlights = ["Multi-tenant by design", "AI-native platforms", "Built for scale"];
 
   return (
-    <div className="relative overflow-hidden pb-20 pt-16 md:pt-24">
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 opacity-70"
-        style={{
-          background:
-            "radial-gradient(ellipse 80% 60% at 78% 12%, rgba(13,71,255,0.28), transparent 55%), radial-gradient(ellipse 50% 40% at 16% 84%, rgba(123,97,255,0.16), transparent 50%)",
-        }}
-      />
+    <div ref={ref} className="relative overflow-hidden">
+      {/* Letterbox bars — 2.35:1 cinema frame */}
+      <div className="letterbox-bar h-6 w-full md:h-10" aria-hidden="true" />
 
-      <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-6 lg:grid-cols-[1.02fr,0.98fr]">
-        <div>
-          <span className="glass inline-flex items-center rounded-full border border-cyan/20 px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.28em] text-cyan">
-            Global Product Engineering Partner
-          </span>
+      <div className="relative bg-grade-wash pb-16 pt-14 md:pb-24 md:pt-20">
+        <motion.div
+          aria-hidden="true"
+          style={{ opacity }}
+          className="pointer-events-none absolute inset-0"
+        >
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_0%,rgba(227,168,87,0.10),transparent_60%)]" />
+        </motion.div>
 
-          <h1 className="font-display mt-6 max-w-3xl text-4xl font-bold leading-[1.08] text-white md:text-5xl lg:text-6xl">
-            Engineering Intelligent Products.{" "}
-            <span className="bg-brand-gradient bg-clip-text text-transparent">Accelerating Digital Enterprises.</span>
-          </h1>
-
-          <p className="mt-6 max-w-2xl text-base leading-8 text-surface/80 md:text-lg">
-            Cybelink designs, builds, modernizes, and scales AI-powered products and cloud-native platforms for
-            organizations that need speed, resilience, and measurable impact.
-          </p>
-
-          <div className="mt-10 flex flex-wrap gap-4">
-            <Button href="/solutions">Explore Solutions</Button>
-            <Button href="/products" variant="secondary">
-              View Products
-            </Button>
+        <div className="relative mx-auto max-w-6xl px-6">
+          <div className="slugline flex items-center gap-3">
+            <span>Scene 01</span>
+            <span className="text-surface/25">·</span>
+            <span>Int. Cybelinx — Continuous</span>
           </div>
 
-          <div className="mt-8 flex flex-wrap gap-3">
-            {highlights.map((item) => (
-              <div
-                key={item}
-                className="rounded-full border border-white/10 bg-white/[0.04] px-3.5 py-2 text-sm text-surface/85"
-              >
-                {item}
+          <div className="mt-8 grid items-center gap-12 lg:grid-cols-[1.05fr,0.95fr]">
+            <div>
+              <h1 className="font-display max-w-3xl text-4xl font-semibold leading-[1.08] text-surface md:text-5xl lg:text-6xl">
+                Software products,{" "}
+                <span className="italic text-primary">engineered</span> — not services, rendered.
+              </h1>
+
+              <p className="mt-6 max-w-xl text-base leading-8 text-surface/70 md:text-lg">
+                Cybelinx builds AI-native, multi-tenant SaaS platforms. CogniHR runs statutory-compliant HR for
+                Indian enterprises; eHMS runs multi-property hospitality operations. Both shipped, both live.
+              </p>
+
+              <div className="mt-10 flex flex-wrap gap-4">
+                <Button href="/products">View the Products</Button>
+                <Button href="/contact" variant="secondary">
+                  Talk to Us
+                </Button>
               </div>
-            ))}
-          </div>
-        </div>
 
-        <div className="relative mx-auto w-full max-w-[500px] lg:max-w-none">
-          <div
-            aria-hidden="true"
-            className="absolute inset-8 rounded-full opacity-50 blur-3xl"
-            style={{ background: "radial-gradient(circle, rgba(0,194,255,0.35), rgba(123,97,255,0.15), transparent)" }}
-          />
-          <div className="glass relative flex min-h-[360px] items-center justify-center overflow-hidden rounded-[2rem] border border-white/10 p-4 md:min-h-[430px]">
-            <div className="absolute inset-6 rounded-full border border-cyan/20" />
-            <div className="absolute inset-10 rounded-full border border-cyan/20 opacity-70" />
-            <GlobeScene />
+              <div className="mt-9 flex flex-wrap gap-2.5">
+                {highlights.map((item) => (
+                  <div
+                    key={item}
+                    className="rounded-sm border border-surface/10 bg-surface/[0.03] px-3.5 py-1.5 font-slug text-[11px] tracking-wide text-surface/70"
+                  >
+                    {item}
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <motion.div style={{ y }} className="relative mx-auto w-full max-w-[460px] lg:max-w-none">
+              <div className="frame relative flex aspect-square items-center justify-center overflow-hidden rounded-full p-4">
+                <ApertureScene />
+              </div>
+              <div className="slugline mt-4 text-center text-[10px] text-surface/40">
+                Shot on Cybelinx — Cam A
+              </div>
+            </motion.div>
           </div>
         </div>
       </div>
+
+      <div className="letterbox-bar h-6 w-full md:h-10" aria-hidden="true" />
     </div>
   );
 }

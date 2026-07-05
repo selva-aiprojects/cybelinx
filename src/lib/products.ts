@@ -20,6 +20,74 @@ export type Product = {
 
 export const products: Product[] = [
   {
+    slug: "cognihr",
+    name: "CogniHRM",
+    tagline: "AI-Powered HRMS Platform",
+    category: "HR & Compliance",
+    summary:
+      "An AI-enabled HRMS platform for Indian statutory compliance, employee experience, and workforce visibility across enterprises.",
+    status: "live",
+    problem:
+      "Fragmented HR processes create compliance exposure, inconsistent experiences, and unnecessary administrative drag.",
+    modules: [
+      { title: "Employee Records", description: "A single, secure source of truth for every employee." },
+      { title: "Attendance & Leave", description: "Automated attendance and leave workflows at scale." },
+      { title: "Payroll & Compliance", description: "Payroll built around Indian statutory requirements and audit readiness." },
+      { title: "Recruitment & Onboarding", description: "Candidate-to-employee journeys without visibility gaps." },
+      { title: "Performance Management", description: "Review cycles and goals tied to workforce data." },
+      { title: "People Analytics", description: "Workforce insights for faster, better people decisions." },
+    ],
+    differentiators: [
+      "AI-enabled automation across core HR workflows",
+      "Built around Indian statutory compliance requirements",
+      "Multi-tenant architecture for entities, regions, and business units",
+    ],
+    isPlaceholderContent: true,
+  },
+  {
+    slug: "ehms",
+    name: "eHMS",
+    tagline: "Enterprise Hospitality Management System",
+    category: "Hospitality",
+    summary:
+      "A hospitality operating platform unifying front office, housekeeping, maintenance, finance, and guest experience.",
+    status: "live",
+    problem:
+      "Disconnected operations create delays, reporting gaps, and inconsistent service quality across properties.",
+    modules: [
+      { title: "Front Desk", description: "Reservations, check-in/out, and guest workflows in one place." },
+      { title: "Housekeeping", description: "Real-time room status and task coordination across properties." },
+      { title: "Maintenance", description: "Track, assign, and resolve maintenance requests without delays." },
+      { title: "Finance & GL", description: "Property-level finance that rolls up to group reporting." },
+      { title: "Guest CRM", description: "Unified guest profiles across stays and touchpoints." },
+    ],
+    differentiators: [
+      "Schema-isolated multi-tenancy for secure, scalable deployment",
+      "Flexible per-tenant vertical and feature subscription model",
+      "Hotels, serviced apartments, rentals, and workplace services from one platform",
+    ],
+    stats: [
+      { label: "Tables per tenant", value: "136+" },
+      { label: "API endpoints", value: "100+" },
+      { label: "Uptime target", value: "99.9%" },
+    ],
+    customers: [
+      { name: "Viswa Group", status: "live" },
+      { name: "GRT Group", status: "coming-soon" },
+      { name: "Raintree", status: "coming-soon" },
+      { name: "DLF", status: "coming-soon" },
+    ],
+  },
+  {
+    slug: "cybepharma",
+    name: "CybePharma Suite",
+    tagline: "Pharma Commercial Platform",
+    category: "Pharma",
+    summary: "Commercial operations, compliance, and supply chain intelligence for life sciences organizations.",
+    status: "preview",
+    isPlaceholderContent: true,
+  },
+  {
     slug: "cybebank",
     name: "CybeBank",
     tagline: "Digital Banking Platform",
@@ -36,7 +104,7 @@ export const products: Product[] = [
     category: "Healthcare",
     summary:
       "Unified care coordination, clinical workflows, and patient engagement for hospitals and health networks.",
-    status: "preview",
+    status: "coming-soon",
     problem:
       "Fragmented clinical and operational systems slow care delivery and limit visibility across the care continuum.",
     modules: [
@@ -52,48 +120,13 @@ export const products: Product[] = [
     isPlaceholderContent: true,
   },
   {
-    slug: "cybehcm",
-    name: "CybeHCM",
-    tagline: "People Intelligence Platform",
-    category: "HCM",
-    summary:
-      "An AI-enabled HCM platform for compliance, employee experience, and workforce visibility across global enterprises.",
-    status: "live",
-    problem:
-      "Fragmented HR processes create compliance exposure, inconsistent experiences, and unnecessary administrative drag.",
-    modules: [
-      { title: "Employee Records", description: "A single, secure source of truth for every employee." },
-      { title: "Attendance & Leave", description: "Automated attendance and leave workflows at scale." },
-      { title: "Payroll & Compliance", description: "Payroll built around statutory requirements and audit readiness." },
-      { title: "Recruitment & Onboarding", description: "Candidate-to-employee journeys without visibility gaps." },
-      { title: "Performance Management", description: "Review cycles and goals tied to workforce data." },
-      { title: "People Analytics", description: "Workforce insights for faster, better people decisions." },
-    ],
-    differentiators: [
-      "AI-enabled automation across core HR workflows",
-      "Compliance-first design for multi-country statutory requirements",
-      "Multi-tenant architecture for entities, regions, and business units",
-    ],
-    isPlaceholderContent: true,
-  },
-  {
-    slug: "cybepharma",
-    name: "CybePharma",
-    tagline: "Pharma Commercial Platform",
-    category: "Pharma",
-    summary:
-      "Commercial operations, compliance, and supply chain intelligence for life sciences organizations.",
-    status: "coming-soon",
-    isPlaceholderContent: true,
-  },
-  {
     slug: "cybeai-suite",
     name: "CybeAI Suite",
     tagline: "Enterprise AI Product Suite",
     category: "AI Platform",
     summary:
       "Composable AI capabilities—copilots, document intelligence, and workflow automation—for enterprise products.",
-    status: "preview",
+    status: "coming-soon",
     modules: [
       { title: "Document Intelligence", description: "Extract, classify, and route unstructured enterprise documents." },
       { title: "Workflow Copilots", description: "Embedded assistants inside operational and customer workflows." },
@@ -108,47 +141,10 @@ export const products: Product[] = [
   },
 ];
 
-/** Legacy hospitality platform — linked from case studies and CybeHealth vertical */
-export const ehmsProduct: Product = {
-  slug: "ehms",
-  name: "eHMS",
-  tagline: "Enterprise Hospitality Management System",
-  category: "Hospitality",
-  summary:
-    "A hospitality operating platform unifying front office, housekeeping, maintenance, finance, and guest experience.",
-  status: "live",
-  problem:
-    "Disconnected operations create delays, reporting gaps, and inconsistent service quality across properties.",
-  modules: [
-    { title: "Front Desk", description: "Reservations, check-in/out, and guest workflows in one place." },
-    { title: "Housekeeping", description: "Real-time room status and task coordination across properties." },
-    { title: "Maintenance", description: "Track, assign, and resolve maintenance requests without delays." },
-    { title: "Finance & GL", description: "Property-level finance that rolls up to group reporting." },
-    { title: "Guest CRM", description: "Unified guest profiles across stays and touchpoints." },
-  ],
-  differentiators: [
-    "Schema-isolated multi-tenancy for secure, scalable deployment",
-    "Flexible per-tenant vertical and feature subscription model",
-    "Hotels, serviced apartments, rentals, and workplace services from one platform",
-  ],
-  stats: [
-    { label: "Tables per tenant", value: "136+" },
-    { label: "API endpoints", value: "100+" },
-    { label: "Uptime target", value: "99.9%" },
-  ],
-  customers: [
-    { name: "Viswa Group", status: "live" },
-    { name: "GRT Group", status: "coming-soon" },
-    { name: "Raintree", status: "coming-soon" },
-    { name: "DLF", status: "coming-soon" },
-  ],
-};
+/** Back-compat alias — eHMS is now a first-class entry in `products`. */
+export const ehmsProduct: Product = products.find((p) => p.slug === "ehms")!;
 
 export function getProduct(slug: string) {
-  if (slug === "ehms" || slug === "cognihr") {
-    if (slug === "cognihr") return products.find((p) => p.slug === "cybehcm");
-    return ehmsProduct;
-  }
   return products.find((p) => p.slug === slug);
 }
 

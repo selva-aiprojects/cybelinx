@@ -7,11 +7,11 @@ export default function CustomerLogoStrip({ customers }: { customers: Customer[]
       {customers.map((c) => (
         <div
           key={c.name}
-          className={`glass flex items-center gap-3 rounded-xl px-5 py-3 ${
+          className={`frame flex items-center gap-3 rounded-sm px-5 py-3 ${
             c.status === "coming-soon" ? "opacity-50" : ""
           }`}
         >
-          <span className="text-sm font-semibold text-white">{c.name}</span>
+          <span className="text-sm font-semibold text-surface">{c.name}</span>
           {c.status === "coming-soon" && <Badge tone="soon">Coming Soon</Badge>}
         </div>
       ))}

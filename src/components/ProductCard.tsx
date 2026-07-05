@@ -19,18 +19,18 @@ export default function ProductCard({ product }: { product: Product }) {
   return (
     <Link
       href={`/products/${product.slug}`}
-      className="glass group flex flex-col justify-between rounded-2xl p-8 transition-colors duration-200 hover:border-cyan/40"
+      className="frame group flex flex-col justify-between rounded-md p-8 transition-colors duration-200 hover:border-primary/40"
     >
       <div>
         <div className="flex items-center justify-between gap-3">
-          <span className="text-xs font-semibold uppercase tracking-widest text-cyan">{product.category}</span>
+          <span className="slugline">{product.category}</span>
           <Badge tone={statusTone[product.status]}>{statusLabel[product.status]}</Badge>
         </div>
-        <h3 className="font-display mt-3 text-2xl font-bold text-white">{product.name}</h3>
-        <p className="mt-1 text-sm text-slate">{product.tagline}</p>
-        <p className="mt-4 text-sm leading-relaxed text-surface/80">{product.summary}</p>
+        <h3 className="font-display mt-4 text-2xl font-semibold text-surface">{product.name}</h3>
+        <p className="mt-1 font-slug text-xs tracking-wide text-slate">{product.tagline}</p>
+        <p className="mt-4 text-sm leading-relaxed text-surface/70">{product.summary}</p>
       </div>
-      <div className="mt-8 flex items-center gap-2 text-sm font-semibold text-white">
+      <div className="mt-8 flex items-center gap-2 text-sm font-semibold text-primary">
         Explore {product.name}
         <ArrowUpRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1 group-hover:-translate-y-1" />
       </div>

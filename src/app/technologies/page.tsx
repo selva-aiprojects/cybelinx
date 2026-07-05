@@ -6,7 +6,7 @@ import { technologies } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "Technologies",
-  description: "Modern engineering technologies powering Cybelink product delivery.",
+  description: "Modern engineering technologies powering Cybelinx product delivery.",
 };
 
 export default function TechnologiesPage() {
