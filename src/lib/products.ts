@@ -18,6 +18,7 @@ export type Product = {
   isPlaceholderContent?: boolean;
   appUrl?: string;
   demoUrl?: string;
+  image?: string;
 };
 
 export const products: Product[] = [
@@ -29,6 +30,7 @@ export const products: Product[] = [
     summary:
       "An AI-enabled HRMS platform for Indian statutory compliance, employee experience, and workforce visibility across enterprises.",
     status: "live",
+    image: "/assets/products/cybehrm.png",
     appUrl: "https://cybehrm.vercel.app/",
     demoUrl: "https://cybehrm.vercel.app/",
     problem:
@@ -56,6 +58,7 @@ export const products: Product[] = [
     summary:
       "A hospitality operating platform unifying front office, housekeeping, maintenance, finance, and guest experience.",
     status: "live",
+    image: "/assets/products/cybehms.png",
     appUrl: "https://ehms-app.vercel.app/",
     demoUrl: "https://ehms-app.vercel.app/",
     problem:
@@ -91,6 +94,7 @@ export const products: Product[] = [
     category: "Pharma",
     summary: "Commercial operations, compliance, and supply chain intelligence for life sciences organizations.",
     status: "preview",
+    image: "/assets/products/cybepharma.png",
     isPlaceholderContent: true,
   },
   {
@@ -101,6 +105,7 @@ export const products: Product[] = [
     summary:
       "A cloud-native digital banking platform for retail, corporate, and payment operations with regulatory-ready architecture.",
     status: "coming-soon",
+    image: "/assets/products/cybebank.png",
     isPlaceholderContent: true,
   },
   {
@@ -111,6 +116,7 @@ export const products: Product[] = [
     summary:
       "Unified care coordination, clinical workflows, and patient engagement for hospitals and health networks.",
     status: "coming-soon",
+    image: "/assets/products/cybehealth.png",
     problem:
       "Fragmented clinical and operational systems slow care delivery and limit visibility across the care continuum.",
     modules: [
@@ -133,6 +139,7 @@ export const products: Product[] = [
     summary:
       "Composable AI capabilities—copilots, document intelligence, and workflow automation—for enterprise products.",
     status: "coming-soon",
+    image: "/assets/products/cybeai-suite.png",
     modules: [
       { title: "Document Intelligence", description: "Extract, classify, and route unstructured enterprise documents." },
       { title: "Workflow Copilots", description: "Embedded assistants inside operational and customer workflows." },

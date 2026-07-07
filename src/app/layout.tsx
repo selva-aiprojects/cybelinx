@@ -4,6 +4,8 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollProgress from "@/components/ScrollReel";
+import SmoothScroll from "@/components/SmoothScroll";
+import BackgroundGrid from "@/components/BackgroundGrid";
 import { brand } from "@/lib/content";
 
 const inter = Inter({
@@ -32,14 +34,17 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({ children }: { children?: React.ReactNode }) {
   return (
     <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable}`}>
       <body className="min-h-screen bg-background font-sans text-surface antialiased">
-        <ScrollProgress />
-        <Navbar />
-        <main>{children}</main>
-        <Footer />
+        <SmoothScroll>
+          <BackgroundGrid />
+          <ScrollProgress />
+          <Navbar />
+          <main className="relative z-10">{children}</main>
+          <Footer />
+        </SmoothScroll>
       </body>
     </html>
   );

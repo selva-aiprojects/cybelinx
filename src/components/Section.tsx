@@ -1,7 +1,8 @@
 import { ReactNode } from "react";
+import TextReveal from "./TextReveal";
 
 type SectionProps = {
-  children: ReactNode;
+  children?: ReactNode;
   className?: string;
   id?: string;
   textured?: boolean;
@@ -29,8 +30,13 @@ export function SectionHeading({
 }) {
   return (
     <div className="mb-12 max-w-2xl">
-      <span className="slugline">{eyebrow}</span>
-      <h2 className="font-display mt-3 text-3xl font-semibold text-surface md:text-4xl">{title}</h2>
+      <div className="flex items-center gap-2 mb-3">
+        <span className="h-1.5 w-1.5 rounded-full bg-cyan animate-pulse shadow-[0_0_8px_#60c8e0]" />
+        <span className="slugline">{eyebrow}</span>
+      </div>
+      <h2 className="font-display text-3xl font-bold text-surface md:text-4xl leading-[1.15]">
+        <TextReveal text={title} />
+      </h2>
       {description && <p className="mt-4 max-w-2xl text-base leading-8 text-surface/85">{description}</p>}
     </div>
   );

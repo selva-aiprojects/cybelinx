@@ -62,7 +62,7 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-6 z-50 border-b border-surface/10 bg-background/85 backdrop-blur-md relative">
+    <header className="sticky top-0 z-50 border-b border-cyan/25 bg-[#020814]/95 backdrop-blur-2xl shadow-[0_10px_35px_rgba(1,4,11,0.9),0_1px_15px_rgba(96,200,224,0.18)] relative transition-all duration-300">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
         <Link href="/" className="flex items-center">
           <LogoMark size={264} />

@@ -1,5 +1,5 @@
 type BadgeProps = {
-  children: React.ReactNode;
+  children?: React.ReactNode;
   tone?: "live" | "soon" | "new";
 };
 

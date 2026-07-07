@@ -3,7 +3,16 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Button from "./Button";
-import GlobeScene from "./GlobeScene";
+import dynamic from "next/dynamic";
+
+const GlobeScene = dynamic(() => import("./GlobeScene"), {
+  ssr: false,
+  loading: () => (
+    <div className="relative flex h-[420px] w-[420px] items-center justify-center lg:h-[520px] lg:w-[520px]" aria-hidden="true">
+      <div className="absolute inset-0 rounded-full bg-[radial-gradient(circle_at_center,rgba(96,200,224,0.18),transparent_70%)] blur-2xl animate-pulse-glow" />
+    </div>
+  ),
+});
 
 export default function Hero() {
   const ref = useRef<HTMLDivElement>(null);

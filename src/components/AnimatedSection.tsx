@@ -4,7 +4,7 @@ import { ReactNode } from "react";
 import { motion } from "framer-motion";
 
 type AnimatedSectionProps = {
-  children: ReactNode;
+  children?: ReactNode;
   className?: string;
   delay?: number;
 };
