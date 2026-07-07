@@ -32,7 +32,7 @@ export default function Hero() {
         <div className="relative mx-auto max-w-6xl px-6">
           <span className="slugline">SaaS Products. Live Today.</span>
 
-          <div className="mt-8 flex items-center gap-8 lg:gap-16">
+          <div className="mt-8 flex flex-col items-center gap-12 lg:flex-row lg:gap-16">
             <div className="min-w-0 flex-1">
               <h1 className="font-display max-w-3xl text-4xl font-semibold leading-[1.1] text-surface md:text-5xl lg:text-6xl">
                 AI-powered products that{" "}
@@ -65,7 +65,7 @@ export default function Hero() {
               </div>
             </div>
 
-            <motion.div style={{ y }} className="hidden shrink-0 md:block">
+            <motion.div style={{ y }} className="flex justify-center shrink-0 w-full lg:w-auto">
               <GlobeScene />
             </motion.div>
           </div>
