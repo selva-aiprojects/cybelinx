@@ -75,7 +75,7 @@ export default function GlobeScene() {
           transition={{
             y: { duration: 6, repeat: Infinity, ease: "easeInOut" },
           }}
-          className="relative z-10 flex items-center justify-center p-4 drop-shadow-[0_0_50px_rgba(96,200,224,0.4)]"
+          className="relative z-10 flex items-center justify-center"
           style={{ transform: "translateZ(30px)" }}
         >
           <Image
@@ -85,7 +85,7 @@ export default function GlobeScene() {
             height={600}
             priority
             unoptimized
-            className="w-full h-auto max-w-[420px] sm:max-w-[500px] lg:max-w-[580px] object-contain transition-transform duration-500 hover:scale-105"
+            className="w-full h-auto max-w-[420px] sm:max-w-[500px] lg:max-w-[580px] object-contain transition-transform duration-500 hover:scale-105 [mask-image:radial-gradient(circle_at_center,black_64%,transparent_76%)]"
           />
         </motion.div>
       </motion.div>
