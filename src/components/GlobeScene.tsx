@@ -41,7 +41,7 @@ export default function GlobeScene() {
 
   if (!mounted) {
     return (
-      <div className="relative flex h-[460px] w-[460px] items-center justify-center lg:h-[580px] lg:w-[580px] -mt-8 sm:-mt-12 lg:-mt-16 -translate-y-6 sm:-translate-y-8 lg:-translate-y-10" aria-hidden="true">
+      <div className="relative flex w-full max-w-[380px] sm:max-w-[460px] lg:max-w-[540px] aspect-square items-center justify-center mx-auto py-4" aria-hidden="true">
         <div className="absolute inset-0 rounded-full bg-[radial-gradient(circle_at_center,rgba(96,200,224,0.25),transparent_65%)] blur-3xl" />
       </div>
     );
@@ -52,7 +52,7 @@ export default function GlobeScene() {
       ref={containerRef}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      className="relative flex h-[460px] w-[460px] items-center justify-center lg:h-[580px] lg:w-[580px] select-none -mt-8 sm:-mt-12 lg:-mt-16 -translate-y-6 sm:-translate-y-8 lg:-translate-y-10"
+      className="relative flex w-full max-w-[380px] sm:max-w-[460px] lg:max-w-[540px] aspect-square items-center justify-center select-none mx-auto py-4"
       aria-label="Cybelinx Enterprise AI & Quantum Globe"
     >
       {/* Soft, clean ambient cyan background glow */}
@@ -70,12 +70,12 @@ export default function GlobeScene() {
         {/* Continuous Gentle Floating Animation */}
         <motion.div
           animate={{
-            y: [-8, 8, -8],
+            y: [-6, 6, -6],
           }}
           transition={{
             y: { duration: 6, repeat: Infinity, ease: "easeInOut" },
           }}
-          className="relative z-10 flex items-center justify-center"
+          className="relative z-10 flex h-full w-full items-center justify-center"
           style={{ transform: "translateZ(30px)" }}
         >
           <Image
@@ -85,7 +85,7 @@ export default function GlobeScene() {
             height={600}
             priority
             unoptimized
-            className="w-full h-auto max-w-[420px] sm:max-w-[500px] lg:max-w-[580px] object-contain transition-transform duration-500 hover:scale-105 [mask-image:radial-gradient(circle_at_center,black_64%,transparent_76%)]"
+            className="w-full h-full object-contain transition-transform duration-500 hover:scale-105 filter drop-shadow-[0_10px_35px_rgba(96,200,224,0.25)]"
           />
         </motion.div>
       </motion.div>

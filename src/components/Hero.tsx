@@ -23,18 +23,18 @@ export default function Hero() {
   const highlights = ["Live in production", "Multi-tenant SaaS", "AI-native workflows"];
 
   return (
-    <div ref={ref} className="relative overflow-hidden">
-      <div className="relative bg-grade-wash pb-16 pt-20 md:pb-24 md:pt-28">
+    <div ref={ref} className="relative overflow-x-clip">
+      <div className="relative bg-grade-wash pb-20 pt-20 md:pb-28 md:pt-28">
         <motion.div aria-hidden="true" style={{ opacity }} className="pointer-events-none absolute inset-0">
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_0%,rgba(42,119,173,0.14),transparent_60%)]" />
         </motion.div>
 
-        <div className="relative mx-auto max-w-6xl px-6">
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <span className="slugline">SaaS Products. Live Today.</span>
 
-          <div className="mt-8 flex flex-col items-center gap-12 lg:flex-row lg:gap-16">
-            <div className="min-w-0 flex-1">
-              <h1 className="font-display max-w-3xl text-4xl font-semibold leading-[1.1] text-surface md:text-5xl lg:text-6xl">
+          <div className="mt-8 flex flex-col items-center justify-between gap-12 lg:flex-row lg:gap-12">
+            <div className="min-w-0 flex-1 max-w-2xl">
+              <h1 className="font-display text-4xl font-semibold leading-[1.1] text-surface md:text-5xl lg:text-6xl">
                 AI-powered products that{" "}
                 <span className="bg-glow-gradient bg-clip-text text-transparent">run your enterprise</span>.
               </h1>
@@ -65,7 +65,7 @@ export default function Hero() {
               </div>
             </div>
 
-            <motion.div style={{ y }} className="flex justify-center shrink-0 w-full lg:w-auto">
+            <motion.div style={{ y }} className="flex justify-center shrink-0 w-full lg:w-auto max-w-[540px]">
               <GlobeScene />
             </motion.div>
           </div>

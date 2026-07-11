@@ -54,7 +54,6 @@ export default function BackgroundGrid() {
     document.addEventListener("mouseleave", handleMouseLeave);
 
     const particleCount = Math.min(Math.floor((width * height) / 25000), 50);
-    const colors = ["#60c8e0", "#4a9fdf", "#3b82f6"];
     const particles: Particle[] = [];
 
     for (let i = 0; i < particleCount; i++) {
@@ -64,15 +63,45 @@ export default function BackgroundGrid() {
         vx: (Math.random() - 0.5) * 0.4,
         vy: (Math.random() - 0.5) * 0.4,
         radius: Math.random() * 1.8 + 1,
-        color: colors[Math.floor(Math.random() * colors.length)],
+        color: "#60c8e0",
         alpha: Math.random() * 0.5 + 0.2,
       });
     }
 
     let animationFrameId: number;
 
-    const drawGrid = () => {
-      ctx.strokeStyle = "rgba(96, 200, 224, 0.035)";
+    const getThemeConfig = () => {
+      const theme = document.documentElement.getAttribute("data-theme") || "dark";
+      if (theme === "light") {
+        return {
+          gridStroke: "rgba(30, 96, 145, 0.08)",
+          mouseStroke: "#0284c7",
+          colors: ["#0284c7", "#1e6091", "#3b82f6"],
+        };
+      }
+      if (theme === "emerald") {
+        return {
+          gridStroke: "rgba(45, 212, 191, 0.06)",
+          mouseStroke: "#2dd4bf",
+          colors: ["#2dd4bf", "#10b981", "#059669"],
+        };
+      }
+      if (theme === "sunset") {
+        return {
+          gridStroke: "rgba(192, 132, 252, 0.06)",
+          mouseStroke: "#f43f5e",
+          colors: ["#c084fc", "#f43f5e", "#a855f7"],
+        };
+      }
+      return {
+        gridStroke: "rgba(96, 200, 224, 0.035)",
+        mouseStroke: "#60c8e0",
+        colors: ["#60c8e0", "#4a9fdf", "#3b82f6"],
+      };
+    };
+
+    const drawGrid = (gridStroke: string) => {
+      ctx.strokeStyle = gridStroke;
       ctx.lineWidth = 1;
       const gridSize = 60;
 
@@ -94,10 +123,12 @@ export default function BackgroundGrid() {
     const render = () => {
       ctx.clearRect(0, 0, width, height);
 
-      drawGrid();
+      const themeConfig = getThemeConfig();
+      drawGrid(themeConfig.gridStroke);
 
       for (let i = 0; i < particles.length; i++) {
         const p = particles[i];
+        p.color = themeConfig.colors[i % themeConfig.colors.length];
 
         if (!prefersReducedMotion) {
           p.x += p.vx;
@@ -145,7 +176,7 @@ export default function BackgroundGrid() {
           ctx.beginPath();
           ctx.moveTo(p.x, p.y);
           ctx.lineTo(mouse.x, mouse.y);
-          ctx.strokeStyle = "#60c8e0";
+          ctx.strokeStyle = themeConfig.mouseStroke;
           ctx.globalAlpha = (1 - dist / mouse.radius) * 0.35;
           ctx.lineWidth = 1.2;
           ctx.stroke();

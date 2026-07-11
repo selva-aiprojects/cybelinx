@@ -59,8 +59,8 @@ export const products: Product[] = [
       "A hospitality operating platform unifying front office, housekeeping, maintenance, finance, and guest experience.",
     status: "live",
     image: "/assets/products/cybehms.png",
-    appUrl: "https://ehms-app.vercel.app/",
-    demoUrl: "https://ehms-app.vercel.app/",
+    appUrl: "https://ehms-app-eta.vercel.app/",
+    demoUrl: "https://ehms-app-eta.vercel.app/",
     problem:
       "Disconnected operations create delays, reporting gaps, and inconsistent service quality across properties.",
     modules: [
