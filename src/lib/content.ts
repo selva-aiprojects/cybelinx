@@ -12,6 +12,7 @@ import {
   Link2,
   Package,
   RefreshCw,
+  ServerCog,
   ShieldCheck,
   ShoppingBag,
   Sparkles,
@@ -57,32 +58,32 @@ export const capabilities: Capability[] = [
   {
     icon: Package,
     title: "Multi-Tenant Architecture",
-    description: "Every product shares a schema-isolated multi-tenant core — new customers are configuration, not a fork.",
+    description: "Schema-isolated tenant data with per-tenant configuration, feature flags, and subscription management — new customers are configuration, not a codebase fork.",
   },
   {
     icon: Cloud,
     title: "Cloud-Native by Default",
-    description: "All platforms run on cloud-native foundations with auto-scaling, disaster recovery, and global availability.",
+    description: "Kubernetes-orchestrated workloads on AWS/GCP with auto-scaling, multi-region disaster recovery, and global edge availability.",
   },
   {
     icon: Brain,
     title: "AI Built In",
-    description: "Intelligence is designed into core workflows — payroll, compliance, operations — not layered on as a chatbot.",
+    description: "Intelligence is designed into core workflows — predictive analytics, statutory rule engines, document intelligence — not layered on as a chatbot.",
   },
   {
     icon: Link2,
     title: "Enterprise Integrations",
-    description: "Pre-built connectors for ERP, banking, statutory portals, and third-party systems out of the box.",
+    description: "Pre-built connectors for ERP, HRIS, banking, statutory portals, and third-party systems via event-driven APIs.",
   },
   {
     icon: ShieldCheck,
     title: "Compliance as a Feature",
-    description: "Statutory and regulatory rules are first-class product requirements, maintained and updated by our product team.",
+    description: "Statutory and regulatory rules are first-class product requirements — SOC 2 Type II controls, immutable audit logs, and RBAC with SAML/SSO.",
   },
   {
     icon: RefreshCw,
     title: "Continuous Delivery",
-    description: "Bi-weekly releases, zero-downtime deployments, and feature flags for safe rollouts to every tenant.",
+    description: "Bi-weekly releases, zero-downtime canary deployments, and progressive feature flags for safe rollouts across every tenant.",
   },
 ];
 
@@ -154,41 +155,48 @@ export const whyCybelinx = [
   {
     icon: Lightbulb,
     title: "Product-First",
-    description: "We ship SaaS products, not consulting engagements. One codebase, every tenant, continuous delivery.",
+    description: "We ship SaaS products, not consulting engagements. One codebase, every tenant, continuous delivery — zero forks.",
   },
   {
     icon: Cpu,
     title: "AI-Native Architecture",
-    description: "Intelligence is embedded into every product workflow — payroll, compliance, operations — from day one.",
+    description: "Intelligence is embedded into every product workflow — statutory compliance engines, predictive analytics, document intelligence — from day one.",
   },
   {
     icon: Globe2,
     title: "Enterprise Grade",
-    description: "Multi-tenant, cloud-native, compliance-ready. Built for the security and scale requirements of global enterprises.",
+    description: "Multi-tenant, cloud-native, compliance-ready. SOC 2 Type II controls, multi-region DR, and 99.9% uptime SLA for global enterprises.",
   },
   {
     icon: Sparkles,
     title: "Customer-Obsessed",
-    description: "Every product decision starts with the customer. We ship features, listen to feedback, and iterate in production.",
+    description: "Every product decision starts with the customer. We ship features, listen to feedback, and iterate in production — bi-weekly release cycles.",
   },
 ];
 
-export const solutions = [
+export type Solution = {
+  title: string;
+  description: string;
+  href?: string;
+};
+
+export const solutions: Solution[] = [
   {
     title: "Digital Product Development",
-    description: "Greenfield products and platform builds with agile delivery and enterprise-grade foundations.",
+    description: "Greenfield SaaS products and platform builds — from architecture and prototyping through to production-grade multi-tenant delivery.",
   },
   {
     title: "Legacy Modernization",
-    description: "Strangler patterns, cloud migration, and UX uplift without business disruption.",
+    description: "Strangler-fig migration, cloud-native re-platforming, and UX uplift — without disrupting live business operations.",
   },
   {
     title: "AI Transformation",
-    description: "Copilots, intelligent automation, and ML platforms integrated into core workflows.",
+    description: "Embed copilots, intelligent automation, and ML pipelines into core workflows — compliance engines, document intelligence, and predictive analytics.",
   },
   {
     title: "Platform Engineering",
-    description: "Internal developer platforms, golden paths, and cloud-native operating models.",
+    description: "Internal developer platforms, golden-path templates, CI/CD automation, and cloud-native operating models that accelerate product teams.",
+    href: "/cloud-platform",
   },
 ];
 

@@ -9,7 +9,7 @@ import { technologies } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "Technologies",
-  description: "Modern engineering technologies powering Cybelinx product delivery.",
+  description: "Platform engineering stack, cloud infrastructure, and enterprise technologies powering Cybelinx product delivery.",
 };
 
 export default function TechnologiesPage() {
@@ -18,8 +18,8 @@ export default function TechnologiesPage() {
       <Section className="pt-16">
         <PageHeader
           eyebrow="Technologies"
-          title="A modern stack for enterprise-grade products."
-          description="We select technologies for durability, security, and team velocity—aligned to your cloud and compliance requirements."
+          title="A modern stack for enterprise-grade SaaS products."
+          description="We select technologies for durability, security, and developer velocity — aligned to cloud-native architecture and compliance requirements."
         />
       </Section>
 
@@ -27,24 +27,24 @@ export default function TechnologiesPage() {
         <AnimatedSection>
           <ArchitectureEcosystem
             title="The Cybelinx Multi-Tenant Stack"
-            description="Engineered from the ground up for strict tenant isolation, high-throughput AI inference, and seamless enterprise integrations."
+            description="Four layers engineered from the ground up for strict tenant isolation, platform self-service, and enterprise-grade reliability."
             components={[
               {
                 label: "Core Infrastructure",
                 sublabel: "Cloud & Compute",
-                items: ["AWS / GCP Multi-Region", "Kubernetes Clusters", "Zero-Trust Mesh", "Automated Failover"],
+                items: ["AWS / GCP Multi-Region", "Kubernetes Clusters", "Zero-Trust Service Mesh", "Automated Failover & DR"],
                 color: "primary",
               },
               {
-                label: "AI & Telemetry Engine",
-                sublabel: "Intelligence Layer",
-                items: ["Real-time Stream Processing", "Custom LLM Fine-tuning", "Predictive Analytics", "Statutory Rule Engine"],
+                label: "Platform Services",
+                sublabel: "Developer Experience",
+                items: ["Internal Developer Portal", "Golden-Path Templates", "CI/CD Pipeline Automation", "Feature Flag Management"],
                 color: "cyan",
               },
               {
-                label: "Data & Persistence",
-                sublabel: "Storage Layer",
-                items: ["Isolated Tenant Schemas", "Vector Embeddings DB", "Distributed Caching", "Automated Backups"],
+                label: "Data & Multi-Tenancy",
+                sublabel: "Tenant Isolation",
+                items: ["Isolated Tenant Schemas", "Vector Embeddings DB", "Distributed Caching Layer", "Automated Backup & Restore"],
                 color: "violet",
               },
               {
@@ -62,7 +62,7 @@ export default function TechnologiesPage() {
         <AnimatedSection>
           <div className="mb-8">
             <span className="slugline">Core Technologies</span>
-            <h3 className="font-display mt-2 text-2xl font-bold text-surface">Proven enterprise frameworks and tools.</h3>
+            <h3 className="font-display mt-2 text-2xl font-bold text-surface">Proven frameworks for multi-tenant SaaS delivery.</h3>
           </div>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {technologies.map((tech, index) => (
@@ -80,19 +80,19 @@ export default function TechnologiesPage() {
       <Section textured>
         <AnimatedSection>
           <ArchitectureFlow
-            title="Secure Deployment & Integration Pipeline"
+            title="Platform-Enabled Deployment Pipeline"
             steps={[
-              { label: "Code & Security Audit", description: "Automated SAST/DAST vulnerability scanning and dependency checks." },
-              { label: "Immutable Build", description: "Containerized artifacts deployed across multi-region Kubernetes clusters." },
-              { label: "Live Telemetry & Self-Healing", description: "Continuous monitoring with automatic failover and AI anomaly detection." },
+              { label: "Template & Security Audit", description: "Golden-path scaffolding with automated SAST/DAST scanning, dependency audits, and compliance gates enforced before merge." },
+              { label: "Immutable Build & Deploy", description: "Containerized artifacts built once, deployed across multi-region Kubernetes clusters with canary release strategies." },
+              { label: "Live Telemetry & Self-Healing", description: "Continuous observability with AI-driven anomaly detection, automatic failover, and incident response across all tenants." },
             ]}
-            outcome="Continuous delivery with 99.99% uptime guarantee and zero-trust security architecture across all client environments."
+            outcome="Product teams ship weekly with zero-downtime deployments, automated compliance, and self-healing infrastructure — 99.99% uptime across all client environments."
           />
         </AnimatedSection>
       </Section>
 
       <Section>
-        <CTABand heading="Architecture review?" subheading="Our platform engineers can assess your stack and roadmap modernization paths." />
+        <CTABand heading="Platform architecture review" subheading="Our platform engineers can assess your stack and roadmap cloud-native modernization paths." />
       </Section>
     </>
   );

@@ -88,9 +88,9 @@ export default function HomePage() {
           <ArchitectureFlow
             title="How Cybelinx Transforms Enterprise Operations"
             steps={[
-              { label: "Data Ingestion", description: "Multi-tenant connectors sync ERP, HRIS, and IoT streams securely." },
-              { label: "AI Engine Processing", description: "Predictive models and statutory compliance engines analyze data in real time." },
-              { label: "Autonomous Action", description: "Automated payroll processing, dynamic room pricing, and predictive alerts." },
+              { label: "Data Ingestion", description: "Multi-tenant connectors sync ERP, HRIS, and IoT streams through event-driven APIs with tenant isolation." },
+              { label: "AI Engine Processing", description: "Predictive models, statutory compliance engines, and document intelligence analyze data in real time." },
+              { label: "Autonomous Action", description: "Automated payroll processing, dynamic room pricing, compliance alerts, and predictive operational workflows." },
             ]}
             outcome="Zero statutory penalties, 40% reduction in manual admin, and real-time operational visibility across all enterprise entities."
           />

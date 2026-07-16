@@ -4,11 +4,18 @@ import PageHeader from "@/components/PageHeader";
 import FeatureCard from "@/components/FeatureCard";
 import CTABand from "@/components/CTABand";
 import { solutions } from "@/lib/content";
-import { Package } from "lucide-react";
+import { Package, RefreshCw, Sparkles, ServerCog, type LucideIcon } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Solutions",
-  description: "Industry solutions built on our multi-tenant SaaS platforms for enterprise operations.",
+  description: "Platform engineering, product development, legacy modernization, and AI transformation — built on our multi-tenant SaaS core.",
+};
+
+const iconMap: Record<string, LucideIcon> = {
+  "Digital Product Development": Package,
+  "Legacy Modernization": RefreshCw,
+  "AI Transformation": Sparkles,
+  "Platform Engineering": ServerCog,
 };
 
 export default function SolutionsPage() {
@@ -17,21 +24,25 @@ export default function SolutionsPage() {
       <Section className="pt-16">
         <PageHeader
           eyebrow="Solutions"
-          title="One platform, every industry."
-          description="Cybelinx products are built on a shared multi-tenant core that adapts to Banking, Healthcare, Pharma, HCM, Manufacturing, Retail, Logistics, Telecom, and Energy."
+          title="One platform. Every industry. Full-stack delivery."
+          description="Cybelinx delivers end-to-end product engineering — from greenfield SaaS builds and platform modernization to AI transformation and internal developer platforms."
         />
       </Section>
 
       <Section textured>
         <div className="grid gap-6 md:grid-cols-2">
-          {solutions.map((solution) => (
-            <FeatureCard
-              key={solution.title}
-              title={solution.title}
-              description={solution.description}
-              icon={Package}
-            />
-          ))}
+          {solutions.map((solution) => {
+            const Icon = iconMap[solution.title] ?? Package;
+            return (
+              <FeatureCard
+                key={solution.title}
+                title={solution.title}
+                description={solution.description}
+                icon={Icon}
+                href={solution.href}
+              />
+            );
+          })}
         </div>
       </Section>
 

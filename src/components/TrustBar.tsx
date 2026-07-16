@@ -30,7 +30,7 @@ export default function TrustBar() {
             {[
               "CybeHRM — AI-powered HRMS with Indian statutory compliance",
               "CybeHMS — Enterprise hospitality management, multi-property",
-              "6 more products in development across Banking, Pharma, Healthcare & AI",
+              "4 more products in development across Banking, Pharma, Healthcare & AI",
             ].map((item) => (
               <div key={item} className="rounded-lg border border-surface/10 bg-surface/[0.03] px-4 py-3 text-sm text-surface/80">
                 {item}
