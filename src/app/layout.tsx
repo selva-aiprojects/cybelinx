@@ -3,9 +3,6 @@ import { Inter, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import ScrollProgress from "@/components/ScrollReel";
-import SmoothScroll from "@/components/SmoothScroll";
-import BackgroundGrid from "@/components/BackgroundGrid";
 import { brand } from "@/lib/content";
 import { FloatingThemeSwitcher } from "@/components/ThemeToggle";
 
@@ -41,19 +38,15 @@ export default function RootLayout({ children }: { children?: React.ReactNode })
       <head>
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){try{var t=localStorage.getItem("cybelinx-theme")||"dark";document.documentElement.setAttribute("data-theme",t);}catch(e){}})();`,
+            __html: `(function(){try{var t=localStorage.getItem("cybelinx-theme")||"light";document.documentElement.setAttribute("data-theme",t);}catch(e){}})();`,
           }}
         />
       </head>
       <body className="min-h-screen bg-background font-sans text-surface antialiased transition-colors duration-300">
-        <SmoothScroll>
-          <BackgroundGrid />
-          <ScrollProgress />
-          <Navbar />
-          <main className="relative z-10">{children}</main>
-          <Footer />
-          <FloatingThemeSwitcher />
-        </SmoothScroll>
+        <Navbar />
+        <main>{children}</main>
+        <Footer />
+        <FloatingThemeSwitcher />
       </body>
     </html>
   );

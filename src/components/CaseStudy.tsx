@@ -20,7 +20,7 @@ export default function CaseStudy({ title, challenge, solution, impact, metrics,
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay }}
-      className="group relative flex h-full flex-col rounded-2xl border border-surface/10 bg-gradient-to-br from-surface/[0.05] to-transparent p-8 transition-all hover:border-primary/50 hover:from-primary/10"
+      className="group relative flex h-full flex-col rounded-lg border border-border bg-background p-8 transition-all hover:-translate-y-0.5 hover:shadow-md"
     >
       <div className="mb-6 flex items-start justify-between">
         <h3 className="font-display text-xl font-bold text-surface">{title}</h3>
@@ -29,13 +29,13 @@ export default function CaseStudy({ title, challenge, solution, impact, metrics,
 
       <div className="space-y-6 flex-1">
         <div>
-          <p className="text-xs font-semibold uppercase tracking-wide text-slate/60">Challenge</p>
-          <p className="mt-2 text-sm leading-6 text-surface/80">{challenge}</p>
+          <p className="text-xs font-semibold uppercase tracking-wide text-slate">Challenge</p>
+          <p className="mt-2 text-sm leading-6 text-slate">{challenge}</p>
         </div>
 
         <div>
-          <p className="text-xs font-semibold uppercase tracking-wide text-slate/60">Solution</p>
-          <p className="mt-2 text-sm leading-6 text-surface/80">{solution}</p>
+          <p className="text-xs font-semibold uppercase tracking-wide text-slate">Solution</p>
+          <p className="mt-2 text-sm leading-6 text-slate">{solution}</p>
         </div>
 
         <div>
@@ -55,8 +55,8 @@ export default function CaseStudy({ title, challenge, solution, impact, metrics,
       </div>
 
       {href && (
-        <div className="mt-6 pt-6 border-t border-surface/10">
-          <p className="text-xs font-semibold uppercase tracking-wide text-surface/60 transition-colors group-hover:text-primary">
+        <div className="mt-6 pt-6 border-t border-border">
+          <p className="text-xs font-semibold uppercase tracking-wide text-slate transition-colors group-hover:text-primary">
             Learn More &rarr;
           </p>
         </div>

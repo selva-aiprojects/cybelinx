@@ -31,14 +31,14 @@ export default function ProductDetail({ product, faqs = [], showPricing = false 
     <>
       <Section className="pt-16">
         <Badge tone={statusTone[product.status]}>{statusLabel[product.status]}</Badge>
-        <h1 className="font-display mt-5 max-w-2xl text-4xl font-semibold text-surface md:text-5xl">{product.name}</h1>
-        <p className="mt-2 font-slug text-sm tracking-wide text-primary">{product.tagline}</p>
-        <p className="mt-5 max-w-xl text-surface/85">{product.summary}</p>
+        <h1 className="mt-5 max-w-2xl font-display text-4xl font-bold text-surface md:text-5xl">{product.name}</h1>
+        <p className="mt-2 text-sm font-semibold uppercase tracking-wide text-primary">{product.tagline}</p>
+        <p className="mt-5 max-w-xl text-slate">{product.summary}</p>
         <div className="mt-8 flex flex-wrap gap-4">
           {product.appUrl ? (
             <>
               <Button href={product.appUrl} target="_blank" rel="noopener noreferrer">
-                Launch Live App 🚀
+                Launch Live App
               </Button>
               <Button href="/contact" variant="secondary">Request Walkthrough</Button>
             </>
@@ -53,7 +53,7 @@ export default function ProductDetail({ product, faqs = [], showPricing = false 
 
       {product.problem && (
         <Section>
-          <div className="frame rounded-2xl p-8 md:p-10">
+          <div className="rounded-lg border border-border bg-background p-8 md:p-10">
             <span className="slugline">The Problem We Solve</span>
             <p className="mt-3 max-w-2xl text-lg text-surface">{product.problem}</p>
           </div>
@@ -63,10 +63,10 @@ export default function ProductDetail({ product, faqs = [], showPricing = false 
       {product.modules && product.modules.length > 0 && (
         <Section textured>
           <span className="slugline">What&apos;s Inside</span>
-          <h2 className="font-display mt-3 text-3xl font-semibold text-surface md:text-4xl">Built for enterprise depth.</h2>
+          <h2 className="mt-3 font-display text-3xl font-bold text-surface md:text-4xl">Built for enterprise depth.</h2>
           <div className="mt-10 grid gap-6 sm:grid-cols-2 md:grid-cols-3">
             {product.modules.map((module) => (
-              <div key={module.title} className="frame rounded-2xl p-6">
+              <div key={module.title} className="rounded-lg border border-border bg-background p-6">
                 <h3 className="text-base font-semibold text-surface">{module.title}</h3>
                 <p className="mt-2 text-sm text-slate">{module.description}</p>
               </div>
@@ -80,7 +80,7 @@ export default function ProductDetail({ product, faqs = [], showPricing = false 
           <span className="slugline">Why {product.name}</span>
           <ul className="mt-6 grid gap-4 md:grid-cols-3">
             {product.differentiators.map((item) => (
-              <li key={item} className="frame rounded-2xl p-6 text-sm text-surface/85">
+              <li key={item} className="rounded-lg border border-border bg-background p-6 text-sm text-slate">
                 {item}
               </li>
             ))}
@@ -104,7 +104,7 @@ export default function ProductDetail({ product, faqs = [], showPricing = false 
 
       {showPricing && (
         <Section>
-          <span className="slugline mb-6 block">Pricing</span>
+          <span className="mb-6 block slugline">Pricing</span>
           <PricingPlaceholder productName={product.name} />
         </Section>
       )}
@@ -112,7 +112,7 @@ export default function ProductDetail({ product, faqs = [], showPricing = false 
       {faqs.length > 0 && (
         <Section>
           <span className="slugline">FAQ</span>
-          <h2 className="font-display mt-3 text-3xl font-semibold text-surface">Common questions</h2>
+          <h2 className="mt-3 font-display text-3xl font-bold text-surface">Common questions</h2>
           <div className="mt-8">
             <FAQAccordion items={faqs} />
           </div>

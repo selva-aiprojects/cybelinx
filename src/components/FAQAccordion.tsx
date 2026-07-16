@@ -9,7 +9,7 @@ export default function FAQAccordion({ items }: { items: FAQItem[] }) {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <div className="divide-y divide-slate/20">
+    <div className="divide-y divide-border">
       {items.map((item, i) => {
         const isOpen = openIndex === i;
         return (
@@ -21,12 +21,12 @@ export default function FAQAccordion({ items }: { items: FAQItem[] }) {
             >
               <span className="text-base font-semibold">{item.question}</span>
               <ChevronDown
-                className={`h-5 w-5 flex-shrink-0 text-primary transition-transform duration-200 ${
+                className={`h-5 w-5 flex-shrink-0 text-slate transition-transform duration-200 ${
                   isOpen ? "rotate-180" : ""
                 }`}
               />
             </button>
-            {isOpen && <p className="mt-3 text-sm leading-relaxed text-surface/80">{item.answer}</p>}
+            {isOpen && <p className="mt-3 text-sm leading-relaxed text-slate">{item.answer}</p>}
           </div>
         );
       })}

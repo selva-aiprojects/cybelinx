@@ -4,21 +4,21 @@ type BadgeProps = {
 };
 
 const tones: Record<string, string> = {
-  live: "bg-primary/10 text-primary border-primary/40",
-  soon: "bg-slate/10 text-slate border-slate/30",
-  new: "bg-cyan/15 text-cyan border-cyan/40",
+  live: "bg-green-50 text-green-700 border-green-200",
+  soon: "bg-slate-50 text-slate-500 border-slate-200",
+  new: "bg-blue-50 text-blue-700 border-blue-200",
 };
 
 const dot: Record<string, string> = {
-  live: "bg-primary",
-  soon: "bg-slate",
-  new: "bg-cyan",
+  live: "bg-green-500",
+  soon: "bg-slate-400",
+  new: "bg-blue-500",
 };
 
 export default function Badge({ children, tone = "live" }: BadgeProps) {
   return (
     <span
-      className={`font-slug inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-[10px] font-bold tracking-widest ${tones[tone]}`}
+      className={`inline-flex items-center gap-1.5 rounded-full border px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider ${tones[tone]}`}
     >
       <span className={`h-1.5 w-1.5 rounded-full ${dot[tone]}`} aria-hidden="true" />
       {children}

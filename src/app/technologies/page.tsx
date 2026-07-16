@@ -62,14 +62,14 @@ export default function TechnologiesPage() {
         <AnimatedSection>
           <div className="mb-8">
             <span className="slugline">Core Technologies</span>
-            <h3 className="font-display mt-2 text-2xl font-bold text-surface">Proven frameworks for multi-tenant SaaS delivery.</h3>
+            <h3 className="mt-2 font-display text-2xl font-bold text-surface">Proven frameworks for multi-tenant SaaS delivery.</h3>
           </div>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {technologies.map((tech, index) => (
               <AnimatedSection key={tech} delay={index * 0.05}>
-                <div className="spotlight-card rounded-2xl p-6 text-sm font-bold text-white flex items-center justify-between group">
+                <div className="rounded-lg border border-border bg-background p-5 text-sm font-semibold text-surface flex items-center justify-between">
                   <span>{tech}</span>
-                  <span className="h-2 w-2 rounded-full bg-cyan/40 group-hover:bg-cyan group-hover:shadow-[0_0_10px_#60c8e0] transition-all" />
+                  <span className="h-2 w-2 rounded-full bg-primary/30" />
                 </div>
               </AnimatedSection>
             ))}

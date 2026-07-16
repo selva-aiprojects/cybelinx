@@ -3,71 +3,53 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Button from "./Button";
-import dynamic from "next/dynamic";
-
-const GlobeScene = dynamic(() => import("./GlobeScene"), {
-  ssr: false,
-  loading: () => (
-    <div className="relative flex h-[420px] w-[420px] items-center justify-center lg:h-[520px] lg:w-[520px]" aria-hidden="true">
-      <div className="absolute inset-0 rounded-full bg-[radial-gradient(circle_at_center,rgba(96,200,224,0.18),transparent_70%)] blur-2xl animate-pulse-glow" />
-    </div>
-  ),
-});
 
 export default function Hero() {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
-  const y = useTransform(scrollYProgress, [0, 1], [0, 80]);
   const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
 
   const highlights = ["Live in production", "Multi-tenant SaaS", "AI-native workflows"];
 
   return (
-    <div ref={ref} className="relative overflow-x-clip">
-      <div className="relative bg-grade-wash pb-20 pt-20 md:pb-28 md:pt-28">
+    <div ref={ref} className="relative overflow-hidden bg-charcoal">
+      <div className="relative py-20 md:py-28 lg:py-36">
         <motion.div aria-hidden="true" style={{ opacity }} className="pointer-events-none absolute inset-0">
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_0%,rgba(42,119,173,0.14),transparent_60%)]" />
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white/5" />
         </motion.div>
 
-        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <span className="slugline">SaaS Products. Live Today.</span>
+        <div className="relative mx-auto max-w-7xl px-6">
+          <div className="max-w-3xl">
+            <span className="slugline">SaaS Products. Live Today.</span>
 
-          <div className="mt-8 flex flex-col items-center justify-between gap-12 lg:flex-row lg:gap-12">
-            <div className="min-w-0 flex-1 max-w-2xl">
-              <h1 className="font-display text-4xl font-semibold leading-[1.1] text-surface md:text-5xl lg:text-6xl">
-                AI-powered products that{" "}
-                <span className="bg-glow-gradient bg-clip-text text-transparent">run your enterprise</span>.
-              </h1>
+            <h1 className="mt-6 font-display text-4xl font-bold leading-[1.1] text-surface md:text-5xl lg:text-6xl">
+              AI-powered products that run your enterprise.
+            </h1>
 
-              <p className="mt-6 max-w-xl text-base leading-8 text-surface/85 md:text-lg">
-                Cybelinx builds multi-tenant SaaS platforms for enterprise operations. CybeHRM handles
-                statutory-compliant HR and payroll. CybeHMS runs multi-property hospitality. Both are live,
-                both in production — and more platforms are on the way.
-              </p>
+            <p className="mt-6 max-w-xl text-lg leading-relaxed text-slate">
+              Cybelinx builds multi-tenant SaaS platforms for enterprise operations. CybeHRM handles
+              statutory-compliant HR and payroll. CybeHMS runs multi-property hospitality. Both are live,
+              both in production — and more platforms are on the way.
+            </p>
 
-              <div className="mt-10 flex flex-wrap gap-4">
-                <Button href="/products">Explore Products</Button>
-                <Button href="/contact" variant="secondary">
-                  Request a Demo
-                </Button>
-              </div>
-
-              <div className="mt-9 flex flex-wrap gap-2.5">
-                {highlights.map((item) => (
-                  <div
-                    key={item}
-                    className="flex items-center gap-2 rounded-full border border-surface/10 bg-surface/[0.06] px-3.5 py-1.5 text-[11px] font-semibold uppercase tracking-wide text-surface/85"
-                  >
-                    <span className="h-1.5 w-1.5 rounded-full bg-primary" aria-hidden="true" />
-                    {item}
-                  </div>
-                ))}
-              </div>
+            <div className="mt-10 flex flex-wrap gap-4">
+              <Button href="/products">Explore Products</Button>
+              <Button href="/contact" variant="secondary">
+                Request a Demo
+              </Button>
             </div>
 
-            <motion.div style={{ y }} className="flex justify-center shrink-0 w-full lg:w-auto max-w-[540px]">
-              <GlobeScene />
-            </motion.div>
+            <div className="mt-10 flex flex-wrap gap-3">
+              {highlights.map((item) => (
+                <div
+                  key={item}
+                  className="flex items-center gap-2 rounded-full border border-border bg-background px-4 py-2 text-xs font-semibold text-slate"
+                >
+                  <span className="h-1.5 w-1.5 rounded-full bg-accent" aria-hidden="true" />
+                  {item}
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>

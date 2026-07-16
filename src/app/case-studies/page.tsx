@@ -28,11 +28,11 @@ export default function CaseStudiesPage() {
             <Link
               key={study.slug}
               href="/contact"
-              className="glass group flex flex-col justify-between gap-4 rounded-2xl p-8 transition-colors hover:border-primary/30 md:flex-row md:items-center"
+              className="group flex flex-col justify-between gap-4 rounded-lg border border-border bg-background p-8 transition-all hover:-translate-y-0.5 hover:shadow-md md:flex-row md:items-center"
             >
               <div>
                 <span className="text-xs font-semibold uppercase tracking-widest text-primary">{study.industry}</span>
-                <h2 className="font-display mt-2 text-2xl font-bold text-surface">{study.title}</h2>
+                <h2 className="mt-2 font-display text-2xl font-bold text-surface">{study.title}</h2>
                 <p className="mt-2 text-sm text-slate">{study.outcome}</p>
               </div>
               <div className="flex items-center gap-2 text-sm font-semibold text-primary">

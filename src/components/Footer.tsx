@@ -5,22 +5,22 @@ import { footerNav } from "@/lib/navigation";
 
 export default function Footer() {
   return (
-    <footer className="border-t border-surface/10 py-14">
-      <div className="mx-auto grid max-w-6xl grid-cols-2 gap-10 px-6 pt-4 md:grid-cols-4 lg:grid-cols-5">
+    <footer className="border-t border-border bg-charcoal">
+      <div className="mx-auto grid max-w-7xl grid-cols-2 gap-10 px-6 py-16 md:grid-cols-4 lg:grid-cols-5">
         <div className="col-span-2 lg:col-span-2">
           <div className="flex items-center">
-            <LogoMark size={84} />
+            <LogoMark size={72} />
           </div>
-          <p className="mt-4 max-w-sm text-sm text-slate">{brand.description}</p>
-          <p className="mt-4 max-w-sm font-slug text-xs leading-relaxed text-slate/80">{brand.address}</p>
+          <p className="mt-4 max-w-sm text-sm leading-relaxed text-slate">{brand.description}</p>
+          <p className="mt-3 max-w-sm text-xs leading-relaxed text-slate/80">{brand.address}</p>
         </div>
 
         <div>
-          <h4 className="font-slug text-[10px] tracking-widest text-slate">Products</h4>
+          <h4 className="text-xs font-bold uppercase tracking-widest text-surface">Products</h4>
           <ul className="mt-4 space-y-3">
             {footerNav.products.map((item) => (
               <li key={item.href}>
-                <Link href={item.href} className="text-sm text-surface/85 transition-colors hover:text-primary">
+                <Link href={item.href} className="text-sm text-slate transition-colors hover:text-surface">
                   {item.label}
                 </Link>
               </li>
@@ -29,11 +29,11 @@ export default function Footer() {
         </div>
 
         <div>
-          <h4 className="font-slug text-[10px] tracking-widest text-slate">Resources</h4>
+          <h4 className="text-xs font-bold uppercase tracking-widest text-surface">Resources</h4>
           <ul className="mt-4 space-y-3">
             {footerNav.resources.map((item) => (
               <li key={item.href}>
-                <Link href={item.href} className="text-sm text-surface/85 transition-colors hover:text-primary">
+                <Link href={item.href} className="text-sm text-slate transition-colors hover:text-surface">
                   {item.label}
                 </Link>
               </li>
@@ -42,18 +42,18 @@ export default function Footer() {
         </div>
 
         <div>
-          <h4 className="font-slug text-[10px] tracking-widest text-slate">Company</h4>
+          <h4 className="text-xs font-bold uppercase tracking-widest text-surface">Company</h4>
           <ul className="mt-4 space-y-3">
             {footerNav.company.map((item) => (
               <li key={item.href}>
-                <Link href={item.href} className="text-sm text-surface/85 transition-colors hover:text-primary">
+                <Link href={item.href} className="text-sm text-slate transition-colors hover:text-surface">
                   {item.label}
                 </Link>
               </li>
             ))}
             {footerNav.capabilities.map((item) => (
               <li key={item.href}>
-                <Link href={item.href} className="text-sm text-surface/85 transition-colors hover:text-primary">
+                <Link href={item.href} className="text-sm text-slate transition-colors hover:text-surface">
                   {item.label}
                 </Link>
               </li>
@@ -62,12 +62,12 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="mx-auto mt-10 max-w-6xl border-t border-surface/10 px-6 pt-6">
+      <div className="mx-auto max-w-7xl border-t border-border px-6 py-6">
         <div className="flex flex-wrap items-center justify-between gap-3">
-          <span className="font-slug text-[11px] tracking-widest text-slate">
+          <span className="text-xs text-slate">
             &copy; {new Date().getFullYear()} {brand.name}. All rights reserved.
           </span>
-          <span className="font-slug text-[11px] uppercase tracking-widest text-slate">Bangalore &middot; Global Delivery</span>
+          <span className="text-xs uppercase tracking-wide text-slate">Bangalore &middot; Global Delivery</span>
         </div>
       </div>
     </footer>

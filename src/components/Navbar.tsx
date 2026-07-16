@@ -28,25 +28,25 @@ function NavDropdown({ group }: { group: NavGroup }) {
 
   if (!group.items) {
     return (
-      <Link href={group.href!} className="font-slug text-xs tracking-wide text-surface/75 transition-colors hover:text-primary">
-        {group.label.toUpperCase()}
+      <Link href={group.href!} className="text-sm font-medium text-slate transition-colors hover:text-surface">
+        {group.label}
       </Link>
     );
   }
 
   return (
     <div ref={menuRef} className="relative" onMouseEnter={() => setOpen(true)} onMouseLeave={() => setOpen(false)}>
-      <button className="flex items-center gap-1 font-slug text-xs tracking-wide text-surface/75 transition-colors hover:text-primary">
-        {group.label.toUpperCase()} <ChevronDown className="h-3.5 w-3.5" />
+      <button className="flex items-center gap-1 text-sm font-medium text-slate transition-colors hover:text-surface">
+        {group.label} <ChevronDown className="h-3.5 w-3.5" />
       </button>
       <div className="absolute left-1/2 -translate-x-1/2 pt-2">
         {open && (
-          <div style={{ backgroundColor: "var(--color-background, #01040b)", opacity: 1 }} className="z-[9999] w-68 min-w-0 rounded-2xl border border-surface/20 p-2.5 shadow-[0_20px_50px_rgba(0,0,0,0.8)]">
+          <div className="z-[9999] w-72 rounded-lg border border-border bg-nav-bg p-2 shadow-xl">
             {group.items.map((item) => (
               <div
                 key={item.href}
                 onClick={() => { router.push(item.href); setOpen(false); }}
-                className="cursor-pointer rounded-lg px-4 py-3 transition-colors hover:bg-primary/10"
+                className="cursor-pointer rounded-md px-4 py-3 transition-colors hover:bg-charcoal"
               >
                 <span className="text-sm font-semibold text-surface">{item.label}</span>
                 {item.description && <span className="mt-0.5 block text-xs text-slate">{item.description}</span>}
@@ -64,61 +64,55 @@ export default function Navbar() {
 
   return (
     <header
-      style={{
-        backgroundColor: "var(--nav-bg, rgba(2, 8, 20, 0.98))",
-        borderColor: "var(--nav-border, rgba(96, 200, 224, 0.25))",
-        boxShadow: "var(--nav-shadow, 0 10px 35px rgba(1, 4, 11, 0.9), 0 1px 15px rgba(96, 200, 224, 0.18))",
-        opacity: 1,
-      }}
-      className="sticky top-0 z-50 border-b backdrop-blur-3xl transition-all duration-300"
+      className="sticky top-0 z-50 border-b border-border bg-nav-bg backdrop-blur-sm"
     >
-      <div className="mx-auto flex flex-nowrap max-w-[1440px] items-center justify-between px-4 sm:px-6 lg:px-8 py-3.5 gap-4">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
         <Link href="/" className="flex items-center shrink-0">
-          <LogoMark size={210} />
+          <LogoMark size={160} />
         </Link>
 
-        <nav className="hidden items-center gap-5 lg:gap-6 xl:flex shrink-0">
+        <nav className="hidden items-center gap-6 lg:flex shrink-0">
           {mainNav.map((group) => (
             <NavDropdown key={group.label} group={group} />
           ))}
         </nav>
 
-        <div className="hidden items-center gap-2.5 xl:flex shrink-0">
+        <div className="hidden items-center gap-3 lg:flex shrink-0">
           <ThemeSelector />
           <Button href="/contact" variant="secondary">Sign In</Button>
           <Button href="/contact">Get a Demo</Button>
         </div>
 
-        <div className="flex items-center gap-2 xl:hidden shrink-0">
+        <div className="flex items-center gap-2 lg:hidden shrink-0">
           <ThemeSelector />
           <button className="text-surface p-1.5" onClick={() => setOpen(!open)} aria-label="Toggle menu">
-            {open ? <X /> : <Menu />}
+            {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
         </div>
       </div>
 
       {open && (
-        <div style={{ backgroundColor: "var(--color-background, #01040b)", opacity: 1 }} className="absolute left-0 right-0 top-full z-[9999] border-b border-surface/20 px-6 py-6 shadow-2xl xl:hidden">
+        <div className="absolute left-0 right-0 top-full z-[9999] border-b border-border bg-nav-bg px-6 py-6 shadow-xl lg:hidden">
           <div className="flex flex-col gap-4">
             {mainNav.map((group) =>
               group.items ? (
                 <div key={group.label}>
-                  <div className="font-slug text-[11px] tracking-widest text-slate">{group.label.toUpperCase()}</div>
+                  <div className="text-xs font-bold uppercase tracking-widest text-slate">{group.label}</div>
                   <div className="mt-2 flex flex-col gap-2 pl-2">
                     {group.items.map((item) => (
-                      <Link key={item.href} href={item.href} className="text-sm text-surface/85" onClick={() => setOpen(false)}>
+                      <Link key={item.href} href={item.href} className="text-sm text-slate hover:text-surface" onClick={() => setOpen(false)}>
                         {item.label}
                       </Link>
                     ))}
                   </div>
                 </div>
               ) : (
-                <Link key={group.label} href={group.href!} className="text-sm text-surface/85" onClick={() => setOpen(false)}>
+                <Link key={group.label} href={group.href!} className="text-sm text-slate hover:text-surface" onClick={() => setOpen(false)}>
                   {group.label}
                 </Link>
               ),
             )}
-            <Link href="/contact" className="text-sm text-surface/85" onClick={() => setOpen(false)}>
+            <Link href="/contact" className="text-sm text-slate hover:text-surface" onClick={() => setOpen(false)}>
               Contact
             </Link>
             <Button href="/contact">Get a Demo</Button>

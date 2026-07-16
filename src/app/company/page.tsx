@@ -23,9 +23,9 @@ export default function CompanyPage() {
       </Section>
 
       <Section textured>
-        <div className="glass rounded-2xl p-8 md:p-10">
+        <div className="rounded-lg border border-border bg-background p-8 md:p-10">
           <h2 className="font-display text-2xl font-bold text-surface">Our story</h2>
-          <p className="mt-4 max-w-3xl text-sm leading-relaxed text-surface/80">
+          <p className="mt-4 max-w-3xl text-sm leading-relaxed text-slate">
             Cybelinx was founded to build enterprise SaaS products that just work. CybeHRM and CybeHMS are live
             in production today, handling statutory payroll and multi-property hospitality operations. We are
             expanding into Banking, Healthcare, Pharma, Manufacturing, and beyond \u2014 all on the same
@@ -36,8 +36,8 @@ export default function CompanyPage() {
 
       <Section>
         <div className="mb-10 max-w-2xl">
-          <span className="text-xs font-semibold uppercase tracking-widest text-primary">Product principles</span>
-          <h2 className="font-display mt-3 text-3xl font-bold text-surface">How we build products.</h2>
+          <span className="text-xs font-bold uppercase tracking-widest text-primary">Product principles</span>
+          <h2 className="mt-3 font-display text-3xl font-bold text-surface">How we build products.</h2>
         </div>
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {whyCybelinx.map((pillar) => (
@@ -47,10 +47,10 @@ export default function CompanyPage() {
       </Section>
 
       <Section>
-        <div className="glass rounded-2xl p-8 md:p-10">
+        <div className="rounded-lg border border-border bg-background p-8 md:p-10">
           <Building2 className="h-6 w-6 text-primary" />
-          <h2 className="font-display mt-4 text-2xl font-bold text-surface">Global operations</h2>
-          <p className="mt-3 max-w-2xl text-sm text-surface/80">
+          <h2 className="mt-4 font-display text-2xl font-bold text-surface">Global operations</h2>
+          <p className="mt-3 max-w-2xl text-sm text-slate">
             Distributed engineering teams with enterprise governance, secure delivery practices, and 24/7
             platform operations for customers worldwide.
           </p>

@@ -106,7 +106,7 @@ export default function CloudPlatformPage() {
             <h3 className="font-display mt-2 text-2xl font-bold text-surface md:text-3xl">
               Platform capabilities that compound across every product.
             </h3>
-            <p className="mt-3 max-w-2xl text-base leading-relaxed text-surface/85">
+            <p className="mt-3 max-w-2xl text-base leading-relaxed text-slate">
               Every Cybelinx product runs on a shared platform layer engineered for
               multi-tenancy, compliance, and rapid product iteration.
             </p>
@@ -188,7 +188,7 @@ export default function CloudPlatformPage() {
             <h3 className="font-display mt-2 text-2xl font-bold text-surface md:text-3xl">
               Why our platform approach works.
             </h3>
-            <p className="mt-3 max-w-2xl text-base leading-relaxed text-surface/85">
+            <p className="mt-3 max-w-2xl text-base leading-relaxed text-slate">
               Platform engineering is not just tooling — it is a product discipline
               applied to the developer experience.
             </p>

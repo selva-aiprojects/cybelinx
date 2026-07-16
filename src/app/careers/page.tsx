@@ -25,7 +25,7 @@ export default function CareersPage() {
       <Section>
         <div className="flex flex-wrap gap-3">
           {values.map((value) => (
-            <span key={value} className="glass rounded-full px-5 py-2 text-sm text-surface">
+            <span key={value} className="rounded-full border border-border bg-background px-5 py-2 text-sm font-medium text-surface">
               {value}
             </span>
           ))}
@@ -33,9 +33,9 @@ export default function CareersPage() {
       </Section>
 
       <Section>
-        <div className="glass rounded-2xl p-10 text-center">
-          <h2 className="font-display text-2xl font-bold text-white">Open roles coming soon</h2>
-          <p className="mx-auto mt-3 max-w-md text-sm text-surface/80">
+        <div className="rounded-lg border border-border bg-charcoal p-10 text-center">
+          <h2 className="font-display text-2xl font-bold text-surface">Open roles coming soon</h2>
+          <p className="mx-auto mt-3 max-w-md text-sm text-slate">
             We&apos;re expanding engineering teams across product, cloud, and AI. Share your profile and we&apos;ll reach out
             when a matching role opens.
           </p>

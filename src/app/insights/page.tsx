@@ -28,14 +28,14 @@ export default function InsightsPage() {
             <Link
               key={article.slug}
               href="/contact"
-              className="glass group rounded-2xl p-8 transition-colors hover:border-primary/30"
+              className="group rounded-lg border border-border bg-background p-8 transition-all hover:-translate-y-0.5 hover:shadow-md"
             >
               <div className="flex flex-wrap items-center gap-3 text-xs uppercase tracking-wide text-slate">
                 <span>{article.category}</span>
                 <span>&middot;</span>
                 <span>{article.date}</span>
               </div>
-              <h2 className="font-display mt-3 text-2xl font-bold text-surface">{article.title}</h2>
+              <h2 className="mt-3 font-display text-2xl font-bold text-surface">{article.title}</h2>
               <div className="mt-4 flex items-center gap-2 text-sm font-semibold text-primary">
                 Read article
                 <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
