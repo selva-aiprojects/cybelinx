@@ -41,7 +41,10 @@ export default function ContactForm() {
 
   if (submitted) {
     return (
-      <div className="rounded-lg border border-border bg-background p-10 text-center">
+      <div className="rounded-2xl border border-border bg-background p-10 text-center">
+        <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-live/10">
+          <span className="text-2xl">✓</span>
+        </div>
         <h3 className="font-display text-xl font-bold text-surface">Thanks — we&apos;ve got it.</h3>
         <p className="mt-2 text-sm text-slate">An engineering leader from our team will follow up shortly.</p>
       </div>
@@ -49,7 +52,7 @@ export default function ContactForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="grid gap-5 rounded-lg border border-border bg-background p-8 md:p-10" noValidate>
+    <form onSubmit={handleSubmit(onSubmit)} className="grid gap-5 rounded-2xl border border-border bg-background p-8 md:p-10" noValidate>
       <div className="grid gap-5 md:grid-cols-2">
         <div>
           <label htmlFor="name" className="text-xs font-semibold uppercase tracking-wide text-slate">
@@ -126,7 +129,7 @@ export default function ContactForm() {
       <button
         type="submit"
         disabled={isSubmitting}
-        className="mt-2 inline-flex items-center justify-center rounded-md bg-primary px-6 py-3 text-sm font-semibold text-white transition-all duration-200 hover:bg-primary/90 disabled:opacity-60"
+        className="mt-2 inline-flex items-center justify-center rounded-xl bg-primary px-6 py-3 text-sm font-semibold text-white shadow-sm shadow-primary/20 transition-all duration-200 hover:bg-primary-deep hover:shadow-glow disabled:opacity-60 cursor-pointer"
       >
         {isSubmitting ? "Sending\u2026" : "Send message"}
       </button>

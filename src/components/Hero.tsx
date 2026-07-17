@@ -8,49 +8,82 @@ export default function Hero() {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
   const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
+  const y = useTransform(scrollYProgress, [0, 1], [0, 80]);
 
-  const highlights = ["Live in production", "Multi-tenant SaaS", "AI-native workflows"];
+  const highlights = [
+    { label: "2 products live in production", color: "bg-live" },
+    { label: "15+ years of product engineering", color: "bg-primary" },
+    { label: "12 countries, 200+ enterprises", color: "bg-violet" },
+  ];
 
   return (
-    <div ref={ref} className="relative overflow-hidden bg-charcoal">
-      <div className="relative py-20 md:py-28 lg:py-36">
+    <div ref={ref} className="hero-mesh relative overflow-hidden">
+      <div className="relative py-24 md:py-32 lg:py-44">
         <motion.div aria-hidden="true" style={{ opacity }} className="pointer-events-none absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white/5" />
+          <div className="absolute -right-32 -top-32 h-96 w-96 rounded-full bg-primary/5 blur-3xl" />
+          <div className="absolute -bottom-32 -left-32 h-96 w-96 rounded-full bg-violet/5 blur-3xl" />
         </motion.div>
 
         <div className="relative mx-auto max-w-7xl px-6">
-          <div className="max-w-3xl">
-            <span className="slugline">SaaS Products. Live Today.</span>
+          <motion.div style={{ y }} className="max-w-4xl">
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+            >
+              <span className="slugline">Enterprise SaaS Products</span>
+            </motion.div>
 
-            <h1 className="mt-6 font-display text-4xl font-bold leading-[1.1] text-surface md:text-5xl lg:text-6xl">
-              AI-powered products that run your enterprise.
-            </h1>
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="mt-6 font-display text-5xl font-extrabold leading-[1.08] tracking-tight text-surface md:text-6xl lg:text-7xl"
+            >
+              AI-powered products that{" "}
+              <span className="gradient-text">run your enterprise</span>.
+            </motion.h1>
 
-            <p className="mt-6 max-w-xl text-lg leading-relaxed text-slate">
-              Cybelinx builds multi-tenant SaaS platforms for enterprise operations. CybeHRM handles
-              statutory-compliant HR and payroll. CybeHMS runs multi-property hospitality. Both are live,
-              both in production — and more platforms are on the way.
-            </p>
+            <motion.p
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.35 }}
+              className="mt-7 max-w-2xl text-lg leading-relaxed text-slate md:text-xl"
+            >
+              Cybelinx builds multi-tenant SaaS platforms for enterprise operations.
+              CybeHRM handles statutory payroll. CybeHMS runs multi-property hospitality.
+              Both are live in production — more platforms on the way.
+            </motion.p>
 
-            <div className="mt-10 flex flex-wrap gap-4">
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.45 }}
+              className="mt-10 flex flex-wrap gap-4"
+            >
               <Button href="/products">Explore Products</Button>
               <Button href="/contact" variant="secondary">
                 Request a Demo
               </Button>
-            </div>
+            </motion.div>
 
-            <div className="mt-10 flex flex-wrap gap-3">
+            <motion.div
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.6 }}
+              className="mt-12 flex flex-wrap gap-3"
+            >
               {highlights.map((item) => (
                 <div
-                  key={item}
-                  className="flex items-center gap-2 rounded-full border border-border bg-background px-4 py-2 text-xs font-semibold text-slate"
+                  key={item.label}
+                  className="flex items-center gap-2.5 rounded-full border border-border/60 bg-background/80 px-4 py-2 text-xs font-semibold text-slate backdrop-blur-sm"
                 >
-                  <span className="h-1.5 w-1.5 rounded-full bg-accent" aria-hidden="true" />
-                  {item}
+                  <span className={`h-2 w-2 rounded-full ${item.color}`} aria-hidden="true" />
+                  {item.label}
                 </div>
               ))}
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
       </div>
     </div>

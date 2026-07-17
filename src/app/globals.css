@@ -1,51 +1,72 @@
 @import "tailwindcss";
 @config "../../tailwind.config.js";
 
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap');
+
 /*
  * Custom color variables use the --cb-* namespace to avoid
  * collision with Tailwind v4's built-in --color-* variables.
  */
 :root {
-  --font-inter: "Inter", sans-serif;
+  --font-inter: "Plus Jakarta Sans", "Inter", sans-serif;
   --font-space: "Space Grotesk", sans-serif;
 
-  /* Light Theme (Default) */
-  --cb-background: #ffffff;
-  --cb-surface: #1a202c;
-  --cb-slate: #64748b;
-  --cb-primary: #1e40af;
-  --cb-accent: #dc2626;
-  --cb-violet: #3b82f6;
-  --cb-live: #16a34a;
+  /* Light Theme */
+  --cb-background: #fafbfe;
+  --cb-surface: #0f172a;
+  --cb-slate: #475569;
+  --cb-primary: #3b82f6;
+  --cb-primary-deep: #1d4ed8;
+  --cb-accent: #f97316;
+  --cb-accent-warm: #ea580c;
+  --cb-violet: #8b5cf6;
+  --cb-live: #10b981;
   --cb-border: #e2e8f0;
-  --cb-nav-bg: rgba(255, 255, 255, 0.98);
-  --cb-charcoal: #f6f8fa;
+  --cb-nav-bg: rgba(250, 251, 254, 0.92);
+  --cb-charcoal: #f1f5f9;
 
   --card-bg: #ffffff;
   --card-border: #e2e8f0;
-  --card-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+  --card-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.03);
   --card-border-hover: #cbd5e1;
-  --card-shadow-hover: 0 4px 12px rgba(0,0,0,0.08), 0 2px 4px rgba(0,0,0,0.04);
+  --card-shadow-hover: 0 4px 16px rgba(0,0,0,0.06), 0 8px 32px rgba(0,0,0,0.04);
+
+  /* Hero gradient */
+  --hero-from: #eff6ff;
+  --hero-via: #f0f4ff;
+  --hero-to: #fafbfe;
+  --hero-accent-1: rgba(59,130,246,0.08);
+  --hero-accent-2: rgba(139,92,246,0.06);
+  --hero-accent-3: rgba(249,115,22,0.04);
 }
 
 /* Dark Theme */
 [data-theme="dark"] {
-  --cb-background: #0f172a;
+  --cb-background: #0a0f1e;
   --cb-surface: #f1f5f9;
   --cb-slate: #94a3b8;
-  --cb-primary: #93c5fd;
-  --cb-accent: #f87171;
-  --cb-violet: #60a5fa;
-  --cb-live: #4ade80;
-  --cb-border: #334155;
-  --cb-nav-bg: rgba(15, 23, 42, 0.98);
-  --cb-charcoal: #1e293b;
+  --cb-primary: #60a5fa;
+  --cb-primary-deep: #3b82f6;
+  --cb-accent: #fb923c;
+  --cb-accent-warm: #f97316;
+  --cb-violet: #a78bfa;
+  --cb-live: #34d399;
+  --cb-border: #1e293b;
+  --cb-nav-bg: rgba(10, 15, 30, 0.92);
+  --cb-charcoal: #111827;
 
-  --card-bg: #1e293b;
-  --card-border: #334155;
-  --card-shadow: 0 1px 3px rgba(0,0,0,0.3);
-  --card-border-hover: #475569;
-  --card-shadow-hover: 0 4px 12px rgba(0,0,0,0.4);
+  --card-bg: #111827;
+  --card-border: #1e293b;
+  --card-shadow: 0 1px 3px rgba(0,0,0,0.3), 0 4px 12px rgba(0,0,0,0.2);
+  --card-border-hover: #334155;
+  --card-shadow-hover: 0 4px 16px rgba(0,0,0,0.4), 0 8px 32px rgba(0,0,0,0.3);
+
+  --hero-from: #0a0f1e;
+  --hero-via: #0d1225;
+  --hero-to: #0a0f1e;
+  --hero-accent-1: rgba(96,165,250,0.06);
+  --hero-accent-2: rgba(167,139,250,0.05);
+  --hero-accent-3: rgba(251,146,60,0.03);
 }
 
 html {
@@ -76,14 +97,49 @@ body {
   color: var(--cb-accent);
 }
 
+/* Gradient text utility */
+.gradient-text {
+  background: linear-gradient(135deg, var(--cb-primary) 0%, var(--cb-violet) 50%, var(--cb-accent) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Hero gradient mesh background */
+.hero-mesh {
+  position: relative;
+  background: linear-gradient(160deg, var(--hero-from) 0%, var(--hero-via) 40%, var(--hero-to) 100%);
+}
+
+.hero-mesh::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 50% at 20% 40%, var(--hero-accent-1) 0%, transparent 70%),
+    radial-gradient(ellipse 60% 40% at 80% 20%, var(--hero-accent-2) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 60% at 60% 80%, var(--hero-accent-3) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero-mesh::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(0,0,0,0.02) 1px, transparent 1px);
+  background-size: 32px 32px;
+  pointer-events: none;
+}
+
+/* Card styles */
 .frame,
 .glass {
   position: relative;
   background: var(--card-bg);
   border: 1px solid var(--card-border);
   box-shadow: var(--card-shadow);
-  border-radius: 0.75rem;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  border-radius: 0.875rem;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
 .frame:hover,
@@ -100,18 +156,66 @@ body {
   background: var(--card-bg);
   border: 1px solid var(--card-border);
   box-shadow: var(--card-shadow);
-  border-radius: 0.75rem;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+  border-radius: 0.875rem;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
 }
 
 .spotlight-card:hover {
   border-color: var(--card-border-hover);
   box-shadow: var(--card-shadow-hover);
-  transform: translateY(-2px);
+  transform: translateY(-3px);
+}
+
+/* Stat counter animation */
+@keyframes countUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.stat-value {
+  animation: countUp 0.6s ease-out forwards;
+}
+
+/* Logo ticker */
+@keyframes ticker {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.logo-ticker {
+  animation: ticker 25s linear infinite;
+}
+
+.logo-ticker:hover {
+  animation-play-state: paused;
+}
+
+/* Gradient border effect */
+.gradient-border {
+  position: relative;
+}
+
+.gradient-border::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, var(--cb-primary), var(--cb-violet), var(--cb-accent));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.gradient-border:hover::before {
+  opacity: 1;
 }
 
 .map-texture {
-  background-image: radial-gradient(rgba(0,0,0,0.04) 1px, transparent 1px);
+  background-image: radial-gradient(rgba(0,0,0,0.03) 1px, transparent 1px);
   background-size: 24px 24px;
 }
 
@@ -122,7 +226,7 @@ body {
 
 [data-theme="dark"] ::selection {
   background: var(--cb-primary);
-  color: #0f172a;
+  color: #0a0f1e;
 }
 
 :focus-visible {

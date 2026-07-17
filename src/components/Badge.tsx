@@ -4,15 +4,15 @@ type BadgeProps = {
 };
 
 const tones: Record<string, string> = {
-  live: "bg-green-50 text-green-700 border-green-200",
-  soon: "bg-slate-50 text-slate-500 border-slate-200",
-  new: "bg-blue-50 text-blue-700 border-blue-200",
+  live: "bg-live/10 text-live border-live/20",
+  soon: "bg-slate/10 text-slate border-slate/20",
+  new: "bg-primary/10 text-primary border-primary/20",
 };
 
 const dot: Record<string, string> = {
-  live: "bg-green-500",
-  soon: "bg-slate-400",
-  new: "bg-blue-500",
+  live: "bg-live",
+  soon: "bg-slate",
+  new: "bg-primary",
 };
 
 export default function Badge({ children, tone = "live" }: BadgeProps) {

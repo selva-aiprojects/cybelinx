@@ -31,7 +31,7 @@ export default function ProductDetail({ product, faqs = [], showPricing = false 
     <>
       <Section className="pt-16">
         <Badge tone={statusTone[product.status]}>{statusLabel[product.status]}</Badge>
-        <h1 className="mt-5 max-w-2xl font-display text-4xl font-bold text-surface md:text-5xl">{product.name}</h1>
+        <h1 className="mt-5 max-w-2xl font-display text-4xl font-extrabold text-surface md:text-5xl">{product.name}</h1>
         <p className="mt-2 text-sm font-semibold uppercase tracking-wide text-primary">{product.tagline}</p>
         <p className="mt-5 max-w-xl text-slate">{product.summary}</p>
         <div className="mt-8 flex flex-wrap gap-4">
@@ -53,7 +53,7 @@ export default function ProductDetail({ product, faqs = [], showPricing = false 
 
       {product.problem && (
         <Section>
-          <div className="rounded-lg border border-border bg-background p-8 md:p-10">
+          <div className="rounded-2xl border border-border bg-background p-8 md:p-10">
             <span className="slugline">The Problem We Solve</span>
             <p className="mt-3 max-w-2xl text-lg text-surface">{product.problem}</p>
           </div>
@@ -63,10 +63,10 @@ export default function ProductDetail({ product, faqs = [], showPricing = false 
       {product.modules && product.modules.length > 0 && (
         <Section textured>
           <span className="slugline">What&apos;s Inside</span>
-          <h2 className="mt-3 font-display text-3xl font-bold text-surface md:text-4xl">Built for enterprise depth.</h2>
+          <h2 className="mt-3 font-display text-3xl font-extrabold text-surface md:text-4xl">Built for enterprise depth.</h2>
           <div className="mt-10 grid gap-6 sm:grid-cols-2 md:grid-cols-3">
             {product.modules.map((module) => (
-              <div key={module.title} className="rounded-lg border border-border bg-background p-6">
+              <div key={module.title} className="rounded-2xl border border-border bg-background p-6 transition-all duration-250 hover:-translate-y-0.5 hover:shadow-md cursor-pointer">
                 <h3 className="text-base font-semibold text-surface">{module.title}</h3>
                 <p className="mt-2 text-sm text-slate">{module.description}</p>
               </div>
@@ -80,7 +80,7 @@ export default function ProductDetail({ product, faqs = [], showPricing = false 
           <span className="slugline">Why {product.name}</span>
           <ul className="mt-6 grid gap-4 md:grid-cols-3">
             {product.differentiators.map((item) => (
-              <li key={item} className="rounded-lg border border-border bg-background p-6 text-sm text-slate">
+              <li key={item} className="rounded-2xl border border-border bg-background p-6 text-sm text-slate transition-all duration-250 hover:-translate-y-0.5 hover:shadow-md">
                 {item}
               </li>
             ))}

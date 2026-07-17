@@ -22,15 +22,15 @@ export default function ArchitectureFlow({ title, steps, outcome, icon }: Archit
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6 }}
-      className="rounded-lg border border-border bg-background p-8 md:p-10"
+      className="rounded-2xl border border-border bg-background p-8 md:p-10"
     >
       <div className="mb-8 flex items-center justify-between">
         <h3 className="font-display text-2xl font-bold text-surface md:text-3xl flex items-center gap-3">
           {icon || <Sparkles className="h-6 w-6 text-primary" />}
           {title}
         </h3>
-        <span className="hidden sm:inline-flex items-center gap-1.5 rounded-full bg-green-50 px-3 py-1 text-xs font-semibold text-green-700 border border-green-200">
-          <span className="h-1.5 w-1.5 rounded-full bg-green-500" />
+        <span className="hidden sm:inline-flex items-center gap-1.5 rounded-full bg-live/10 px-3 py-1 text-xs font-semibold text-live border border-live/20">
+              <span className="h-1.5 w-1.5 rounded-full bg-live" />
           Live Pipeline
         </span>
       </div>
@@ -43,7 +43,7 @@ export default function ArchitectureFlow({ title, steps, outcome, icon }: Archit
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: index * 0.1 }}
-              className="flex-1 rounded-lg border border-border bg-charcoal p-4"
+              className="flex-1 rounded-xl border border-border bg-charcoal p-4"
             >
               <div className="flex items-center justify-between mb-1">
                 <span className="text-xs font-bold uppercase tracking-widest text-primary">{step.label}</span>
@@ -61,7 +61,7 @@ export default function ArchitectureFlow({ title, steps, outcome, icon }: Archit
         ))}
       </div>
 
-      <div className="rounded-lg border border-border bg-charcoal p-5">
+      <div className="rounded-xl border border-border bg-charcoal p-5">
         <div className="flex items-start gap-3">
           <div className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary text-sm font-bold">
             ✓

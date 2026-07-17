@@ -12,7 +12,7 @@ export default function Footer() {
             <LogoMark size={72} />
           </div>
           <p className="mt-4 max-w-sm text-sm leading-relaxed text-slate">{brand.description}</p>
-          <p className="mt-3 max-w-sm text-xs leading-relaxed text-slate/80">{brand.address}</p>
+          <p className="mt-3 max-w-xs text-xs leading-relaxed text-slate/70">{brand.address}</p>
         </div>
 
         <div>
@@ -20,7 +20,7 @@ export default function Footer() {
           <ul className="mt-4 space-y-3">
             {footerNav.products.map((item) => (
               <li key={item.href}>
-                <Link href={item.href} className="text-sm text-slate transition-colors hover:text-surface">
+                <Link href={item.href} className="text-sm text-slate transition-colors hover:text-primary">
                   {item.label}
                 </Link>
               </li>
@@ -33,7 +33,7 @@ export default function Footer() {
           <ul className="mt-4 space-y-3">
             {footerNav.resources.map((item) => (
               <li key={item.href}>
-                <Link href={item.href} className="text-sm text-slate transition-colors hover:text-surface">
+                <Link href={item.href} className="text-sm text-slate transition-colors hover:text-primary">
                   {item.label}
                 </Link>
               </li>
@@ -46,14 +46,14 @@ export default function Footer() {
           <ul className="mt-4 space-y-3">
             {footerNav.company.map((item) => (
               <li key={item.href}>
-                <Link href={item.href} className="text-sm text-slate transition-colors hover:text-surface">
+                <Link href={item.href} className="text-sm text-slate transition-colors hover:text-primary">
                   {item.label}
                 </Link>
               </li>
             ))}
             {footerNav.capabilities.map((item) => (
               <li key={item.href}>
-                <Link href={item.href} className="text-sm text-slate transition-colors hover:text-surface">
+                <Link href={item.href} className="text-sm text-slate transition-colors hover:text-primary">
                   {item.label}
                 </Link>
               </li>

@@ -67,7 +67,7 @@ export default function TechnologiesPage() {
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {technologies.map((tech, index) => (
               <AnimatedSection key={tech} delay={index * 0.05}>
-                <div className="rounded-lg border border-border bg-background p-5 text-sm font-semibold text-surface flex items-center justify-between">
+                <div className="rounded-2xl border border-border bg-background p-5 text-sm font-semibold text-surface flex items-center justify-between transition-all duration-250 hover:-translate-y-0.5 hover:shadow-md cursor-pointer">
                   <span>{tech}</span>
                   <span className="h-2 w-2 rounded-full bg-primary/30" />
                 </div>

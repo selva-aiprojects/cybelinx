@@ -36,22 +36,24 @@ function NavDropdown({ group }: { group: NavGroup }) {
 
   return (
     <div ref={menuRef} className="relative" onMouseEnter={() => setOpen(true)} onMouseLeave={() => setOpen(false)}>
-      <button className="flex items-center gap-1 text-sm font-medium text-slate transition-colors hover:text-surface">
+      <button className="flex items-center gap-1 text-sm font-medium text-slate transition-colors hover:text-surface cursor-pointer">
         {group.label} <ChevronDown className="h-3.5 w-3.5" />
       </button>
       <div className="absolute left-1/2 -translate-x-1/2 pt-2">
         {open && (
-          <div className="z-[9999] w-72 rounded-lg border border-border bg-nav-bg p-2 shadow-xl">
-            {group.items.map((item) => (
-              <div
-                key={item.href}
-                onClick={() => { router.push(item.href); setOpen(false); }}
-                className="cursor-pointer rounded-md px-4 py-3 transition-colors hover:bg-charcoal"
-              >
-                <span className="text-sm font-semibold text-surface">{item.label}</span>
-                {item.description && <span className="mt-0.5 block text-xs text-slate">{item.description}</span>}
-              </div>
-            ))}
+          <div className="z-[9999] w-72 overflow-hidden rounded-xl border border-border bg-nav-bg shadow-xl shadow-black/5">
+            <div className="p-2">
+              {group.items.map((item) => (
+                <div
+                  key={item.href}
+                  onClick={() => { router.push(item.href); setOpen(false); }}
+                  className="cursor-pointer rounded-lg px-4 py-3 transition-colors hover:bg-charcoal"
+                >
+                  <span className="text-sm font-semibold text-surface">{item.label}</span>
+                  {item.description && <span className="mt-0.5 block text-xs text-slate">{item.description}</span>}
+                </div>
+              ))}
+            </div>
           </div>
         )}
       </div>
@@ -64,14 +66,14 @@ export default function Navbar() {
 
   return (
     <header
-      className="sticky top-0 z-50 border-b border-border bg-nav-bg backdrop-blur-sm"
+      className="sticky top-0 z-50 border-b border-border/50 bg-nav-bg backdrop-blur-xl"
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
         <Link href="/" className="flex items-center shrink-0">
           <LogoMark size={160} />
         </Link>
 
-        <nav className="hidden items-center gap-6 lg:flex shrink-0">
+        <nav className="hidden items-center gap-7 lg:flex shrink-0">
           {mainNav.map((group) => (
             <NavDropdown key={group.label} group={group} />
           ))}
@@ -85,7 +87,7 @@ export default function Navbar() {
 
         <div className="flex items-center gap-2 lg:hidden shrink-0">
           <ThemeSelector />
-          <button className="text-surface p-1.5" onClick={() => setOpen(!open)} aria-label="Toggle menu">
+          <button className="text-surface p-1.5 cursor-pointer" onClick={() => setOpen(!open)} aria-label="Toggle menu">
             {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
         </div>

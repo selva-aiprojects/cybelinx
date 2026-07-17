@@ -9,7 +9,7 @@ export default function ScrollProgress() {
   return (
     <div className="pointer-events-none fixed inset-x-0 top-0 z-[60] h-[3px] bg-slate/10">
       <motion.div
-        className="h-full origin-left bg-primary"
+        className="h-full origin-left bg-gradient-to-r from-primary via-violet to-accent"
         style={{ scaleX }}
       />
     </div>

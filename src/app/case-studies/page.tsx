@@ -28,7 +28,7 @@ export default function CaseStudiesPage() {
             <Link
               key={study.slug}
               href="/contact"
-              className="group flex flex-col justify-between gap-4 rounded-lg border border-border bg-background p-8 transition-all hover:-translate-y-0.5 hover:shadow-md md:flex-row md:items-center"
+              className="group flex flex-col justify-between gap-4 rounded-2xl border border-border bg-background p-8 transition-all hover:-translate-y-0.5 hover:shadow-md md:flex-row md:items-center cursor-pointer"
             >
               <div>
                 <span className="text-xs font-semibold uppercase tracking-widest text-primary">{study.industry}</span>

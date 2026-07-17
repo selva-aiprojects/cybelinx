@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef, useState } from "react";
+import React, { useRef } from "react";
 import Link from "next/link";
 
 interface SpotlightCardProps {
@@ -17,7 +17,7 @@ export default function SpotlightCard({ children, href, className = "" }: Spotli
       <Link
         href={href}
         ref={cardRef}
-        className={`spotlight-card group block rounded-lg p-6 transition-all duration-200 hover:-translate-y-0.5 ${className}`}
+        className={`spotlight-card gradient-border group block cursor-pointer rounded-2xl p-6 transition-all duration-250 ${className}`}
       >
         <div className="relative z-10">{children}</div>
       </Link>
@@ -27,7 +27,7 @@ export default function SpotlightCard({ children, href, className = "" }: Spotli
   return (
     <div
       ref={cardRef}
-      className={`spotlight-card group rounded-lg p-6 transition-all duration-200 hover:-translate-y-0.5 ${className}`}
+      className={`spotlight-card gradient-border group rounded-2xl p-6 transition-all duration-250 ${className}`}
     >
       <div className="relative z-10">{children}</div>
     </div>

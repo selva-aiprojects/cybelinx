@@ -23,7 +23,7 @@ export default function CompanyPage() {
       </Section>
 
       <Section textured>
-        <div className="rounded-lg border border-border bg-background p-8 md:p-10">
+        <div className="rounded-2xl border border-border bg-background p-8 md:p-10">
           <h2 className="font-display text-2xl font-bold text-surface">Our story</h2>
           <p className="mt-4 max-w-3xl text-sm leading-relaxed text-slate">
             Cybelinx was founded to build enterprise SaaS products that just work. CybeHRM and CybeHMS are live
@@ -47,7 +47,7 @@ export default function CompanyPage() {
       </Section>
 
       <Section>
-        <div className="rounded-lg border border-border bg-background p-8 md:p-10">
+        <div className="rounded-2xl border border-border bg-background p-8 md:p-10">
           <Building2 className="h-6 w-6 text-primary" />
           <h2 className="mt-4 font-display text-2xl font-bold text-surface">Global operations</h2>
           <p className="mt-3 max-w-2xl text-sm text-slate">

@@ -33,7 +33,7 @@ export default function ArchitectureEcosystem({ title, description, components }
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.45, delay: index * 0.1 }}
-            className="rounded-lg border border-border bg-background p-6 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md"
+            className="rounded-2xl border border-border bg-background p-6 transition-all duration-250 hover:-translate-y-0.5 hover:shadow-md cursor-pointer"
           >
             <div className="mb-4 flex items-start justify-between">
               <div>

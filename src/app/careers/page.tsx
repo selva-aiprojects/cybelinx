@@ -33,7 +33,7 @@ export default function CareersPage() {
       </Section>
 
       <Section>
-        <div className="rounded-lg border border-border bg-charcoal p-10 text-center">
+        <div className="rounded-2xl border border-border bg-charcoal p-10 text-center">
           <h2 className="font-display text-2xl font-bold text-surface">Open roles coming soon</h2>
           <p className="mx-auto mt-3 max-w-md text-sm text-slate">
             We&apos;re expanding engineering teams across product, cloud, and AI. Share your profile and we&apos;ll reach out
