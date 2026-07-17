@@ -206,6 +206,78 @@ export const industries: Industry[] = [
   },
 ];
 
+export type Differentiator = {
+  title: string;
+  hook: string;
+  summary: string;
+  details: string[];
+  quote: string;
+  icon: LucideIcon;
+};
+
+export const differentiators: Differentiator[] = [
+  {
+    icon: Package,
+    title: "A shared multi-tenant core, not one-off products",
+    hook: "Most vendors sell a single SaaS product or a generic cloud platform. Cybelinx does both.",
+    summary:
+      "We operate multiple vertical SaaS platforms — HR, hospitality, banking, healthcare — all running on the same multi-tenant, Kubernetes-native core.",
+    details: [
+      "One architecture, many products: every new industry solution reuses the same tenant isolation, deployment, observability, and compliance controls — no forks, no parallel stacks.",
+      "Faster product engineering: platform and DevOps teams can launch new enterprise applications on a proven foundation instead of rebuilding plumbing for each idea.",
+    ],
+    quote: "We're not just a toolkit. We use our own platform to run real products for regulated enterprises, and every new product makes the platform better for developers.",
+  },
+  {
+    icon: Brain,
+    title: "AI-native and LLM-ready by design",
+    hook: "Cloud providers offer AI and LLM services. Dev tools wire them in. Cybelinx is built as an AI-native platform from day zero.",
+    summary:
+      "Adding AI or LLM features to any product is a first-class capability, not an afterthought.",
+    details: [
+      "Unified data and inference layer: ingestion, enrichment, and model orchestration are part of the core, making it straightforward to add ML and LLM flows to HR, RCM, hospitality, or future products.",
+      "Tenant-aware LLM as a service: enterprises can expose secure, compliant LLM APIs with per-tenant isolation, policies, and observability.",
+    ],
+    quote: "Instead of bolting AI onto an old stack, Cybelinx treats AI and LLM workloads as first-class citizens of a multi-tenant, regulated enterprise platform.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Multi-cloud DevSecOps as a service for engineering teams",
+    hook: "Traditional DevSecOps tools secure your pipelines; they don't own the products those pipelines deploy.",
+    summary:
+      "Cybelinx embeds multi-cloud DevSecOps into the platform itself and uses it to run our own products in production.",
+    details: [
+      "Built-in multi-cloud pipelines: CI/CD, policies, secrets, compliance checks, and deployment strategies are all part of the platform, ready for AWS, Azure, GCP, and Kubernetes.",
+      "Developer productivity focus: standard pipelines and guardrails reduce ticket churn and manual ops, so developers and platform teams can focus on features instead of constantly rewiring environments.",
+    ],
+    quote: "We don't just secure other people's apps — we run our own multi-tenant SaaS on the same DevSecOps platform we offer to customers.",
+  },
+  {
+    icon: Building2,
+    title: "Built for regulated enterprises, not just startups",
+    hook: "Many SaaS and AI platforms start with startup use cases and try to \"add compliance later.\"",
+    summary:
+      "Cybelinx begins with regulated industries — healthcare, finance, HR, hospitality — and bakes governance into the core.",
+    details: [
+      "Compliance-first architecture: schema isolation, auditability, data residency options, and documented controls are part of the multi-tenant design, not add-ons.",
+      "Enterprise lifecycle: SLAs, DR, monitoring, and uptime guarantees are defined for the platform and all products built on it.",
+    ],
+    quote: "If compliance is non-negotiable, you shouldn't be stitching together five tools. Cybelinx gives you one platform that already lives in regulated environments.",
+  },
+  {
+    icon: Atom,
+    title: "Future-ready: quantum and advanced engineering",
+    hook: "Quantum and advanced optimization are emerging, but most vendors treat them as separate R&D.",
+    summary:
+      "Cybelinx designs its data and compute model so future quantum backends can plug into the same platform used for today's AI workloads.",
+    details: [
+      "Quantum-ready data and workflows: the way we model data, simulations, and analytics is intended to support quantum-assisted optimization and risk analysis when enterprises are ready.",
+      "One foundation for tomorrow's workloads: AI, LLM, and future quantum experiments all share the same secure, multi-tenant core.",
+    ],
+    quote: "We build enterprise platforms that are ready for what's next — without asking engineering teams to replatform every time the technology shifts.",
+  },
+];
+
 export const whyCybelinx = [
   {
     icon: Lightbulb,

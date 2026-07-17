@@ -6,7 +6,7 @@ import ArchitectureEcosystem from "@/components/ArchitectureEcosystem";
 import ArchitectureFlow from "@/components/ArchitectureFlow";
 import CTABand from "@/components/CTABand";
 import AnimatedSection from "@/components/AnimatedSection";
-import { platformPillars, capabilities } from "@/lib/content";
+import { platformPillars, differentiators, capabilities } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "Platform",
@@ -108,6 +108,50 @@ export default function PlatformPage() {
             ]}
           />
         </AnimatedSection>
+      </Section>
+
+      {/* How Cybelinx Is Different */}
+      <Section id="how-cybelinx-is-different">
+        <AnimatedSection>
+          <div className="mb-12 max-w-3xl">
+            <span className="slugline">How Cybelinx Is Different</span>
+            <h2 className="mt-4 font-display text-3xl font-bold text-surface md:text-4xl">
+              Cloud AI platforms give you building blocks. DevSecOps tools secure your pipelines. Single-vertical SaaS solves one problem. Cybelinx brings all three together.
+            </h2>
+            <p className="mt-4 text-base leading-relaxed text-slate">
+              An AI-native, multi-tenant platform, multi-cloud DevSecOps, and a portfolio of regulated SaaS products — all designed to boost developer productivity in enterprise engineering teams.
+            </p>
+          </div>
+        </AnimatedSection>
+        <div className="space-y-8">
+          {differentiators.map((diff, index) => (
+            <AnimatedSection key={diff.title} delay={index * 0.08}>
+              <div className="rounded-2xl border border-border bg-background p-8 transition-all hover:-translate-y-0.5 hover:shadow-md md:p-10">
+                <div className="flex items-start gap-4">
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10">
+                    <diff.icon className="h-5 w-5 text-primary" />
+                  </div>
+                  <div className="min-w-0 flex-1">
+                    <h3 className="font-display text-lg font-bold text-surface">{diff.title}</h3>
+                    <p className="mt-2 text-sm font-semibold text-primary/80">{diff.hook}</p>
+                    <p className="mt-2 text-sm leading-relaxed text-slate">{diff.summary}</p>
+                    <ul className="mt-4 space-y-2">
+                      {diff.details.map((d) => (
+                        <li key={d.slice(0, 20)} className="flex items-start gap-2 text-sm text-slate">
+                          <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
+                          {d}
+                        </li>
+                      ))}
+                    </ul>
+                    <blockquote className="mt-4 border-l-2 border-primary pl-4 text-sm italic leading-relaxed text-surface/80">
+                      {diff.quote}
+                    </blockquote>
+                  </div>
+                </div>
+              </div>
+            </AnimatedSection>
+          ))}
+        </div>
       </Section>
 
       {/* Pipeline */}
