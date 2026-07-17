@@ -11,9 +11,9 @@ export default function Hero() {
   const y = useTransform(scrollYProgress, [0, 1], [0, 80]);
 
   const highlights = [
-    { label: "2 products live in production", color: "bg-live" },
-    { label: "99.9% platform uptime SLA", color: "bg-primary" },
-    { label: "12 countries, 200+ enterprises", color: "bg-violet" },
+    { label: "SaaS/PaaS and LLM services live in production", color: "bg-live" },
+    { label: "Multi-cloud DevSecOps pipeline", color: "bg-primary" },
+    { label: "Quantum-ready architecture", color: "bg-violet" },
   ];
 
   return (
@@ -31,7 +31,7 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
             >
-              <span className="slugline">Multi-Tenant SaaS for Regulated Enterprises</span>
+              <span className="slugline">AI-Native Platform for Regulated Enterprises</span>
             </motion.div>
 
             <motion.h1
@@ -40,7 +40,7 @@ export default function Hero() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="mt-6 font-display text-5xl font-extrabold leading-[1.08] tracking-tight text-surface md:text-6xl lg:text-7xl"
             >
-              Multi-tenant SaaS platforms for{" "}
+              AI-native platform for{" "}
               <span className="gradient-text">regulated enterprises</span>.
             </motion.h1>
 
@@ -50,9 +50,8 @@ export default function Hero() {
               transition={{ duration: 0.5, delay: 0.35 }}
               className="mt-7 max-w-2xl text-lg leading-relaxed text-slate md:text-xl"
             >
-              Cybelinx ships AI-native SaaS for HR, hospitality, banking, healthcare, and more.
-              Reduce compliance risk, unify operations, and deploy faster — on a single
-              multi-tenant core that adapts to any industry.
+              Web, SaaS/PaaS, multi-cloud DevSecOps, LLM services, and quantum-ready engineering —
+              on one developer-friendly platform for engineering and platform teams.
             </motion.p>
 
             <motion.div

@@ -6,7 +6,7 @@ import FeatureCard from "@/components/FeatureCard";
 import ArchitectureFlow from "@/components/ArchitectureFlow";
 import CTABand from "@/components/CTABand";
 import AnimatedSection from "@/components/AnimatedSection";
-import { capabilities, whyCybelinx } from "@/lib/content";
+import { platformPillars, whyCybelinx } from "@/lib/content";
 import { products } from "@/lib/products";
 
 export default function HomePage() {
@@ -37,17 +37,33 @@ export default function HomePage() {
         </div>
       </Section>
 
-      <Section id="capabilities">
+      <Section id="platform-pillars" textured>
         <AnimatedSection>
-          <SectionHeading eyebrow="Platform Capabilities" title="What every Cybelinx product shares under the hood." />
+          <SectionHeading
+            eyebrow="The Cybelinx Platform"
+            title="Four pillars. One foundation."
+            description="Web & SaaS/PaaS, AI & LLM, DevSecOps, and quantum-ready engineering — all on a unified multi-tenant core for regulated enterprises."
+          />
         </AnimatedSection>
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {capabilities.map((capability, index) => (
-            <AnimatedSection key={capability.title} delay={index * 0.08}>
-              <FeatureCard title={capability.title} description={capability.description} icon={capability.icon} />
-            </AnimatedSection>
-          ))}
-        </div>
+        {platformPillars.map((pillar, index) => (
+          <AnimatedSection key={pillar.slug} delay={index * 0.08}>
+            <div className="group mb-6 rounded-2xl border border-border bg-background p-8 transition-all hover:-translate-y-0.5 hover:shadow-md md:p-10">
+              <div className="flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
+                <div className="max-w-2xl">
+                  <div className="flex items-center gap-3">
+                    <pillar.icon className="h-6 w-6 text-primary" />
+                    <h3 className="font-display text-xl font-bold text-surface md:text-2xl">{pillar.title}</h3>
+                  </div>
+                  <p className="mt-3 text-sm leading-relaxed text-slate">{pillar.description}</p>
+                </div>
+                <div className="shrink-0 rounded-xl border border-primary/20 bg-primary/5 px-5 py-3">
+                  <span className="text-xs font-bold uppercase tracking-widest text-primary">Outcome</span>
+                  <p className="mt-1 max-w-xs text-sm font-semibold text-surface">{pillar.outcome}</p>
+                </div>
+              </div>
+            </div>
+          </AnimatedSection>
+        ))}
       </Section>
 
       <Section id="how-it-works">

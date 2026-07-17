@@ -1,10 +1,12 @@
 import {
+  Atom,
   Brain,
   Building2,
   Cloud,
   Cpu,
   Factory,
   FlaskConical,
+  Gauge,
   Globe2,
   HeartPulse,
   Landmark,
@@ -19,15 +21,16 @@ import {
   Truck,
   Users,
   Wifi,
+  Workflow,
   Zap,
   type LucideIcon,
 } from "lucide-react";
 
 export const brand = {
   name: "Cybelinx",
-  tagline: "Multi-tenant SaaS for regulated enterprises.",
+  tagline: "AI-native platform for regulated enterprises.",
   description:
-    "Cybelinx ships AI-native SaaS platforms for HR, hospitality, banking, healthcare, and more \u2014 live in production at 200+ enterprises across 12 countries.",
+    "Cybelinx is an AI-native, multi-tenant platform for regulated enterprises \u2014 unifying web, SaaS/PaaS, multi-cloud DevSecOps, LLM services, and quantum-ready engineering on a single developer-friendly foundation. 200+ enterprises, 12 countries.",
   email: "hello@cybelinx.com",
   address: "No. 41 & 42, 89/5, Prakruthi Township, 1st Block, Horamavu Agara Main Road, Bangalore, Karnataka 560113.",
 };
@@ -46,6 +49,58 @@ export const customerLogos = [
   "DLF",
   "Global Bank Co.",
   "HealthFirst",
+];
+
+export type PlatformPillar = {
+  title: string;
+  subtitle: string;
+  description: string;
+  outcome: string;
+  icon: LucideIcon;
+  slug: string;
+};
+
+export const platformPillars: PlatformPillar[] = [
+  {
+    icon: Globe2,
+    title: "Web & SaaS/PaaS Platforms",
+    subtitle: "Cloud-native product engineering at scale",
+    slug: "web-saas-paas",
+    description:
+      "Cloud-native web platforms built on Kubernetes-orchestrated microservices, schema-isolated tenants, and CI/CD pipelines designed for regulated industries. Platform and DevOps teams reuse shared services, templates, and pipelines to launch new vertical SaaS and PaaS solutions faster — without forking code or duplicating compliance work.",
+    outcome:
+      "Launch new industry SaaS products from shared infrastructure — no forks, no rebuilds.",
+  },
+  {
+    icon: Brain,
+    title: "AI & LLM-Ready Infrastructure",
+    subtitle: "AI-native by design, not bolted on",
+    slug: "ai-llm",
+    description:
+      "Data ingestion, model orchestration, and governance are baked into the platform. Engineering teams expose secure, tenant-aware LLM APIs — powered by first-party or third-party models — for document analysis, conversational support, and workflow automation, all governed by enterprise policies.",
+    outcome:
+      "Add AI capabilities to any product without building ML infrastructure from scratch.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Multi-Cloud DevSecOps as a Service",
+    subtitle: "Ready-made pipelines with built-in compliance",
+    slug: "devsecops",
+    description:
+      "Standard DevSecOps pipelines handle builds, deploys, security checks, and change tracking across AWS, Azure, GCP, and Kubernetes. Guardrails — not gatekeepers — let teams move fast without violating regulatory constraints. Platform-level policies, templates, and dashboards reduce developer toil.",
+    outcome:
+      "Teams focus on features instead of wiring CI/CD and compliance from scratch.",
+  },
+  {
+    icon: Atom,
+    title: "Quantum-Ready Engineering & Analysis",
+    subtitle: "Architected for what's next",
+    slug: "quantum",
+    description:
+      "Cybelinx is architected to be quantum-ready: data models, simulation workloads, and AI pipelines are designed so future quantum backends can plug into the same platform for optimization and analysis workloads. Regulated enterprises can experiment with quantum-assisted optimization and risk analysis on the same compliant, multi-tenant foundation they use today.",
+    outcome:
+      "Future-proof your platform — quantum capabilities slot in without rearchitecture.",
+  },
 ];
 
 export type Capability = {
@@ -250,5 +305,23 @@ export const insights = [
     title: "Where AI creates ROI in enterprise workflows",
     category: "AI Services",
     date: "2026-02-10",
+  },
+  {
+    slug: "ai-native-saas-regulated-enterprises",
+    title: "AI-native SaaS in regulated enterprises",
+    category: "AI & Platform",
+    date: "2026-06-15",
+  },
+  {
+    slug: "multi-cloud-devsecops-as-a-service",
+    title: "Multi-cloud DevSecOps as a service: patterns for platform teams",
+    category: "Cloud & Platform",
+    date: "2026-05-22",
+  },
+  {
+    slug: "designing-quantum-ready-ai-platforms",
+    title: "Designing for quantum-ready AI platforms",
+    category: "R&D",
+    date: "2026-04-10",
   },
 ];

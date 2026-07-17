@@ -7,6 +7,7 @@ export type NavGroup = {
 };
 
 export const mainNav: NavGroup[] = [
+  { label: "Platform", href: "/platform" },
   {
     label: "Products",
     items: [
@@ -23,7 +24,7 @@ export const mainNav: NavGroup[] = [
   {
     label: "Resources",
     items: [
-      { href: "/technologies", label: "Technologies", description: "Modern engineering stack" },
+      { href: "/technologies", label: "Engineering & DevOps", description: "For engineering and platform teams" },
       { href: "/insights", label: "Insights", description: "Perspectives from our teams" },
     ],
   },
@@ -38,7 +39,7 @@ export const mainNav: NavGroup[] = [
 ];
 
 export const footerNav = {
-  products: mainNav[0].items ?? [],
+  products: mainNav[1].items ?? [],
   company: [
     { href: "/company", label: "About" },
     { href: "/careers", label: "Careers" },
@@ -46,9 +47,10 @@ export const footerNav = {
   ],
   capabilities: [
     { href: "/industries", label: "Industries" },
-    { href: "/technologies", label: "Technologies" },
+    { href: "/technologies", label: "Engineering & DevOps" },
   ],
   resources: [
+    { href: "/platform", label: "Platform" },
     { href: "/case-studies", label: "Case Studies" },
     { href: "/insights", label: "Insights" },
   ],

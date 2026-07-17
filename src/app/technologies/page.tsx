@@ -8,7 +8,7 @@ import AnimatedSection from "@/components/AnimatedSection";
 import { technologies } from "@/lib/content";
 
 export const metadata: Metadata = {
-  title: "Technologies",
+  title: "Engineering & DevOps",
   description: "Cybelinx engineering stack \u2014 cloud-native, Kubernetes, React/Next.js, Python, event-driven architecture, GenAI, and DevSecOps for enterprise SaaS.",
 };
 
@@ -17,9 +17,9 @@ export default function TechnologiesPage() {
     <>
       <Section className="pt-16">
         <PageHeader
-          eyebrow="Technologies"
+          eyebrow="Engineering & DevOps"
           title="A modern stack for enterprise-grade SaaS products."
-          description="We select technologies for durability, security, and developer velocity — aligned to cloud-native architecture and compliance requirements."
+          description="Cybelinx gives platform and DevOps teams a unified foundation — shared templates, automated pipelines, and built-in compliance — so you ship faster without reinventing infrastructure."
         />
       </Section>
 
