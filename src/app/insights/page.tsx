@@ -8,7 +8,7 @@ import { ArrowUpRight } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Insights",
-  description: "Perspectives on product engineering, cloud platforms, and enterprise AI from Cybelinx.",
+  description: "Technical perspectives on product engineering, cloud platforms, AI in enterprise workflows, and SaaS architecture from the Cybelinx team.",
 };
 
 export default function InsightsPage() {

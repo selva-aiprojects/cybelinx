@@ -60,6 +60,24 @@ export default function Footer() {
             ))}
           </ul>
         </div>
+
+        <div>
+          <h4 className="text-xs font-bold uppercase tracking-widest text-surface">Legal</h4>
+          <ul className="mt-4 space-y-3">
+            <li>
+              <Link href="/privacy" className="text-sm text-slate transition-colors hover:text-primary">Privacy Policy</Link>
+            </li>
+            <li>
+              <Link href="/terms" className="text-sm text-slate transition-colors hover:text-primary">Terms of Service</Link>
+            </li>
+            <li>
+              <Link href="/security" className="text-sm text-slate transition-colors hover:text-primary">Security</Link>
+            </li>
+            <li>
+              <Link href="/pricing" className="text-sm text-slate transition-colors hover:text-primary">Pricing</Link>
+            </li>
+          </ul>
+        </div>
       </div>
 
       <div className="mx-auto max-w-7xl border-t border-border px-6 py-6">

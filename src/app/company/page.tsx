@@ -8,7 +8,7 @@ import { Building2 } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Company",
-  description: "About Cybelinx \u2014 building SaaS products for global enterprises.",
+  description: "Cybelinx builds multi-tenant AI-native SaaS for regulated enterprises \u2014 HR, hospitality, banking, healthcare, and more. Live at 200+ enterprises.",
 };
 
 export default function CompanyPage() {

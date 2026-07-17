@@ -81,7 +81,7 @@ export default function Navbar() {
 
         <div className="hidden items-center gap-3 lg:flex shrink-0">
           <ThemeSelector />
-          <Button href="/contact" variant="secondary">Sign In</Button>
+          <Button href="/contact" variant="secondary">Talk to Sales</Button>
           <Button href="/contact">Get a Demo</Button>
         </div>
 

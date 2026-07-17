@@ -7,7 +7,7 @@ import { Mail, MapPin, Phone } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Contact",
-  description: `Contact ${brand.name} for demos, trials, and enterprise inquiries.`,
+  description: `Request a demo or trial of Cybelinx products \u2014 CybeHRM, CybeHMS, and more. Talk to our product team about your enterprise requirements.`,
 };
 
 export default function ContactPage() {

@@ -25,9 +25,9 @@ import {
 
 export const brand = {
   name: "Cybelinx",
-  tagline: "AI-powered products that run your enterprise.",
+  tagline: "Multi-tenant SaaS for regulated enterprises.",
   description:
-    "Cybelinx builds multi-tenant SaaS platforms \u2014 CybeHRM for HR and compliance, CybeHMS for hospitality operations, and more in development. Ship ready, live today.",
+    "Cybelinx ships AI-native SaaS platforms for HR, hospitality, banking, healthcare, and more \u2014 live in production at 200+ enterprises across 12 countries.",
   email: "hello@cybelinx.com",
   address: "No. 41 & 42, 89/5, Prakruthi Township, 1st Block, Horamavu Agara Main Road, Bangalore, Karnataka 560113.",
 };

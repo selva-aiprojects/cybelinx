@@ -7,7 +7,7 @@ import { industries } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "Industries",
-  description: "Industry solutions across Banking, Healthcare, Pharma, HCM, Manufacturing, Retail, Logistics, Telecom, and Energy \u2014 powered by Cybelinx products.",
+  description: "Cybelinx serves 9 regulated industries \u2014 Banking, Healthcare, Pharma, HCM, Manufacturing, Retail, Logistics, Telecom, and Energy \u2014 all from one multi-tenant platform.",
 };
 
 export default function IndustriesPage() {

@@ -126,6 +126,12 @@ export default function ContactForm() {
         {errors.message && <p className="mt-1 text-xs text-accent">{errors.message.message}</p>}
       </div>
 
+      <p className="text-xs text-slate/60">
+        By submitting this form, you agree to our{" "}
+        <a href="/privacy" className="text-primary hover:underline">Privacy Policy</a>.
+        We'll only use this information to follow up on your request.
+      </p>
+
       <button
         type="submit"
         disabled={isSubmitting}

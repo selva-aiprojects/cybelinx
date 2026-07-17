@@ -9,7 +9,7 @@ import { technologies } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "Technologies",
-  description: "Platform engineering stack, cloud infrastructure, and enterprise technologies powering Cybelinx product delivery.",
+  description: "Cybelinx engineering stack \u2014 cloud-native, Kubernetes, React/Next.js, Python, event-driven architecture, GenAI, and DevSecOps for enterprise SaaS.",
 };
 
 export default function TechnologiesPage() {

@@ -6,7 +6,7 @@ import { brand } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "Careers",
-  description: `Join ${brand.name} and help build AI-powered enterprise products and platforms.`,
+  description: `Build multi-tenant AI-native SaaS platforms at Cybelinx. Open roles in product engineering, cloud infrastructure, and AI/ML.`,
 };
 
 const values = ["Innovation First", "Product Mindset", "Global Delivery", "Trusted Partnership"];

@@ -8,7 +8,7 @@ import { Package, RefreshCw, Sparkles, ServerCog, type LucideIcon } from "lucide
 
 export const metadata: Metadata = {
   title: "Solutions",
-  description: "Platform engineering, product development, legacy modernization, and AI transformation — built on our multi-tenant SaaS core.",
+  description: "End-to-end product engineering for regulated enterprises \u2014 greenfield SaaS builds, legacy modernization, AI transformation, and internal developer platforms.",
 };
 
 const iconMap: Record<string, LucideIcon> = {
