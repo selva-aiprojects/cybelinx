@@ -119,7 +119,7 @@ export default function PlatformPage() {
               Cloud AI platforms give you building blocks. DevSecOps tools secure your pipelines. Single-vertical SaaS solves one problem. Cybelinx brings all three together.
             </h2>
             <p className="mt-4 text-base leading-relaxed text-slate">
-              An AI-native, multi-tenant platform, multi-cloud DevSecOps, and a portfolio of regulated SaaS products — all designed to boost developer productivity in enterprise engineering teams.
+              An AI-native, multi-tenant platform, multi-cloud DevSecOps, and a portfolio of regulated SaaS products — all designed to boost developer productivity in enterprise engineering and platform teams.
             </p>
           </div>
         </AnimatedSection>

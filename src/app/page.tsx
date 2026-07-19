@@ -89,7 +89,7 @@ export default function HomePage() {
           <SectionHeading
             eyebrow="How Cybelinx Is Different"
             title="Cloud AI platforms give you building blocks. We give you the whole building."
-            description="An AI-native, multi-tenant platform, multi-cloud DevSecOps, and a portfolio of regulated SaaS products — all designed to boost developer productivity in enterprise engineering teams."
+            description="An AI-native, multi-tenant platform, multi-cloud DevSecOps, and a portfolio of regulated SaaS products — all designed to boost developer productivity in enterprise engineering and platform teams."
           />
         </AnimatedSection>
         <div className="space-y-5">
