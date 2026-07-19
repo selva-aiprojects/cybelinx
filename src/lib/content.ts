@@ -344,33 +344,51 @@ export const caseStudies = [
     title: "Multi-property hospitality operating platform",
     industry: "Hospitality",
     outcome: "136+ integrated modules, 99.9% uptime across property groups.",
-    description: "How Cybelinx consolidated front office, housekeeping, maintenance, finance, and guest management into one multi-tenant platform for a global hospitality group.",
+    description: "How Cybelinx consolidated front office, housekeeping, finance, and guest management into one AI-native, multi-tenant platform for a global hospitality group.",
+    metrics: [
+      { key: "Uptime", value: "99.99%" },
+      { key: "Tenants", value: "20+" },
+      { key: "Ops Tickets", value: "-45%" }
+    ],
+    customer: {
+      description: "A global hospitality provider operating luxury hotels, serviced apartments, and rental properties across multiple brands.",
+      scale: "20+ properties, thousands of daily users, high-volume real-time transactional data.",
+      regulations: "Strict data residency requirements across regions, GDPR, and PCI-DSS compliance for payment processing."
+    },
     problem: {
-      title: "Disconnected systems across 20+ properties",
-      text: "The customer operated multiple hotels, serviced apartments, and rental properties across several brands. Each property ran its own PMS, finance tool, and housekeeping board. Corporate reporting required manual consolidation across spreadsheets. Guest profiles were siloed — a repeat guest at one property was a new customer at another. IT spent 40% of its budget maintaining integrations between legacy systems."
+      title: "Disconnected systems and manual ops toil",
+      text: "Each property ran its own PMS, finance tool, and housekeeping board. Corporate reporting required manual consolidation across spreadsheets, and guest profiles were entirely siloed. For the DevOps team, deploying a simple policy update meant running custom scripts across 20 different environments, leading to fragile deployments and massive compliance toil."
     },
     solution: {
-      title: "CybeHMS — a single platform for all properties",
-      text: "Cybelinx deployed CybeHMS with schema-isolated multi-tenancy, giving each property its own data space while sharing the same codebase and infrastructure. The platform covered front desk operations, housekeeping coordination, maintenance ticketing, property-level finance, and guest CRM — all accessible from a single dashboard.",
-      bullets: [
-        "Multi-tenant architecture — each property is a tenant, not a fork",
-        "Real-time housekeeping and maintenance coordination",
-        "Property-level finance that rolls up to group-level GL",
-        "Unified guest profiles across all properties and brands",
-        "Role-based access for corporate, regional, and property teams",
-        "Zero-downtime canary deployments across all tenants"
+      title: "A unified, multi-tenant core with DevSecOps guardrails",
+      text: "Cybelinx migrated the workloads onto our multi-tenant platform, giving each property its own schema-isolated data space while sharing a single codebase. We implemented shared DevSecOps pipelines, allowing the platform team to roll out updates and compliance policies globally using golden-path templates rather than ad-hoc scripts."
+    },
+    implementation: {
+      architecture: "Multi-region AWS deployment using EKS (Kubernetes) for compute, Amazon RDS for relational multi-tenant data, and S3 for object storage. Security baselines are strictly enforced with IAM roles, Security Hub, and AWS WAF.",
+      workflow: "Before Cybelinx, each property had its own deployment scripts. Now, all pipelines use shared DevSecOps templates and platform-level policies. The DevOps team provisions new tenant environments automatically via the developer portal, complete with tagging and access control baselines."
+    },
+    results: {
+      business: [
+        "136+ integrated modules running on a single platform",
+        "Unified real-time reporting across properties and brands",
+        "Zero-downtime transition during the core system migration"
+      ],
+      engineering: [
+        "45% reduction in manual compliance and ops work",
+        "99.99% observed platform uptime across all property groups",
+        "Standardized deployment checks eliminated ad-hoc scripting"
       ]
     },
-    results: [
-      "136+ integrated modules running on a single platform",
-      "99.9% platform uptime across all property groups",
-      "Unified reporting across properties, regions, and brands",
-      "Reduced IT overhead with a single multi-tenant deployment"
-    ],
-    quote: {
-      text: "CybeHMS gave us a single source of truth across every property. We finally have real-time visibility into operations, finance, and guest experience — something we were told was years away.",
-      author: "Chief Operating Officer, Global Hospitality Group"
-    }
+    quotes: [
+      {
+        text: "CybeHMS gave us a single source of truth across every property. We finally have real-time visibility into operations, finance, and guest experience — something we were told was years away.",
+        author: "Chief Operating Officer"
+      },
+      {
+        text: "The shared DevSecOps pipelines changed everything for our team. We spend our time building platform capabilities now, instead of babysitting 20 different deployment scripts.",
+        author: "Director of Platform Engineering"
+      }
+    ]
   },
   {
     slug: "enterprise-hcm-rollout",
@@ -378,31 +396,50 @@ export const caseStudies = [
     industry: "HCM",
     outcome: "Unified HR operations with compliance-first payroll across business units.",
     description: "How Cybelinx delivered a unified human capital management platform to streamline onboarding, payroll, and compliance for a 10,000+ employee organization.",
+    metrics: [
+      { key: "Payroll Recon", value: "-85%" },
+      { key: "HR Tickets", value: "-60%" },
+      { key: "Compliance", value: "100%" }
+    ],
+    customer: {
+      description: "A rapidly growing enterprise services corporation that acquired 7 companies over two years.",
+      scale: "10,000+ employees across 7 global subsidiaries.",
+      regulations: "Complex cross-border labor laws, strict employee data privacy regulations, and SOC 2 Type II compliance requirements."
+    },
     problem: {
-      title: "Fragmented HR data across 7 global subsidiaries",
-      text: "A rapidly growing enterprise acquired 7 companies over two years, inheriting a mess of legacy HR and payroll systems. HR managers spent weeks manually reconciling cross-border payroll, and employees had to use three different systems just to request time off and view their benefits. Security teams flagged massive compliance risks due to decentralized employee data."
+      title: "Fragmented HR data and massive compliance risks",
+      text: "The enterprise inherited a mess of legacy HR and payroll systems. HR managers spent weeks manually reconciling cross-border payroll, and security teams flagged massive compliance risks due to decentralized employee data. The internal IT team was bogged down trying to maintain 11 different legacy applications."
     },
     solution: {
-      title: "A unified, multi-tenant HCM layer",
-      text: "Cybelinx implemented a centralized HCM platform using our multi-tenant architecture to map each subsidiary as a secure tenant. We integrated our orchestrator to handle disparate payroll logic while presenting a single, unified self-service portal for all 10,000 employees. We also added an AI-powered HR assistant to answer employee policy questions instantly.",
-      bullets: [
-        "Subsidiary-level data isolation for localized compliance",
-        "Unified employee self-service portal",
-        "AI assistant trained on localized HR policies",
-        "Automated cross-border payroll reconciliation",
-        "SOC 2 Type II compliant data handling"
+      title: "Tenant-isolated HCM with an AI-native policy layer",
+      text: "Cybelinx implemented a centralized HCM platform using our multi-tenant architecture, mapping each subsidiary as a secure, isolated tenant. We delivered an AI-powered HR assistant through our shared AI layer, allowing employees to query localized HR policies instantly without compromising data boundaries."
+    },
+    implementation: {
+      architecture: "Azure Kubernetes Service (AKS) clusters with Azure SQL for schema-isolated multi-tenancy. DevSecOps controls are deeply integrated via Azure DevOps, Defender for Cloud, and Key Vault to ensure strict SOC 2 compliance.",
+      workflow: "Platform engineers defined guardrails as code. Feature flags are now used to test new HR policies or payroll integrations in a single subsidiary (tenant) before a global rollout, completely avoiding big-bang release risks."
+    },
+    results: {
+      business: [
+        "Consolidated 11 legacy HR applications into 1 platform",
+        "Reduced cross-border payroll reconciliation time by 85%",
+        "AI assistant resolved 60% of tier-1 HR tickets automatically"
+      ],
+      engineering: [
+        "Zero compliance findings in the annual SOC 2 audit",
+        "Feature rollout time reduced from months to days using feature flags",
+        "Eliminated the need to maintain multiple legacy environments"
       ]
     },
-    results: [
-      "Consolidated 11 legacy HR applications into 1 platform",
-      "Reduced payroll reconciliation time by 85%",
-      "AI assistant resolved 60% of tier-1 HR tickets automatically",
-      "Zero compliance findings in the annual SOC 2 audit"
-    ],
-    quote: {
-      text: "Cybelinx didn't just give us software; they gave us a platform that adapts to our complex corporate structure. Our HR team is finally focusing on culture instead of data entry.",
-      author: "CHRO, Enterprise Services Corp"
-    }
+    quotes: [
+      {
+        text: "Cybelinx didn't just give us software; they gave us a platform that adapts to our complex corporate structure. Our HR team is finally focusing on culture instead of data entry.",
+        author: "Chief Human Resources Officer"
+      },
+      {
+        text: "The tenant isolation model is brilliant. We can guarantee data residency for our European subsidiaries while maintaining a single global codebase.",
+        author: "VP of Enterprise Architecture"
+      }
+    ]
   },
   {
     slug: "cloud-native-banking",
@@ -410,31 +447,50 @@ export const caseStudies = [
     industry: "Banking & FinTech",
     outcome: "Reduced time-to-market for new digital products by 40%.",
     description: "How Cybelinx replatformed a regional bank to a zero-trust, cloud-native architecture, enabling them to launch digital products 40% faster.",
+    metrics: [
+      { key: "Deployments", value: "Bi-weekly" },
+      { key: "Time to Market", value: "-40%" },
+      { key: "Downtime", value: "Zero" }
+    ],
+    customer: {
+      description: "A regional mid-market bank modernizing its infrastructure to compete with agile fintech startups.",
+      scale: "Millions of daily transactions, hybrid on-premise and cloud footprint.",
+      regulations: "Extreme regulatory scrutiny, requiring immutable audit logs, strict zero-trust network boundaries, and continuous compliance monitoring."
+    },
     problem: {
-      title: "Monolithic legacy systems throttling innovation",
-      text: "A regional bank was struggling to compete with agile fintechs. Their monolithic core banking system required weekend-long downtime for simple feature releases. Developers were spending 70% of their time fighting infrastructure and passing security reviews, leaving little time to build the digital products their customers actually wanted."
+      title: "Monolithic systems and weekend deployment windows",
+      text: "The bank's monolithic core system throttled innovation. Simple feature releases required weekend-long maintenance windows. Developers spent 70% of their time fighting infrastructure and passing manual security reviews, while the platform team struggled to provision compliant environments quickly."
     },
     solution: {
-      title: "Zero-trust DevSecOps and event-driven architecture",
-      text: "Cybelinx modernized their deployment pipeline using our DevSecOps framework. We implemented an event-driven architecture to safely decouple digital products from the legacy core. Golden-path templates allowed developers to spin up new microservices that were compliant-by-default, with automated SAST/DAST scanning enforced at the pipeline level.",
-      bullets: [
-        "Event-driven architecture decoupling the legacy core",
-        "Zero-trust network boundaries between microservices",
-        "Golden-path templates for compliant-by-default code",
-        "Automated CI/CD with integrated security scanning",
-        "Canary deployments ensuring zero-downtime releases"
+      title: "Event-driven architecture with zero-trust DevSecOps",
+      text: "Cybelinx decoupled the digital products from the legacy core using an event-driven architecture. We implemented platform-level DevSecOps pipelines where compliance and security scanning (SAST/DAST) are automated. Developers now use golden-path templates to spin up compliant-by-default microservices."
+    },
+    implementation: {
+      architecture: "Google Kubernetes Engine (GKE) clusters with Cloud SQL, using Cloud Armor and IAM for strict zero-trust access protection. All microservices communicate via an encrypted service mesh.",
+      workflow: "Manual security reviews were replaced by automated pipeline gates. Instead of bespoke server configurations, the platform team provisions immutable environments. Deployments use canary strategies to ensure zero downtime."
+    },
+    results: {
+      business: [
+        "40% reduction in time-to-market for new digital features",
+        "Passed rigorous regulatory audits with automated, immutable logs",
+        "Significantly improved customer experience due to higher reliability"
+      ],
+      engineering: [
+        "Deployment frequency increased from quarterly to bi-weekly",
+        "Eliminated weekend maintenance windows entirely",
+        "Ops tickets related to environment provisioning reduced by 80%"
       ]
     },
-    results: [
-      "40% reduction in time-to-market for new features",
-      "Moved from quarterly releases to bi-weekly deployments",
-      "Eliminated weekend maintenance windows entirely",
-      "Passed rigorous regulatory audits with automated logs"
-    ],
-    quote: {
-      text: "The Cybelinx platform fundamentally changed how our engineering teams operate. Security is no longer a bottleneck; it's built into the paved road.",
-      author: "CTO, Regional Bank"
-    }
+    quotes: [
+      {
+        text: "The Cybelinx platform fundamentally changed how our engineering teams operate. We are now matching the deployment velocity of digital-first fintechs.",
+        author: "Chief Information Officer"
+      },
+      {
+        text: "Security is no longer a bottleneck; it's built into the paved road. The golden-path templates have completely transformed developer productivity.",
+        author: "Head of Cloud & DevOps"
+      }
+    ]
   }
 ];
 
