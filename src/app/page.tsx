@@ -14,18 +14,20 @@ export default function HomePage() {
     <>
       <Hero />
 
+      {/* ── Social proof ─────────────────────── */}
       <Section>
         <AnimatedSection>
           <TrustBar />
         </AnimatedSection>
       </Section>
 
-      <Section id="products" textured>
+      {/* ── Product Portfolio ─────────────────── */}
+      <Section id="products" textured glow>
         <AnimatedSection>
           <SectionHeading
             eyebrow="Product Portfolio"
-            title="Seven platforms. Two in production, five in the pipeline."
-            description="Every Cybelinx product shares the same multi-tenant core — new industries slot into the platform without a rebuild."
+            title="Seven platforms. Two live. Five in the pipeline."
+            description="Every Cybelinx product is built on the same multi-tenant core — new industries slot in without a rebuild."
           />
         </AnimatedSection>
         <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
@@ -37,7 +39,8 @@ export default function HomePage() {
         </div>
       </Section>
 
-      <Section id="platform-pillars" textured>
+      {/* ── Platform Pillars ──────────────────── */}
+      <Section id="platform-pillars" glow>
         <AnimatedSection>
           <SectionHeading
             eyebrow="The Cybelinx Platform"
@@ -45,56 +48,74 @@ export default function HomePage() {
             description="Web & SaaS/PaaS, AI & LLM, DevSecOps, and quantum-ready engineering — all on a unified multi-tenant core for regulated enterprises."
           />
         </AnimatedSection>
-        {platformPillars.map((pillar, index) => (
-          <AnimatedSection key={pillar.slug} delay={index * 0.08}>
-            <div className="group mb-6 rounded-2xl border border-border bg-background p-8 transition-all hover:-translate-y-0.5 hover:shadow-md md:p-10">
-              <div className="flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
-                <div className="max-w-2xl">
-                  <div className="flex items-center gap-3">
-                    <pillar.icon className="h-6 w-6 text-primary" />
-                    <h3 className="font-display text-xl font-bold text-surface md:text-2xl">{pillar.title}</h3>
+        <div className="grid gap-5 md:grid-cols-2">
+          {platformPillars.map((pillar, index) => (
+            <AnimatedSection key={pillar.slug} delay={index * 0.08}>
+              <div className="group relative h-full overflow-hidden rounded-2xl border border-border bg-card-bg p-8 transition-all duration-300 hover:border-primary/40 hover:shadow-card-hover hover:-translate-y-1 md:p-10">
+                {/* Top accent line */}
+                <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-brand opacity-0 group-hover:opacity-100 transition-opacity" />
+                {/* Background glow */}
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/3 to-violet/3 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
+
+                <div className="relative flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
+                  <div className="max-w-xl">
+                    <div className="flex items-center gap-3 mb-3">
+                      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-primary/15 to-violet/15 transition-all group-hover:scale-110">
+                        <pillar.icon className="h-5 w-5 text-primary" />
+                      </div>
+                      <h3 className="font-display text-xl font-bold text-surface md:text-2xl">
+                        {pillar.title}
+                      </h3>
+                    </div>
+                    <p className="text-sm leading-relaxed text-slate">{pillar.description}</p>
                   </div>
-                  <p className="mt-3 text-sm leading-relaxed text-slate">{pillar.description}</p>
-                </div>
-                <div className="shrink-0 rounded-xl border border-primary/20 bg-primary/5 px-5 py-3">
-                  <span className="text-xs font-bold uppercase tracking-widest text-primary">Outcome</span>
-                  <p className="mt-1 max-w-xs text-sm font-semibold text-surface">{pillar.outcome}</p>
+
+                  <div className="shrink-0 rounded-xl border border-primary/20 bg-primary/5 px-5 py-4 backdrop-blur-sm">
+                    <span className="text-[10px] font-bold uppercase tracking-widest text-primary">Outcome</span>
+                    <p className="mt-1.5 max-w-[200px] text-sm font-semibold text-surface leading-snug">
+                      {pillar.outcome}
+                    </p>
+                  </div>
                 </div>
               </div>
-            </div>
-          </AnimatedSection>
-        ))}
+            </AnimatedSection>
+          ))}
+        </div>
       </Section>
 
-      <Section id="how-cybelinx-is-different">
+      {/* ── How Cybelinx Is Different ────────── */}
+      <Section id="how-cybelinx-is-different" textured glow>
         <AnimatedSection>
           <SectionHeading
             eyebrow="How Cybelinx Is Different"
-            title="Cloud AI platforms give you building blocks. DevSecOps tools secure your pipelines. Single-vertical SaaS solves one problem. Cybelinx brings all three together."
+            title="Cloud AI platforms give you building blocks. We give you the whole building."
             description="An AI-native, multi-tenant platform, multi-cloud DevSecOps, and a portfolio of regulated SaaS products — all designed to boost developer productivity in enterprise engineering teams."
           />
         </AnimatedSection>
-        <div className="space-y-8">
+        <div className="space-y-5">
           {differentiators.map((diff, index) => (
-            <AnimatedSection key={diff.title} delay={index * 0.08}>
-              <div className="rounded-2xl border border-border bg-background p-8 transition-all hover:-translate-y-0.5 hover:shadow-md md:p-10">
-                <div className="flex items-start gap-4">
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10">
+            <AnimatedSection key={diff.title} delay={index * 0.07}>
+              <div className="group relative overflow-hidden rounded-2xl border border-border bg-card-bg p-8 transition-all duration-300 hover:border-primary/40 hover:shadow-card-hover hover:-translate-y-0.5 md:p-10">
+                {/* Left accent bar */}
+                <div className="absolute left-0 top-0 bottom-0 w-0.5 bg-gradient-brand opacity-0 group-hover:opacity-100 transition-opacity" />
+
+                <div className="flex items-start gap-5">
+                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-primary/15 to-violet/15 transition-all group-hover:scale-110">
                     <diff.icon className="h-5 w-5 text-primary" />
                   </div>
                   <div className="min-w-0 flex-1">
-                    <h3 className="font-display text-lg font-bold text-surface">{diff.title}</h3>
+                    <h3 className="font-display text-lg font-bold text-surface md:text-xl">{diff.title}</h3>
                     <p className="mt-2 text-sm font-semibold text-primary/80">{diff.hook}</p>
                     <p className="mt-2 text-sm leading-relaxed text-slate">{diff.summary}</p>
                     <ul className="mt-4 space-y-2">
                       {diff.details.map((d) => (
-                        <li key={d.slice(0, 20)} className="flex items-start gap-2 text-sm text-slate">
-                          <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
+                        <li key={d.slice(0, 20)} className="flex items-start gap-2.5 text-sm text-slate">
+                          <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-gradient-to-r from-primary to-violet" />
                           {d}
                         </li>
                       ))}
                     </ul>
-                    <blockquote className="mt-4 border-l-2 border-primary pl-4 text-sm italic leading-relaxed text-surface/80">
+                    <blockquote className="mt-5 border-l-2 border-primary/40 pl-4 text-sm italic leading-relaxed text-surface/70">
                       {diff.quote}
                     </blockquote>
                   </div>
@@ -105,6 +126,7 @@ export default function HomePage() {
         </div>
       </Section>
 
+      {/* ── How It Works ──────────────────────── */}
       <Section id="how-it-works">
         <AnimatedSection>
           <SectionHeading
@@ -127,19 +149,29 @@ export default function HomePage() {
         </AnimatedSection>
       </Section>
 
-      <Section id="why-cybelinx" textured>
+      {/* ── Why Cybelinx ─────────────────────── */}
+      <Section id="why-cybelinx" textured glow>
         <AnimatedSection>
-          <SectionHeading eyebrow="Why Cybelinx" title="Why enterprises choose our products." />
+          <SectionHeading
+            eyebrow="Why Cybelinx"
+            title="Why enterprises choose our products."
+          />
         </AnimatedSection>
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {whyCybelinx.map((pillar, index) => (
             <AnimatedSection key={pillar.title} delay={index * 0.08}>
-              <FeatureCard title={pillar.title} description={pillar.description} icon={pillar.icon} />
+              <FeatureCard
+                title={pillar.title}
+                description={pillar.description}
+                icon={pillar.icon}
+                index={index}
+              />
             </AnimatedSection>
           ))}
         </div>
       </Section>
 
+      {/* ── Final CTA ────────────────────────── */}
       <Section>
         <AnimatedSection>
           <CTABand />

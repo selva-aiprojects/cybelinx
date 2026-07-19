@@ -1,0 +1,36 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="entGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0056D6"/>
+      <stop offset="50%" stop-color="#6D28D9"/>
+      <stop offset="100%" stop-color="#68D33B"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Outer Ring (Blue) -->
+  <circle cx="256" cy="256" r="210" fill="none" stroke="#0056D6" stroke-width="28" stroke-dasharray="250 50" />
+  
+  <!-- Middle Ring (Green) -->
+  <circle cx="256" cy="256" r="160" fill="none" stroke="#68D33B" stroke-width="20" stroke-dasharray="100 20" />
+
+  <!-- Inner Ring (Purple) -->
+  <circle cx="256" cy="256" r="120" fill="none" stroke="#6D28D9" stroke-width="12" />
+
+  <!-- Shield -->
+  <path d="M256 128 L320 150 V240 C320 290 290 325 256 345 C222 325 192 290 192 240 V150 Z" fill="none" stroke="#68D33B" stroke-width="24" stroke-linejoin="round"/>
+  
+  <!-- Circuit Nodes & Lines -->
+  <!-- Left nodes -->
+  <line x1="80" y1="256" x2="192" y2="256" stroke="#0056D6" stroke-width="12" />
+  <circle cx="70" cy="256" r="16" fill="#0056D6" />
+
+  <line x1="120" y1="180" x2="200" y2="220" stroke="#0056D6" stroke-width="12" />
+  <circle cx="110" cy="175" r="12" fill="#0056D6" />
+
+  <!-- Right nodes -->
+  <line x1="432" y1="256" x2="320" y2="256" stroke="#6D28D9" stroke-width="12" />
+  <circle cx="442" cy="256" r="16" fill="#6D28D9" />
+
+  <line x1="392" y1="180" x2="312" y2="220" stroke="#6D28D9" stroke-width="12" />
+  <circle cx="402" cy="175" r="12" fill="#6D28D9" />
+</svg>
