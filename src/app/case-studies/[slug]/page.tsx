@@ -13,8 +13,13 @@ export function generateStaticParams() {
   }));
 }
 
-export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
-  const study = caseStudies.find((s) => s.slug === params.slug);
+type Props = {
+  params: Promise<{ slug: string }>;
+};
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { slug } = await params;
+  const study = caseStudies.find((s) => s.slug === slug);
   if (!study) return { title: "Case Study not found" };
   return {
     title: `${study.title} — Case Study`,
@@ -22,8 +27,9 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
   };
 }
 
-export default function CaseStudyPage({ params }: { params: { slug: string } }) {
-  const study = caseStudies.find((s) => s.slug === params.slug);
+export default async function CaseStudyPage({ params }: Props) {
+  const { slug } = await params;
+  const study = caseStudies.find((s) => s.slug === slug);
 
   if (!study || !study.problem) {
     notFound();

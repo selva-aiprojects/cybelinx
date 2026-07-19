@@ -127,56 +127,7 @@ export default function CloudPlatformPage() {
       {/* Platform Architecture Stack */}
       <Section>
         <AnimatedSection>
-          <ArchitectureEcosystem
-            title="The Cybelinx Platform Stack"
-            description="Four layers engineered from the ground up for strict tenant isolation, high-throughput AI inference, and seamless enterprise integrations."
-            components={[
-              {
-                label: "Core Infrastructure",
-                sublabel: "Cloud & Compute",
-                items: [
-                  "AWS / GCP Multi-Region",
-                  "Kubernetes Clusters",
-                  "Zero-Trust Service Mesh",
-                  "Automated Failover & DR",
-                ],
-                color: "primary",
-              },
-              {
-                label: "Platform Services",
-                sublabel: "Developer Experience",
-                items: [
-                  "Internal Developer Portal",
-                  "Golden-Path Templates",
-                  "CI/CD Pipeline Automation",
-                  "Feature Flag Management",
-                ],
-                color: "cyan",
-              },
-              {
-                label: "Data & Multi-Tenancy",
-                sublabel: "Tenant Isolation",
-                items: [
-                  "Isolated Tenant Schemas",
-                  "Vector Embeddings DB",
-                  "Distributed Caching Layer",
-                  "Automated Backup & Restore",
-                ],
-                color: "violet",
-              },
-              {
-                label: "Security & Compliance",
-                sublabel: "Governance",
-                items: [
-                  "SOC 2 Type II Certified",
-                  "End-to-End Encryption",
-                  "RBAC & SAML/SSO",
-                  "Immutable Audit Logs",
-                ],
-                color: "primary",
-              },
-            ]}
-          />
+          <ArchitectureEcosystem />
         </AnimatedSection>
       </Section>
 

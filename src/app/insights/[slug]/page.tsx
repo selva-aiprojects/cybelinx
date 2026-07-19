@@ -14,8 +14,13 @@ export function generateStaticParams() {
   }));
 }
 
-export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
-  const insight = insights.find((i) => i.slug === params.slug);
+type Props = {
+  params: Promise<{ slug: string }>;
+};
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { slug } = await params;
+  const insight = insights.find((i) => i.slug === slug);
   if (!insight) return { title: "Insight not found" };
   return {
     title: insight.title,
@@ -23,8 +28,9 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
   };
 }
 
-export default function InsightArticlePage({ params }: { params: { slug: string } }) {
-  const insight = insights.find((i) => i.slug === params.slug);
+export default async function InsightArticlePage({ params }: Props) {
+  const { slug } = await params;
+  const insight = insights.find((i) => i.slug === slug);
 
   if (!insight) {
     notFound();
@@ -72,8 +78,6 @@ export default function InsightArticlePage({ params }: { params: { slug: string 
         <CTABand 
           heading="Discuss your platform strategy" 
           subheading="Want to dive deeper into these topics? Connect with our engineering leaders to discuss how Cybelinx can accelerate your product roadmap." 
-          buttonText="Contact Us"
-          buttonHref="/contact"
         />
       </Section>
     </>
