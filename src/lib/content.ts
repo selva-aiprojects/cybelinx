@@ -340,7 +340,7 @@ export const technologies = [
 
 export const caseStudies = [
   {
-    slug: "global-hospitality-platform",
+    slug: "hospitality",
     title: "Multi-property hospitality operating platform",
     industry: "Hospitality",
     outcome: "136+ integrated modules, 99.9% uptime across property groups.",
@@ -391,7 +391,7 @@ export const caseStudies = [
     ]
   },
   {
-    slug: "enterprise-hcm-rollout",
+    slug: "hcm",
     title: "AI-enabled HCM for a multi-entity enterprise",
     industry: "HCM",
     outcome: "Unified HR operations with compliance-first payroll across business units.",
@@ -442,7 +442,7 @@ export const caseStudies = [
     ]
   },
   {
-    slug: "cloud-native-banking",
+    slug: "banking",
     title: "Core banking modernization program",
     industry: "Banking & FinTech",
     outcome: "Reduced time-to-market for new digital products by 40%.",
