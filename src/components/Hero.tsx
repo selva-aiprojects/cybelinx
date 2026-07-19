@@ -31,7 +31,7 @@ export default function Hero() {
       <div className="orb orb-violet h-[500px] w-[500px] top-20 right-0 opacity-30" aria-hidden />
       <div className="orb orb-cyan h-[400px] w-[400px] bottom-0 left-1/3 opacity-20" aria-hidden />
 
-      <div className="relative py-20 md:py-32 lg:py-40">
+      <div className="relative pt-12 pb-20 md:pt-16 md:pb-32 lg:pt-20 lg:pb-40">
         <div className="relative mx-auto max-w-7xl px-6">
           <div className="grid gap-16 lg:grid-cols-2 lg:items-center">
 
@@ -54,11 +54,9 @@ export default function Hero() {
                 initial={{ opacity: 0, y: 24 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: 0.2 }}
-                className="mt-6 font-display text-4xl font-extrabold leading-[1.06] tracking-tight text-accent md:text-5xl lg:text-6xl"
+                className="mt-6 font-display text-4xl font-extrabold leading-[1.06] tracking-tight text-white md:text-5xl lg:text-6xl"
               >
-                Enterprise software,{" "}
-                <span className="gradient-text-hero">reimagined</span>{" "}
-                with AI.
+                Enterprise software, reimagined with AI.
               </motion.h1>
 
               {/* Sub-headline */}
@@ -124,7 +122,10 @@ export default function Hero() {
                     <span className="h-3 w-3 rounded-full bg-rose/70" />
                     <span className="h-3 w-3 rounded-full bg-accent/70" />
                     <span className="h-3 w-3 rounded-full bg-live/70" />
-                    <span className="ml-3 flex-1 rounded-md border border-border/30 bg-background/40 px-3 py-1 text-center text-[11px] text-slate/60">
+                    <span 
+                      className="ml-3 flex-1 rounded-md border border-border/40 px-3 py-1.5 text-center text-[11px] font-medium"
+                      style={{ backgroundColor: 'rgba(0, 0, 0, 0.05)', color: '#1e293b' }}
+                    >
                       app.cybelinx.com/dashboard
                     </span>
                   </div>
@@ -186,27 +187,41 @@ export default function Hero() {
                   </div>
                 </div>
 
-                {/* Floating highlight badges */}
-                {highlights.map((h, i) => {
-                  const Icon = h.icon;
-                  const positions = [
-                    "-left-8 top-10",
-                    "-right-8 top-1/3",
-                    "-left-6 bottom-12",
-                  ];
-                  return (
-                    <motion.div
-                      key={h.label}
-                      initial={{ opacity: 0, scale: 0.8 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      transition={{ duration: 0.5, delay: 0.8 + i * 0.15 }}
-                      className={`absolute ${positions[i]} glass-card px-3 py-2 flex items-center gap-2 shadow-lg`}
-                    >
-                      <Icon className={`h-3.5 w-3.5 shrink-0 ${h.color}`} />
-                      <span className="text-[11px] font-semibold text-surface whitespace-nowrap">{h.label}</span>
-                    </motion.div>
-                  );
-                })}
+                {/* Highlight badges placed in a row below the card */}
+                <div className="mt-6 flex flex-wrap justify-center gap-3">
+                  <motion.div
+                    initial={{ opacity: 0, y: 15, scale: 0.9 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    whileHover={{ scale: 1.05, y: -2 }}
+                    transition={{ duration: 0.4, delay: 0.8, type: "spring", stiffness: 200 }}
+                    className="glass-card px-3 py-2 flex items-center gap-2 shadow-lg w-max cursor-default hover:border-live/30 hover:shadow-live/10"
+                  >
+                    <Zap className="h-3.5 w-3.5 shrink-0 text-live" />
+                    <span className="text-[11px] font-semibold text-surface whitespace-nowrap">SaaS & PaaS in production</span>
+                  </motion.div>
+
+                  <motion.div
+                    initial={{ opacity: 0, y: 15, scale: 0.9 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    whileHover={{ scale: 1.05, y: -2 }}
+                    transition={{ duration: 0.4, delay: 0.95, type: "spring", stiffness: 200 }}
+                    className="glass-card px-3 py-2 flex items-center gap-2 shadow-lg w-max cursor-default hover:border-primary/30 hover:shadow-primary/10"
+                  >
+                    <Shield className="h-3.5 w-3.5 shrink-0 text-primary" />
+                    <span className="text-[11px] font-semibold text-surface whitespace-nowrap">Multi-cloud DevSecOps</span>
+                  </motion.div>
+
+                  <motion.div
+                    initial={{ opacity: 0, y: 15, scale: 0.9 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    whileHover={{ scale: 1.05, y: -2 }}
+                    transition={{ duration: 0.4, delay: 1.1, type: "spring", stiffness: 200 }}
+                    className="glass-card px-3 py-2 flex items-center gap-2 shadow-lg w-max cursor-default hover:border-violet/30 hover:shadow-violet/10"
+                  >
+                    <Cpu className="h-3.5 w-3.5 shrink-0 text-violet" />
+                    <span className="text-[11px] font-semibold text-surface whitespace-nowrap">Quantum-ready architecture</span>
+                  </motion.div>
+                </div>
               </div>
 
               {/* Glow reflection beneath card */}
