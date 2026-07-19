@@ -5,6 +5,9 @@ import CTABand from "@/components/CTABand";
 import ArchitectureEcosystem from "@/components/ArchitectureEcosystem";
 import ArchitectureFlow from "@/components/ArchitectureFlow";
 import AnimatedSection from "@/components/AnimatedSection";
+import TypicalWorkflows from "@/components/TypicalWorkflows";
+import { ArrowRight } from "lucide-react";
+import Link from "next/link";
 import { technologies } from "@/lib/content";
 
 export const metadata: Metadata = {
@@ -48,21 +51,44 @@ export default function TechnologiesPage() {
         </AnimatedSection>
       </Section>
 
+      <Section id="workflows">
+        <AnimatedSection>
+          <TypicalWorkflows />
+        </AnimatedSection>
+      </Section>
+
       <Section textured>
         <AnimatedSection>
+          <div className="mb-10 max-w-3xl">
+            <h3 className="font-display text-3xl font-bold text-surface md:text-4xl">Platform-Enabled Deployment Pipeline</h3>
+            <p className="mt-4 text-base leading-relaxed text-slate">
+              By standardizing templates, pipelines, and guardrails, Cybelinx aims to reduce repetitive ops work and ticket churn for engineering teams, while improving deployment frequency and reliability.
+            </p>
+          </div>
           <ArchitectureFlow
-            title="Platform-Enabled Deployment Pipeline"
+            title=""
             steps={[
               { label: "Template & Security Audit", description: "Golden-path scaffolding with automated SAST/DAST scanning, dependency audits, and compliance gates enforced before merge." },
               { label: "Immutable Build & Deploy", description: "Containerized artifacts built once, deployed across multi-region Kubernetes clusters with canary release strategies." },
               { label: "Live Telemetry & Self-Healing", description: "Continuous observability with AI-driven anomaly detection, automatic failover, and incident response across all tenants." },
             ]}
-            outcome="Product teams ship weekly with zero-downtime deployments, automated compliance, and self-healing infrastructure — 99.99% uptime across all client environments."
+            outcome="Product teams ship weekly with zero-downtime deployments, automated compliance, and self-healing infrastructure. 99.9% Uptime SLA · 99.99% observed uptime across client environments."
           />
         </AnimatedSection>
       </Section>
 
       <Section>
+        <AnimatedSection>
+          <div className="mb-16 flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-8">
+            <Link href="/platform" className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:text-violet transition-colors">
+              Explore the platform architecture <ArrowRight className="h-4 w-4" />
+            </Link>
+            <div className="hidden h-1 w-1 rounded-full bg-border sm:block" />
+            <Link href="#" className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:text-violet transition-colors">
+              See how engineering teams use Cybelinx in production <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
+        </AnimatedSection>
         <CTABand heading="Platform architecture review" subheading="Our platform engineers can assess your stack and roadmap cloud-native modernization paths." />
       </Section>
     </>

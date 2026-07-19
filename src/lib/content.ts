@@ -97,7 +97,7 @@ export const platformPillars: PlatformPillar[] = [
     subtitle: "Architected for what's next",
     slug: "quantum",
     description:
-      "Cybelinx is architected to be quantum-ready: data models, simulation workloads, and AI pipelines are designed so future quantum backends can plug into the same platform for optimization and analysis workloads. Regulated enterprises can experiment with quantum-assisted optimization and risk analysis on the same compliant, multi-tenant foundation they use today.",
+      "Cybelinx is architected to be quantum-ready: data models, simulation workloads, and AI pipelines are designed so future quantum backends can plug into the same platform for optimization and analysis workloads. Regulated enterprises can experiment with quantum-assisted optimization and risk analysis on the same compliant, multi-tenant foundation they use today. Examples include portfolio optimization, supply chain routing, and risk modeling experiments for regulated enterprises.",
     outcome:
       "Future-proof your platform — quantum capabilities slot in without rearchitecture.",
   },

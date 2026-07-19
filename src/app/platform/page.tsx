@@ -6,9 +6,11 @@ import ArchitectureEcosystem from "@/components/ArchitectureEcosystem";
 import ArchitectureFlow from "@/components/ArchitectureFlow";
 import CTABand from "@/components/CTABand";
 import AnimatedSection from "@/components/AnimatedSection";
+import { ArrowRight } from "lucide-react";
+import Link from "next/link";
 import { platformPillars, differentiators, capabilities } from "@/lib/content";
 
-import ComparisonTable from "@/components/ComparisonTable";
+import CompactComparisonTable from "@/components/CompactComparisonTable";
 
 export const metadata: Metadata = {
   title: "Platform",
@@ -61,6 +63,17 @@ export default function PlatformPage() {
         <AnimatedSection>
           <ArchitectureEcosystem />
         </AnimatedSection>
+        <AnimatedSection delay={0.3}>
+          <div className="mt-8 text-center">
+            <Link 
+              href="/technologies" 
+              className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:text-violet transition-colors"
+            >
+              See how platform and DevOps teams use this stack in practice
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
+        </AnimatedSection>
       </Section>
 
       {/* How Cybelinx Is Different */}
@@ -77,7 +90,7 @@ export default function PlatformPage() {
           </div>
         </AnimatedSection>
         <div className="mb-20">
-          <ComparisonTable />
+          <CompactComparisonTable />
         </div>
         <div className="space-y-8">
           {differentiators.map((diff, index) => (

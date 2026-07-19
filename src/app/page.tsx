@@ -6,6 +6,7 @@ import FeatureCard from "@/components/FeatureCard";
 import ArchitectureFlow from "@/components/ArchitectureFlow";
 import CTABand from "@/components/CTABand";
 import AnimatedSection from "@/components/AnimatedSection";
+import ComparisonTable from "@/components/ComparisonTable";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { platformPillars, differentiators, whyCybelinx } from "@/lib/content";
@@ -106,38 +107,11 @@ export default function HomePage() {
             description="An AI-native, multi-tenant platform, multi-cloud DevSecOps, and a portfolio of regulated SaaS products — all designed to boost developer productivity in enterprise engineering and platform teams."
           />
         </AnimatedSection>
-        <div className="space-y-5">
-          {differentiators.map((diff, index) => (
-            <AnimatedSection key={diff.title} delay={index * 0.07}>
-              <div className="group relative overflow-hidden rounded-2xl border border-border bg-card-bg p-8 transition-all duration-300 hover:border-primary/40 hover:shadow-card-hover hover:-translate-y-0.5 md:p-10">
-                {/* Left accent bar */}
-                <div className="absolute left-0 top-0 bottom-0 w-0.5 bg-gradient-brand opacity-0 group-hover:opacity-100 transition-opacity" />
-
-                <div className="flex items-start gap-5">
-                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-primary/15 to-violet/15 transition-all group-hover:scale-110">
-                    <diff.icon className="h-5 w-5 text-primary" />
-                  </div>
-                  <div className="min-w-0 flex-1">
-                    <h3 className="font-display text-lg font-bold text-surface md:text-xl">{diff.title}</h3>
-                    <p className="mt-2 text-sm font-semibold text-primary/80">{diff.hook}</p>
-                    <p className="mt-2 text-sm leading-relaxed text-slate">{diff.summary}</p>
-                    <ul className="mt-4 space-y-2">
-                      {diff.details.map((d) => (
-                        <li key={d.slice(0, 20)} className="flex items-start gap-2.5 text-sm text-slate">
-                          <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-gradient-to-r from-primary to-violet" />
-                          {d}
-                        </li>
-                      ))}
-                    </ul>
-                    <blockquote className="mt-5 border-l-2 border-primary/40 pl-4 text-sm italic leading-relaxed text-surface/70">
-                      {diff.quote}
-                    </blockquote>
-                  </div>
-                </div>
-              </div>
-            </AnimatedSection>
-          ))}
-        </div>
+        <AnimatedSection>
+          <div className="mt-8">
+            <ComparisonTable />
+          </div>
+        </AnimatedSection>
       </Section>
 
       {/* ── How It Works ──────────────────────── */}
