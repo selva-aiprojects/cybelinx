@@ -26,7 +26,7 @@ export default function HomePage() {
         <AnimatedSection>
           <SectionHeading
             eyebrow="Product Portfolio"
-            title="Seven platforms. Two live. Five in the pipeline."
+            title="Seven platforms. Two live in production, five under active development with design partners."
             description="Every Cybelinx product is built on the same multi-tenant core — new industries slot in without a rebuild."
           />
         </AnimatedSection>

@@ -43,12 +43,12 @@ export const trustMetrics = [
 ];
 
 export const customerLogos = [
-  "Viswa Group",
-  "GRT Group",
-  "Raintree",
-  "DLF",
-  "Global Bank Co.",
-  "HealthFirst",
+  { name: "Viswa Group", snippet: "Reduced manual compliance work by 45%" },
+  { name: "GRT Group", snippet: "Accelerated multi-property rollouts" },
+  { name: "Raintree", snippet: "Unified digital experiences" },
+  { name: "DLF", snippet: "Streamlined operational data" },
+  { name: "Global Bank Co.", snippet: "Zero-downtime core banking transition" },
+  { name: "HealthFirst", snippet: "Automated clinical workflows" },
 ];
 
 export type PlatformPillar = {

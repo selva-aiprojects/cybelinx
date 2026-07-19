@@ -19,7 +19,7 @@ export default function TechnologiesPage() {
         <PageHeader
           eyebrow="Engineering & DevOps"
           title="A modern stack for enterprise-grade SaaS products."
-          description="Cybelinx gives platform and DevOps teams a unified foundation — shared templates, automated pipelines, and built-in compliance — so you ship faster without reinventing infrastructure."
+          description="Cybelinx gives platform and DevOps teams an AI-native, multi-tenant foundation — complete with shared templates, multi-cloud DevSecOps pipelines, and built-in compliance — maximizing developer productivity so you ship faster without reinventing infrastructure."
         />
       </Section>
 
