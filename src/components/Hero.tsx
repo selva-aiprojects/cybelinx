@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Button from "./Button";
 import { ArrowRight, ChevronRight } from "lucide-react";
 
-// The 4 domains (using the same bright background image for all for now)
+// The 4 domains with their respective images
 const slides = [
   {
     id: "saas",
@@ -21,7 +21,7 @@ const slides = [
     title: "Automated compliance and zero-trust security.",
     description: "Standardize builds, scans, and deployments across multi-region Kubernetes clusters with our multi-cloud DevSecOps engine.",
     tag: "DevSecOps Engine",
-    bg: "hero-bg.png",
+    bg: "hero-devsecops.png",
     tabLabel: "DevSecOps",
     tabDesc: "Secure multi-cloud pipelines"
   },
@@ -30,7 +30,7 @@ const slides = [
     title: "Intelligence built into the foundation.",
     description: "Expose tenant-aware LLM APIs with centralized governance, vector embeddings, and cost controls directly from the platform core.",
     tag: "AI & LLM Services",
-    bg: "hero-bg.png",
+    bg: "hero-ai.png",
     tabLabel: "AI-Native Core",
     tabDesc: "LLMs and Data Mesh"
   },
@@ -39,7 +39,7 @@ const slides = [
     title: "Future-proof cryptographic agility.",
     description: "Ready your enterprise architecture for post-quantum decryption threats today with quantum-resistant key management.",
     tag: "Quantum-Ready",
-    bg: "hero-bg.png",
+    bg: "hero-quantum.png",
     tabLabel: "Quantum-Ready",
     tabDesc: "Post-quantum security"
   }
@@ -66,7 +66,7 @@ export default function Hero() {
   const slide = slides[activeSlide];
 
   return (
-    <div className="relative min-h-[90vh] md:min-h-screen flex items-center overflow-hidden bg-background">
+    <div className="relative min-h-[90vh] md:min-h-screen flex items-center overflow-hidden bg-white">
       
       {/* ── Background Image Slider ── */}
       <AnimatePresence mode="popLayout">
@@ -82,15 +82,11 @@ export default function Hero() {
         />
       </AnimatePresence>
 
-      {/* ── Dark Gradient Overlay (SC Bank Style) ── */}
-      <div 
-        className="absolute inset-0 bg-gradient-to-r from-background via-background/95 to-transparent sm:w-[85%] md:w-[75%] lg:w-[65%]" 
-        aria-hidden="true"
-      />
+      {/* No dark gradient overlay anymore! The image is bright and the text is dark. */}
 
       <div className="relative z-10 w-full mx-auto max-w-7xl px-6 py-20 pt-32 lg:py-32 grid lg:grid-cols-12 gap-8 items-center">
         
-        {/* ── Left Content (Dark Background -> White Text) ── */}
+        {/* ── Left Content (Dark text on bright background) ── */}
         <div className="lg:col-span-8 max-w-2xl">
           <AnimatePresence mode="wait">
             <motion.div
@@ -100,16 +96,16 @@ export default function Hero() {
               exit={{ opacity: 0, y: -15 }}
               transition={{ duration: 0.5 }}
             >
-              <span className="inline-flex items-center gap-2 rounded-full border border-border/50 bg-charcoal/50 px-4 py-1.5 text-xs font-semibold text-white backdrop-blur-md mb-6">
+              <span className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-xs font-semibold text-primary backdrop-blur-md mb-6">
                 <span className="live-dot relative h-2 w-2 rounded-full bg-live" />
                 {slide.tag}
               </span>
 
-              <h1 className="font-display text-4xl font-extrabold leading-[1.1] tracking-tight text-white md:text-5xl lg:text-6xl">
+              <h1 className="font-display text-4xl font-extrabold leading-[1.1] tracking-tight text-surface md:text-5xl lg:text-6xl">
                 {slide.title}
               </h1>
 
-              <p className="mt-6 max-w-xl text-lg leading-relaxed text-slate md:text-xl">
+              <p className="mt-6 max-w-xl text-lg leading-relaxed text-slate-700 md:text-xl font-medium">
                 {slide.description}
               </p>
             </motion.div>
@@ -124,17 +120,17 @@ export default function Hero() {
             </Button>
           </div>
 
-          <div className="mt-16 flex flex-wrap gap-x-10 gap-y-6 border-t border-border/50 pt-8">
+          <div className="mt-16 flex flex-wrap gap-x-10 gap-y-6 border-t border-border/30 pt-8">
             {statsRow.map((s) => (
               <div key={s.label}>
-                <div className="font-display text-2xl font-extrabold text-white">{s.value}</div>
-                <div className="text-xs font-semibold uppercase tracking-widest text-slate/70 mt-1">{s.label}</div>
+                <div className="font-display text-2xl font-extrabold text-surface">{s.value}</div>
+                <div className="text-xs font-bold uppercase tracking-widest text-slate-600 mt-1">{s.label}</div>
               </div>
             ))}
           </div>
         </div>
 
-        {/* ── Right Navigation Slider (Bright Background -> Dark Text) ── */}
+        {/* ── Right Navigation Slider (Dark text on bright background) ── */}
         <div className="hidden lg:flex lg:col-span-4 flex-col gap-3 ml-auto w-full max-w-sm relative z-20">
           {slides.map((s, index) => {
             const isActive = index === activeSlide;
@@ -144,8 +140,8 @@ export default function Hero() {
                 onClick={() => setActiveSlide(index)}
                 className={`group relative text-left p-5 rounded-2xl border transition-all duration-300 backdrop-blur-md overflow-hidden ${
                   isActive 
-                    ? "bg-white border-primary shadow-xl scale-105" 
-                    : "bg-white/40 border-white/40 hover:bg-white/60 hover:border-white/80"
+                    ? "bg-white/90 border-primary shadow-xl scale-105" 
+                    : "bg-white/40 border-white/60 hover:bg-white/70 hover:border-white/80"
                 }`}
               >
                 {/* Active progress bar indicator */}
@@ -161,14 +157,14 @@ export default function Hero() {
                 
                 <div className="flex items-center justify-between">
                   <div>
-                    <h3 className={`font-display font-bold text-lg transition-colors ${isActive ? 'text-charcoal' : 'text-charcoal/80'}`}>
+                    <h3 className={`font-display font-bold text-lg transition-colors ${isActive ? 'text-surface' : 'text-slate-700'}`}>
                       {s.tabLabel}
                     </h3>
-                    <p className={`text-sm mt-1 transition-colors ${isActive ? 'text-charcoal/70' : 'text-charcoal/60'}`}>
+                    <p className={`text-sm mt-1 font-medium transition-colors ${isActive ? 'text-slate-600' : 'text-slate-500'}`}>
                       {s.tabDesc}
                     </p>
                   </div>
-                  <ChevronRight className={`h-5 w-5 transition-transform ${isActive ? 'text-primary translate-x-1' : 'text-charcoal/40 group-hover:translate-x-0.5'}`} />
+                  <ChevronRight className={`h-5 w-5 transition-transform ${isActive ? 'text-primary translate-x-1' : 'text-slate-400 group-hover:translate-x-0.5'}`} />
                 </div>
               </button>
             );
@@ -177,8 +173,8 @@ export default function Hero() {
 
       </div>
 
-      {/* Bottom gradient fade to next section */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background via-background/80 to-transparent pointer-events-none" />
+      {/* Bottom gradient fade to next section (dark to blend into the rest of the site) */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent pointer-events-none" />
     </div>
   );
 }
