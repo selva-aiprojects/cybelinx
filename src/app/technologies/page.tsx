@@ -72,7 +72,7 @@ export default function TechnologiesPage() {
               { label: "Immutable Build & Deploy", description: "Containerized artifacts built once, deployed across multi-region Kubernetes clusters with canary release strategies." },
               { label: "Live Telemetry & Self-Healing", description: "Continuous observability with AI-driven anomaly detection, automatic failover, and incident response across all tenants." },
             ]}
-            outcome="Product teams ship weekly with zero-downtime deployments, automated compliance, and self-healing infrastructure. 99.9% Uptime SLA · 99.99% observed uptime across client environments."
+            outcome="Product teams ship weekly with zero-downtime deployments, automated compliance, and self-healing infrastructure. 99.9% Uptime SLA, with 99.99% observed across client environments."
           />
         </AnimatedSection>
       </Section>
