@@ -364,8 +364,8 @@ export const caseStudies = [
       text: "Cybelinx migrated the workloads onto our multi-tenant platform, giving each property its own schema-isolated data space while sharing a single codebase. We implemented shared DevSecOps pipelines, allowing the platform team to roll out updates and compliance policies globally using golden-path templates rather than ad-hoc scripts."
     },
     implementation: {
-      architecture: "Multi-region AWS deployment using EKS (Kubernetes) for compute, Amazon RDS for relational multi-tenant data, and S3 for object storage. Security baselines are strictly enforced with IAM roles, Security Hub, and AWS WAF.",
-      workflow: "Before Cybelinx, each property had its own deployment scripts. Now, all pipelines use shared DevSecOps templates and platform-level policies. The DevOps team provisions new tenant environments automatically via the developer portal, complete with tagging and access control baselines."
+      architecture: "Cybelinx multi-tenant core on AWS EKS (Kubernetes), utilizing Amazon RDS for schema-isolated tenant data. We integrated our AI-native layer directly into the platform, leveraging tenant-aware vector embeddings to automate unstructured housekeeping and guest requests without compromising data boundaries.",
+      workflow: "Transitioned from bespoke per-property scripts to Cybelinx's multi-cloud DevSecOps pipelines. Platform engineers now provision new fully-isolated tenant environments via a developer portal using golden-path templates, with IAM and SOC 2 guardrails enforced automatically before deployment."
     },
     results: {
       business: [
@@ -415,8 +415,8 @@ export const caseStudies = [
       text: "Cybelinx implemented a centralized HCM platform using our multi-tenant architecture, mapping each subsidiary as a secure, isolated tenant. We delivered an AI-powered HR assistant through our shared AI layer, allowing employees to query localized HR policies instantly without compromising data boundaries."
     },
     implementation: {
-      architecture: "Azure Kubernetes Service (AKS) clusters with Azure SQL for schema-isolated multi-tenancy. DevSecOps controls are deeply integrated via Azure DevOps, Defender for Cloud, and Key Vault to ensure strict SOC 2 compliance.",
-      workflow: "Platform engineers defined guardrails as code. Feature flags are now used to test new HR policies or payroll integrations in a single subsidiary (tenant) before a global rollout, completely avoiding big-bang release risks."
+      architecture: "Built on the Cybelinx multi-tenant core hosted on Azure Kubernetes Service (AKS) with schema-isolated SQL instances. The architecture natively incorporates our AI-native layer, orchestrating LLMs to act as localized HR policy assistants for each subsidiary while enforcing strict data residency rules.",
+      workflow: "Shifted to standard Cybelinx multi-cloud DevSecOps pipelines. Platform engineers define compliance and data residency guardrails as code. Automated SAST/DAST scanning and progressive feature flags allow the enterprise to test payroll updates in a single tenant before global rollout."
     },
     results: {
       business: [
@@ -466,8 +466,8 @@ export const caseStudies = [
       text: "Cybelinx decoupled the digital products from the legacy core using an event-driven architecture. We implemented platform-level DevSecOps pipelines where compliance and security scanning (SAST/DAST) are automated. Developers now use golden-path templates to spin up compliant-by-default microservices."
     },
     implementation: {
-      architecture: "Google Kubernetes Engine (GKE) clusters with Cloud SQL, using Cloud Armor and IAM for strict zero-trust access protection. All microservices communicate via an encrypted service mesh.",
-      workflow: "Manual security reviews were replaced by automated pipeline gates. Instead of bespoke server configurations, the platform team provisions immutable environments. Deployments use canary strategies to ensure zero downtime."
+      architecture: "Migrated the legacy monolith to the Cybelinx multi-tenant core on Google Kubernetes Engine (GKE) under a strict zero-trust service mesh. The modernized stack seamlessly plugs into our AI-native layer, enabling the bank to deploy real-time predictive fraud models and document intelligence directly alongside transaction processing.",
+      workflow: "Replaced weekend maintenance windows with continuous Cybelinx multi-cloud DevSecOps pipelines. Immutable environments are spun up via golden-path templates, and all code passes through automated compliance gates and security scanning before executing zero-downtime canary deployments."
     },
     results: {
       business: [
