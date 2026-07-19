@@ -3,7 +3,7 @@ import { caseStudies } from "@/lib/content";
 import type { Metadata } from "next";
 import Section from "@/components/Section";
 import CTABand from "@/components/CTABand";
-import { ArrowLeft, CheckCircle, Network, Layers, Users, Database } from "lucide-react";
+import { ArrowLeft, CheckCircle, Network, Layers, Users, Database, Building2 } from "lucide-react";
 import Link from "next/link";
 import AnimatedSection from "@/components/AnimatedSection";
 
