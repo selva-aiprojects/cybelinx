@@ -1,29 +1,34 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Copy, Workflow, Brain, Settings2 } from "lucide-react";
+import { Copy, Workflow, Brain, Settings2, Activity } from "lucide-react";
 
 const workflows = [
   {
-    title: "Onboarding new tenants and environments",
-    description: "Use golden-path templates to provision new tenants, environments (dev, test, staging, prod), and baseline policies through the developer portal. Apply consistent tagging, access control, and compliance settings from day one, so every new customer or business unit starts on the same secure, observable footing.",
+    title: "Onboard new tenants and environments",
+    description: "Use golden-path templates and the developer portal, with tagging, access control, and compliance baselines applied from day one.",
     icon: Copy,
   },
   {
-    title: "Connecting existing CI/CD pipelines",
-    description: "Integrate your preferred CI/CD tools (GitHub Actions, GitLab CI, Azure DevOps, Jenkins) with Cybelinx DevSecOps to standardize builds, scans, and deployments across clouds. Enforce security, compliance, and quality gates in pipelines without writing custom glue code for each team or stack.",
+    title: "Connect existing CI/CD pipelines",
+    description: "Connect pipelines (GitHub Actions, GitLab CI, Azure DevOps, Jenkins) to Cybelinx DevSecOps so builds, scans, and deployments follow standard patterns across clouds.",
     icon: Workflow,
   },
   {
-    title: "Adding AI and LLM features to products",
-    description: "Plug products into the shared data and AI layer to enable use cases like anomaly detection, document analysis, conversational support, and workflow automation. Expose tenant-aware LLM APIs with centralized governance, monitoring, and cost controls, instead of building separate AI stacks per product.",
+    title: "Add AI and LLM features",
+    description: "Plug products into the shared data and model orchestration layer, exposing tenant-aware LLM APIs with centralized governance and observability.",
     icon: Brain,
   },
   {
-    title: "Rolling out policies and changes across tenants",
-    description: "Define guardrails as code—security baselines, tagging rules, resource limits, data residency constraints—and roll them out across tenants and environments from the platform layer. Use feature flags and configuration management to ship changes safely, test in controlled subsets of tenants, and avoid disruptive big-bang releases.",
+    title: "Roll out policies and changes",
+    description: "Use guardrails as code and feature flags, testing safely in subsets of tenants instead of big-bang releases.",
     icon: Settings2,
   },
+  {
+    title: "Operate live environments",
+    description: "Share dashboards, alerts, and platform-level telemetry to reduce manual incidents and continuously improve pipelines and policies.",
+    icon: Activity,
+  }
 ];
 
 export default function TypicalWorkflows() {
