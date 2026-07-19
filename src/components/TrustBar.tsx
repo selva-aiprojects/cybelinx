@@ -69,6 +69,9 @@ export default function TrustBar() {
             ))}
           </div>
         </div>
+        <p className="mt-8 text-center text-xs font-medium text-slate/60">
+          Platform metrics and SLAs are available to your SRE and DevOps teams during onboarding.
+        </p>
       </div>
     </div>
   );

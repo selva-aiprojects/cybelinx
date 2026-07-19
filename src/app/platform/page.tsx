@@ -8,6 +8,8 @@ import CTABand from "@/components/CTABand";
 import AnimatedSection from "@/components/AnimatedSection";
 import { platformPillars, differentiators, capabilities } from "@/lib/content";
 
+import ComparisonTable from "@/components/ComparisonTable";
+
 export const metadata: Metadata = {
   title: "Platform",
   description: "Cybelinx is an AI-native, multi-tenant platform for web, SaaS/PaaS, multi-cloud DevSecOps, LLM services, and quantum-ready engineering.",
@@ -57,56 +59,7 @@ export default function PlatformPage() {
       {/* Architecture Stack */}
       <Section id="architecture">
         <AnimatedSection>
-          <ArchitectureEcosystem
-            title="The Cybelinx Platform Stack"
-            description="Four layers engineered for strict tenant isolation, high-throughput AI inference, and enterprise-grade reliability across every product."
-            components={[
-              {
-                label: "Core Infrastructure",
-                sublabel: "Cloud & Compute",
-                items: [
-                  "AWS / GCP Multi-Region",
-                  "Kubernetes Clusters",
-                  "Zero-Trust Service Mesh",
-                  "Automated Failover & DR",
-                ],
-                color: "primary",
-              },
-              {
-                label: "Platform Services",
-                sublabel: "Developer Experience",
-                items: [
-                  "Internal Developer Portal",
-                  "Golden-Path Templates",
-                  "CI/CD Pipeline Automation",
-                  "Feature Flag Management",
-                ],
-                color: "cyan",
-              },
-              {
-                label: "Data & Multi-Tenancy",
-                sublabel: "Tenant Isolation",
-                items: [
-                  "Isolated Tenant Schemas",
-                  "Vector Embeddings DB",
-                  "Distributed Caching Layer",
-                  "Automated Backup & Restore",
-                ],
-                color: "violet",
-              },
-              {
-                label: "Security & Compliance",
-                sublabel: "Governance",
-                items: [
-                  "SOC 2 Type II Certified",
-                  "End-to-End Encryption",
-                  "RBAC & SAML/SSO",
-                  "Immutable Audit Logs",
-                ],
-                color: "primary",
-              },
-            ]}
-          />
+          <ArchitectureEcosystem />
         </AnimatedSection>
       </Section>
 
@@ -123,6 +76,9 @@ export default function PlatformPage() {
             </p>
           </div>
         </AnimatedSection>
+        <div className="mb-20">
+          <ComparisonTable />
+        </div>
         <div className="space-y-8">
           {differentiators.map((diff, index) => (
             <AnimatedSection key={diff.title} delay={index * 0.08}>

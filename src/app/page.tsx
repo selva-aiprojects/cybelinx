@@ -6,6 +6,8 @@ import FeatureCard from "@/components/FeatureCard";
 import ArchitectureFlow from "@/components/ArchitectureFlow";
 import CTABand from "@/components/CTABand";
 import AnimatedSection from "@/components/AnimatedSection";
+import { ArrowRight } from "lucide-react";
+import Link from "next/link";
 import { platformPillars, differentiators, whyCybelinx } from "@/lib/content";
 import { products } from "@/lib/products";
 
@@ -81,6 +83,18 @@ export default function HomePage() {
             </AnimatedSection>
           ))}
         </div>
+        
+        <AnimatedSection delay={0.4}>
+          <div className="mt-8 text-center">
+            <Link 
+              href="/technologies" 
+              className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:text-violet transition-colors"
+            >
+              See how platform and DevOps teams use these pillars
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
+        </AnimatedSection>
       </Section>
 
       {/* ── How Cybelinx Is Different ────────── */}
