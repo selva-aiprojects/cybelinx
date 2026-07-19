@@ -27,7 +27,7 @@ export default function InsightsPage() {
           {insights.map((article) => (
             <Link
               key={article.slug}
-              href="/contact"
+              href={`/insights/${article.slug}`}
               className="group rounded-2xl border border-border bg-background p-8 transition-all hover:-translate-y-0.5 hover:shadow-md cursor-pointer"
             >
               <div className="flex flex-wrap items-center gap-3 text-xs uppercase tracking-wide text-slate">
