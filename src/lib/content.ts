@@ -4,6 +4,7 @@ import {
   Building2,
   Cloud,
   Cpu,
+  Database,
   Factory,
   FlaskConical,
   Gauge,
@@ -100,6 +101,16 @@ export const platformPillars: PlatformPillar[] = [
       "Cybelinx is architected to be quantum-ready: data models, simulation workloads, and AI pipelines are designed so future quantum backends can plug into the same platform for optimization and analysis workloads. Regulated enterprises can experiment with quantum-assisted optimization and risk analysis on the same compliant, multi-tenant foundation they use today. Examples include portfolio optimization, supply chain routing, and risk modeling experiments for regulated enterprises.",
     outcome:
       "Future-proof your platform — quantum capabilities slot in without rearchitecture.",
+  },
+  {
+    icon: Database,
+    title: "Data Platform & Lakehouse",
+    subtitle: "Unified data infrastructure for modern workloads",
+    slug: "data-platform",
+    description:
+      "A scalable, governed data foundation built on modern lakehouse architecture. Consolidate structured and unstructured data, streamline ETL/ELT pipelines, and enable real-time analytics. Built-in compliance controls ensure data lineage, access governance, and privacy across all enterprise tenants.",
+    outcome:
+      "Unlock actionable insights and power AI with a unified, secure data platform.",
   },
 ];
 

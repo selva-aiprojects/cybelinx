@@ -42,6 +42,15 @@ const slides = [
     bg: "hero-quantum.png",
     tabLabel: "Quantum-Ready",
     tabDesc: "Post-quantum security"
+  },
+  {
+    id: "data-platform",
+    title: "Unified data foundation for AI & analytics.",
+    description: "Scale your enterprise workloads on a modern data lakehouse architecture with built-in governance, real-time streaming, and unified analytics.",
+    tag: "Data Platform",
+    bg: "hero-data.png",
+    tabLabel: "Data Platform",
+    tabDesc: "Lakehouse & Analytics"
   }
 ];
 
@@ -131,23 +140,22 @@ export default function Hero() {
         </div>
 
         {/* ── Right Navigation Slider (Dark text on bright background) ── */}
-        <div className="hidden lg:flex lg:col-span-4 flex-col gap-3 ml-auto w-full max-w-sm relative z-20">
+        <div className="hidden lg:flex lg:col-span-4 flex-col gap-2 ml-auto w-full max-w-sm relative z-20">
           {slides.map((s, index) => {
             const isActive = index === activeSlide;
             return (
               <button
                 key={s.id}
                 onClick={() => setActiveSlide(index)}
-                className={`group relative text-left p-5 rounded-2xl border transition-all duration-300 backdrop-blur-md overflow-hidden ${
+                className={`group relative text-left p-4 rounded-2xl border transition-all duration-300 backdrop-blur-md overflow-hidden ${
                   isActive 
-                    ? "bg-white/90 border-primary shadow-xl scale-105" 
+                    ? "bg-white/90 border-primary shadow-xl" 
                     : "bg-white/40 border-white/60 hover:bg-white/70 hover:border-white/80"
                 }`}
               >
                 {/* Active progress bar indicator */}
                 {isActive && (
                   <motion.div 
-                    layoutId="activeSlideIndicator"
                     className="absolute left-0 top-0 bottom-0 w-1.5 bg-primary"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
@@ -157,10 +165,10 @@ export default function Hero() {
                 
                 <div className="flex items-center justify-between">
                   <div>
-                    <h3 className={`font-display font-bold text-lg transition-colors ${isActive ? 'text-surface' : 'text-slate-700'}`}>
+                    <h3 className={`font-display font-bold text-base transition-colors ${isActive ? 'text-surface' : 'text-slate-700'}`}>
                       {s.tabLabel}
                     </h3>
-                    <p className={`text-sm mt-1 font-medium transition-colors ${isActive ? 'text-slate-600' : 'text-slate-500'}`}>
+                    <p className={`text-xs mt-0.5 font-medium transition-colors ${isActive ? 'text-slate-600' : 'text-slate-500'}`}>
                       {s.tabDesc}
                     </p>
                   </div>
