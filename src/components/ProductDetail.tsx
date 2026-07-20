@@ -76,7 +76,9 @@ export default function ProductDetail({ product, faqs = [], showPricing = false 
         <Section>
           <div className="rounded-2xl border border-border bg-background p-8 md:p-10">
             <span className="slugline">The Problem We Solve</span>
-            <p className="mt-3 max-w-2xl text-lg text-surface">{product.problem}</p>
+            <p className="mt-5 max-w-4xl font-display text-xl leading-relaxed text-slate md:text-2xl font-medium">
+              {product.problem}
+            </p>
           </div>
         </Section>
       )}
