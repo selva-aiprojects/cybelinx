@@ -11,7 +11,7 @@ export const mainNav: NavGroup[] = [
   {
     label: "Products",
     items: [
-      { href: "/products/cybehrm", label: "CybeHRM", description: "AI-powered HRMS with statutory compliance — Live" },
+      { href: "/products/cybehrms", label: "CybeHRMS", description: "AI-powered HRMS with statutory compliance — Live" },
       { href: "/products/cybehms", label: "CybeHMS", description: "Enterprise hospitality management — Live" },
       { href: "/products/cybepharma", label: "CybePharma Suite", description: "Pharma commercial & compliance" },
       { href: "/products/cybebank", label: "CybeBank", description: "Digital banking & FinTech platform" },

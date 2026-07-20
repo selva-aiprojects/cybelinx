@@ -51,6 +51,27 @@ export default function ProductDetail({ product, faqs = [], showPricing = false 
         </div>
       </Section>
 
+      {product.portfolioProducts && product.portfolioProducts.length > 0 && (
+        <Section>
+          <div className="rounded-2xl border border-border bg-background p-8 md:p-10">
+            <span className="slugline">Portfolio Products</span>
+            <div className="mt-6 grid gap-4 md:grid-cols-2">
+              {product.portfolioProducts.map((p) => (
+                <div key={p.name} className="flex flex-col gap-2 rounded-xl border border-border bg-card-bg p-5 shadow-sm transition-all hover:border-primary/30">
+                  <h3 className="font-semibold text-lg text-surface">{p.name}</h3>
+                  {p.description && <p className="text-sm text-slate">{p.description}</p>}
+                  {p.url && (
+                    <a href={p.url} target="_blank" rel="noopener noreferrer" className="mt-2 text-sm font-medium text-primary hover:text-violet transition-colors">
+                      Visit {p.name} &rarr;
+                    </a>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+        </Section>
+      )}
+
       {product.problem && (
         <Section>
           <div className="rounded-2xl border border-border bg-background p-8 md:p-10">

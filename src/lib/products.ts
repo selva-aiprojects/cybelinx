@@ -19,12 +19,13 @@ export type Product = {
   appUrl?: string;
   demoUrl?: string;
   image?: string;
+  portfolioProducts?: { name: string; url?: string; description?: string }[];
 };
 
 export const products: Product[] = [
   {
-    slug: "cybehrm",
-    name: "CybeHRM",
+    slug: "cybehrms",
+    name: "CybeHRMS",
     tagline: "AI-Powered HRMS Platform",
     category: "HR & Compliance",
     summary:
@@ -33,6 +34,9 @@ export const products: Product[] = [
     image: "/assets/products/cybehrm.png",
     appUrl: "https://cybehrm.vercel.app/",
     demoUrl: "https://cybehrm.vercel.app/",
+    portfolioProducts: [
+      { name: "CybeHRM", url: "https://cybehrm.vercel.app/", description: "Core HR & Payroll System" }
+    ],
     problem:
       "Fragmented HR processes create compliance exposure, inconsistent experiences, and unnecessary administrative drag.",
     modules: [
@@ -61,6 +65,9 @@ export const products: Product[] = [
     image: "/assets/products/cybehms.png",
     appUrl: "https://ehms-app-eta.vercel.app/",
     demoUrl: "https://ehms-app-eta.vercel.app/",
+    portfolioProducts: [
+      { name: "CybeHMS", url: "https://ehms-app-eta.vercel.app/", description: "Enterprise Hospitality Management" }
+    ],
     problem:
       "Disconnected operations create delays, reporting gaps, and inconsistent service quality across properties.",
     modules: [
@@ -117,6 +124,9 @@ export const products: Product[] = [
       "Unified care coordination, clinical workflows, and patient engagement for hospitals and health networks.",
     status: "coming-soon",
     image: "/assets/products/cybehealth.png",
+    portfolioProducts: [
+      { name: "Jioplix", url: "https://jioplix.vercel.app/", description: "Healthcare operations and patient engagement" }
+    ],
     problem:
       "Fragmented clinical and operational systems slow care delivery and limit visibility across the care continuum.",
     modules: [

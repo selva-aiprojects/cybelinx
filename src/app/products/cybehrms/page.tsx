@@ -3,10 +3,10 @@ import ProductDetail from "@/components/ProductDetail";
 import { getPortfolioProduct } from "@/lib/products";
 import { notFound } from "next/navigation";
 
-const product = getPortfolioProduct("cybehrm");
+const product = getPortfolioProduct("cybehrms");
 
 export const metadata: Metadata = {
-  title: product ? `${product.name} \u2014 ${product.tagline}` : "CybeHRM",
+  title: product ? `${product.name} \u2014 ${product.tagline}` : "CybeHRMS",
   description: product?.summary,
 };
 
@@ -29,7 +29,7 @@ const faqs = [
   },
 ];
 
-export default function CybeHRMPage() {
+export default function CybeHRMSPage() {
   if (!product) return notFound();
 
   return <ProductDetail product={product} faqs={faqs} showPricing />;
