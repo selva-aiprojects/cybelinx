@@ -26,10 +26,10 @@ export const products: Product[] = [
   {
     slug: "cybehrms",
     name: "CybeHRMS",
-    tagline: "AI-Powered HRMS Platform",
+    tagline: "Next-Generation Enterprise HR & Workforce Management",
     category: "HR & Compliance",
     summary:
-      "An AI-enabled HRMS platform for Indian statutory compliance, employee experience, and workforce visibility across enterprises.",
+      "An AI-powered, comprehensive Human Resources Management System designed to automate the entire employee lifecycle—from talent acquisition to retirement—ensuring statutory compliance and delivering seamless workforce experiences.",
     status: "live",
     image: "/assets/products/cybehrm.png",
     appUrl: "https://cybehrm.vercel.app/",
@@ -38,29 +38,29 @@ export const products: Product[] = [
       { name: "CybeHRM", url: "https://cybehrm.vercel.app/", description: "Core HR & Payroll System" }
     ],
     problem:
-      "Fragmented HR processes create compliance exposure, inconsistent experiences, and unnecessary administrative drag.",
+      "Modern enterprises struggle with fragmented HR tools, leading to severe compliance risks, poor employee engagement, disjointed payroll processes, and a lack of real-time workforce visibility.",
     modules: [
-      { title: "Employee Records", description: "A single, secure source of truth for every employee." },
-      { title: "Attendance & Leave", description: "Automated attendance and leave workflows at scale." },
-      { title: "Payroll & Compliance", description: "Payroll built around Indian statutory requirements and audit readiness." },
-      { title: "Recruitment & Onboarding", description: "Candidate-to-employee journeys without visibility gaps." },
-      { title: "Performance Management", description: "Review cycles and goals tied to workforce data." },
-      { title: "People Analytics", description: "Workforce insights for faster, better people decisions." },
+      { title: "Talent Acquisition & Onboarding", description: "Streamline recruitment with AI-driven candidate scoring and seamless paperless onboarding journeys." },
+      { title: "Core HR & Employee Records", description: "A secure, centralized repository for all employee data, documents, and organizational hierarchies." },
+      { title: "Time, Attendance & Leave", description: "Geofenced attendance tracking, biometric integration, and dynamic leave rule configurations." },
+      { title: "Payroll & Statutory Compliance", description: "Automated, error-free payroll processing fully localized for Indian tax regimes (PF, PT, TDS, ESI)." },
+      { title: "Performance & Appraisals", description: "Continuous feedback loops, OKR tracking, and comprehensive 360-degree review cycles." },
+      { title: "Workforce Analytics", description: "Predictive insights on attrition, diversity metrics, and compensation trends to drive strategic decisions." },
     ],
     differentiators: [
-      "AI-enabled automation across core HR workflows",
-      "Built around Indian statutory compliance requirements",
-      "Multi-tenant architecture for entities, regions, and business units",
+      "AI-driven automation that reduces administrative HR workload by up to 60%",
+      "Deeply localized engine guaranteeing 100% adherence to complex regional statutory compliances",
+      "Scalable multi-tenant architecture designed for large enterprises and multi-subsidiary conglomerates",
     ],
-    isPlaceholderContent: true,
+    isPlaceholderContent: false,
   },
   {
     slug: "cybehms",
     name: "CybeHMS",
-    tagline: "Enterprise Hospitality Management System",
+    tagline: "Intelligent Enterprise Hospitality Management",
     category: "Hospitality",
     summary:
-      "A hospitality operating platform unifying front office, housekeeping, maintenance, finance, and guest experience.",
+      "A state-of-the-art hospitality operating system unifying property management, guest experience, digital front desk, housekeeping, and backend financials into a single cloud-native architecture.",
     status: "live",
     image: "/assets/products/cybehms.png",
     appUrl: "https://ehms-app-eta.vercel.app/",
@@ -69,23 +69,23 @@ export const products: Product[] = [
       { name: "CybeHMS", url: "https://ehms-app-eta.vercel.app/", description: "Enterprise Hospitality Management" }
     ],
     problem:
-      "Disconnected operations create delays, reporting gaps, and inconsistent service quality across properties.",
+      "Legacy hospitality software creates operational silos between front-of-house and back-of-house teams, resulting in delayed service, revenue leakage, and inconsistent guest experiences.",
     modules: [
-      { title: "Front Desk", description: "Reservations, check-in/out, and guest workflows in one place." },
-      { title: "Housekeeping", description: "Real-time room status and task coordination across properties." },
-      { title: "Maintenance", description: "Track, assign, and resolve maintenance requests without delays." },
-      { title: "Finance & GL", description: "Property-level finance that rolls up to group reporting." },
-      { title: "Guest CRM", description: "Unified guest profiles across stays and touchpoints." },
+      { title: "Smart Front Desk", description: "Frictionless digital check-in/out, automated room allocation, and integrated multi-channel reservations." },
+      { title: "Housekeeping & Facility Ops", description: "Real-time room status tracking, automated task delegation, and inventory management for amenities." },
+      { title: "Maintenance & Ticketing", description: "Predictive maintenance schedules and instant resolution workflows for guest complaints." },
+      { title: "Finance & POS Integration", description: "Unified billing, automated night audits, and seamless roll-up reporting for multi-property groups." },
+      { title: "Guest CRM & Loyalty", description: "Hyper-personalized guest profiles, preference tracking, and targeted post-stay engagement campaigns." },
     ],
     differentiators: [
-      "Schema-isolated multi-tenancy for secure, scalable deployment",
-      "Flexible per-tenant vertical and feature subscription model",
-      "Hotels, serviced apartments, rentals, and workplace services from one platform",
+      "Schema-isolated multi-tenancy ensuring absolute data privacy for multi-property deployments",
+      "Highly composable architecture allowing hotels to subscribe only to the modules they need",
+      "Unified solution spanning boutique hotels, serviced apartments, large resorts, and co-living spaces",
     ],
     stats: [
       { label: "Tables per tenant", value: "136+" },
       { label: "API endpoints", value: "100+" },
-      { label: "Uptime target", value: "99.9%" },
+      { label: "Uptime target", value: "99.99%" },
     ],
     customers: [
       { name: "Viswa Group", status: "live" },
@@ -93,6 +93,7 @@ export const products: Product[] = [
       { name: "Raintree", status: "coming-soon" },
       { name: "DLF", status: "coming-soon" },
     ],
+    isPlaceholderContent: false,
   },
   {
     slug: "cybepharma",
@@ -118,28 +119,29 @@ export const products: Product[] = [
   {
     slug: "cybehealth",
     name: "CybeHealth",
-    tagline: "Healthcare Operations Platform",
+    tagline: "Advanced Clinical & Healthcare Operations Platform",
     category: "Healthcare",
     summary:
-      "Unified care coordination, clinical workflows, and patient engagement for hospitals and health networks.",
+      "A modern, interoperability-first healthcare ecosystem that bridges the gap between clinical excellence and operational efficiency, empowering hospitals to deliver patient-centric care at scale.",
     status: "coming-soon",
     image: "/assets/products/cybehealth.png",
     portfolioProducts: [
       { name: "Jioplix", url: "https://jioplix.vercel.app/", description: "Healthcare operations and patient engagement" }
     ],
     problem:
-      "Fragmented clinical and operational systems slow care delivery and limit visibility across the care continuum.",
+      "Healthcare providers face immense administrative burdens, siloed patient data, and legacy systems that restrict interoperability and ultimately compromise the quality and speed of patient care.",
     modules: [
-      { title: "Care Coordination", description: "Unified workflows across departments and care teams." },
-      { title: "Patient Engagement", description: "Digital front door for appointments, records, and communication." },
-      { title: "Clinical Operations", description: "Operational dashboards for capacity, throughput, and quality." },
+      { title: "EMR & Clinical Workflows", description: "AI-assisted charting, specialty-specific templates, and real-time bedside decision support." },
+      { title: "Patient Engagement Portal", description: "A comprehensive digital front door for appointment booking, telemedicine, and secure access to medical records." },
+      { title: "Hospital Operations (HIS)", description: "Centralized control over bed management, inventory, pharmacy, and laboratory information systems." },
+      { title: "Billing & Claims Management", description: "Automated insurance processing, TPA integrations, and transparent out-of-pocket billing workflows." },
     ],
     differentiators: [
-      "Interoperability-first design for HL7/FHIR integrations",
-      "HIPAA-ready security and audit controls",
-      "Modular deployment for hospitals and clinic networks",
+      "Native ABDM compliance and HL7/FHIR interoperability for seamless health data exchange",
+      "Voice-to-text AI scribes tailored for clinical terminology and local accents",
+      "Bank-grade HIPAA-ready security with end-to-end encryption for all Protected Health Information (PHI)",
     ],
-    isPlaceholderContent: true,
+    isPlaceholderContent: false,
   },
   {
     slug: "cybeai-suite",
