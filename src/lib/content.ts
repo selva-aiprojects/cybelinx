@@ -32,7 +32,7 @@ export const brand = {
   tagline: "AI-native platform for regulated enterprises.",
   description:
     "Cybelinx is an AI-native, multi-tenant platform for regulated enterprises \u2014 unifying web, SaaS/PaaS, multi-cloud DevSecOps, LLM services, and quantum-ready engineering on a single developer-friendly foundation. 200+ enterprises, 12 countries.",
-  email: "hello@cybelinx.com",
+  email: "sales@cybelinx.com",
   address: "No. 41 & 42, 89/5, Prakruthi Township, 1st Block, Horamavu Agara Main Road, Bangalore, Karnataka 560113.",
 };
 
