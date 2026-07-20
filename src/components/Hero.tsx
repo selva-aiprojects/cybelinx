@@ -97,28 +97,30 @@ export default function Hero() {
         
         {/* ── Left Content (Dark text on bright background) ── */}
         <div className="lg:col-span-8 max-w-2xl">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={slide.id}
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -15 }}
-              transition={{ duration: 0.5 }}
-            >
-              <span className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-xs font-semibold text-primary backdrop-blur-md mb-6">
-                <span className="live-dot relative h-2 w-2 rounded-full bg-live" />
-                {slide.tag}
-              </span>
+          <div className="min-h-[320px] md:min-h-[280px] flex flex-col justify-center">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={slide.id}
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -15 }}
+                transition={{ duration: 0.5 }}
+              >
+                <span className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-xs font-semibold text-primary backdrop-blur-md mb-6">
+                  <span className="live-dot relative h-2 w-2 rounded-full bg-live" />
+                  {slide.tag}
+                </span>
 
-              <h1 className="font-display text-4xl font-extrabold leading-[1.1] tracking-tight text-surface md:text-5xl lg:text-6xl">
-                {slide.title}
-              </h1>
+                <h1 className="font-display text-4xl font-extrabold leading-[1.1] tracking-tight text-surface md:text-5xl lg:text-6xl">
+                  {slide.title}
+                </h1>
 
-              <p className="mt-6 max-w-xl text-lg leading-relaxed text-slate-700 md:text-xl font-medium">
-                {slide.description}
-              </p>
-            </motion.div>
-          </AnimatePresence>
+                <p className="mt-6 max-w-xl text-lg leading-relaxed text-slate-700 md:text-xl font-medium">
+                  {slide.description}
+                </p>
+              </motion.div>
+            </AnimatePresence>
+          </div>
 
           <div className="mt-10 flex flex-wrap items-center gap-4">
             <Button href="/products" variant="primary" size="lg">
