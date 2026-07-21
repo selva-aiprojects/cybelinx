@@ -18,7 +18,7 @@ export default function HomePage() {
       <Hero />
 
       {/* ── Social proof ─────────────────────── */}
-      <Section>
+      <Section className="!py-12 md:!py-16 border-b border-border/40">
         <AnimatedSection>
           <TrustBar />
         </AnimatedSection>
@@ -43,7 +43,7 @@ export default function HomePage() {
       </Section>
 
       {/* ── Platform Pillars ──────────────────── */}
-      <Section id="platform-pillars" glow>
+      <Section id="platform-pillars" glow dark className="py-28 md:py-36">
         <AnimatedSection>
           <SectionHeading
             eyebrow="The Cybelinx Platform"
@@ -115,7 +115,7 @@ export default function HomePage() {
       </Section>
 
       {/* ── How It Works ──────────────────────── */}
-      <Section id="how-it-works">
+      <Section id="how-it-works" dark className="py-28 md:py-36">
         <AnimatedSection>
           <SectionHeading
             eyebrow="How It Works"

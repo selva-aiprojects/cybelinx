@@ -3,6 +3,7 @@ import { Montserrat } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import GlobalBackground from "@/components/GlobalBackground";
 import { brand } from "@/lib/content";
 
 const montserrat = Montserrat({
@@ -29,9 +30,10 @@ export default function RootLayout({ children }: { children?: React.ReactNode })
   return (
     <html lang="en" className={`${montserrat.variable} light`} suppressHydrationWarning data-theme="light">
       <head />
-      <body className="min-h-screen bg-background font-sans text-surface antialiased">
+      <body className="min-h-screen bg-transparent font-sans text-surface antialiased relative">
+        <GlobalBackground />
         <Navbar />
-        <main>{children}</main>
+        <main className="relative z-10">{children}</main>
         <Footer />
       </body>
     </html>

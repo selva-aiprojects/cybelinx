@@ -48,6 +48,13 @@
 
   --gradient-brand: linear-gradient(135deg, #0F55C4 0%, #1A70ED 50%, #70CA56 100%);
   --gradient-brand-r: linear-gradient(135deg, #70CA56 0%, #1A70ED 50%, #0F55C4 100%);
+
+  /* Hero Backgrounds */
+  --hero-bg-saas: url('/images/hero-bg.png');
+  --hero-bg-devsecops: url('/images/hero-devsecops.png');
+  --hero-bg-ai: url('/images/hero-ai.png');
+  --hero-bg-quantum: url('/images/hero-quantum.png');
+  --hero-bg-data: url('/images/hero-data.png');
 }
 
 /* ─── Dark Theme ────────────────────────────────── */
@@ -89,6 +96,13 @@
 
   --gradient-brand: linear-gradient(135deg, #6F00FF 0%, #007FFF 50%, #00FFFF 100%);
   --gradient-brand-r: linear-gradient(135deg, #00FFFF 0%, #007FFF 50%, #6F00FF 100%);
+
+  /* Hero Backgrounds Dark */
+  --hero-bg-saas: url('/images/hero-bg-dark.png');
+  --hero-bg-devsecops: url('/images/hero-devsecops-dark.png');
+  --hero-bg-ai: url('/images/hero-ai-dark.png');
+  --hero-bg-quantum: url('/images/hero-quantum-dark.png');
+  --hero-bg-data: url('/images/hero-data-dark.png');
 }
 
 /* ─── Base ──────────────────────────────────────── */
