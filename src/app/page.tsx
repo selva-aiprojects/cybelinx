@@ -1,6 +1,5 @@
 import Hero from "@/components/Hero";
 import Section, { SectionHeading } from "@/components/Section";
-import TrustBar from "@/components/TrustBar";
 import ProductCard from "@/components/ProductCard";
 import FeatureCard from "@/components/FeatureCard";
 import ArchitectureFlow from "@/components/ArchitectureFlow";
@@ -16,13 +15,6 @@ export default function HomePage() {
   return (
     <>
       <Hero />
-
-      {/* ── Social proof ─────────────────────── */}
-      <Section className="!py-12 md:!py-16 border-b border-border/40">
-        <AnimatedSection>
-          <TrustBar />
-        </AnimatedSection>
-      </Section>
 
       {/* ── Product Portfolio ─────────────────── */}
       <Section id="products" textured glow>

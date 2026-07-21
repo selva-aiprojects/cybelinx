@@ -3,7 +3,14 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Button from "./Button";
-import { ArrowRight, ChevronRight } from "lucide-react";
+import DynamicHeroAnimation from "./DynamicHeroAnimation";
+import { 
+  ArrowRight, 
+  ChevronRight, 
+  Activity, 
+  ShieldCheck, 
+  BarChart3 
+} from "lucide-react";
 
 // The 4 domains with their respective images
 const slides = [
@@ -74,28 +81,35 @@ export default function Hero() {
 
   const slide = slides[activeSlide];
 
-  return (
-    <div className="relative min-h-[90vh] md:min-h-screen flex items-center overflow-hidden bg-slate-900">
-      
-      {/* ── Background Image Slider ── */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <AnimatePresence mode="popLayout">
-          <motion.div
-            key={slide.id}
-            initial={{ opacity: 0, scale: 1.05 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 1.5, ease: "easeInOut" }}
-            className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-[background-image] duration-700"
-            style={{ backgroundImage: slide.cssVar }}
-            aria-hidden="true"
-          />
-        </AnimatePresence>
+  // Colors for the particle mesh based on active slide
+  const themeColors: Record<string, string[]> = {
+    saas: ['#3B82F6'], // Bright Blue
+    devsecops: ['#D946EF'], // Fuchsia / Magenta (like Thoughtworks)
+    ai: ['#10B981'], // Emerald
+    quantum: ['#4F46E5'], // Indigo
+    "data-platform": ['#F97316'], // Orange
+  };
 
-        {/* ── Left-to-Right Dark Gradient Overlay (Reference Style) ── */}
-        {/* This creates the dark fade on the left so white text is highly readable, while leaving the right side of the image visible */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/60 to-transparent" />
-        <div className="absolute inset-0 bg-black/20" /> {/* Slight overall darkening to ensure contrast everywhere */}
+  const currentColors = themeColors[slide.id] || themeColors.saas;
+
+  return (
+    <div className="relative min-h-[90vh] md:min-h-screen flex items-center overflow-hidden bg-background">
+      
+      {/* ── Dynamic Particle Wave Animation (Thoughtworks Style) ── */}
+      {/* We add z-0 here to ensure ALL background elements (including the gradient overlay) stay strictly behind the z-10 text */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
+        
+        {/* Subtle Tech Grid overlay (Static Grid) - Light & Dark variants */}
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4MCIgaGVpZ2h0PSI4MCI+PHBhdGggZD0iTTAgMGg4MHY4MEgweiIgZmlsbD0ibm9uZSIvPjxwYXRoIGQ9Ik0wIDB2ODBNODAgMHY4ME0wIDBoODBNMCA4MGg4MCIgc3Ryb2tlPSJyZ2JhKDAsMCwwLDAuMDQpIiBzdHJva2Utd2lkdGg9IjEiLz48L3N2Zz4=')] dark:hidden z-0" />
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4MCIgaGVpZ2h0PSI4MCI+PHBhdGggZD0iTTAgMGg4MHY4MEgweiIgZmlsbD0ibm9uZSIvPjxwYXRoIGQ9Ik0wIDB2ODBNODAgMHY4ME0wIDBoODBNMCA4MGg4MCIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMDcpIiBzdHJva2Utd2lkdGg9IjEiLz48L3N2Zz4=')] hidden dark:block z-0" />
+
+        {/* Dynamic Data Visualizer (Canvas) */}
+        <div className="absolute inset-0 opacity-80 mix-blend-multiply dark:mix-blend-screen z-10 transition-colors duration-1000">
+          <DynamicHeroAnimation color={currentColors[0]} slideId={slide.id} />
+        </div>
+
+        {/* ── Left-to-Right Gradient Overlay (For Text Readability) ── */}
+        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-transparent z-20" />
       </div>
 
       <div className="relative z-10 w-full mx-auto max-w-7xl px-6 py-20 pt-32 lg:py-32 grid lg:grid-cols-12 gap-8 items-center">
@@ -113,16 +127,16 @@ export default function Hero() {
                 className="absolute top-0 left-0 w-full h-full flex flex-col justify-center"
               >
                 <div>
-                  <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-xs font-semibold text-white backdrop-blur-md mb-6">
-                    <span className="live-dot relative h-2 w-2 rounded-full bg-emerald-400" />
+                  <span className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-4 py-1.5 text-xs font-semibold text-primary backdrop-blur-md mb-6">
+                    <span className="live-dot relative h-2 w-2 rounded-full bg-live" />
                     {slide.tag}
                   </span>
 
-                  <h1 className="font-display text-4xl font-extrabold leading-[1.1] tracking-tight text-white md:text-5xl lg:text-6xl">
+                  <h1 className="font-display text-4xl font-extrabold leading-[1.1] tracking-tight text-surface md:text-5xl lg:text-6xl">
                     {slide.title}
                   </h1>
 
-                  <p className="mt-6 max-w-xl text-lg leading-relaxed text-slate-200 md:text-xl font-medium">
+                  <p className="mt-6 max-w-xl text-lg leading-relaxed text-slate-700 dark:text-slate-300 md:text-xl font-medium">
                     {slide.description}
                   </p>
                 </div>
@@ -134,17 +148,17 @@ export default function Hero() {
             <Button href="/products" variant="primary" size="lg" className="border-none">
               Explore Platform
             </Button>
-            {/* Outline button matching the reference "Know More" style */}
-            <Button href="/contact" variant="secondary" size="lg" className="bg-transparent border-white/50 text-white hover:bg-white/10">
+            {/* Outline button matching the theme */}
+            <Button href="/contact" variant="secondary" size="lg" className="bg-transparent border-slate-300 dark:border-white/30 text-surface hover:bg-slate-100 dark:hover:bg-white/10">
               Request Demo
             </Button>
           </div>
 
-          <div className="mt-16 flex flex-wrap gap-x-10 gap-y-6 border-t border-white/20 pt-8">
+          <div className="mt-16 flex flex-wrap gap-x-10 gap-y-6 border-t border-border pt-8">
             {statsRow.map((s) => (
               <div key={s.label}>
-                <div className="font-display text-2xl font-extrabold text-white">{s.value}</div>
-                <div className="text-xs font-bold uppercase tracking-widest text-slate-300 mt-1">{s.label}</div>
+                <div className="font-display text-2xl font-extrabold text-surface">{s.value}</div>
+                <div className="text-xs font-bold uppercase tracking-widest text-slate-600 dark:text-slate-400 mt-1">{s.label}</div>
               </div>
             ))}
           </div>
@@ -158,10 +172,10 @@ export default function Hero() {
               <button
                 key={s.id}
                 onClick={() => setActiveSlide(index)}
-                className={`group relative text-left p-4 rounded-2xl border transition-all duration-500 backdrop-blur-xl overflow-hidden shadow-[0_8px_32px_rgba(0,0,0,0.05)] dark:shadow-[0_8px_32px_rgba(0,0,0,0.2)] ${
+                className={`group relative flex w-10 flex-col items-center justify-between rounded-full py-4 transition-all duration-500 ease-out md:w-full md:flex-row md:rounded-2xl md:p-4 md:border backdrop-blur-xl ${
                   isActive 
-                    ? "bg-white/60 border-white/80 dark:bg-white/10 dark:border-white/30 scale-[1.02]" 
-                    : "bg-white/20 border-white/40 hover:bg-white/40 hover:border-white/60 dark:bg-white/5 dark:border-white/10 dark:hover:bg-white/10 dark:hover:border-white/20"
+                    ? "h-32 md:h-auto bg-white/60 border-slate-300 shadow-[0_8px_32px_rgba(0,0,0,0.08)] dark:bg-white/10 dark:border-white/30 scale-[1.02]" 
+                    : "h-20 md:h-auto bg-white/30 border-slate-200 hover:bg-white/80 dark:bg-white/5 dark:border-white/10 dark:hover:bg-white/10"
                 }`}
               >
                 {/* Active progress bar indicator (Subtle edge glow) */}
