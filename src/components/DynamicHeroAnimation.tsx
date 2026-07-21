@@ -31,92 +31,113 @@ export default function DynamicHeroAnimation({ color, slideId }: DynamicHeroAnim
     let cx = width / 2;
     let cy = height / 2;
 
-    // SaaS: Particle Mesh
-    const meshParticles: { x: number; y: number; baseX: number; baseY: number; size: number }[] = [];
+    // SaaS: Global Sphere
+    const sphereNodes: { x: number; y: number; z: number }[] = [];
     
-    // DevSecOps: Radar
-    const radarDots: { x: number; y: number; angle: number; dist: number; active: number }[] = [];
-    const radarRings: { r: number }[] = [{r: 100}, {r: 300}, {r: 500}, {r: 700}];
+    // DevSecOps: Security Icosahedron
+    const icoVertices: { x: number; y: number; z: number }[] = [];
+    const icoEdges: number[][] = [];
+    const orbitRings: { radius: number; angleX: number; angleY: number; speed: number }[] = [];
     
-    // AI: Neural Synapses
-    const neurons: { x: number; y: number; vx: number; vy: number; connections: number[] }[] = [];
-    const pulses: { from: number; to: number; progress: number; speed: number }[] = [];
+    // AI: Intelligence Core
+    const coreNodes: { x: number; y: number; z: number }[] = [];
+    const aiOrbits: { radius: number; rotX: number; rotY: number; particles: number[] }[] = [];
 
-    // Data Platform: Streams
-    const streams: { x: number; y: number; speed: number; length: number; charOffset: number }[] = [];
+    // Data Platform: Hexagons
+    const hexagons: { x: number; y: number; offset: number }[] = [];
 
     // Initialization logic based on tab
     if (slideId === "saas") {
-      const cols = Math.floor(width / 70);
-      const rows = Math.floor(height / 70);
-      for (let i = 0; i <= cols; i++) {
-        for (let j = 0; j <= rows; j++) {
-          meshParticles.push({
-            x: i * (width / cols) + (Math.random() - 0.5) * 40,
-            y: j * (height / rows) + (Math.random() - 0.5) * 40,
-            baseX: i * (width / cols),
-            baseY: j * (height / rows),
-            size: Math.random() * 1.5 + 0.8,
-          });
-        }
+      const N = 200;
+      const goldenRatio = (1 + Math.sqrt(5)) / 2;
+      for (let i = 0; i < N; i++) {
+        const theta = 2 * Math.PI * i / goldenRatio;
+        const phi = Math.acos(1 - 2 * (i + 0.5) / N);
+        sphereNodes.push({
+          x: Math.sin(phi) * Math.cos(theta),
+          y: Math.sin(phi) * Math.sin(theta),
+          z: Math.cos(phi)
+        });
       }
     } else if (slideId === "devsecops") {
-      for (let i = 0; i < 200; i++) {
-        const dist = Math.random() * (Math.max(width, height) / 1.1);
-        const angle = Math.random() * Math.PI * 2;
-        radarDots.push({
-          x: cx + Math.cos(angle) * dist,
-          y: cy + Math.sin(angle) * dist,
-          angle,
-          dist,
-          active: 0,
-        });
-      }
-    } else if (slideId === "ai") {
-      for (let i = 0; i < 80; i++) {
-        neurons.push({
-          x: Math.random() * width,
-          y: Math.random() * height,
-          vx: (Math.random() - 0.5) * 0.8,
-          vy: (Math.random() - 0.5) * 0.8,
-          connections: [],
-        });
-      }
-      for (let i = 0; i < neurons.length; i++) {
-        for (let j = i + 1; j < neurons.length; j++) {
-          const dx = neurons[i].x - neurons[j].x;
-          const dy = neurons[i].y - neurons[j].y;
-          if (Math.sqrt(dx * dx + dy * dy) < 250) {
-            neurons[i].connections.push(j);
-            neurons[j].connections.push(i);
+      const t = (1.0 + Math.sqrt(5.0)) / 2.0;
+      const v = [
+        [-1, t, 0], [1, t, 0], [-1, -t, 0], [1, -t, 0],
+        [0, -1, t], [0, 1, t], [0, -1, -t], [0, 1, -t],
+        [t, 0, -1], [t, 0, 1], [-t, 0, -1], [-t, 0, 1]
+      ];
+      v.forEach(pt => {
+        const len = Math.sqrt(pt[0]*pt[0] + pt[1]*pt[1] + pt[2]*pt[2]);
+        icoVertices.push({ x: pt[0]/len, y: pt[1]/len, z: pt[2]/len });
+      });
+      for (let i = 0; i < icoVertices.length; i++) {
+        for (let j = i + 1; j < icoVertices.length; j++) {
+          const dx = icoVertices[i].x - icoVertices[j].x;
+          const dy = icoVertices[i].y - icoVertices[j].y;
+          const dz = icoVertices[i].z - icoVertices[j].z;
+          if (Math.sqrt(dx*dx + dy*dy + dz*dz) < 1.1) {
+            icoEdges.push([i, j]);
           }
         }
       }
+      orbitRings.push({ radius: 350, angleX: 1.2, angleY: 0.5, speed: 0.01 });
+      orbitRings.push({ radius: 450, angleX: -0.5, angleY: 1.5, speed: -0.015 });
+      orbitRings.push({ radius: 600, angleX: 0.8, angleY: -0.8, speed: 0.008 });
+    } else if (slideId === "ai") {
+      for (let i = 0; i < 150; i++) {
+        const theta = Math.random() * Math.PI * 2;
+        const phi = Math.acos(Math.random() * 2 - 1);
+        const r = Math.cbrt(Math.random()) * 100; 
+        coreNodes.push({
+          x: r * Math.sin(phi) * Math.cos(theta),
+          y: r * Math.sin(phi) * Math.sin(theta),
+          z: r * Math.cos(phi)
+        });
+      }
+      for (let i = 0; i < 5; i++) {
+        const particles = [];
+        for (let j = 0; j < 4; j++) particles.push(Math.random() * Math.PI * 2);
+        aiOrbits.push({
+          radius: 200 + i * 90,
+          rotX: Math.random() * Math.PI,
+          rotY: Math.random() * Math.PI,
+          particles
+        });
+      }
     } else if (slideId === "data-platform") {
-      const cols = Math.floor(width / 15);
-      for (let i = 0; i < cols; i++) {
-        // Spawn multiple streams per column for density
-        streams.push({
-          x: i * 15,
-          y: Math.random() * height,
-          speed: Math.random() * 4 + 3,
-          length: Math.random() * 150 + 50,
-          charOffset: Math.random() * 100,
-        });
-        streams.push({
-          x: i * 15,
-          y: Math.random() * height,
-          speed: Math.random() * 4 + 2,
-          length: Math.random() * 100 + 30,
-          charOffset: Math.random() * 100,
-        });
+      const hexSize = 35;
+      const hexWidth = hexSize * Math.sqrt(3);
+      const hexHeight = hexSize * 2;
+      const cols = Math.floor(width / hexWidth) + 2;
+      const rows = Math.floor(height / (hexHeight * 0.75)) + 2;
+      
+      for (let row = -1; row < rows; row++) {
+        for (let col = -1; col < cols; col++) {
+          const x = col * hexWidth + (row % 2 !== 0 ? hexWidth / 2 : 0);
+          const y = row * hexHeight * 0.75;
+          hexagons.push({
+            x, 
+            y,
+            offset: Math.random() * Math.PI * 2
+          });
+        }
       }
     }
 
-    // 3D Math for Quantum Wireframe
-    const project3D = (x: number, y: number, z: number) => {
-      const scale = 500 / (500 + z); // Adjusted focal length for bigger view
-      return { x: cx + x * scale, y: cy + y * scale };
+    // 3D Math shared across 3D effects
+    const project3D = (x: number, y: number, z: number, scaleFactor: number = 500) => {
+      const scale = scaleFactor / (scaleFactor + z); 
+      return { x: cx + x * scale, y: cy + y * scale, scale, z };
+    };
+
+    const rotate3D = (x: number, y: number, z: number, rotX: number, rotY: number, rotZ: number) => {
+      let ry = y * Math.cos(rotX) - z * Math.sin(rotX);
+      let rz = y * Math.sin(rotX) + z * Math.cos(rotX);
+      let rx2 = x * Math.cos(rotY) + rz * Math.sin(rotY);
+      let rz2 = -x * Math.sin(rotY) + rz * Math.cos(rotY);
+      let rx3 = rx2 * Math.cos(rotZ) - ry * Math.sin(rotZ);
+      let ry3 = rx2 * Math.sin(rotZ) + ry * Math.cos(rotZ);
+      return { x: rx3, y: ry3, z: rz2 };
     };
 
     const render = () => {
@@ -125,152 +146,179 @@ export default function DynamicHeroAnimation({ color, slideId }: DynamicHeroAnim
       cy = height / 2;
 
       // Clear Canvas
-      if (slideId === "data-platform") {
-        // Trailing fade effect for streams
-        ctx.fillStyle = "rgba(255, 255, 255, 0.1)"; 
-        ctx.fillRect(0, 0, width, height);
-      } else {
-        ctx.clearRect(0, 0, width, height);
-      }
+      ctx.clearRect(0, 0, width, height);
 
       // ──────────────────────────────────────────────
-      // 1. SaaS (Particle Wave Mesh)
+      // 1. SaaS (Global Cloud Sphere)
       // ──────────────────────────────────────────────
       if (slideId === "saas") {
-        meshParticles.forEach((p) => {
-          p.x = p.baseX + Math.sin(time + p.baseY * 0.01) * 35;
-          p.y = p.baseY + Math.cos(time + p.baseX * 0.01) * 35;
+        const radius = 350;
+        const projectedNodes = sphereNodes.map(node => {
+          const rot = rotate3D(node.x * radius, node.y * radius, node.z * radius, time * 0.2, time * 0.5, 0);
+          return project3D(rot.x, rot.y, rot.z, 800);
         });
 
-        ctx.lineWidth = 0.6;
-        for (let i = 0; i < meshParticles.length; i++) {
-          for (let j = i + 1; j < meshParticles.length; j++) {
-            const p1 = meshParticles[i];
-            const p2 = meshParticles[j];
-            const dx = p1.x - p2.x;
-            const dy = p1.y - p2.y;
-            const dist = Math.sqrt(dx*dx + dy*dy);
-            if (dist < 120) {
-              ctx.beginPath();
-              ctx.strokeStyle = `rgba(${rgbColor}, ${0.8 - dist / 120})`;
-              ctx.moveTo(p1.x, p1.y);
-              ctx.lineTo(p2.x, p2.y);
-              ctx.stroke();
-            }
-          }
-        }
-        meshParticles.forEach((p) => {
-          ctx.beginPath();
-          ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-          ctx.fillStyle = `rgba(${rgbColor}, 0.9)`;
-          ctx.fill();
-        });
-      }
-
-      // ──────────────────────────────────────────────
-      // 2. DevSecOps (Radar Ripples)
-      // ──────────────────────────────────────────────
-      else if (slideId === "devsecops") {
-        const radarAngle = (time * 1.5) % (Math.PI * 2);
-        
-        ctx.lineWidth = 1;
-        radarRings.forEach(ring => {
-          ring.r += 0.5;
-          if (ring.r > Math.max(width, height)) ring.r = 0;
-          ctx.beginPath();
-          ctx.arc(cx, cy, ring.r, 0, Math.PI * 2);
-          ctx.strokeStyle = `rgba(${rgbColor}, ${Math.max(0, 0.2 - ring.r / 2000)})`;
-          ctx.stroke();
-        });
-
-        ctx.beginPath();
-        ctx.moveTo(cx, cy);
-        ctx.lineTo(cx + Math.cos(radarAngle) * 2000, cy + Math.sin(radarAngle) * 2000);
-        ctx.strokeStyle = `rgba(${rgbColor}, 0.5)`;
-        ctx.stroke();
-
-        ctx.beginPath();
-        ctx.moveTo(cx, cy);
-        ctx.arc(cx, cy, 2000, radarAngle - 0.5, radarAngle, false);
-        ctx.closePath();
-        ctx.fillStyle = `rgba(${rgbColor}, 0.03)`;
-        ctx.fill();
-
-        radarDots.forEach(dot => {
-          let diff = radarAngle - dot.angle;
-          while (diff < -Math.PI) diff += Math.PI * 2;
-          while (diff > Math.PI) diff -= Math.PI * 2;
-          
-          if (diff > 0 && diff < 0.2) dot.active = 1; 
-          if (dot.active > 0) dot.active -= 0.01; 
-          
-          ctx.beginPath();
-          ctx.arc(dot.x, dot.y, 2 + dot.active * 3, 0, Math.PI * 2);
-          ctx.fillStyle = `rgba(${rgbColor}, ${0.1 + dot.active * 0.9})`;
-          ctx.fill();
-        });
-      }
-
-      // ──────────────────────────────────────────────
-      // 3. AI-Native Core (Neural Synapses)
-      // ──────────────────────────────────────────────
-      else if (slideId === "ai") {
-        neurons.forEach(n => {
-          n.x += n.vx;
-          n.y += n.vy;
-          if (n.x < 0 || n.x > width) n.vx *= -1;
-          if (n.y < 0 || n.y > height) n.vy *= -1;
-        });
-
-        ctx.lineWidth = 0.5;
-        neurons.forEach((n, i) => {
-          // Re-calculate local connections for performance
-          n.connections.forEach(j => {
-            if (j > i) {
-              const n2 = neurons[j];
-              const dist = Math.sqrt(Math.pow(n.x-n2.x,2) + Math.pow(n.y-n2.y,2));
-              if (dist < 300) {
+        // Draw connections
+        ctx.lineWidth = 1.0;
+        for (let i = 0; i < projectedNodes.length; i++) {
+          for (let j = i + 1; j < projectedNodes.length; j++) {
+            const p1 = projectedNodes[i];
+            const p2 = projectedNodes[j];
+            if (p1.z > -100 && p2.z > -100) {
+              const dx = p1.x - p2.x;
+              const dy = p1.y - p2.y;
+              const dist = Math.sqrt(dx*dx + dy*dy);
+              if (dist < 100) {
+                const alpha = Math.max(0, 0.5 - dist / 200) * (p1.z > 0 ? 1 : 0.2);
                 ctx.beginPath();
-                ctx.moveTo(n.x, n.y);
-                ctx.lineTo(n2.x, n2.y);
-                ctx.strokeStyle = `rgba(${rgbColor}, ${0.15 - dist/2000})`; 
+                ctx.strokeStyle = `rgba(${rgbColor}, ${alpha})`;
+                ctx.moveTo(p1.x, p1.y);
+                ctx.lineTo(p2.x, p2.y);
                 ctx.stroke();
               }
             }
-          });
+          }
+        }
+
+        // Draw nodes
+        projectedNodes.forEach(p => {
+          const alpha = p.z > 0 ? 0.9 : 0.2;
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, 2.5 * p.scale, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(${rgbColor}, ${alpha})`;
+          ctx.fill();
+        });
+      }
+
+      // ──────────────────────────────────────────────
+      // 2. DevSecOps (Security Icosahedron & Radars)
+      // ──────────────────────────────────────────────
+      else if (slideId === "devsecops") {
+        const radius = 180;
+        const projectedVerts = icoVertices.map(v => {
+          const rot = rotate3D(v.x * radius, v.y * radius, v.z * radius, time * 0.6, time * 0.4, time * 0.2);
+          return project3D(rot.x, rot.y, rot.z, 600);
         });
 
-        if (Math.random() < 0.2 && neurons.length > 0) {
-          const fromIdx = Math.floor(Math.random() * neurons.length);
-          if (neurons[fromIdx].connections.length > 0) {
-            const toIdx = neurons[fromIdx].connections[Math.floor(Math.random() * neurons[fromIdx].connections.length)];
-            pulses.push({ from: fromIdx, to: toIdx, progress: 0, speed: Math.random() * 0.02 + 0.02 });
-          }
-        }
+        ctx.lineWidth = 2.5;
+        icoEdges.forEach(edge => {
+          const p1 = projectedVerts[edge[0]];
+          const p2 = projectedVerts[edge[1]];
+          const alpha = (p1.z > 0 || p2.z > 0) ? 0.8 : 0.15;
+          ctx.beginPath();
+          ctx.strokeStyle = `rgba(${rgbColor}, ${alpha})`;
+          ctx.moveTo(p1.x, p1.y);
+          ctx.lineTo(p2.x, p2.y);
+          ctx.stroke();
+        });
 
-        for (let i = pulses.length - 1; i >= 0; i--) {
-          const p = pulses[i];
-          p.progress += p.speed;
-          if (p.progress >= 1) {
-            pulses.splice(i, 1);
-            continue;
+        projectedVerts.forEach(p => {
+          const alpha = p.z > 0 ? 1 : 0.2;
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, 6 * p.scale, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(${rgbColor}, ${alpha})`;
+          ctx.fill();
+        });
+
+        // Orbit rings
+        orbitRings.forEach(ring => {
+          const points = [];
+          for (let i = 0; i <= 60; i++) {
+            const angle = (Math.PI * 2 * i) / 60;
+            const x = Math.cos(angle) * ring.radius;
+            const y = Math.sin(angle) * ring.radius;
+            const rot = rotate3D(x, y, 0, ring.angleX, ring.angleY, time * ring.speed);
+            points.push(project3D(rot.x, rot.y, rot.z, 800));
           }
-          const n1 = neurons[p.from];
-          const n2 = neurons[p.to];
-          const px = n1.x + (n2.x - n1.x) * p.progress;
-          const py = n1.y + (n2.y - n1.y) * p.progress;
           
+          ctx.lineWidth = 1.5;
           ctx.beginPath();
-          ctx.arc(px, py, 3.5, 0, Math.PI * 2);
-          ctx.fillStyle = `rgba(${rgbColor}, 1)`;
+          for (let i = 0; i < points.length; i++) {
+            if (i === 0) ctx.moveTo(points[i].x, points[i].y);
+            else ctx.lineTo(points[i].x, points[i].y);
+          }
+          ctx.strokeStyle = `rgba(${rgbColor}, 0.15)`;
+          ctx.stroke();
+
+          // Scanner flash
+          const flashPhase = (time * 2 + ring.radius) % (Math.PI * 2);
+          if (flashPhase < 0.5) {
+             ctx.strokeStyle = `rgba(${rgbColor}, ${0.8 - flashPhase * 1.6})`;
+             ctx.stroke();
+          }
+        });
+      }
+
+      // ──────────────────────────────────────────────
+      // 3. AI-Native Core (Intelligence Core & Orbits)
+      // ──────────────────────────────────────────────
+      else if (slideId === "ai") {
+        // Pulsating core
+        const coreScale = 1 + Math.sin(time * 3) * 0.1;
+        const projectedCore = coreNodes.map(node => {
+          const rot = rotate3D(node.x * coreScale, node.y * coreScale, node.z * coreScale, time * 0.2, -time * 0.3, 0);
+          return project3D(rot.x, rot.y, rot.z, 600);
+        });
+
+        projectedCore.forEach(p => {
+          const alpha = p.z > 0 ? 0.9 : 0.2;
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, 3 * p.scale, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(${rgbColor}, ${alpha})`;
           ctx.fill();
+        });
+
+        ctx.lineWidth = 0.8;
+        for (let i = 0; i < projectedCore.length; i += 2) {
+          for (let j = i + 1; j < projectedCore.length; j += 2) {
+            const p1 = projectedCore[i];
+            const p2 = projectedCore[j];
+            if (p1.z > 0 && p2.z > 0) {
+              const dist = Math.sqrt(Math.pow(p1.x - p2.x, 2) + Math.pow(p1.y - p2.y, 2));
+              if (dist < 60) {
+                ctx.beginPath();
+                ctx.moveTo(p1.x, p1.y);
+                ctx.lineTo(p2.x, p2.y);
+                ctx.strokeStyle = `rgba(${rgbColor}, ${0.5 - dist/120})`;
+                ctx.stroke();
+              }
+            }
+          }
         }
 
-        neurons.forEach((n) => {
+        // Orbiting bezier streams
+        aiOrbits.forEach((orbit, idx) => {
+          const points = [];
+          for (let i = 0; i <= 60; i++) {
+            const angle = (Math.PI * 2 * i) / 60;
+            const x = Math.cos(angle) * orbit.radius;
+            const z = Math.sin(angle) * orbit.radius;
+            const rot = rotate3D(x, 0, z, orbit.rotX, orbit.rotY, time * (0.5 + idx * 0.1));
+            points.push(project3D(rot.x, rot.y, rot.z, 800));
+          }
+          
+          ctx.lineWidth = 1.5;
           ctx.beginPath();
-          ctx.arc(n.x, n.y, 4, 0, Math.PI * 2);
-          ctx.fillStyle = `rgba(${rgbColor}, 0.4)`;
-          ctx.fill();
+          for (let i = 0; i < points.length; i++) {
+            if (i === 0) ctx.moveTo(points[i].x, points[i].y);
+            else ctx.lineTo(points[i].x, points[i].y);
+          }
+          ctx.strokeStyle = `rgba(${rgbColor}, 0.15)`;
+          ctx.stroke();
+
+          // Data pulses on the stream
+          orbit.particles.forEach((pAngle, pIdx) => {
+            const currentAngle = (pAngle + time * (1 + pIdx * 0.5)) % (Math.PI * 2);
+            const x = Math.cos(currentAngle) * orbit.radius;
+            const z = Math.sin(currentAngle) * orbit.radius;
+            const rot = rotate3D(x, 0, z, orbit.rotX, orbit.rotY, time * (0.5 + idx * 0.1));
+            const proj = project3D(rot.x, rot.y, rot.z, 800);
+            
+            ctx.beginPath();
+            ctx.arc(proj.x, proj.y, 6 * proj.scale, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(${rgbColor}, ${proj.z > 0 ? 1 : 0.3})`;
+            ctx.fill();
+          });
         });
       }
 
@@ -331,18 +379,36 @@ export default function DynamicHeroAnimation({ color, slideId }: DynamicHeroAnim
       }
 
       // ──────────────────────────────────────────────
-      // 5. Data Platform (Cascading Streams)
+      // 5. Data Platform (Hexagonal Data Grid)
       // ──────────────────────────────────────────────
       else if (slideId === "data-platform") {
-        ctx.fillStyle = `rgba(${rgbColor}, 0.8)`;
-        streams.forEach(stream => {
-          ctx.beginPath();
-          ctx.fillRect(stream.x, stream.y, 2.5, 12);
+        ctx.lineWidth = 2;
+        hexagons.forEach(hex => {
+          // Calculate wave based on distance from center + time
+          const distFromCenter = Math.sqrt(Math.pow(hex.x - cx, 2) + Math.pow(hex.y - cy, 2));
+          const wave = Math.sin(distFromCenter * 0.005 - time * 2) * 0.5 + 0.5; 
           
-          stream.y += stream.speed;
-          if (stream.y > height) {
-            stream.y = -50;
-            stream.x = Math.floor(Math.random() * (width / 15)) * 15; 
+          const currentSize = 35 * (0.4 + wave * 0.6); 
+          
+          if (wave > 0.05) {
+            ctx.beginPath();
+            for (let i = 0; i < 6; i++) {
+              const angle_deg = 60 * i - 30;
+              const angle_rad = Math.PI / 180 * angle_deg;
+              const px = hex.x + currentSize * Math.cos(angle_rad);
+              const py = hex.y + currentSize * Math.sin(angle_rad);
+              if (i === 0) ctx.moveTo(px, py);
+              else ctx.lineTo(px, py);
+            }
+            ctx.closePath();
+            
+            ctx.strokeStyle = `rgba(${rgbColor}, ${wave * 0.8})`;
+            ctx.stroke();
+            
+            if (wave > 0.85) {
+               ctx.fillStyle = `rgba(${rgbColor}, ${(wave - 0.85) * 3})`; 
+               ctx.fill();
+            }
           }
         });
       }

@@ -81,13 +81,13 @@ export default function Hero() {
 
   const slide = slides[activeSlide];
 
-  // Colors for the particle mesh based on active slide
+  // Colors for the particle mesh based on active slide (Using darker shades for better contrast)
   const themeColors: Record<string, string[]> = {
-    saas: ['#3B82F6'], // Bright Blue
-    devsecops: ['#D946EF'], // Fuchsia / Magenta (like Thoughtworks)
-    ai: ['#10B981'], // Emerald
-    quantum: ['#4F46E5'], // Indigo
-    "data-platform": ['#F97316'], // Orange
+    saas: ['#1D4ED8'], // Blue 700
+    devsecops: ['#A21CAF'], // Fuchsia 700
+    ai: ['#047857'], // Emerald 700
+    quantum: ['#3730A3'], // Indigo 700
+    "data-platform": ['#C2410C'], // Orange 700
   };
 
   const currentColors = themeColors[slide.id] || themeColors.saas;
@@ -127,8 +127,21 @@ export default function Hero() {
                 className="absolute top-0 left-0 w-full h-full flex flex-col justify-center"
               >
                 <div>
-                  <span className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-4 py-1.5 text-xs font-semibold text-primary backdrop-blur-md mb-6">
-                    <span className="live-dot relative h-2 w-2 rounded-full bg-live" />
+                  <span 
+                    className="inline-flex items-center gap-2 rounded-full border px-4 py-1.5 text-xs font-semibold backdrop-blur-md mb-6"
+                    style={{ 
+                      backgroundColor: `${currentColors[0]}1a`, 
+                      borderColor: `${currentColors[0]}33`, 
+                      color: currentColors[0] 
+                    }}
+                  >
+                    <span 
+                      className="relative h-2 w-2 rounded-full" 
+                      style={{ 
+                        backgroundColor: currentColors[0], 
+                        boxShadow: `0 0 8px ${currentColors[0]}` 
+                      }} 
+                    />
                     {slide.tag}
                   </span>
 
@@ -145,7 +158,7 @@ export default function Hero() {
           </div>
 
           <div className="mt-4 flex flex-wrap items-center gap-4">
-            <Button href="/products" variant="primary" size="lg" className="border-none">
+            <Button href="/products" variant="primary" size="lg" className="border-none" style={{ backgroundColor: currentColors[0], boxShadow: `0 4px 14px ${currentColors[0]}40` }}>
               Explore Platform
             </Button>
             {/* Outline button matching the theme */}
@@ -164,30 +177,34 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* ── Right Navigation Slider (Glassmorphism) ── */}
-        <div className="hidden lg:flex lg:col-span-4 flex-col gap-3 ml-auto w-full max-w-sm relative z-20">
-          {slides.map((s, index) => {
-            const isActive = index === activeSlide;
-            return (
-              <button
-                key={s.id}
-                onClick={() => setActiveSlide(index)}
-                className={`group relative flex w-10 flex-col items-center justify-between rounded-full py-4 transition-all duration-500 ease-out md:w-full md:flex-row md:rounded-2xl md:p-4 md:border backdrop-blur-xl ${
-                  isActive 
-                    ? "h-32 md:h-auto bg-white/60 border-slate-300 shadow-[0_8px_32px_rgba(0,0,0,0.08)] dark:bg-white/10 dark:border-white/30 scale-[1.02]" 
-                    : "h-20 md:h-auto bg-white/30 border-slate-200 hover:bg-white/80 dark:bg-white/5 dark:border-white/10 dark:hover:bg-white/10"
-                }`}
-              >
-                {/* Active progress bar indicator (Subtle edge glow) */}
-                {isActive && (
-                  <motion.div 
-                    className="absolute left-0 top-0 bottom-0 w-1.5 bg-gradient-to-b from-primary/80 to-primary shadow-[0_0_12px_var(--cb-primary)]"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 0.3 }}
+        {/* ── Vertical Navigation Tabs ── */}
+        <div className="absolute right-0 md:right-6 lg:right-12 top-1/2 -translate-y-1/2 z-20 flex flex-col gap-3 pr-2 md:pr-0 pl-4 md:pl-0 w-[70px] md:w-56 lg:w-64">
+          <div className="flex flex-col gap-3">
+            {slides.map((s, index) => {
+              const Icon = s.icon;
+              const isActive = index === activeSlide;
+              const tabColor = themeColors[s.id][0];
+
+              return (
+                <button
+                  key={s.id}
+                  onClick={() => setActiveSlide(index)}
+                  className={`group relative flex w-10 flex-col items-center justify-between rounded-full py-4 transition-all duration-500 ease-out md:w-full md:flex-row md:rounded-2xl md:p-4 md:border backdrop-blur-xl ${
+                    isActive 
+                      ? "h-32 md:h-auto bg-white/60 border-slate-300 shadow-[0_8px_32px_rgba(0,0,0,0.08)] dark:bg-white/10 dark:border-white/30 scale-[1.02]" 
+                      : "h-20 md:h-auto bg-white/30 border-slate-200 hover:bg-white/80 dark:bg-white/5 dark:border-white/10 dark:hover:bg-white/10"
+                  }`}
+                >
+                  {/* Active progress bar indicator (Dynamic color edge glow) */}
+                  <div
+                    className={`absolute left-0 top-0 h-full w-1 rounded-l-2xl transition-all duration-500 ${
+                      isActive ? "opacity-100" : "opacity-0"
+                    }`}
+                    style={{ 
+                      backgroundColor: tabColor, 
+                      boxShadow: isActive ? `0 0 12px ${tabColor}` : 'none' 
+                    }}
                   />
-                )}
-                
                 <div className="flex items-center justify-between">
                   <div>
                     <h3 className={`font-display font-bold text-base transition-colors ${isActive ? 'text-surface' : 'text-slate-700 dark:text-slate-300'}`}>
@@ -197,17 +214,20 @@ export default function Hero() {
                       {s.tabDesc}
                     </p>
                   </div>
-                  <ChevronRight className={`h-5 w-5 transition-transform ${isActive ? 'text-primary translate-x-1' : 'text-slate-400 dark:text-slate-500 group-hover:translate-x-0.5'}`} />
+                  <ChevronRight 
+                    className={`h-5 w-5 transition-transform ${isActive ? 'translate-x-1' : 'text-slate-400 dark:text-slate-500 group-hover:translate-x-0.5'}`} 
+                    style={{ color: isActive ? tabColor : undefined }}
+                  />
                 </div>
               </button>
             );
           })}
         </div>
-
       </div>
-
-      {/* Bottom gradient fade to next section */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent pointer-events-none" />
     </div>
-  );
+
+    {/* Bottom gradient fade to next section */}
+    <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent pointer-events-none" />
+  </div>
+);
 }
