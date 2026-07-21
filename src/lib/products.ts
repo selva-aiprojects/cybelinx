@@ -87,12 +87,6 @@ export const products: Product[] = [
       { label: "API endpoints", value: "100+" },
       { label: "Uptime target", value: "99.99%" },
     ],
-    customers: [
-      { name: "Viswa Group", status: "live" },
-      { name: "GRT Group", status: "coming-soon" },
-      { name: "Raintree", status: "coming-soon" },
-      { name: "DLF", status: "coming-soon" },
-    ],
     isPlaceholderContent: false,
   },
   {
