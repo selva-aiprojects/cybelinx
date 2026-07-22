@@ -112,7 +112,7 @@ export default function Hero() {
         <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-transparent z-20" />
       </div>
 
-      <div className="relative z-10 w-full mx-auto max-w-7xl px-6 py-20 pt-32 lg:py-32 grid lg:grid-cols-12 gap-8 items-center">
+      <div className="relative z-10 w-full mx-auto max-w-7xl px-6 py-12 pt-24 lg:py-24 grid lg:grid-cols-12 gap-8 items-center">
         
         {/* ── Left Content (Forced Light Text on Dark Gradient) ── */}
         <div className="lg:col-span-8 max-w-2xl">
@@ -177,8 +177,8 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* ── Vertical Navigation Tabs ── */}
-        <div className="absolute right-0 md:right-6 lg:right-12 top-1/2 -translate-y-1/2 z-20 flex flex-col gap-3 pr-2 md:pr-0 pl-4 md:pl-0 w-[70px] md:w-56 lg:w-64">
+        {/* ── Navigation Tabs ── */}
+        <div className="absolute right-0 md:right-6 lg:right-12 top-1/2 -translate-y-1/2 z-20 hidden md:flex flex-col gap-3 w-56 lg:w-64">
           <div className="flex flex-col gap-3">
             {slides.map((s, index) => {
               const isActive = index === activeSlide;
@@ -188,43 +188,60 @@ export default function Hero() {
                 <button
                   key={s.id}
                   onClick={() => setActiveSlide(index)}
-                  className={`group relative flex w-10 flex-col items-center justify-between rounded-full py-4 transition-all duration-500 ease-out md:w-full md:flex-row md:rounded-2xl md:p-4 md:border ${
+                  className={`group relative flex w-full flex-row items-center justify-between rounded-2xl p-4 border transition-all duration-500 ease-out ${
                     isActive 
-                      ? "h-32 md:h-auto glass-container scale-[1.02]" 
-                      : "h-20 md:h-auto bg-surface/5 border-border hover:glass-container"
+                      ? "scale-[1.02] border-fuchsia-500/30" 
+                      : "bg-surface/5 border-border hover:bg-surface/10"
                   }`}
+                  style={isActive ? { backgroundColor: 'rgba(217, 70, 239, 0.1)' } : {}}
                 >
-                  {/* Active progress bar indicator (Dynamic color edge glow) */}
+                  {/* Active progress bar indicator */}
                   <div
                     className={`absolute left-0 top-0 h-full w-1 rounded-l-2xl transition-all duration-500 ${
                       isActive ? "opacity-100" : "opacity-0"
                     }`}
                     style={{ 
-                      backgroundColor: tabColor, 
-                      boxShadow: isActive ? `0 0 12px ${tabColor}` : 'none' 
+                      backgroundColor: isActive ? '#d946ef' : tabColor, 
+                      boxShadow: isActive ? `0 0 12px #d946ef` : 'none' 
                     }}
                   />
-                <div className="flex items-center justify-between">
-                  <div>
-                    <h3 className={`font-display font-bold text-base transition-colors ${isActive ? 'text-surface' : 'text-slate'}`}>
-                      {s.tabLabel}
-                    </h3>
-                    <p className={`text-xs mt-0.5 font-medium transition-colors ${isActive ? 'text-surface opacity-80' : 'text-slate opacity-70'}`}>
-                      {s.tabDesc}
-                    </p>
+                  <div className="flex items-center justify-between w-full pl-2">
+                    <div className="text-left">
+                      <h3 className={`font-display font-bold text-base transition-colors ${isActive ? 'text-fuchsia-500' : 'text-slate'}`}>
+                        {s.tabLabel}
+                      </h3>
+                      <p className={`text-xs mt-0.5 font-medium transition-colors ${isActive ? 'text-fuchsia-400 opacity-90' : 'text-slate opacity-70'}`}>
+                        {s.tabDesc}
+                      </p>
+                    </div>
+                    <ChevronRight 
+                      className={`h-5 w-5 transition-transform ${isActive ? 'translate-x-1' : 'text-slate opacity-50 group-hover:translate-x-0.5'}`} 
+                      style={{ color: isActive ? '#d946ef' : undefined }}
+                    />
                   </div>
-                  <ChevronRight 
-                    className={`h-5 w-5 transition-transform ${isActive ? 'translate-x-1' : 'text-slate opacity-50 group-hover:translate-x-0.5'}`} 
-                    style={{ color: isActive ? tabColor : undefined }}
-                  />
-                </div>
-              </button>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* ── Mobile Navigation ── */}
+        <div className="absolute bottom-16 left-0 right-0 z-20 flex justify-center gap-2 md:hidden px-6">
+          {slides.map((s, index) => {
+            const isActive = index === activeSlide;
+            return (
+              <button
+                key={s.id}
+                onClick={() => setActiveSlide(index)}
+                className={`h-2 rounded-full transition-all duration-500 ${
+                  isActive ? "w-8 bg-fuchsia-500" : "w-2 bg-slate/40"
+                }`}
+                aria-label={`Go to slide ${index + 1}`}
+              />
             );
           })}
         </div>
       </div>
-    </div>
-
     {/* Bottom gradient fade to next section */}
     <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent pointer-events-none" />
   </div>
