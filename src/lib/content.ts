@@ -74,7 +74,7 @@ export const platformPillars: PlatformPillar[] = [
   },
   {
     icon: Brain,
-    title: "AI & LLM-Ready Infrastructure",
+    title: "AI Agentic Workflow Transformation",
     subtitle: "AI-native by design, not bolted on",
     slug: "ai-llm",
     description:
@@ -84,7 +84,7 @@ export const platformPillars: PlatformPillar[] = [
   },
   {
     icon: ShieldCheck,
-    title: "Multi-Cloud DevSecOps as a Service",
+    title: "Multi-Cloud Infrastructure & DevSecOps",
     subtitle: "Ready-made pipelines with built-in compliance",
     slug: "devsecops",
     description:
@@ -94,7 +94,7 @@ export const platformPillars: PlatformPillar[] = [
   },
   {
     icon: Atom,
-    title: "Quantum-Ready Engineering & Analysis",
+    title: "Quantum Analysis & Engineering",
     subtitle: "Architected for what's next",
     slug: "quantum",
     description:
@@ -104,7 +104,7 @@ export const platformPillars: PlatformPillar[] = [
   },
   {
     icon: Database,
-    title: "Data Platform & Lakehouse",
+    title: "World Class Unique Data Platform",
     subtitle: "Unified data infrastructure for modern workloads",
     slug: "data-platform",
     description:
@@ -328,11 +328,11 @@ export const solutions: Solution[] = [
     description: "Strangler-fig migration, cloud-native re-platforming, and UX uplift — without disrupting live business operations.",
   },
   {
-    title: "AI Transformation",
+    title: "AI Agentic Workflow Transformation",
     description: "Embed copilots, intelligent automation, and ML pipelines into core workflows — compliance engines, document intelligence, and predictive analytics.",
   },
   {
-    title: "Platform Engineering",
+    title: "Multi-Cloud Infrastructure",
     description: "Internal developer platforms, golden-path templates, CI/CD automation, and cloud-native operating models that accelerate product teams.",
     href: "/cloud-platform",
   },

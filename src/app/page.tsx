@@ -6,6 +6,7 @@ import ArchitectureFlow from "@/components/ArchitectureFlow";
 import CTABand from "@/components/CTABand";
 import AnimatedSection from "@/components/AnimatedSection";
 import ComparisonTable from "@/components/ComparisonTable";
+import TrustBar from "@/components/TrustBar";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { platformPillars, differentiators, whyCybelinx } from "@/lib/content";
@@ -15,6 +16,13 @@ export default function HomePage() {
   return (
     <>
       <Hero />
+
+      {/* ── Social Proof & Trust ────────────────── */}
+      <Section id="trust" className="pt-0 pb-16 md:pb-24 border-b border-border/50">
+        <AnimatedSection>
+          <TrustBar />
+        </AnimatedSection>
+      </Section>
 
       {/* ── Product Portfolio ─────────────────── */}
       <Section id="products" textured glow>

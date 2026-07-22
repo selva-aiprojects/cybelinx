@@ -81,13 +81,13 @@ export default function Hero() {
 
   const slide = slides[activeSlide];
 
-  // Colors for the particle mesh based on active slide (Using darker shades for better contrast)
+  // Colors for the particle mesh based on active slide (Neon Luminous variants)
   const themeColors: Record<string, string[]> = {
-    saas: ['#1D4ED8'], // Blue 700
-    devsecops: ['#A21CAF'], // Fuchsia 700
-    ai: ['#047857'], // Emerald 700
-    quantum: ['#3730A3'], // Indigo 700
-    "data-platform": ['#C2410C'], // Orange 700
+    saas: ['#3B82F6'], // Electric Blue
+    devsecops: ['#06B6D4'], // Cyan
+    ai: ['#10B981'], // Emerald Glow
+    quantum: ['#8B5CF6'], // Violet
+    "data-platform": ['#F43F5E'], // Rose
   };
 
   const currentColors = themeColors[slide.id] || themeColors.saas;
@@ -145,11 +145,11 @@ export default function Hero() {
                     {slide.tag}
                   </span>
 
-                  <h1 className="font-display text-4xl font-extrabold leading-[1.1] tracking-tight text-surface md:text-5xl lg:text-6xl">
+                  <h1 className="font-display text-4xl font-extrabold leading-[1.1] tracking-tight md:text-5xl lg:text-6xl drop-shadow-xl text-gradient-animated">
                     {slide.title}
                   </h1>
 
-                  <p className="mt-6 max-w-xl text-lg leading-relaxed text-slate-700 dark:text-slate-300 md:text-xl font-medium">
+                  <p className="mt-6 max-w-xl text-lg leading-relaxed md:text-xl font-medium transition-colors duration-500" style={{ color: currentColors[0], opacity: 0.8 }}>
                     {slide.description}
                   </p>
                 </div>
@@ -157,12 +157,12 @@ export default function Hero() {
             </AnimatePresence>
           </div>
 
-          <div className="mt-4 flex flex-wrap items-center gap-4">
-            <Button href="/products" variant="primary" size="lg" className="border-none" style={{ backgroundColor: currentColors[0], boxShadow: `0 4px 14px ${currentColors[0]}40` }}>
+          <div className="mt-6 flex flex-wrap items-center gap-4">
+            <Button href="/products" variant="primary" size="lg" className="border-none luminous-border font-bold shadow-glow" style={{ backgroundColor: currentColors[0], textShadow: '0 0 10px rgba(0,0,0,0.5)' }}>
               Explore Platform
             </Button>
             {/* Outline button matching the theme */}
-            <Button href="/contact" variant="secondary" size="lg" className="bg-transparent border-slate-300 dark:border-white/30 text-surface hover:bg-slate-100 dark:hover:bg-white/10">
+            <Button href="/contact" variant="secondary" size="lg" className="bg-transparent border-border dark:border-white/30 text-surface hover:bg-surface/5 dark:hover:bg-white/10">
               Request Demo
             </Button>
           </div>
@@ -171,7 +171,7 @@ export default function Hero() {
             {statsRow.map((s) => (
               <div key={s.label}>
                 <div className="font-display text-2xl font-extrabold text-surface">{s.value}</div>
-                <div className="text-xs font-bold uppercase tracking-widest text-slate-600 dark:text-slate-400 mt-1">{s.label}</div>
+                <div className="text-xs font-bold uppercase tracking-widest text-slate mt-1">{s.label}</div>
               </div>
             ))}
           </div>
@@ -189,10 +189,10 @@ export default function Hero() {
                 <button
                   key={s.id}
                   onClick={() => setActiveSlide(index)}
-                  className={`group relative flex w-10 flex-col items-center justify-between rounded-full py-4 transition-all duration-500 ease-out md:w-full md:flex-row md:rounded-2xl md:p-4 md:border backdrop-blur-xl ${
+                  className={`group relative flex w-10 flex-col items-center justify-between rounded-full py-4 transition-all duration-500 ease-out md:w-full md:flex-row md:rounded-2xl md:p-4 md:border ${
                     isActive 
-                      ? "h-32 md:h-auto bg-white/60 border-slate-300 shadow-[0_8px_32px_rgba(0,0,0,0.08)] dark:bg-white/10 dark:border-white/30 scale-[1.02]" 
-                      : "h-20 md:h-auto bg-white/30 border-slate-200 hover:bg-white/80 dark:bg-white/5 dark:border-white/10 dark:hover:bg-white/10"
+                      ? "h-32 md:h-auto glass-container scale-[1.02]" 
+                      : "h-20 md:h-auto bg-surface/5 border-border hover:glass-container"
                   }`}
                 >
                   {/* Active progress bar indicator (Dynamic color edge glow) */}
@@ -207,15 +207,15 @@ export default function Hero() {
                   />
                 <div className="flex items-center justify-between">
                   <div>
-                    <h3 className={`font-display font-bold text-base transition-colors ${isActive ? 'text-surface' : 'text-slate-700 dark:text-slate-300'}`}>
+                    <h3 className={`font-display font-bold text-base transition-colors ${isActive ? 'text-surface' : 'text-slate'}`}>
                       {s.tabLabel}
                     </h3>
-                    <p className={`text-xs mt-0.5 font-medium transition-colors ${isActive ? 'text-slate-700 dark:text-slate-300' : 'text-slate-500 dark:text-slate-500'}`}>
+                    <p className={`text-xs mt-0.5 font-medium transition-colors ${isActive ? 'text-surface opacity-80' : 'text-slate opacity-70'}`}>
                       {s.tabDesc}
                     </p>
                   </div>
                   <ChevronRight 
-                    className={`h-5 w-5 transition-transform ${isActive ? 'translate-x-1' : 'text-slate-400 dark:text-slate-500 group-hover:translate-x-0.5'}`} 
+                    className={`h-5 w-5 transition-transform ${isActive ? 'translate-x-1' : 'text-slate opacity-50 group-hover:translate-x-0.5'}`} 
                     style={{ color: isActive ? tabColor : undefined }}
                   />
                 </div>

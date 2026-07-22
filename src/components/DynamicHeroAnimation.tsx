@@ -148,6 +148,10 @@ export default function DynamicHeroAnimation({ color, slideId }: DynamicHeroAnim
       // Clear Canvas
       ctx.clearRect(0, 0, width, height);
 
+      // Add intense global glow effect
+      ctx.shadowBlur = 12;
+      ctx.shadowColor = `rgba(${rgbColor}, 0.8)`;
+
       // ──────────────────────────────────────────────
       // 1. SaaS (Global Cloud Sphere)
       // ──────────────────────────────────────────────
@@ -159,7 +163,7 @@ export default function DynamicHeroAnimation({ color, slideId }: DynamicHeroAnim
         });
 
         // Draw connections
-        ctx.lineWidth = 1.0;
+        ctx.lineWidth = 2.5;
         for (let i = 0; i < projectedNodes.length; i++) {
           for (let j = i + 1; j < projectedNodes.length; j++) {
             const p1 = projectedNodes[i];
@@ -169,7 +173,7 @@ export default function DynamicHeroAnimation({ color, slideId }: DynamicHeroAnim
               const dy = p1.y - p2.y;
               const dist = Math.sqrt(dx*dx + dy*dy);
               if (dist < 100) {
-                const alpha = Math.max(0, 0.5 - dist / 200) * (p1.z > 0 ? 1 : 0.2);
+                const alpha = Math.max(0, 0.8 - dist / 200) * (p1.z > 0 ? 1 : 0.4);
                 ctx.beginPath();
                 ctx.strokeStyle = `rgba(${rgbColor}, ${alpha})`;
                 ctx.moveTo(p1.x, p1.y);
@@ -182,7 +186,7 @@ export default function DynamicHeroAnimation({ color, slideId }: DynamicHeroAnim
 
         // Draw nodes
         projectedNodes.forEach(p => {
-          const alpha = p.z > 0 ? 0.9 : 0.2;
+          const alpha = p.z > 0 ? 1.0 : 0.4;
           ctx.beginPath();
           ctx.arc(p.x, p.y, 2.5 * p.scale, 0, Math.PI * 2);
           ctx.fillStyle = `rgba(${rgbColor}, ${alpha})`;
@@ -204,7 +208,7 @@ export default function DynamicHeroAnimation({ color, slideId }: DynamicHeroAnim
         icoEdges.forEach(edge => {
           const p1 = projectedVerts[edge[0]];
           const p2 = projectedVerts[edge[1]];
-          const alpha = (p1.z > 0 || p2.z > 0) ? 0.8 : 0.15;
+          const alpha = (p1.z > 0 || p2.z > 0) ? 1.0 : 0.35;
           ctx.beginPath();
           ctx.strokeStyle = `rgba(${rgbColor}, ${alpha})`;
           ctx.moveTo(p1.x, p1.y);
@@ -213,7 +217,7 @@ export default function DynamicHeroAnimation({ color, slideId }: DynamicHeroAnim
         });
 
         projectedVerts.forEach(p => {
-          const alpha = p.z > 0 ? 1 : 0.2;
+          const alpha = p.z > 0 ? 1 : 0.4;
           ctx.beginPath();
           ctx.arc(p.x, p.y, 6 * p.scale, 0, Math.PI * 2);
           ctx.fillStyle = `rgba(${rgbColor}, ${alpha})`;
@@ -237,7 +241,7 @@ export default function DynamicHeroAnimation({ color, slideId }: DynamicHeroAnim
             if (i === 0) ctx.moveTo(points[i].x, points[i].y);
             else ctx.lineTo(points[i].x, points[i].y);
           }
-          ctx.strokeStyle = `rgba(${rgbColor}, 0.15)`;
+          ctx.strokeStyle = `rgba(${rgbColor}, 0.4)`;
           ctx.stroke();
 
           // Scanner flash
@@ -261,14 +265,14 @@ export default function DynamicHeroAnimation({ color, slideId }: DynamicHeroAnim
         });
 
         projectedCore.forEach(p => {
-          const alpha = p.z > 0 ? 0.9 : 0.2;
+          const alpha = p.z > 0 ? 1.0 : 0.4;
           ctx.beginPath();
           ctx.arc(p.x, p.y, 3 * p.scale, 0, Math.PI * 2);
           ctx.fillStyle = `rgba(${rgbColor}, ${alpha})`;
           ctx.fill();
         });
 
-        ctx.lineWidth = 0.8;
+        ctx.lineWidth = 2.0;
         for (let i = 0; i < projectedCore.length; i += 2) {
           for (let j = i + 1; j < projectedCore.length; j += 2) {
             const p1 = projectedCore[i];
@@ -279,7 +283,7 @@ export default function DynamicHeroAnimation({ color, slideId }: DynamicHeroAnim
                 ctx.beginPath();
                 ctx.moveTo(p1.x, p1.y);
                 ctx.lineTo(p2.x, p2.y);
-                ctx.strokeStyle = `rgba(${rgbColor}, ${0.5 - dist/120})`;
+                ctx.strokeStyle = `rgba(${rgbColor}, ${0.8 - dist/120})`;
                 ctx.stroke();
               }
             }
@@ -303,7 +307,7 @@ export default function DynamicHeroAnimation({ color, slideId }: DynamicHeroAnim
             if (i === 0) ctx.moveTo(points[i].x, points[i].y);
             else ctx.lineTo(points[i].x, points[i].y);
           }
-          ctx.strokeStyle = `rgba(${rgbColor}, 0.15)`;
+          ctx.strokeStyle = `rgba(${rgbColor}, 0.4)`;
           ctx.stroke();
 
           // Data pulses on the stream
@@ -316,7 +320,7 @@ export default function DynamicHeroAnimation({ color, slideId }: DynamicHeroAnim
             
             ctx.beginPath();
             ctx.arc(proj.x, proj.y, 6 * proj.scale, 0, Math.PI * 2);
-            ctx.fillStyle = `rgba(${rgbColor}, ${proj.z > 0 ? 1 : 0.3})`;
+            ctx.fillStyle = `rgba(${rgbColor}, ${proj.z > 0 ? 1 : 0.5})`;
             ctx.fill();
           });
         });
@@ -357,8 +361,8 @@ export default function DynamicHeroAnimation({ color, slideId }: DynamicHeroAnim
             [0,4], [1,5], [2,6], [3,7]
           ];
 
-          ctx.lineWidth = 1.5;
-          ctx.strokeStyle = `rgba(${rgbColor}, ${0.7 - (idx * 0.2)})`;
+          ctx.lineWidth = 3.0;
+          ctx.strokeStyle = `rgba(${rgbColor}, ${0.9 - (idx * 0.2)})`;
 
           edges.forEach(edge => {
             const p1 = projected[edge[0]];
@@ -382,7 +386,7 @@ export default function DynamicHeroAnimation({ color, slideId }: DynamicHeroAnim
       // 5. Data Platform (Hexagonal Data Grid)
       // ──────────────────────────────────────────────
       else if (slideId === "data-platform") {
-        ctx.lineWidth = 2;
+        ctx.lineWidth = 3.5;
         hexagons.forEach(hex => {
           // Calculate wave based on distance from center + time
           const distFromCenter = Math.sqrt(Math.pow(hex.x - cx, 2) + Math.pow(hex.y - cy, 2));
@@ -402,7 +406,7 @@ export default function DynamicHeroAnimation({ color, slideId }: DynamicHeroAnim
             }
             ctx.closePath();
             
-            ctx.strokeStyle = `rgba(${rgbColor}, ${wave * 0.8})`;
+            ctx.strokeStyle = `rgba(${rgbColor}, ${Math.min(1, wave * 1.5)})`;
             ctx.stroke();
             
             if (wave > 0.85) {

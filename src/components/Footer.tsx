@@ -14,8 +14,8 @@ const socialLinks = [
 export default function Footer() {
   return (
     <footer className="relative overflow-hidden border-t-0 bg-charcoal">
-      {/* Gradient top border */}
-      <div className="h-px w-full bg-gradient-to-r from-transparent via-primary to-violet opacity-60" />
+      {/* Subtle glow border */}
+      <div className="h-px w-full bg-gradient-to-r from-transparent via-primary/30 to-violet/30" />
 
       {/* Subtle dot grid */}
       <div
@@ -40,7 +40,7 @@ export default function Footer() {
             <div className="flex items-center">
               <LogoLockup height={26} />
             </div>
-            <p className="mt-5 max-w-xs text-sm leading-relaxed text-slate">
+            <p className="mt-5 max-w-xs text-sm leading-relaxed text-slate/90">
               {brand.description}
             </p>
             <p className="mt-3 max-w-xs text-xs leading-relaxed text-slate/50">
@@ -75,7 +75,7 @@ export default function Footer() {
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="text-sm text-slate transition-colors hover:text-primary"
+                    className="text-sm font-medium text-slate transition-colors hover:text-surface hover:text-shadow-sm"
                   >
                     {item.label}
                   </Link>
@@ -92,7 +92,7 @@ export default function Footer() {
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="text-sm text-slate transition-colors hover:text-primary"
+                    className="text-sm font-medium text-slate transition-colors hover:text-surface hover:text-shadow-sm"
                   >
                     {item.label}
                   </Link>
@@ -109,7 +109,7 @@ export default function Footer() {
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="text-sm text-slate transition-colors hover:text-primary"
+                    className="text-sm font-medium text-slate transition-colors hover:text-surface hover:text-shadow-sm"
                   >
                     {item.label}
                   </Link>
@@ -119,7 +119,7 @@ export default function Footer() {
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="text-sm text-slate transition-colors hover:text-primary"
+                    className="text-sm font-medium text-slate transition-colors hover:text-surface hover:text-shadow-sm"
                   >
                     {item.label}
                   </Link>

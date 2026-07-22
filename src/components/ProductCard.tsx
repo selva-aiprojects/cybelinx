@@ -22,7 +22,7 @@ export default function ProductCard({ product }: { product: Product }) {
   return (
     <Link href={`/products/${product.slug}`} className="group block cursor-pointer h-full">
       <div 
-        className="relative h-full flex flex-col overflow-hidden rounded-2xl border border-border bg-card-bg shadow-card transition-all duration-300 hover:border-[color:var(--card-accent,var(--cb-primary))] group-hover:shadow-card-hover group-hover:-translate-y-1"
+        className="relative h-full flex flex-col overflow-hidden rounded-2xl glass-container transition-all duration-300 group-hover:shadow-[0_12px_40px_rgba(59,130,246,0.15)] group-hover:-translate-y-1"
         style={{ '--card-accent': product.colorAccent } as React.CSSProperties}
       >
 
@@ -80,7 +80,7 @@ export default function ProductCard({ product }: { product: Product }) {
 
           {/* Product name */}
           <h3 
-            className="mt-3 font-display text-xl font-bold text-surface transition-colors md:text-2xl"
+            className="mt-3 font-display text-xl font-bold text-surface transition-colors md:text-2xl drop-shadow-sm"
             style={{ '--hover-color': product.colorAccent || 'var(--cb-primary)' } as React.CSSProperties}
           >
             <span className="group-hover:text-[color:var(--hover-color)] transition-colors">{product.name}</span>
@@ -98,7 +98,7 @@ export default function ProductCard({ product }: { product: Product }) {
 
           {/* CTA arrow row */}
           <div 
-            className="mt-5 flex items-center gap-2 text-sm font-semibold transition-all duration-200 group-hover:gap-3 text-slate-500 group-hover:text-[color:var(--card-accent,var(--cb-primary))]"
+            className="mt-5 flex items-center gap-2 text-sm font-semibold transition-all duration-200 group-hover:gap-3 text-slate opacity-80 group-hover:text-[color:var(--card-accent,var(--cb-primary))]"
           >
             Explore {product.name}
             <ArrowUpRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
