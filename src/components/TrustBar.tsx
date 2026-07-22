@@ -43,34 +43,7 @@ export default function TrustBar() {
         <p className="mb-6 text-center text-[10px] font-bold uppercase tracking-widest text-slate/40">
           Trusted by enterprises across 12 countries
         </p>
-        <div className="relative overflow-hidden">
-          {/* Fade edges */}
-          <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-20 bg-gradient-to-r from-background to-transparent" />
-          <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-20 bg-gradient-to-l from-background to-transparent" />
-
-          <div className="logo-ticker flex w-max">
-            {[...Array(2)].map((_, setIndex) => (
-              <div key={setIndex} className="flex gap-6 pr-6 shrink-0">
-                {customerLogos.map((logo, i) => (
-                  <div
-                    key={`${logo.name}-${i}`}
-                    className="group/logo relative flex flex-col shrink-0 justify-center gap-1 overflow-hidden rounded-full border border-border/50 bg-background px-6 py-2.5 transition-all hover:border-primary/30 hover:bg-card-bg"
-                  >
-                    {/* Shimmer overlay */}
-                    <div className="absolute inset-0 -translate-x-full group-hover/logo:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/8 to-transparent" />
-                    <div className="flex items-center gap-2.5 text-sm font-semibold text-slate/80 group-hover/logo:text-primary transition-colors">
-                      <span className="h-1.5 w-1.5 rounded-full bg-primary/40 group-hover/logo:bg-primary transition-colors" />
-                      {logo.name}
-                    </div>
-                    {logo.snippet && (
-                      <div className="text-[10px] text-slate/50 font-medium pl-4">{logo.snippet}</div>
-                    )}
-                  </div>
-                ))}
-              </div>
-            ))}
-          </div>
-        </div>
+        {/* Customer names/logos temporarily removed per request */}
         <p className="mt-8 text-center text-xs font-medium text-slate/60">
           Platform metrics and SLAs are available to your SRE and DevOps teams during onboarding.
         </p>
