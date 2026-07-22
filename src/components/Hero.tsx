@@ -181,7 +181,6 @@ export default function Hero() {
         <div className="absolute right-0 md:right-6 lg:right-12 top-1/2 -translate-y-1/2 z-20 flex flex-col gap-3 pr-2 md:pr-0 pl-4 md:pl-0 w-[70px] md:w-56 lg:w-64">
           <div className="flex flex-col gap-3">
             {slides.map((s, index) => {
-              const Icon = s.icon;
               const isActive = index === activeSlide;
               const tabColor = themeColors[s.id][0];
 
