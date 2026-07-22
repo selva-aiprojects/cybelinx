@@ -12,6 +12,7 @@ type ButtonProps = {
   className?: string;
   target?: string;
   rel?: string;
+  style?: React.CSSProperties;
 };
 
 export default function Button({
@@ -22,6 +23,7 @@ export default function Button({
   className = "",
   target,
   rel,
+  style,
 }: ButtonProps) {
   const sizes: Record<string, string> = {
     sm: "px-4 py-2 text-xs gap-1.5",
@@ -49,6 +51,7 @@ export default function Button({
       target={target}
       rel={rel}
       className={`${base} ${sizes[size]} ${variants[variant]} ${className}`}
+      style={style}
     >
       {children}
     </Link>
