@@ -300,8 +300,8 @@ body {
 
 /* ─── Cinematic Background Blobs ────────────── */
 .cinematic-bg {
-  /* A slightly darker half-blue gradient */
-  background: linear-gradient(180deg, #93c5fd 0%, #e2e8f0 100%);
+  /* Dark Slate background matching the attached image */
+  background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%);
 }
 
 .cinematic-blob {

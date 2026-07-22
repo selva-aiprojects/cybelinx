@@ -28,7 +28,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children?: React.ReactNode }) {
   return (
-    <html lang="en" className={`${montserrat.variable} light`} suppressHydrationWarning data-theme="light">
+    <html lang="en" className={`${montserrat.variable} dark`} suppressHydrationWarning data-theme="dark">
       <head />
       <body className="min-h-screen bg-transparent font-sans text-surface antialiased relative">
         <GlobalBackground />

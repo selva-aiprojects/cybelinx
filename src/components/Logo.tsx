@@ -15,11 +15,9 @@ export function LogoMark({ size = 36 }: { size?: number }) {
       alt={brand.name}
       style={{ 
         height: size, 
-        width: "auto",
-        mixBlendMode: "darken",
-        filter: "contrast(1.2) brightness(1.05)"
+        width: "auto"
       }}
-      className="object-contain mix-blend-darken"
+      className="object-contain mix-blend-darken dark:mix-blend-normal dark:invert dark:brightness-200"
     />
   );
 }
@@ -35,11 +33,9 @@ export function LogoLockup({ height = 44 }: { height?: number }) {
       alt={brand.name}
       style={{ 
         height, 
-        width: "auto",
-        mixBlendMode: "darken",
-        filter: "contrast(1.2) brightness(1.05)"
+        width: "auto"
       }}
-      className="object-contain mix-blend-darken"
+      className="object-contain mix-blend-darken dark:mix-blend-normal dark:invert dark:brightness-200"
     />
   );
 }
@@ -53,11 +49,9 @@ export function LogoCompact({ size = 28 }: { size?: number }) {
       alt={brand.name}
       style={{ 
         height: size, 
-        width: "auto",
-        mixBlendMode: "darken",
-        filter: "contrast(1.2) brightness(1.05)"
+        width: "auto"
       }}
-      className="object-contain mix-blend-darken"
+      className="object-contain mix-blend-darken dark:mix-blend-normal dark:invert dark:brightness-200"
     />
   );
 }
