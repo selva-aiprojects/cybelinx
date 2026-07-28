@@ -79,8 +79,8 @@ export default function GlobeScene() {
           style={{ transform: "translateZ(30px)" }}
         >
           <Image
-            src="/assets/cybelinx-logo.png"
-            alt="Cybelinx High Resolution AI & Quantum Globe"
+            src="/cyblinx-logo.jpg"
+            alt="Cybelinx Enterprise Platform Logo"
             width={600}
             height={600}
             priority

@@ -44,7 +44,7 @@ const slides = [
   {
     id: "quantum",
     title: "Future-proof cryptographic agility.",
-    description: "Ready your enterprise architecture for post-quantum decryption threats today with quantum-resistant key management.",
+    description: "Prepare enterprise systems for post-quantum decryption threats with quantum-resistant key management.",
     tag: "Quantum-Ready",
     cssVar: "var(--hero-bg-quantum)",
     tabLabel: "Quantum-Ready",
@@ -83,11 +83,11 @@ export default function Hero() {
 
   // Colors for the particle mesh based on active slide (Neon Luminous variants)
   const themeColors: Record<string, string[]> = {
-    saas: ['#3B82F6'], // Electric Blue
-    devsecops: ['#06B6D4'], // Cyan
-    ai: ['#10B981'], // Emerald Glow
-    quantum: ['#8B5CF6'], // Violet
-    "data-platform": ['#F43F5E'], // Rose
+    saas: ['#3B82F6', '#60A5FA'], // Electric Blue
+    devsecops: ['#06B6D4', '#22D3EE'], // Cyan
+    ai: ['#10B981', '#34D399'], // Emerald Glow
+    quantum: ['#8B5CF6', '#A78BFA'], // Violet
+    "data-platform": ['#F59E0B', '#06B6D4', '#10B981'], // Data Platform: Vibrant Amber, Cyan & Emerald
   };
 
   const currentColors = themeColors[slide.id] || themeColors.saas;
@@ -128,10 +128,10 @@ export default function Hero() {
               >
                 <div>
                   <span 
-                    className="inline-flex items-center gap-2 rounded-full border px-4 py-1.5 text-xs font-semibold backdrop-blur-md mb-6"
+                    className="inline-flex items-center gap-2 rounded-full border px-4 py-1.5 text-xs font-bold uppercase tracking-wider backdrop-blur-md mb-6 transition-colors duration-500"
                     style={{ 
                       backgroundColor: `${currentColors[0]}1a`, 
-                      borderColor: `${currentColors[0]}33`, 
+                      borderColor: `${currentColors[0]}40`, 
                       color: currentColors[0] 
                     }}
                   >
@@ -139,7 +139,7 @@ export default function Hero() {
                       className="relative h-2 w-2 rounded-full" 
                       style={{ 
                         backgroundColor: currentColors[0], 
-                        boxShadow: `0 0 8px ${currentColors[0]}` 
+                        boxShadow: `0 0 10px ${currentColors[0]}` 
                       }} 
                     />
                     {slide.tag}
@@ -149,7 +149,7 @@ export default function Hero() {
                     {slide.title}
                   </h1>
 
-                  <p className="mt-6 max-w-xl text-lg leading-relaxed md:text-xl font-medium transition-colors duration-500" style={{ color: currentColors[0], opacity: 0.8 }}>
+                  <p className="mt-4 max-w-lg text-sm sm:text-base leading-relaxed font-normal text-slate-300/90 drop-shadow">
                     {slide.description}
                   </p>
                 </div>
@@ -158,11 +158,11 @@ export default function Hero() {
           </div>
 
           <div className="mt-6 flex flex-wrap items-center gap-4">
-            <Button href="/products" variant="primary" size="lg" className="border-none luminous-border font-bold shadow-glow" style={{ backgroundColor: currentColors[0], textShadow: '0 0 10px rgba(0,0,0,0.5)' }}>
+            <Button href="/products" variant="primary" size="lg" className="border-none luminous-border font-bold shadow-glow text-white transition-all duration-300" style={{ backgroundColor: currentColors[0], textShadow: '0 1px 3px rgba(0,0,0,0.5)' }}>
               Explore Platform
             </Button>
             {/* Outline button matching the theme */}
-            <Button href="/contact" variant="secondary" size="lg" className="bg-transparent border-border dark:border-white/30 text-surface hover:bg-surface/5 dark:hover:bg-white/10">
+            <Button href="/contact" variant="secondary" size="lg" className="bg-transparent border-border dark:border-white/30 text-surface hover:bg-surface/5 dark:hover:bg-white/10 font-semibold">
               Request Demo
             </Button>
           </div>
@@ -182,7 +182,7 @@ export default function Hero() {
           <div className="flex flex-col gap-3">
             {slides.map((s, index) => {
               const isActive = index === activeSlide;
-              const tabColor = themeColors[s.id][0];
+              const tabColor = (themeColors[s.id] || themeColors.saas)[0];
 
               return (
                 <button
@@ -190,10 +190,18 @@ export default function Hero() {
                   onClick={() => setActiveSlide(index)}
                   className={`group relative flex w-full flex-row items-center justify-between rounded-2xl p-4 border transition-all duration-500 ease-out ${
                     isActive 
-                      ? "scale-[1.02] border-fuchsia-500/30" 
+                      ? "scale-[1.02] backdrop-blur-xl shadow-lg" 
                       : "bg-surface/5 border-border hover:bg-surface/10"
                   }`}
-                  style={isActive ? { backgroundColor: 'rgba(217, 70, 239, 0.1)' } : {}}
+                  style={
+                    isActive 
+                      ? { 
+                          backgroundColor: `${tabColor}1f`, 
+                          borderColor: `${tabColor}66`,
+                          boxShadow: `0 0 25px ${tabColor}33`
+                        } 
+                      : {}
+                  }
                 >
                   {/* Active progress bar indicator */}
                   <div
@@ -201,22 +209,28 @@ export default function Hero() {
                       isActive ? "opacity-100" : "opacity-0"
                     }`}
                     style={{ 
-                      backgroundColor: isActive ? '#d946ef' : tabColor, 
-                      boxShadow: isActive ? `0 0 12px #d946ef` : 'none' 
+                      backgroundColor: tabColor, 
+                      boxShadow: isActive ? `0 0 12px ${tabColor}` : 'none' 
                     }}
                   />
                   <div className="flex items-center justify-between w-full pl-2">
                     <div className="text-left">
-                      <h3 className={`font-display font-bold text-base transition-colors ${isActive ? 'text-fuchsia-500' : 'text-slate'}`}>
+                      <h3 
+                        className="font-display font-bold text-base transition-colors"
+                        style={{ color: isActive ? tabColor : undefined }}
+                      >
                         {s.tabLabel}
                       </h3>
-                      <p className={`text-xs mt-0.5 font-medium transition-colors ${isActive ? 'text-fuchsia-400 opacity-90' : 'text-slate opacity-70'}`}>
+                      <p 
+                        className="text-xs mt-0.5 font-medium transition-colors opacity-80"
+                        style={{ color: isActive ? tabColor : undefined }}
+                      >
                         {s.tabDesc}
                       </p>
                     </div>
                     <ChevronRight 
                       className={`h-5 w-5 transition-transform ${isActive ? 'translate-x-1' : 'text-slate opacity-50 group-hover:translate-x-0.5'}`} 
-                      style={{ color: isActive ? '#d946ef' : undefined }}
+                      style={{ color: isActive ? tabColor : undefined }}
                     />
                   </div>
                 </button>
@@ -229,13 +243,17 @@ export default function Hero() {
         <div className="absolute bottom-16 left-0 right-0 z-20 flex justify-center gap-2 md:hidden px-6">
           {slides.map((s, index) => {
             const isActive = index === activeSlide;
+            const tabColor = (themeColors[s.id] || themeColors.saas)[0];
             return (
               <button
                 key={s.id}
                 onClick={() => setActiveSlide(index)}
-                className={`h-2 rounded-full transition-all duration-500 ${
-                  isActive ? "w-8 bg-fuchsia-500" : "w-2 bg-slate/40"
-                }`}
+                className="h-2 rounded-full transition-all duration-500"
+                style={{
+                  backgroundColor: isActive ? tabColor : 'rgba(148, 163, 184, 0.4)',
+                  width: isActive ? '2rem' : '0.5rem',
+                  boxShadow: isActive ? `0 0 8px ${tabColor}` : 'none'
+                }}
                 aria-label={`Go to slide ${index + 1}`}
               />
             );

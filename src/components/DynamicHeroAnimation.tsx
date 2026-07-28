@@ -43,8 +43,9 @@ export default function DynamicHeroAnimation({ color, slideId }: DynamicHeroAnim
     const coreNodes: { x: number; y: number; z: number }[] = [];
     const aiOrbits: { radius: number; rotX: number; rotY: number; particles: number[] }[] = [];
 
-    // Data Platform: Hexagons
-    const hexagons: { x: number; y: number; offset: number }[] = [];
+    // Data Platform: Lakehouse & Multi-tone Data Mesh
+    const hexagons: { x: number; y: number; offset: number; hub: boolean }[] = [];
+    const dataStreams: { from: number; to: number; progress: number; speed: number; color: string }[] = [];
 
     // Initialization logic based on tab
     if (slideId === "saas") {
@@ -105,7 +106,7 @@ export default function DynamicHeroAnimation({ color, slideId }: DynamicHeroAnim
         });
       }
     } else if (slideId === "data-platform") {
-      const hexSize = 35;
+      const hexSize = 38;
       const hexWidth = hexSize * Math.sqrt(3);
       const hexHeight = hexSize * 2;
       const cols = Math.floor(width / hexWidth) + 2;
@@ -115,11 +116,33 @@ export default function DynamicHeroAnimation({ color, slideId }: DynamicHeroAnim
         for (let col = -1; col < cols; col++) {
           const x = col * hexWidth + (row % 2 !== 0 ? hexWidth / 2 : 0);
           const y = row * hexHeight * 0.75;
+          const isHub = Math.random() < 0.12;
           hexagons.push({
             x, 
             y,
-            offset: Math.random() * Math.PI * 2
+            offset: Math.random() * Math.PI * 2,
+            hub: isHub
           });
+        }
+      }
+
+      // Create data streams between hubs
+      const hubs = hexagons.filter(h => h.hub);
+      const colors = ['245, 158, 11', '6, 182, 212', '16, 185, 129', '139, 92, 246'];
+      for (let i = 0; i < hubs.length; i++) {
+        for (let j = i + 1; j < hubs.length; j++) {
+          const dx = hubs[i].x - hubs[j].x;
+          const dy = hubs[i].y - hubs[j].y;
+          const dist = Math.sqrt(dx*dx + dy*dy);
+          if (dist < 320) {
+            dataStreams.push({
+              from: hexagons.indexOf(hubs[i]),
+              to: hexagons.indexOf(hubs[j]),
+              progress: Math.random(),
+              speed: 0.003 + Math.random() * 0.006,
+              color: colors[Math.floor(Math.random() * colors.length)]
+            });
+          }
         }
       }
     }
@@ -383,22 +406,49 @@ export default function DynamicHeroAnimation({ color, slideId }: DynamicHeroAnim
       }
 
       // ──────────────────────────────────────────────
-      // 5. Data Platform (Hexagonal Data Grid)
+      // 5. Data Platform (Lakehouse & Multi-tone Data Mesh)
       // ──────────────────────────────────────────────
       else if (slideId === "data-platform") {
-        ctx.lineWidth = 3.5;
+        // Draw data pipeline streams first
+        dataStreams.forEach(stream => {
+          const p1 = hexagons[stream.from];
+          const p2 = hexagons[stream.to];
+          if (!p1 || !p2) return;
+
+          stream.progress = (stream.progress + stream.speed) % 1;
+
+          // Stream connection line
+          ctx.beginPath();
+          ctx.moveTo(p1.x, p1.y);
+          ctx.lineTo(p2.x, p2.y);
+          ctx.lineWidth = 1.8;
+          ctx.strokeStyle = `rgba(${stream.color}, 0.25)`;
+          ctx.stroke();
+
+          // Travelling data packet
+          const px = p1.x + (p2.x - p1.x) * stream.progress;
+          const py = p1.y + (p2.y - p1.y) * stream.progress;
+
+          ctx.beginPath();
+          ctx.arc(px, py, 4.5, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(${stream.color}, 0.95)`;
+          ctx.shadowBlur = 15;
+          ctx.shadowColor = `rgba(${stream.color}, 1)`;
+          ctx.fill();
+        });
+
+        // Draw Hexagonal Data Hub Grid
+        ctx.lineWidth = 2.5;
         hexagons.forEach(hex => {
-          // Calculate wave based on distance from center + time
           const distFromCenter = Math.sqrt(Math.pow(hex.x - cx, 2) + Math.pow(hex.y - cy, 2));
-          const wave = Math.sin(distFromCenter * 0.005 - time * 2) * 0.5 + 0.5; 
-          
-          const currentSize = 35 * (0.4 + wave * 0.6); 
+          const wave = Math.sin(distFromCenter * 0.006 - time * 2.2) * 0.5 + 0.5; 
+          const currentSize = 38 * (0.35 + wave * 0.65); 
           
           if (wave > 0.05) {
             ctx.beginPath();
             for (let i = 0; i < 6; i++) {
               const angle_deg = 60 * i - 30;
-              const angle_rad = Math.PI / 180 * angle_deg;
+              const angle_rad = (Math.PI / 180) * angle_deg;
               const px = hex.x + currentSize * Math.cos(angle_rad);
               const py = hex.y + currentSize * Math.sin(angle_rad);
               if (i === 0) ctx.moveTo(px, py);
@@ -406,12 +456,22 @@ export default function DynamicHeroAnimation({ color, slideId }: DynamicHeroAnim
             }
             ctx.closePath();
             
-            ctx.strokeStyle = `rgba(${rgbColor}, ${Math.min(1, wave * 1.5)})`;
+            // Dynamic color tint based on distance and hub status
+            const strokeColor = hex.hub ? '245, 158, 11' : (wave > 0.6 ? '6, 182, 212' : '16, 185, 129');
+            ctx.strokeStyle = `rgba(${strokeColor}, ${Math.min(0.95, wave * 1.2)})`;
             ctx.stroke();
             
-            if (wave > 0.85) {
-               ctx.fillStyle = `rgba(${rgbColor}, ${(wave - 0.85) * 3})`; 
-               ctx.fill();
+            if (wave > 0.75 || hex.hub) {
+              ctx.fillStyle = `rgba(${strokeColor}, ${(wave - 0.75) * 1.8 + (hex.hub ? 0.25 : 0)})`; 
+              ctx.fill();
+            }
+
+            // Central node for data hubs
+            if (hex.hub) {
+              ctx.beginPath();
+              ctx.arc(hex.x, hex.y, 3.5, 0, Math.PI * 2);
+              ctx.fillStyle = 'rgba(245, 158, 11, 0.9)';
+              ctx.fill();
             }
           }
         });

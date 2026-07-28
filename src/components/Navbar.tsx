@@ -130,10 +130,10 @@ export default function Navbar() {
         {/* Logo */}
         <Link href="/" className="flex items-center shrink-0 group">
           <span className="hidden sm:block">
-            <LogoLockup height={72} />
+            <LogoLockup height={52} />
           </span>
           <span className="block sm:hidden">
-            <LogoMark size={44} />
+            <LogoMark size={40} />
           </span>
         </Link>
 

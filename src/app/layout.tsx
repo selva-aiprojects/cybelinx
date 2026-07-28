@@ -30,7 +30,7 @@ export default function RootLayout({ children }: { children?: React.ReactNode })
   return (
     <html lang="en" className={`${montserrat.variable} dark`} suppressHydrationWarning data-theme="dark">
       <head />
-      <body className="min-h-screen bg-transparent font-sans text-surface antialiased relative">
+      <body className="min-h-screen bg-transparent font-sans text-surface antialiased relative" suppressHydrationWarning>
         <GlobalBackground />
         <Navbar />
         <main className="relative z-10">{children}</main>

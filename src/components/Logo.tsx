@@ -1,57 +1,56 @@
 "use client";
 
-import Image from "next/image";
+import React from "react";
 import { brand } from "@/lib/content";
 
-/* ─── Hardcoded Brand Assets ─────────────────────── */
-const LOGO_SRC = "/logo.png";
-
-/* ─── LogoMark ───────────────────────────────────── */
-/** Small icon-only logo mark - using the full logo here but bounded by size */
-export function LogoMark({ size = 36 }: { size?: number }) {
-  return (
-    <img
-      src={LOGO_SRC}
-      alt={brand.name}
-      style={{ 
-        height: size, 
-        width: "auto"
-      }}
-      className="object-contain mix-blend-darken dark:mix-blend-normal dark:invert dark:brightness-200"
-    />
-  );
+interface LogoProps {
+  size?: number;
+  height?: number;
+  className?: string;
 }
 
-/* ─── LogoLockup ─────────────────────────────────── */
+const LOGO_IMAGE_SRC = "/cyblinx-logo.jpg";
+
 /**
- * Full logo lockup image (icon + text), rendered directly from the user's provided file.
+ * LogoMark: Renders the iconic metallic Shield & C-Maze emblem from cyblinx-logo.jpg
  */
-export function LogoLockup({ height = 44 }: { height?: number }) {
+export function LogoMark({ size = 44, className = "" }: LogoProps) {
   return (
-    <img
-      src={LOGO_SRC}
-      alt={brand.name}
-      style={{ 
-        height, 
-        width: "auto"
-      }}
-      className="object-contain mix-blend-darken dark:mix-blend-normal dark:invert dark:brightness-200"
-    />
+    <div 
+      className={`relative overflow-hidden shrink-0 rounded-lg ${className}`}
+      style={{ width: size, height: size }}
+    >
+      <img
+        src={LOGO_IMAGE_SRC}
+        alt={brand.name}
+        className="absolute top-0 left-0 h-full w-auto max-w-none object-cover object-left"
+        style={{ height: size }}
+      />
+    </div>
   );
 }
 
-/* ─── LogoCompact ────────────────────────────────── */
-/** Icon + wordmark only — for mobile / tight spaces */
-export function LogoCompact({ size = 28 }: { size?: number }) {
+/**
+ * LogoLockup: Renders the full metallic logo lockup (Shield emblem + CYBELINX + Engineering Intelligent Products)
+ */
+export function LogoLockup({ height = 52, className = "" }: LogoProps) {
   return (
-    <img
-      src={LOGO_SRC}
-      alt={brand.name}
-      style={{ 
-        height: size, 
-        width: "auto"
-      }}
-      className="object-contain mix-blend-darken dark:mix-blend-normal dark:invert dark:brightness-200"
-    />
+    <div className={`inline-flex items-center shrink-0 ${className}`} style={{ height }}>
+      <img
+        src={LOGO_IMAGE_SRC}
+        alt={`${brand.name} - Engineering Intelligent Products`}
+        style={{ height, width: "auto" }}
+        className="h-full w-auto object-contain transition-transform duration-300 hover:scale-[1.02] drop-shadow-md"
+      />
+    </div>
   );
 }
+
+/**
+ * LogoCompact: Compact version of the logo for tight layouts
+ */
+export function LogoCompact({ size = 36, className = "" }: LogoProps) {
+  return <LogoLockup height={size} className={className} />;
+}
+
+export default LogoLockup;
