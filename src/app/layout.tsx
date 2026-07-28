@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import GlobalBackground from "@/components/GlobalBackground";
+import CursorParticles from "@/components/CursorParticles";
 import { brand } from "@/lib/content";
 
 const montserrat = Montserrat({
@@ -32,6 +33,7 @@ export default function RootLayout({ children }: { children?: React.ReactNode })
       <head />
       <body className="min-h-screen bg-transparent font-sans text-surface antialiased relative" suppressHydrationWarning>
         <GlobalBackground />
+        <CursorParticles />
         <Navbar />
         <main className="relative z-10">{children}</main>
         <Footer />

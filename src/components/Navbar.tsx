@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useState, useRef, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import { ChevronDown, Menu, X, ArrowRight } from "lucide-react";
+import { ChevronDown, Menu, X, ArrowRight, Sparkles } from "lucide-react";
 import Button from "./Button";
 import { LogoLockup, LogoMark } from "./Logo";
 import { brand } from "@/lib/content";
@@ -29,7 +29,7 @@ function NavDropdown({ group }: { group: NavGroup }) {
     return (
       <Link
         href={group.href!}
-        className="text-sm font-medium text-slate transition-colors hover:text-surface"
+        className="text-sm font-medium text-slate transition-colors hover:text-surface relative after:absolute after:bottom-[-6px] after:left-0 after:h-[2px] after:w-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full"
       >
         {group.label}
       </Link>
@@ -43,47 +43,50 @@ function NavDropdown({ group }: { group: NavGroup }) {
       onMouseEnter={() => setOpen(true)}
       onMouseLeave={() => setOpen(false)}
     >
-      <button className="flex items-center gap-1 text-sm font-medium text-slate transition-colors hover:text-surface cursor-pointer py-1">
+      <button className="flex items-center gap-1 text-sm font-medium text-slate transition-colors hover:text-surface cursor-pointer py-1 group">
         {group.label}
         <ChevronDown
-          className={`h-3.5 w-3.5 transition-transform duration-200 ${open ? "rotate-180" : ""}`}
+          className={`h-3.5 w-3.5 transition-all duration-300 ${open ? "rotate-180 translate-y-0.5" : ""} group-hover:text-primary`}
         />
       </button>
 
-      {/* Mega-menu panel */}
       <div
-        className={`absolute left-1/2 -translate-x-1/2 pt-3 transition-all duration-200 ${
-          open ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 -translate-y-2 pointer-events-none"
+        className={`absolute left-1/2 -translate-x-1/2 pt-4 transition-all duration-300 ${
+          open ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 -translate-y-3 pointer-events-none"
         }`}
         style={{ zIndex: 9999 }}
       >
-        <div className="w-80 overflow-hidden rounded-2xl border border-border/60 bg-nav-bg shadow-2xl shadow-black/10 backdrop-blur-xl">
-          {/* Panel header */}
-          <div className="px-4 pt-4 pb-2">
-            <span className="text-[10px] font-bold uppercase tracking-widest text-slate/50">
+        <div className="overflow-hidden rounded-2xl border border-border/50 bg-nav-bg/80 shadow-2xl shadow-black/20 backdrop-blur-2xl min-w-[320px]">
+          <div className="px-5 pt-4 pb-1">
+            <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate/40">
               {group.label}
             </span>
           </div>
 
-          {/* Items */}
           <div className="p-2">
-            {group.items.map((item) => (
+            {group.items.map((item, idx) => (
               <div
                 key={item.href}
                 onClick={() => {
                   router.push(item.href);
                   setOpen(false);
                 }}
-                className="group/item cursor-pointer rounded-xl px-4 py-3 transition-all hover:bg-primary/5"
+                className="group/item cursor-pointer rounded-xl px-4 py-3 transition-all duration-200 hover:bg-primary/5 relative"
+                style={{
+                  animationDelay: `${idx * 40}ms`,
+                }}
               >
                 <div className="flex items-center justify-between">
-                  <span className="text-sm font-semibold text-surface group-hover/item:text-primary transition-colors">
-                    {item.label}
-                  </span>
-                  <ArrowRight className="h-3.5 w-3.5 text-slate/0 group-hover/item:text-primary/60 transition-all -translate-x-1 group-hover/item:translate-x-0" />
+                  <div className="flex items-center gap-3">
+                    <div className="h-1.5 w-1.5 rounded-full bg-primary/40 group-hover/item:bg-primary transition-colors shrink-0" />
+                    <span className="text-sm font-semibold text-surface group-hover/item:text-primary transition-colors">
+                      {item.label}
+                    </span>
+                  </div>
+                  <ArrowRight className="h-3.5 w-3.5 text-slate/0 group-hover/item:text-primary/60 transition-all -translate-x-2 group-hover/item:translate-x-0" />
                 </div>
                 {item.description && (
-                  <span className="mt-0.5 block text-xs text-slate leading-relaxed">
+                  <span className="mt-0.5 block text-xs text-slate/70 leading-relaxed pl-7">
                     {item.description}
                   </span>
                 )}
@@ -91,15 +94,15 @@ function NavDropdown({ group }: { group: NavGroup }) {
             ))}
           </div>
 
-          {/* Panel footer CTA */}
-          <div className="border-t border-border/40 px-4 py-3">
+          <div className="border-t border-border/30 px-5 py-3.5">
             <Link
               href="/contact"
               onClick={() => setOpen(false)}
-              className="flex items-center gap-1.5 text-xs font-semibold text-primary hover:text-violet transition-colors"
+              className="flex items-center gap-2 text-xs font-semibold text-primary hover:text-violet transition-colors group"
             >
+              <Sparkles className="h-3.5 w-3.5" />
               Talk to our team
-              <ArrowRight className="h-3 w-3" />
+              <ArrowRight className="h-3 w-3 transition-transform group-hover:translate-x-0.5" />
             </Link>
           </div>
         </div>
@@ -120,32 +123,29 @@ export default function Navbar() {
 
   return (
     <header
-      className={`sticky top-0 z-50 transition-all duration-300 ${
+      className={`sticky top-0 z-50 transition-all duration-500 ${
         scrolled
-          ? "border-b border-border/50 bg-nav-bg shadow-sm shadow-black/5 backdrop-blur-xl"
-          : "border-b border-transparent bg-nav-bg backdrop-blur-xl"
+          ? "border-b border-border/40 bg-nav-bg/70 shadow-lg shadow-black/5 backdrop-blur-2xl"
+          : "border-b border-transparent bg-transparent"
       }`}
     >
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3.5">
-        {/* Logo */}
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
         <Link href="/" className="flex items-center shrink-0 group">
           <span className="hidden sm:block">
-            <LogoLockup height={52} />
+            <LogoLockup height={48} />
           </span>
           <span className="block sm:hidden">
             <LogoMark size={40} />
           </span>
         </Link>
 
-        {/* Desktop nav */}
-        <nav className="hidden items-center gap-7 lg:flex shrink-0">
+        <nav className="hidden items-center gap-8 lg:flex shrink-0">
           {mainNav.map((group) => (
             <NavDropdown key={group.label} group={group} />
           ))}
         </nav>
 
-        {/* Desktop actions */}
-        <div className="hidden items-center gap-2 lg:flex shrink-0">
+        <div className="hidden items-center gap-3 lg:flex shrink-0">
           <Button href="/contact" variant="secondary" size="sm">
             Talk to Sales
           </Button>
@@ -154,10 +154,9 @@ export default function Navbar() {
           </Button>
         </div>
 
-        {/* Mobile actions */}
         <div className="flex items-center gap-2 lg:hidden shrink-0">
           <button
-            className="rounded-lg p-1.5 text-surface hover:bg-charcoal transition-colors cursor-pointer"
+            className="rounded-lg p-2 text-surface hover:bg-charcoal/50 transition-colors cursor-pointer"
             onClick={() => setOpen(!open)}
             aria-label="Toggle menu"
           >
@@ -166,26 +165,42 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile menu */}
       {open && (
-        <div className="absolute left-0 right-0 top-full z-[9999] border-b border-border bg-nav-bg backdrop-blur-xl shadow-2xl shadow-black/10 lg:hidden">
-          <div className="px-6 py-6 flex flex-col gap-5">
+        <div className="fixed left-0 right-0 top-0 z-[9999] h-screen bg-nav-bg/95 backdrop-blur-2xl lg:hidden overflow-y-auto">
+          <div className="flex items-center justify-between px-6 py-4 border-b border-border/30">
+            <Link href="/" onClick={() => setOpen(false)}>
+              <LogoMark size={36} />
+            </Link>
+            <button
+              className="rounded-lg p-2 text-surface hover:bg-charcoal/50 transition-colors cursor-pointer"
+              onClick={() => setOpen(false)}
+              aria-label="Close menu"
+            >
+              <X className="h-5 w-5" />
+            </button>
+          </div>
+          <div className="px-6 py-6 flex flex-col gap-6">
             {mainNav.map((group) =>
               group.items ? (
                 <div key={group.label}>
-                  <div className="text-[10px] font-bold uppercase tracking-widest text-slate/50 mb-2">
+                  <div className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate/40 mb-3">
                     {group.label}
                   </div>
-                  <div className="flex flex-col gap-1 pl-1">
+                  <div className="flex flex-col gap-1">
                     {group.items.map((item) => (
                       <Link
                         key={item.href}
                         href={item.href}
-                        className="flex items-center gap-2 rounded-lg px-3 py-2.5 text-sm font-medium text-slate hover:text-surface hover:bg-charcoal transition-colors"
+                        className="flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-medium text-slate hover:text-surface hover:bg-charcoal/50 transition-all"
                         onClick={() => setOpen(false)}
                       >
-                        <ArrowRight className="h-3 w-3 text-primary/60" />
-                        {item.label}
+                        <div className="h-1.5 w-1.5 rounded-full bg-primary/40 shrink-0" />
+                        <div>
+                          <div>{item.label}</div>
+                          {item.description && (
+                            <div className="text-xs text-slate/50 mt-0.5">{item.description}</div>
+                          )}
+                        </div>
                       </Link>
                     ))}
                   </div>
@@ -194,14 +209,15 @@ export default function Navbar() {
                 <Link
                   key={group.label}
                   href={group.href!}
-                  className="text-sm font-medium text-slate hover:text-surface transition-colors"
+                  className="flex items-center gap-3 text-sm font-medium text-slate hover:text-surface transition-colors"
                   onClick={() => setOpen(false)}
                 >
+                  <div className="h-1.5 w-1.5 rounded-full bg-primary/40 shrink-0" />
                   {group.label}
                 </Link>
               ),
             )}
-            <div className="pt-2 border-t border-border flex flex-col gap-2">
+            <div className="pt-4 border-t border-border/30 flex flex-col gap-3">
               <Button href="/contact" variant="secondary" size="sm">
                 Talk to Sales
               </Button>

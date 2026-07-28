@@ -9,7 +9,7 @@ interface LogoProps {
   className?: string;
 }
 
-const LOGO_IMAGE_SRC = "/cyblinx-logo.jpg";
+const LOGO_IMAGE_SRC = "/cybelinx-logo.png";
 
 /**
  * LogoMark: Renders the iconic metallic Shield & C-Maze emblem from cyblinx-logo.jpg

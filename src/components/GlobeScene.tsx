@@ -79,7 +79,7 @@ export default function GlobeScene() {
           style={{ transform: "translateZ(30px)" }}
         >
           <Image
-            src="/cyblinx-logo.jpg"
+            src="/cybelinx-logo.png"
             alt="Cybelinx Enterprise Platform Logo"
             width={600}
             height={600}
