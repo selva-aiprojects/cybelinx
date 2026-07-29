@@ -42,7 +42,7 @@ const offerings = [
   },
   {
     icon: Layers,
-    title: "Multi-Tenant Core",
+    title: "Core",
     description:
       "Schema-isolated tenant data with per-tenant configuration, feature flags, and subscription management — new tenants are configuration, not forks.",
   },
@@ -69,7 +69,7 @@ const platformPrinciples = [
   },
   {
     icon: Layers,
-    title: "Multi-Tenant by Design",
+    title: "Architecture",
     description:
       "Schema isolation and feature flags are architectural primitives, not afterthoughts — every new customer is a configuration change.",
   },
@@ -94,7 +94,7 @@ export default function CloudPlatformPage() {
         <PageHeader
           eyebrow="Platform Engineering"
           title="Enterprise infrastructure. Product-team velocity."
-          description="We build and operate the internal developer platforms, CI/CD pipelines, and cloud-native foundations that let product teams ship multi-tenant SaaS — without reinventing the infrastructure every time."
+          description="We build and operate the internal developer platforms, CI/CD pipelines, and cloud-native foundations that let product teams ship SaaS — without reinventing the infrastructure every time."
         />
       </Section>
 
@@ -108,7 +108,7 @@ export default function CloudPlatformPage() {
             </h3>
             <p className="mt-3 max-w-2xl text-base leading-relaxed text-slate">
               Every Cybelinx product runs on a shared platform layer engineered for
-              multi-tenancy, compliance, and rapid product iteration.
+              compliance, and rapid product iteration.
             </p>
           </div>
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">

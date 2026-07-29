@@ -37,7 +37,8 @@ export const products: Product[] = [
     appUrl: "https://cybehrm.vercel.app/",
     demoUrl: "https://cybehrm.vercel.app/",
     portfolioProducts: [
-      { name: "CybeHRM", url: "https://cybehrm.vercel.app/", description: "Core HR & Payroll System" }
+      { name: "SynthalystHRM", url: "https://cybehrm.vercel.app/", description: "Core HR & Payroll System" },
+      { name: "TalentPulse", description: "AI-driven talent acquisition & workforce planning" },
     ],
     problem:
       "Modern enterprises struggle with fragmented HR tools, leading to severe compliance risks, poor employee engagement, disjointed payroll processes, and a lack of real-time workforce visibility.",
@@ -52,13 +53,13 @@ export const products: Product[] = [
     differentiators: [
       "AI-driven automation that reduces administrative HR workload by up to 60%",
       "Deeply localized engine guaranteeing 100% adherence to complex regional statutory compliances",
-      "Scalable multi-tenant architecture designed for large enterprises and multi-subsidiary conglomerates",
+      "Scalable architecture designed for large enterprises and multi-subsidiary conglomerates",
     ],
     isPlaceholderContent: false,
   },
   {
     slug: "cybehms",
-    name: "CybeHMS",
+    name: "CybeHospitality",
     tagline: "Intelligent Enterprise Hospitality Management",
     category: "Hospitality",
     summary:
@@ -69,7 +70,7 @@ export const products: Product[] = [
     appUrl: "https://ehms-app-eta.vercel.app/",
     demoUrl: "https://ehms-app-eta.vercel.app/",
     portfolioProducts: [
-      { name: "CybeHMS", url: "https://ehms-app-eta.vercel.app/", description: "Enterprise Hospitality Management" }
+      { name: "HostSphere", url: "https://ehms-app-eta.vercel.app/", description: "Enterprise Hospitality Management" }
     ],
     problem:
       "Legacy hospitality software creates operational silos between front-of-house and back-of-house teams, resulting in delayed service, revenue leakage, and inconsistent guest experiences.",
@@ -81,7 +82,7 @@ export const products: Product[] = [
       { title: "Guest CRM & Loyalty", description: "Hyper-personalized guest profiles, preference tracking, and targeted post-stay engagement campaigns." },
     ],
     differentiators: [
-      "Schema-isolated multi-tenancy ensuring absolute data privacy for multi-property deployments",
+      "Schema-isolated architecture ensuring absolute data privacy for multi-property deployments",
       "Highly composable architecture allowing hotels to subscribe only to the modules they need",
       "Unified solution spanning boutique hotels, serviced apartments, large resorts, and co-living spaces",
     ],
@@ -117,16 +118,17 @@ export const products: Product[] = [
   },
   {
     slug: "cybehealth",
-    name: "CybeHealth",
+    name: "CybeHealth & Pharma",
     tagline: "Advanced Clinical & Healthcare Operations Platform",
     category: "Healthcare",
     summary:
       "A modern, interoperability-first healthcare ecosystem that bridges the gap between clinical excellence and operational efficiency, empowering hospitals to deliver patient-centric care at scale.",
-    status: "coming-soon",
+    status: "live",
     image: "/assets/products/cybehealth.png",
     colorAccent: "#EC4899", // Pink
     portfolioProducts: [
-      { name: "Jioplix", url: "https://jioplix.vercel.app/", description: "Healthcare operations and patient engagement" }
+      { name: "Jioplix", url: "https://jioplix.com", description: "Hospital Management" },
+      { name: "Mediflow", url: "https://mediflow-sys.vercel.app/welcome", description: "Pharmacy Management" },
     ],
     problem:
       "Healthcare providers face immense administrative burdens, siloed patient data, and legacy systems that restrict interoperability and ultimately compromise the quality and speed of patient care.",
@@ -142,6 +144,21 @@ export const products: Product[] = [
       "Bank-grade HIPAA-ready security with end-to-end encryption for all Protected Health Information (PHI)",
     ],
     isPlaceholderContent: false,
+  },
+  {
+    slug: "cybecommerce",
+    name: "CybeCommerce",
+    tagline: "Commerce platform for modern retail & e-commerce operations",
+    category: "Commerce",
+    summary:
+      "A composable commerce platform powering online stores, inventory management, and customer engagement for retail businesses.",
+    status: "live",
+    image: "/assets/products/cybecommerce.png",
+    colorAccent: "#F59E0B", // Amber
+    portfolioProducts: [
+      { name: "StoreAI-One Commerce", url: "https://storeai-app.vercel.app", description: "AI-powered e-commerce storefront" },
+    ],
+    isPlaceholderContent: true,
   },
   {
     slug: "cybeai-suite",
@@ -167,7 +184,7 @@ export const products: Product[] = [
   },
 ];
 
-/** Back-compat alias — CybeHMS is now a first-class entry in `products`. */
+/** Back-compat alias — HostSphere is a first-class entry in `products`. */
 export const cybehmsProduct: Product = products.find((p) => p.slug === "cybehms")!;
 
 export function getProduct(slug: string) {

@@ -7,8 +7,8 @@ import { z } from "zod";
 import { products } from "@/lib/products";
 
 const interestOptions = [
-  "CybeHRM Demo",
-  "CybeHMS Demo",
+  "CybeHRMS Demo",
+  "CybeHospitality Demo",
   "Products Consultation",
   "Enterprise Pricing",
   ...products.map((p) => p.name),

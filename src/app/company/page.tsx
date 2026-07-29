@@ -8,7 +8,7 @@ import { Building2 } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Company",
-  description: "Cybelinx builds multi-tenant AI-native SaaS for regulated enterprises \u2014 HR, hospitality, banking, healthcare, and more. Live at 200+ enterprises.",
+  description: "Cybelinx builds AI-native SaaS for regulated enterprises \u2014 HR, hospitality, banking, healthcare, and more. Live at 200+ enterprises.",
 };
 
 export default function CompanyPage() {
@@ -18,7 +18,7 @@ export default function CompanyPage() {
         <PageHeader
           eyebrow="Company"
           title="Building SaaS products for global enterprises."
-          description="Cybelinx ships multi-tenant, AI-powered platforms that run enterprise operations \u2014 payroll, hospitality, banking, healthcare, and more."
+          description="Cybelinx ships AI-powered platforms that run enterprise operations \u2014 payroll, hospitality, banking, healthcare, and more."
         />
       </Section>
 
@@ -26,10 +26,10 @@ export default function CompanyPage() {
         <div className="rounded-2xl border border-border bg-background p-8 md:p-10">
           <h2 className="font-display text-2xl font-bold text-surface">Our story</h2>
           <p className="mt-4 max-w-3xl text-sm leading-relaxed text-slate">
-            Cybelinx was founded to build enterprise SaaS products that just work. CybeHRM and CybeHMS are live
+            Cybelinx was founded to build enterprise SaaS products that just work. CybeHRMS and CybeHospitality are live
             in production today, handling statutory payroll and multi-property hospitality operations. We are
             expanding into Banking, Healthcare, Pharma, Manufacturing, and beyond \u2014 all on the same
-            multi-tenant, AI-native core.
+            AI-native core.
           </p>
         </div>
       </Section>

@@ -38,7 +38,7 @@ export default function Footer() {
           {/* Brand column */}
           <div className="col-span-2 lg:col-span-2">
             <div className="flex items-center">
-              <LogoLockup height={56} />
+              <LogoLockup height={84} />
             </div>
             <p className="mt-5 max-w-xs text-sm leading-relaxed text-slate/90">
               {brand.description}

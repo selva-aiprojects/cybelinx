@@ -7,6 +7,7 @@ import CTABand from "@/components/CTABand";
 import AnimatedSection from "@/components/AnimatedSection";
 import ComparisonTable from "@/components/ComparisonTable";
 import TrustBar from "@/components/TrustBar";
+import TechStack from "@/components/TechStack";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { platformPillars, differentiators, whyCybelinx } from "@/lib/content";
@@ -18,9 +19,16 @@ export default function HomePage() {
       <Hero />
 
       {/* ── Social Proof & Trust ────────────────── */}
-      <Section id="trust" className="pt-0 pb-16 md:pb-24 border-b border-border/50">
+      <Section id="trust" className="pt-0 pb-8 md:pb-12 border-b border-border/50">
         <AnimatedSection>
           <TrustBar />
+        </AnimatedSection>
+      </Section>
+
+      {/* ── Built On Enterprise Foundations ────── */}
+      <Section id="tech-stack" className="py-12 md:py-16 border-b border-border/50">
+        <AnimatedSection>
+          <TechStack />
         </AnimatedSection>
       </Section>
 
@@ -30,7 +38,7 @@ export default function HomePage() {
           <SectionHeading
             eyebrow="Product Portfolio"
             title="Seven platforms. Two live in production, five under active development with design partners."
-            description="Every Cybelinx product is built on the same multi-tenant core — new industries slot in without a rebuild."
+            description="Every Cybelinx product is built on the same core — new industries slot in without a rebuild."
           />
         </AnimatedSection>
         <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
@@ -48,7 +56,7 @@ export default function HomePage() {
           <SectionHeading
             eyebrow="The Cybelinx Platform"
             title="Four pillars. One foundation."
-            description="Web & SaaS/PaaS, AI & LLM, DevSecOps, and quantum-ready engineering — all on a unified multi-tenant core for regulated enterprises."
+            description="Web & SaaS/PaaS, AI & LLM, DevSecOps, and quantum-ready engineering — all on a unified core for regulated enterprises."
           />
         </AnimatedSection>
         <div className="grid gap-5 md:grid-cols-2">
@@ -104,7 +112,7 @@ export default function HomePage() {
           <SectionHeading
             eyebrow="How Cybelinx Is Different"
             title="Cloud AI platforms give you building blocks. We give you the whole building."
-            description="An AI-native, multi-tenant platform, multi-cloud DevSecOps, and a portfolio of regulated SaaS products — all designed to boost developer productivity in enterprise engineering and platform teams."
+            description="An AI-native platform, multi-cloud DevSecOps, and a portfolio of regulated SaaS products — all designed to boost developer productivity in enterprise engineering and platform teams."
           />
         </AnimatedSection>
         <AnimatedSection>
@@ -132,7 +140,7 @@ export default function HomePage() {
               { label: "Act", description: "Automated workflows trigger alerts, approvals, and actions — statutory filings, maintenance tickets, payroll runs." },
               { label: "Improve", description: "Feedback loops refine models and rules as your business evolves — bi-weekly releases with zero downtime." },
             ]}
-            outcome="A single multi-tenant platform that adapts to any industry without a rebuild."
+            outcome="A single platform that adapts to any industry without a rebuild."
           />
         </AnimatedSection>
       </Section>

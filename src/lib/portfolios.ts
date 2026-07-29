@@ -28,11 +28,11 @@ export const portfolios: PortfolioContent[] = [
     },
     problem: [
       "Fragmented tech stacks across healthcare, banking, and pharma.",
-      "Difficulty maintaining strict compliance and auditability in multi-tenant environments.",
+      "Difficulty maintaining strict compliance and auditability in environments.",
       "High operational overhead for orchestrating agentic AI across disjointed systems.",
     ],
     solution: {
-      description: "A unified infrastructure providing secure multi-tenant isolation, DevSecOps pipelines, and AI orchestration for data-intensive verticals.",
+      description: "A unified infrastructure providing secure isolation, DevSecOps pipelines, and AI orchestration for data-intensive verticals.",
       capabilities: [
         "Shared identity, continuous audit trails, and global logging.",
         "Tenant-aware LLM routing and vector storage for safe AI.",
@@ -40,7 +40,7 @@ export const portfolios: PortfolioContent[] = [
       ],
     },
     tech: [
-      "Schema-isolated multi-tenant core.",
+      "Schema-isolated core.",
       "Automated CI/CD and policy-as-code pipelines.",
       "Agentic AI orchestration layer.",
       "Quantum-ready engineering foundation.",
@@ -56,10 +56,10 @@ export const portfolios: PortfolioContent[] = [
   // Anchor Domains
   {
     id: "cybehms",
-    title: "CybeHMS",
+    title: "CybeHospitality",
     hero: {
       tagline: "Comprehensive Hospital Management Suite for secure, compliant operations.",
-      ctaLabel: "Explore CybeHMS",
+      ctaLabel: "Explore CybeHospitality",
       ctaHref: "/products/cybehms",
     },
     problem: [
@@ -90,36 +90,70 @@ export const portfolios: PortfolioContent[] = [
   },
   {
     id: "cybehealth",
-    title: "CybeHealth",
+    title: "CybeHealth & Pharma",
     hero: {
-      tagline: "Extending the platform into population health, telemedicine, and preventive care.",
-      ctaLabel: "Learn More",
+      tagline: "Unified platform spanning hospital management and pharmacy operations.",
+      ctaLabel: "Explore CybeHealth",
       ctaHref: "/products/cybehealth",
     },
     problem: [
-      "Siloed patient data restricting holistic care management.",
-      "Inefficient tracking of chronic disease outcomes and remote monitoring.",
-      "High costs of delayed interventions in population health.",
+      "Fragmented systems between hospital administration and pharmacy workflows.",
+      "Manual inventory and dispensing processes leading to errors and waste.",
+      "Lack of real-time visibility across clinical and pharmaceutical operations.",
     ],
     solution: {
-      description: "Enables enterprises and payers to run disease management programs, outcome tracking, and telemedicine on a secure foundation.",
+      description: "Delivers a connected ecosystem for hospital management and pharmacy management, enabling streamlined operations and better patient outcomes.",
       capabilities: [
-        "Chronic disease program management and wellness outreach.",
-        "Patient cohort segmentation and risk stratification.",
-        "Integration with external health data sources and smart devices.",
+        "Hospital Management (Jioplix) — admissions, bed management, billing, and clinical workflows.",
+        "Pharmacy Management (Mediflow) — inventory, dispensing, expiry tracking, and regulatory compliance.",
+        "Unified dashboards and cross-module reporting for operational intelligence.",
       ],
     },
     tech: [
-      "Predictive AI models for risk and adherence monitoring.",
-      "Interoperable data layers for seamless EMR integration.",
-      "Regulatory-grade KPI tracking dashboards.",
+      "Jioplix — HL7/FHIR interoperability and ABDM-compliant hospital core.",
+      "Mediflow — real-time stock tracking, barcode scanning, and automated reorder engines.",
+      "Shared AI layer for demand forecasting and anomaly detection.",
     ],
     outcomes: [
-      "Proactive interventions improving patient outcomes.",
-      "Reduced overall cost of care across cohorts.",
-      "Higher adherence rates through automated engagement.",
+      "Seamless data flow between hospital and pharmacy systems.",
+      "Reduced medication errors and inventory wastage.",
+      "Operational cost savings through automated pharmacy workflows.",
     ],
     theme: "teal",
+    status: "active",
+  },
+  {
+    id: "cybecommerce",
+    title: "CybeCommerce",
+    hero: {
+      tagline: "Composable commerce platform powering modern retail experiences.",
+      ctaLabel: "Explore CybeCommerce",
+      ctaHref: "/products/cybecommerce",
+    },
+    problem: [
+      "Legacy e-commerce systems lack flexibility for omnichannel growth.",
+      "Inventory fragmentation across online and offline channels.",
+      "Limited AI capabilities for personalization and demand forecasting.",
+    ],
+    solution: {
+      description: "A modular commerce platform that unifies storefront, inventory, and customer engagement with AI-driven insights.",
+      capabilities: [
+        "AI-powered e-commerce storefront and product management.",
+        "Real-time inventory sync across channels and warehouses.",
+        "Customer analytics and personalized recommendation engine.",
+      ],
+    },
+    tech: [
+      "Headless commerce architecture for API-first integrations.",
+      "AI/ML models for demand forecasting and dynamic pricing.",
+      "Cloud-native infrastructure with auto-scaling for traffic spikes.",
+    ],
+    outcomes: [
+      "Faster time-to-market for new storefronts.",
+      "Reduced inventory carrying costs through predictive reordering.",
+      "Higher conversion rates via personalized shopping experiences.",
+    ],
+    theme: "amber",
     status: "active",
   },
   {
@@ -178,7 +212,7 @@ export const portfolios: PortfolioContent[] = [
       ],
     },
     tech: [
-      "Built on CybePlatforms multi-tenant core.",
+      "Built on CybePlatforms core.",
       "AI copilots for HR policy and document intelligence.",
       "Secure document storage with strict RBAC.",
     ],
@@ -247,7 +281,7 @@ export const portfolios: PortfolioContent[] = [
       ],
     },
     tech: [
-      "Seamless API interoperability with CybeHMS and external gateways.",
+      "Seamless API interoperability with HostSphere and external gateways.",
       "Machine learning models for transaction risk scoring.",
       "PCI-DSS compliant data tokenization.",
     ],

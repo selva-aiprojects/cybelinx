@@ -11,11 +11,12 @@ export const mainNav: NavGroup[] = [
   {
     label: "Products",
     items: [
-      { href: "/products/cybehrms", label: "CybeHRMS", description: "AI-powered HRMS with statutory compliance — Live" },
-      { href: "/products/cybehms", label: "CybeHMS", description: "Enterprise hospitality management — Live" },
+      { href: "/products/cybehrms", label: "CybeHRMS", description: "AI-native HR & workforce management — Live" },
+      { href: "/products/cybehms", label: "CybeHospitality", description: "Enterprise hospitality management — Live" },
       { href: "/products/cybepharma", label: "CybePharma Suite", description: "Pharma commercial & compliance" },
       { href: "/products/cybebank", label: "CybeBank", description: "Digital banking & FinTech platform" },
-      { href: "/products/cybehealth", label: "CybeHealth", description: "Healthcare & clinical operations" },
+      { href: "/products/cybehealth", label: "CybeHealth & Pharma", description: "Hospital & pharmacy management" },
+      { href: "/products/cybecommerce", label: "CybeCommerce", description: "Commerce & retail platform" },
       { href: "/products/cybeai-suite", label: "CybeAI Suite", description: "Enterprise AI product suite" },
     ],
   },

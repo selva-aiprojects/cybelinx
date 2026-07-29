@@ -22,7 +22,7 @@ export default function TechnologiesPage() {
         <PageHeader
           eyebrow="Engineering & DevOps"
           title="A modern stack for enterprise-grade SaaS products."
-          description="Cybelinx gives platform and DevOps teams an AI-native, multi-tenant foundation — complete with shared templates, multi-cloud DevSecOps pipelines, and built-in compliance — maximizing developer productivity so you ship faster without reinventing infrastructure."
+          description="Cybelinx gives platform and DevOps teams an AI-native foundation — complete with shared templates, multi-cloud DevSecOps pipelines, and built-in compliance — maximizing developer productivity so you ship faster without reinventing infrastructure."
         />
       </Section>
 
@@ -36,7 +36,7 @@ export default function TechnologiesPage() {
         <AnimatedSection>
           <div className="mb-8">
             <span className="slugline">Core Technologies</span>
-            <h3 className="mt-2 font-display text-2xl font-bold text-surface">Proven frameworks for multi-tenant SaaS delivery.</h3>
+            <h3 className="mt-2 font-display text-2xl font-bold text-surface">Proven frameworks for SaaS delivery.</h3>
           </div>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {technologies.map((tech, index) => (

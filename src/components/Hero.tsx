@@ -17,7 +17,7 @@ const slides = [
   {
     id: "saas",
     title: "Enterprise software, reimagined with AI.",
-    description: "One multi-tenant platform — SaaS/PaaS, multi-cloud DevSecOps, LLM services, and quantum-ready engineering — for regulated enterprises worldwide.",
+    description: "One platform — SaaS/PaaS, multi-cloud DevSecOps, LLM services, and quantum-ready engineering — for regulated enterprises worldwide.",
     tag: "AI-Native Platform · Now in Production",
     cssVar: "var(--hero-bg-saas)",
     tabLabel: "SaaS & PaaS",

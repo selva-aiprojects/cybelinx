@@ -7,7 +7,7 @@ import { portfolios } from "@/lib/portfolios";
 
 export const metadata: Metadata = {
   title: "CybePlatforms & Product Portfolio",
-  description: "AI-native multi-tenant platform powering HR, healthcare, pharma, analytics, and quantum-ready workloads.",
+  description: "AI-native platform powering HR, healthcare, pharma, analytics, and quantum-ready workloads.",
 };
 
 export default function ProductsPage() {
@@ -20,7 +20,7 @@ export default function ProductsPage() {
         <PageHeader
           eyebrow="Portfolio & Platform"
           title="Intelligent enterprise solutions on a unified core."
-          description="Explore how Cybelinx empowers regulated industries with secure, multi-tenant SaaS products and future-proof infrastructure."
+          description="Explore how Cybelinx empowers regulated industries with secure SaaS products and future-proof infrastructure."
         />
       </Section>
 

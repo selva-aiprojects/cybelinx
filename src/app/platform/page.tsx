@@ -14,7 +14,7 @@ import CompactComparisonTable from "@/components/CompactComparisonTable";
 
 export const metadata: Metadata = {
   title: "Platform",
-  description: "Cybelinx is an AI-native, multi-tenant platform for web, SaaS/PaaS, multi-cloud DevSecOps, LLM services, and quantum-ready engineering.",
+  description: "Cybelinx is an AI-native platform for web, SaaS/PaaS, multi-cloud DevSecOps, LLM services, and quantum-ready engineering.",
 };
 
 export default function PlatformPage() {
@@ -24,7 +24,7 @@ export default function PlatformPage() {
         <PageHeader
           eyebrow="Platform"
           title="One unified foundation for every product."
-          description="Cybelinx gives engineering and platform teams a single multi-tenant core for web apps, SaaS/PaaS products, multi-cloud DevSecOps, LLM services, and future quantum workloads — built for regulated enterprises from day one."
+          description="Cybelinx gives engineering and platform teams a single core for web apps, SaaS/PaaS products, multi-cloud DevSecOps, LLM services, and future quantum workloads — built for regulated enterprises from day one."
         />
       </Section>
 
@@ -85,7 +85,7 @@ export default function PlatformPage() {
               Cloud AI platforms give you building blocks. DevSecOps tools secure your pipelines. Single-vertical SaaS solves one problem. Cybelinx brings all three together.
             </h2>
             <p className="mt-4 text-base leading-relaxed text-slate">
-              An AI-native, multi-tenant platform, multi-cloud DevSecOps, and a portfolio of regulated SaaS products — all designed to boost developer productivity in enterprise engineering and platform teams.
+              An AI-native platform, multi-cloud DevSecOps, and a portfolio of regulated SaaS products — all designed to boost developer productivity in enterprise engineering and platform teams.
             </p>
           </div>
         </AnimatedSection>

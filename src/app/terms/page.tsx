@@ -28,7 +28,7 @@ export default function TermsPage() {
         <div>
           <h2 className="text-base font-semibold text-surface">2. Description of Services</h2>
           <p className="mt-2">
-            {brand.name} provides multi-tenant SaaS platforms for enterprise operations,
+            {brand.name} provides SaaS platforms for enterprise operations,
             including but not limited to HRMS, hospitality management, banking, healthcare,
             and AI services. Specific terms for each product are governed by separate
             Subscription Agreements.

@@ -12,12 +12,12 @@ export const metadata: Metadata = {
 
 const faqs = [
   {
-    question: "Is CybeHRM built for Indian statutory compliance?",
+    question: "Is SynthalystHRM built for Indian statutory compliance?",
     answer: "Yes \u2014 compliance is built into payroll and HR workflows with audit-ready controls.",
   },
   {
-    question: "Can CybeHRM support multiple business units or entities?",
-    answer: "CybeHRM is multi-tenant by design, supporting multiple entities, regions, and business units.",
+    question: "Can SynthalystHRM support multiple business units or entities?",
+    answer: "SynthalystHRM supports multiple entities, regions, and business units.",
   },
   {
     question: "How long does implementation take?",

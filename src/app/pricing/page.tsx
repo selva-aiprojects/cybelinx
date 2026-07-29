@@ -60,7 +60,7 @@ export default function PricingPage() {
         <PageHeader
           eyebrow="Pricing"
           title="Simple, scalable pricing."
-          description="Every Cybelinx product shares the same multi-tenant core. Pricing scales with your deployment — not your headcount."
+          description="Every Cybelinx product shares the same core. Pricing scales with your deployment — not your headcount."
         />
       </Section>
 

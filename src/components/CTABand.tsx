@@ -6,7 +6,7 @@ import { ArrowRight, Sparkles } from "lucide-react";
 
 export default function CTABand({
   heading = "Ready to transform your enterprise platform?",
-  subheading = "Book a demo or start a trial of CybeHRM or CybeHMS — see what an AI-native, multi-tenant platform can do for your team.",
+  subheading = "Book a demo or start a trial of CybeHRMS or CybeHospitality — see what an AI-native platform can do for your team.",
 }: {
   heading?: string;
   subheading?: string;

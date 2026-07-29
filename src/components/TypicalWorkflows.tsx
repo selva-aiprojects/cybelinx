@@ -39,7 +39,7 @@ export default function TypicalWorkflows() {
           Typical workflows for platform & DevOps teams
         </h3>
         <p className="mt-4 max-w-3xl text-base leading-relaxed text-slate">
-          Cybelinx is designed around the daily workflows of platform, DevOps, and SRE teams in regulated enterprises. Instead of wiring every product and environment from scratch, teams reuse a proven, multi-tenant foundation.
+          Cybelinx is designed around the daily workflows of platform, DevOps, and SRE teams in regulated enterprises. Instead of wiring every product and environment from scratch, teams reuse a proven foundation.
         </p>
       </div>
 

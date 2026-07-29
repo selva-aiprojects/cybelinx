@@ -1,6 +1,6 @@
 "use client";
 
-import { customerLogos, trustMetrics } from "@/lib/content";
+import { trustMetrics } from "@/lib/content";
 import { motion } from "framer-motion";
 
 function StatCard({ value, label, delay }: { value: string; label: string; delay: number }) {
