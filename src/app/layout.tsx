@@ -25,11 +25,15 @@ export const metadata: Metadata = {
     description: brand.description,
     type: "website",
   },
+  icons: {
+    icon: "/favicon.png",
+    apple: "/favicon.png",
+  },
 };
 
 export default function RootLayout({ children }: { children?: React.ReactNode }) {
   return (
-    <html lang="en" className={`${montserrat.variable} dark`} suppressHydrationWarning data-theme="dark">
+    <html lang="en" className={`${montserrat.variable}`} data-theme="light" suppressHydrationWarning>
       <head />
       <body className="min-h-screen bg-transparent font-sans text-surface antialiased relative" suppressHydrationWarning>
         <GlobalBackground />

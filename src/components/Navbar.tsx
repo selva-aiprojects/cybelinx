@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useState, useRef, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import { ChevronDown, Menu, X, ArrowRight, Sparkles, ExternalLink } from "lucide-react";
+import { ChevronDown, Menu, X, ArrowRight, Sparkles, ExternalLink, Moon, Sun } from "lucide-react";
 import Button from "./Button";
 import { LogoLockup, LogoMark } from "./Logo";
 import { brand } from "@/lib/content";
@@ -52,13 +52,12 @@ function NavDropdown({ group }: { group: NavGroup }) {
       </button>
 
       <div
-        className={`absolute left-1/2 -translate-x-1/2 pt-4 transition-all duration-300 ${
-          open ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 -translate-y-3 pointer-events-none"
-        }`}
+        className={`absolute left-1/2 -translate-x-1/2 pt-4 transition-all duration-300 ${open ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 -translate-y-3 pointer-events-none"
+          }`}
         style={{ zIndex: 9999 }}
       >
         {group.label === "Products" ? (
-          <div className="overflow-hidden rounded-2xl border border-border/40 bg-nav-bg/80 shadow-2xl shadow-black/20 backdrop-blur-2xl min-w-[800px]">
+          <div className="overflow-hidden rounded-2xl border border-border/60 bg-nav-bg/95 shadow-xl shadow-primary/5 backdrop-blur-2xl min-w-[800px]">
             <div className="flex items-center justify-between px-6 pt-5 pb-2">
               <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate/40">
                 Product Portfolio
@@ -83,7 +82,7 @@ function NavDropdown({ group }: { group: NavGroup }) {
                 return (
                   <div
                     key={item.href}
-                    className="rounded-xl p-3 transition-all duration-300 hover:shadow-lg hover:shadow-black/10 group/card relative overflow-hidden"
+                    className="rounded-xl p-3 transition-all duration-300 hover:shadow-lg hover:shadow-primary/5 group/card relative overflow-hidden"
                     style={{ background: `linear-gradient(135deg, color-mix(in srgb, ${accent} 4%, transparent), transparent 60%)` }}
                     onMouseEnter={(e) => {
                       const target = e.currentTarget;
@@ -108,7 +107,7 @@ function NavDropdown({ group }: { group: NavGroup }) {
                     >
                       <div
                         className="h-11 w-11 shrink-0 rounded-xl overflow-hidden flex items-center justify-center transition-all duration-300"
-                        style={{ boxShadow: `0 1px 3px rgba(0,0,0,0.3), 0 0 0 1px ${accent}30`, backgroundColor: `${accent}15` }}
+                        style={{ boxShadow: `0 1px 3px rgba(0,0,0,0.08), 0 0 0 1px ${accent}30`, backgroundColor: `${accent}15` }}
                       >
                         {imgSrc ? (
                           <img src={imgSrc} alt="" className="h-full w-full object-cover" />
@@ -120,7 +119,7 @@ function NavDropdown({ group }: { group: NavGroup }) {
                         <div className="flex items-center gap-2 flex-wrap">
                           <span
                             className="text-sm font-semibold text-surface transition-colors truncate"
-                            style={{ color: "var(--color-surface, #f1f5f9)" }}
+                            style={{ color: "var(--cb-surface)" }}
                           >
                             {item.label}
                           </span>
@@ -130,10 +129,10 @@ function NavDropdown({ group }: { group: NavGroup }) {
                               style={{
                                 backgroundColor: product.status === "live" ? `${accent}20` :
                                   product.status === "preview" ? "#f59e0b33" :
-                                  "#64748b33",
+                                    "#64748b33",
                                 color: product.status === "live" ? accent :
                                   product.status === "preview" ? "#f59e0b" :
-                                  "#94a3b8",
+                                    "#94a3b8",
                               }}
                             >
                               {product.status === "live" ? "Live" : product.status === "preview" ? "Preview" : "Soon"}
@@ -153,13 +152,13 @@ function NavDropdown({ group }: { group: NavGroup }) {
                             target="_blank"
                             rel="noopener noreferrer"
                             className="flex items-center gap-2 rounded-lg px-2.5 py-1.5 text-xs transition-all group/sub"
-                            style={{ color: "#94a3b8" }}
+                            style={{ color: "var(--cb-slate)" }}
                             onMouseEnter={(e) => {
                               e.currentTarget.style.color = accent;
                               e.currentTarget.style.backgroundColor = `${accent}10`;
                             }}
                             onMouseLeave={(e) => {
-                              e.currentTarget.style.color = "#94a3b8";
+                              e.currentTarget.style.color = "var(--cb-slate)";
                               e.currentTarget.style.backgroundColor = "transparent";
                             }}
                           >
@@ -195,7 +194,7 @@ function NavDropdown({ group }: { group: NavGroup }) {
             </div>
           </div>
         ) : (
-          <div className="overflow-hidden rounded-2xl border border-border/50 bg-nav-bg/80 shadow-2xl shadow-black/20 backdrop-blur-2xl min-w-[320px]">
+          <div className="overflow-hidden rounded-2xl border border-border/60 bg-nav-bg/95 shadow-xl shadow-primary/5 backdrop-blur-2xl min-w-[320px]">
             <div className="px-5 pt-4 pb-1">
               <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate/40">
                 {group.label}
@@ -254,6 +253,14 @@ function NavDropdown({ group }: { group: NavGroup }) {
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [theme, setTheme] = useState("light");
+
+  useEffect(() => {
+    const storedTheme = window.localStorage.getItem("theme") as "light" | "dark" | null;
+    const initialTheme = storedTheme || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+    setTheme(initialTheme);
+    document.documentElement.setAttribute("data-theme", initialTheme);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -261,13 +268,19 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const toggleTheme = () => {
+    const nextTheme = theme === "dark" ? "light" : "dark";
+    setTheme(nextTheme);
+    document.documentElement.setAttribute("data-theme", nextTheme);
+    window.localStorage.setItem("theme", nextTheme);
+  };
+
   return (
     <header
-      className={`sticky top-0 z-50 transition-all duration-500 ${
-        scrolled
-          ? "border-b border-border/40 bg-nav-bg/70 shadow-lg shadow-black/5 backdrop-blur-2xl"
-          : "border-b border-transparent bg-transparent"
-      }`}
+      className={`sticky top-0 z-50 transition-all duration-500 bg-white/95 dark:bg-nav-bg/70 ${scrolled
+        ? "border-b border-border/40 shadow-lg shadow-primary/5 backdrop-blur-2xl"
+        : "border-b border-transparent"
+        }`}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
         <Link href="/" className="flex items-center shrink-0 group">
@@ -286,6 +299,14 @@ export default function Navbar() {
         </nav>
 
         <div className="hidden items-center gap-3 lg:flex shrink-0">
+          <button
+            type="button"
+            onClick={toggleTheme}
+            aria-label="Toggle dark mode"
+            className="rounded-full p-2 text-slate hover:bg-slate/10 transition-colors"
+          >
+            {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+          </button>
           <Button href="/contact" variant="secondary" size="sm">
             Talk to Sales
           </Button>
@@ -295,6 +316,14 @@ export default function Navbar() {
         </div>
 
         <div className="flex items-center gap-2 lg:hidden shrink-0">
+          <button
+            type="button"
+            onClick={toggleTheme}
+            aria-label="Toggle dark mode"
+            className="rounded-full p-2 text-slate hover:bg-slate/10 transition-colors"
+          >
+            {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+          </button>
           <button
             className="rounded-lg p-2 text-surface hover:bg-charcoal/50 transition-colors cursor-pointer"
             onClick={() => setOpen(!open)}

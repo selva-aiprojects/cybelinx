@@ -4,12 +4,12 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Button from "./Button";
 import DynamicHeroAnimation from "./DynamicHeroAnimation";
-import { 
-  ArrowRight, 
-  ChevronRight, 
-  Activity, 
-  ShieldCheck, 
-  BarChart3 
+import {
+  ArrowRight,
+  ChevronRight,
+  Activity,
+  ShieldCheck,
+  BarChart3
 } from "lucide-react";
 
 // The 4 domains with their respective images
@@ -81,24 +81,24 @@ export default function Hero() {
 
   const slide = slides[activeSlide];
 
-  // Colors for the particle mesh based on active slide (Neon Luminous variants)
+  // Colors for the particle mesh based on active slide (Brand Palette)
   const themeColors: Record<string, string[]> = {
-    saas: ['#3B82F6', '#60A5FA'], // Electric Blue
-    devsecops: ['#06B6D4', '#22D3EE'], // Cyan
-    ai: ['#10B981', '#34D399'], // Emerald Glow
-    quantum: ['#8B5CF6', '#A78BFA'], // Violet
-    "data-platform": ['#F59E0B', '#06B6D4', '#10B981'], // Data Platform: Vibrant Amber, Cyan & Emerald
+    saas: ['#0D47FF', '#4FD8FF'], // Brand Blue → Cyan
+    devsecops: ['#00C2FF', '#4FD8FF'], // Brand Cyan → Light Cyan
+    ai: ['#7B61FF', '#0D47FF'], // Brand Violet → Blue
+    quantum: ['#7B61FF', '#00C2FF'], // Brand Violet → Cyan
+    "data-platform": ['#0D47FF', '#00C2FF', '#4FD8FF'], // Brand Blue, Cyan & Light Cyan
   };
 
   const currentColors = themeColors[slide.id] || themeColors.saas;
 
   return (
-    <div className="relative min-h-[90vh] md:min-h-screen flex items-center overflow-hidden bg-background">
-      
+    <div className="relative min-h-[75vh] md:min-h-[90vh] flex items-start overflow-hidden bg-background">
+
       {/* ── Dynamic Particle Wave Animation (Thoughtworks Style) ── */}
       {/* We add z-0 here to ensure ALL background elements (including the gradient overlay) stay strictly behind the z-10 text */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
-        
+
         {/* Subtle Tech Grid overlay (Static Grid) - Light & Dark variants */}
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4MCIgaGVpZ2h0PSI4MCI+PHBhdGggZD0iTTAgMGg4MHY4MEgweiIgZmlsbD0ibm9uZSIvPjxwYXRoIGQ9Ik0wIDB2ODBNODAgMHY4ME0wIDBoODBNMCA4MGg4MCIgc3Ryb2tlPSJyZ2JhKDAsMCwwLDAuMDQpIiBzdHJva2Utd2lkdGg9IjEiLz48L3N2Zz4=')] dark:hidden z-0" />
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4MCIgaGVpZ2h0PSI4MCI+PHBhdGggZD0iTTAgMGg4MHY4MEgweiIgZmlsbD0ibm9uZSIvPjxwYXRoIGQ9Ik0wIDB2ODBNODAgMHY4ME0wIDBoODBNMCA4MGg4MCIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMDcpIiBzdHJva2Utd2lkdGg9IjEiLz48L3N2Zz4=')] hidden dark:block z-0" />
@@ -112,11 +112,11 @@ export default function Hero() {
         <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-transparent z-20" />
       </div>
 
-      <div className="relative z-10 w-full mx-auto max-w-7xl px-6 py-12 pt-24 lg:py-24 grid lg:grid-cols-12 gap-8 items-center">
-        
-        {/* ── Left Content (Forced Light Text on Dark Gradient) ── */}
+      <div className="relative z-10 w-full mx-auto max-w-7xl px-6 py-8 pt-16 lg:py-16 lg:pt-20 grid lg:grid-cols-12 gap-8 items-start">
+
+        {/* ── Left Content ── */}
         <div className="lg:col-span-8 max-w-2xl">
-          <div className="relative h-[380px] md:h-[320px] w-full">
+          <div className="relative w-full">
             <AnimatePresence mode="wait">
               <motion.div
                 key={slide.id}
@@ -124,32 +124,32 @@ export default function Hero() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -15 }}
                 transition={{ duration: 0.5 }}
-                className="absolute top-0 left-0 w-full h-full flex flex-col justify-center"
+                className="w-full flex flex-col justify-start space-y-5"
               >
                 <div>
-                  <span 
-                    className="inline-flex items-center gap-2 rounded-full border px-4 py-1.5 text-xs font-bold uppercase tracking-wider backdrop-blur-md mb-6 transition-colors duration-500"
-                    style={{ 
-                      backgroundColor: `${currentColors[0]}1a`, 
-                      borderColor: `${currentColors[0]}40`, 
-                      color: currentColors[0] 
+                  <span
+                    className="inline-flex items-center gap-2 rounded-full border px-4 py-1.5 text-[11px] font-bold uppercase tracking-wider backdrop-blur-md mb-4 transition-colors duration-500"
+                    style={{
+                      backgroundColor: `${currentColors[0]}1a`,
+                      borderColor: `${currentColors[0]}40`,
+                      color: currentColors[0]
                     }}
                   >
-                    <span 
-                      className="relative h-2 w-2 rounded-full" 
-                      style={{ 
-                        backgroundColor: currentColors[0], 
-                        boxShadow: `0 0 10px ${currentColors[0]}` 
-                      }} 
+                    <span
+                      className="relative h-2 w-2 rounded-full"
+                      style={{
+                        backgroundColor: currentColors[0],
+                        boxShadow: `0 0 10px ${currentColors[0]}`
+                      }}
                     />
                     {slide.tag}
                   </span>
 
-                  <h1 className="font-display text-4xl font-extrabold leading-[1.1] tracking-tight md:text-5xl lg:text-6xl drop-shadow-xl text-gradient-animated">
+                  <h1 className="font-display text-3xl font-extrabold leading-tight tracking-tight md:text-4xl lg:text-5xl drop-shadow-xl text-gradient-animated">
                     {slide.title}
                   </h1>
 
-                  <p className="mt-4 max-w-lg text-sm sm:text-base leading-relaxed font-normal text-slate-300/90 drop-shadow">
+                  <p className="mt-3 max-w-xl text-sm sm:text-base leading-relaxed font-normal text-slate">
                     {slide.description}
                   </p>
                 </div>
@@ -157,12 +157,12 @@ export default function Hero() {
             </AnimatePresence>
           </div>
 
-          <div className="mt-6 flex flex-wrap items-center gap-4">
-            <Button href="/products" variant="primary" size="lg" className="border-none luminous-border font-bold shadow-glow text-white transition-all duration-300" style={{ backgroundColor: currentColors[0], textShadow: '0 1px 3px rgba(0,0,0,0.5)' }}>
+          <div className="mt-5 flex flex-wrap items-center gap-4">
+            <Button href="/products" variant="primary" size="lg" className="border-none font-bold shadow-glow text-white transition-all duration-300" style={{ backgroundColor: currentColors[0] }}>
               Explore Platform
             </Button>
             {/* Outline button matching the theme */}
-            <Button href="/contact" variant="secondary" size="lg" className="bg-transparent border-border dark:border-white/30 text-surface hover:bg-surface/5 dark:hover:bg-white/10 font-semibold">
+            <Button href="/contact" variant="secondary" size="lg" className="bg-transparent border-border text-surface hover:bg-surface/5 font-semibold">
               Request Demo
             </Button>
           </div>
@@ -188,48 +188,46 @@ export default function Hero() {
                 <button
                   key={s.id}
                   onClick={() => setActiveSlide(index)}
-                  className={`group relative flex w-full flex-row items-center justify-between rounded-2xl p-4 border transition-all duration-500 ease-out ${
-                    isActive 
-                      ? "scale-[1.02] backdrop-blur-xl shadow-lg" 
-                      : "bg-surface/5 border-border hover:bg-surface/10"
-                  }`}
+                  className={`group relative flex w-full flex-row items-center justify-between rounded-2xl p-4 border transition-all duration-500 ease-out ${isActive
+                    ? "scale-[1.02] backdrop-blur-xl shadow-lg"
+                    : "bg-white/50 border-border hover:bg-white/80"
+                    }`}
                   style={
-                    isActive 
-                      ? { 
-                          backgroundColor: `${tabColor}1f`, 
-                          borderColor: `${tabColor}66`,
-                          boxShadow: `0 0 25px ${tabColor}33`
-                        } 
+                    isActive
+                      ? {
+                        backgroundColor: `${tabColor}1f`,
+                        borderColor: `${tabColor}66`,
+                        boxShadow: `0 0 25px ${tabColor}33`
+                      }
                       : {}
                   }
                 >
                   {/* Active progress bar indicator */}
                   <div
-                    className={`absolute left-0 top-0 h-full w-1 rounded-l-2xl transition-all duration-500 ${
-                      isActive ? "opacity-100" : "opacity-0"
-                    }`}
-                    style={{ 
-                      backgroundColor: tabColor, 
-                      boxShadow: isActive ? `0 0 12px ${tabColor}` : 'none' 
+                    className={`absolute left-0 top-0 h-full w-1 rounded-l-2xl transition-all duration-500 ${isActive ? "opacity-100" : "opacity-0"
+                      }`}
+                    style={{
+                      backgroundColor: tabColor,
+                      boxShadow: isActive ? `0 0 12px ${tabColor}` : 'none'
                     }}
                   />
                   <div className="flex items-center justify-between w-full pl-2">
                     <div className="text-left">
-                      <h3 
+                      <h3
                         className="font-display font-bold text-base transition-colors"
                         style={{ color: isActive ? tabColor : undefined }}
                       >
                         {s.tabLabel}
                       </h3>
-                      <p 
+                      <p
                         className="text-xs mt-0.5 font-medium transition-colors opacity-80"
                         style={{ color: isActive ? tabColor : undefined }}
                       >
                         {s.tabDesc}
                       </p>
                     </div>
-                    <ChevronRight 
-                      className={`h-5 w-5 transition-transform ${isActive ? 'translate-x-1' : 'text-slate opacity-50 group-hover:translate-x-0.5'}`} 
+                    <ChevronRight
+                      className={`h-5 w-5 transition-transform ${isActive ? 'translate-x-1' : 'text-slate opacity-50 group-hover:translate-x-0.5'}`}
                       style={{ color: isActive ? tabColor : undefined }}
                     />
                   </div>
@@ -260,8 +258,8 @@ export default function Hero() {
           })}
         </div>
       </div>
-    {/* Bottom gradient fade to next section */}
-    <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent pointer-events-none" />
-  </div>
-);
+      {/* Bottom gradient fade to next section */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent pointer-events-none" />
+    </div>
+  );
 }
