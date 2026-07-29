@@ -238,7 +238,7 @@ export default function Navbar() {
             <LogoLockup height={72} />
           </span>
           <span className="block sm:hidden">
-            <LogoMark size={60} />
+            <LogoLockup height={60} />
           </span>
         </Link>
 
@@ -288,7 +288,7 @@ export default function Navbar() {
         <div className="fixed left-0 right-0 top-0 z-[9999] h-screen bg-nav-bg/95 dark:bg-[#011232]/95 backdrop-blur-2xl lg:hidden overflow-y-auto">
           <div className="flex items-center justify-between px-6 py-4 border-b border-border/30 dark:border-border/20">
             <Link href="/" onClick={() => setOpen(false)}>
-              <LogoMark size={54} />
+              <LogoLockup height={54} />
             </Link>
             <button
               className="rounded-lg p-2 text-surface hover:bg-charcoal/50 transition-colors cursor-pointer"
