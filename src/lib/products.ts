@@ -32,7 +32,7 @@ export const products: Product[] = [
     summary:
       "An AI-powered, comprehensive Human Resources Management System designed to automate the entire employee lifecycle—from talent acquisition to retirement—ensuring statutory compliance and delivering seamless workforce experiences.",
     status: "live",
-    image: "/assets/products/cybehrm.png",
+    image: "/branding-crops/HRM.png",
     colorAccent: "#10B981", // Emerald
     appUrl: "https://cybehrm.vercel.app/",
     demoUrl: "https://cybehrm.vercel.app/",
@@ -65,7 +65,7 @@ export const products: Product[] = [
     summary:
       "A state-of-the-art hospitality operating system unifying property management, guest experience, digital front desk, housekeeping, and backend financials into a single cloud-native architecture.",
     status: "live",
-    image: "/assets/products/cybehms.png",
+    image: "/branding-crops/Hospitality.png",
     colorAccent: "#F59E0B", // Amber
     appUrl: "https://ehms-app-eta.vercel.app/",
     demoUrl: "https://ehms-app-eta.vercel.app/",
@@ -100,7 +100,7 @@ export const products: Product[] = [
     category: "Pharma",
     summary: "Commercial operations, compliance, and supply chain intelligence for life sciences organizations.",
     status: "preview",
-    image: "/assets/products/cybepharma.png",
+    image: "/branding-crops/Pharma.png",
     colorAccent: "#4685ca", // Brand blue
     isPlaceholderContent: true,
   },
@@ -112,7 +112,7 @@ export const products: Product[] = [
     summary:
       "A cloud-native digital banking platform for retail, corporate, and payment operations with regulatory-ready architecture.",
     status: "coming-soon",
-    image: "/assets/products/cybebank.png",
+    image: "/branding-crops/Banking.png",
     colorAccent: "#6366F1", // Indigo
     isPlaceholderContent: true,
   },
@@ -124,7 +124,7 @@ export const products: Product[] = [
     summary:
       "A modern, interoperability-first healthcare ecosystem that bridges the gap between clinical excellence and operational efficiency, empowering hospitals to deliver patient-centric care at scale.",
     status: "live",
-    image: "/assets/products/cybehealth.png",
+    image: "/branding-crops/Healthcare.png",
     colorAccent: "#EC4899", // Pink
     portfolioProducts: [
       { name: "Jioplix", url: "https://jioplix.com", description: "Hospital Management" },
@@ -153,7 +153,7 @@ export const products: Product[] = [
     summary:
       "A composable commerce platform powering online stores, inventory management, and customer engagement for retail businesses.",
     status: "live",
-    image: "/assets/products/cybecommerce.png",
+    image: "/branding-crops/eCommerce.png",
     colorAccent: "#0a8e6e", // Teal
     portfolioProducts: [
       { name: "StoreAI-One Commerce", url: "https://storeai-app.vercel.app", description: "AI-powered e-commerce storefront" },
@@ -168,7 +168,7 @@ export const products: Product[] = [
     summary:
       "Composable AI capabilities—copilots, document intelligence, and workflow automation—for enterprise products.",
     status: "coming-soon",
-    image: "/assets/products/cybeai-suite.png",
+    image: "/branding-crops/AI.png",
     colorAccent: "#8B5CF6", // Violet
     modules: [
       { title: "Document Intelligence", description: "Extract, classify, and route unstructured enterprise documents." },
