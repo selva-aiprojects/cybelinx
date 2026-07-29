@@ -38,9 +38,9 @@ export default function ArchitectureFlow({ title, steps, outcome, icon }: Archit
       <div className="relative mb-12 sm:pt-6">
         {/* Continuous horizontal line (desktop) */}
         <div className="hidden sm:block absolute top-8 left-[12%] right-[12%] h-px bg-border -translate-y-1/2" />
-        
+
         {/* Animated fill line */}
-        <motion.div 
+        <motion.div
           className="hidden sm:block absolute top-8 left-[12%] h-px bg-primary -translate-y-1/2"
           initial={{ width: "0%" }}
           whileInView={{ width: "76%" }}
@@ -60,9 +60,9 @@ export default function ArchitectureFlow({ title, steps, outcome, icon }: Archit
             >
               {/* Connecting Node (desktop) */}
               <div className="hidden sm:flex h-3.5 w-3.5 mb-6 rounded-full border-2 border-card-bg bg-border z-20 transition-all duration-500 delay-300 shadow-[0_0_0_4px_var(--card-bg)] relative group-hover:scale-125" />
-              
+
               {/* Animated active state for node */}
-              <motion.div 
+              <motion.div
                 className="hidden sm:block absolute top-[27px] h-3.5 w-3.5 rounded-full bg-primary z-30"
                 initial={{ scale: 0, opacity: 0 }}
                 whileInView={{ scale: 1, opacity: 1 }}
@@ -74,7 +74,7 @@ export default function ArchitectureFlow({ title, steps, outcome, icon }: Archit
               {index > 0 && <div className="sm:hidden h-6 w-px bg-border -mt-6 mb-2" />}
 
               {/* Card */}
-              <div className="w-full h-full rounded-xl border border-border/80 bg-charcoal p-5 hover:border-primary transition-all duration-300 text-left shadow-sm group hover:shadow-[0_0_20px_rgba(59,130,246,0.15)] dark:hover:shadow-[0_0_20px_rgba(59,130,246,0.3)]">
+              <div className="w-full h-full rounded-xl border border-border/80 bg-charcoal p-5 hover:border-primary transition-all duration-300 text-left shadow-sm group hover:shadow-[0_0_20px_rgba(59,130,246,0.15)]">
                 <div className="flex items-center gap-2.5 mb-3">
                   <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded bg-background text-[10px] font-bold text-slate shadow-sm border border-border/50 group-hover:border-primary/50 group-hover:text-primary transition-colors">
                     {index + 1}

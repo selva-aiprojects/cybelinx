@@ -101,7 +101,7 @@ export const products: Product[] = [
     summary: "Commercial operations, compliance, and supply chain intelligence for life sciences organizations.",
     status: "preview",
     image: "/assets/products/cybepharma.png",
-    colorAccent: "#3B82F6", // Blue
+    colorAccent: "#4685ca", // Brand blue
     isPlaceholderContent: true,
   },
   {
@@ -128,7 +128,7 @@ export const products: Product[] = [
     colorAccent: "#EC4899", // Pink
     portfolioProducts: [
       { name: "Jioplix", url: "https://jioplix.com", description: "Hospital Management" },
-      { name: "Mediflow", url: "https://mediflow-sys.vercel.app/welcome", description: "Pharmacy Management" },
+      { name: "Mediflow", url: "https://mediflow-sys.vercel.app", description: "Pharmacy Management" },
     ],
     problem:
       "Healthcare providers face immense administrative burdens, siloed patient data, and legacy systems that restrict interoperability and ultimately compromise the quality and speed of patient care.",
@@ -154,7 +154,7 @@ export const products: Product[] = [
       "A composable commerce platform powering online stores, inventory management, and customer engagement for retail businesses.",
     status: "live",
     image: "/assets/products/cybecommerce.png",
-    colorAccent: "#F59E0B", // Amber
+    colorAccent: "#0a8e6e", // Teal
     portfolioProducts: [
       { name: "StoreAI-One Commerce", url: "https://storeai-app.vercel.app", description: "AI-powered e-commerce storefront" },
     ],

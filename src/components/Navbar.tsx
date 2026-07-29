@@ -12,6 +12,7 @@ import { getPortfolioProduct } from "@/lib/products";
 
 function NavDropdown({ group }: { group: NavGroup }) {
   const [open, setOpen] = useState(false);
+  const [expandedProduct, setExpandedProduct] = useState<string | null>(null);
   const menuRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
 
@@ -57,114 +58,70 @@ function NavDropdown({ group }: { group: NavGroup }) {
         style={{ zIndex: 9999 }}
       >
         {group.label === "Products" ? (
-          <div className="overflow-hidden rounded-2xl border border-border/60 bg-nav-bg/95 shadow-xl shadow-primary/5 backdrop-blur-2xl min-w-[800px]">
-            <div className="flex items-center justify-between px-6 pt-5 pb-2">
-              <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate/40">
-                Product Portfolio
+          <div className="overflow-hidden rounded-2xl border border-border/60 bg-nav-bg/95 shadow-xl shadow-primary/5 backdrop-blur-2xl min-w-[320px] dark:bg-slate-950 dark:border-slate-800">
+            <div className="px-5 pt-4 pb-2">
+              <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate/40 dark:text-slate-500">
+                Portfolio
               </span>
-              <Link
-                href="/products"
-                onClick={() => setOpen(false)}
-                className="text-xs font-medium text-primary hover:text-violet transition-colors"
-              >
-                View all products &rarr;
-              </Link>
+              <h3 className="mt-2 text-sm font-semibold text-surface dark:text-slate-100">
+                Cybelinx products
+              </h3>
             </div>
 
-            <div className="p-3 grid grid-cols-3 gap-2">
-              {group.items.map((item) => {
+            <div className="p-2">
+              {group.items.map((item, idx) => {
                 const slug = item.href.replace("/products/", "");
                 const product = getPortfolioProduct(slug);
-                const subProducts = product?.portfolioProducts;
-                const imgSrc = product?.image;
-                const accent = product?.colorAccent || "#6366F1";
+                const subProducts = product?.portfolioProducts || [];
+                const isExpanded = expandedProduct === item.href;
 
                 return (
-                  <div
-                    key={item.href}
-                    className="rounded-xl p-3 transition-all duration-300 hover:shadow-lg hover:shadow-primary/5 group/card relative overflow-hidden"
-                    style={{ background: `linear-gradient(135deg, color-mix(in srgb, ${accent} 4%, transparent), transparent 60%)` }}
-                    onMouseEnter={(e) => {
-                      const target = e.currentTarget;
-                      target.style.background = `linear-gradient(135deg, color-mix(in srgb, ${accent} 10%, transparent), transparent 60%)`;
-                      target.style.borderColor = `${accent}30`;
-                    }}
-                    onMouseLeave={(e) => {
-                      const target = e.currentTarget;
-                      target.style.background = `linear-gradient(135deg, color-mix(in srgb, ${accent} 4%, transparent), transparent 60%)`;
-                      target.style.borderColor = "transparent";
-                    }}
-                  >
+                  <div key={item.href} className="space-y-2" style={{ animationDelay: `${idx * 40}ms` }}>
                     <div
-                      className="absolute left-0 top-0 bottom-0 w-0.5 transition-all duration-300"
-                      style={{ background: `linear-gradient(to bottom, ${accent}, transparent)` }}
-                    />
-
-                    <Link
-                      href={item.href}
-                      onClick={() => setOpen(false)}
-                      className="flex items-start gap-3 mb-2"
+                      className="group/item flex cursor-pointer items-center justify-between rounded-xl border border-transparent px-4 py-3 transition-all duration-200 hover:border-primary/30 hover:bg-primary/5 relative"
+                      onClick={() => {
+                        if (subProducts.length > 0) {
+                          setExpandedProduct(isExpanded ? null : item.href);
+                        } else {
+                          router.push(item.href);
+                          setOpen(false);
+                        }
+                      }}
                     >
-                      <div
-                        className="h-11 w-11 shrink-0 rounded-xl overflow-hidden flex items-center justify-center transition-all duration-300"
-                        style={{ boxShadow: `0 1px 3px rgba(0,0,0,0.08), 0 0 0 1px ${accent}30`, backgroundColor: `${accent}15` }}
-                      >
-                        {imgSrc ? (
-                          <img src={imgSrc} alt="" className="h-full w-full object-cover" />
-                        ) : (
-                          <div className="h-3 w-3 rounded-full" style={{ backgroundColor: accent }} />
-                        )}
+                      <div>
+                        <p className="text-sm font-semibold text-surface group-hover/item:text-primary transition-colors">
+                          {item.label}
+                        </p>
+                        <p className="text-xs text-slate/70 dark:text-slate-400">
+                          {product?.category || item.description}
+                        </p>
                       </div>
-                      <div className="flex-1 min-w-0 pt-0.5">
-                        <div className="flex items-center gap-2 flex-wrap">
-                          <span
-                            className="text-sm font-semibold text-surface transition-colors truncate"
-                            style={{ color: "var(--cb-surface)" }}
-                          >
-                            {item.label}
+                      <div className="flex items-center gap-2">
+                        {subProducts.length > 0 && (
+                          <span className="text-xs text-primary/80 dark:text-primary/70">
+                            {isExpanded ? "Hide subitems" : "View subitems"}
                           </span>
-                          {product?.status && (
-                            <span
-                              className="text-[9px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded-full shrink-0"
-                              style={{
-                                backgroundColor: product.status === "live" ? `${accent}20` :
-                                  product.status === "preview" ? "#f59e0b33" :
-                                    "#64748b33",
-                                color: product.status === "live" ? accent :
-                                  product.status === "preview" ? "#f59e0b" :
-                                    "#94a3b8",
-                              }}
-                            >
-                              {product.status === "live" ? "Live" : product.status === "preview" ? "Preview" : "Soon"}
-                            </span>
-                          )}
-                        </div>
-                        <span className="text-[10px] text-slate/50 mt-0.5 block">{product?.category || ""}</span>
+                        )}
+                        <ArrowRight className={`h-3.5 w-3.5 text-slate/0 transition-all ${isExpanded ? "rotate-90 text-primary/70" : "-translate-x-2 group-hover/item:translate-x-0 group-hover/item:text-primary/60"}`} />
                       </div>
-                    </Link>
+                    </div>
 
-                    {subProducts && subProducts.length > 0 && (
-                      <div className="ml-[52px] flex flex-col gap-0.5">
-                        {subProducts.map((sp) => (
+                    {subProducts.length > 0 && isExpanded && (
+                      <div className="space-y-2 rounded-2xl bg-slate-100/80 p-3 dark:bg-slate-900/80">
+                        {subProducts.map((subItem) => (
                           <a
-                            key={sp.name}
-                            href={sp.url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="flex items-center gap-2 rounded-lg px-2.5 py-1.5 text-xs transition-all group/sub"
-                            style={{ color: "var(--cb-slate)" }}
-                            onMouseEnter={(e) => {
-                              e.currentTarget.style.color = accent;
-                              e.currentTarget.style.backgroundColor = `${accent}10`;
+                            key={subItem.name}
+                            href={subItem.url || item.href}
+                            target={subItem.url?.startsWith("http") ? "_blank" : undefined}
+                            rel={subItem.url?.startsWith("http") ? "noopener noreferrer" : undefined}
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              setOpen(false);
                             }}
-                            onMouseLeave={(e) => {
-                              e.currentTarget.style.color = "var(--cb-slate)";
-                              e.currentTarget.style.backgroundColor = "transparent";
-                            }}
+                            className="flex items-center justify-between gap-3 rounded-xl px-3 py-2 text-xs text-slate-700 transition hover:bg-white hover:text-primary dark:text-slate-300 dark:hover:bg-slate-800"
                           >
-                            <div className="h-1 w-1 rounded-full shrink-0" style={{ backgroundColor: `${accent}60` }} />
-                            <span className="font-medium truncate">{sp.name}</span>
-                            <ExternalLink className="h-2.5 w-2.5 shrink-0 opacity-30 ml-auto" />
+                            <span className="truncate">{subItem.name}</span>
+                            <ArrowRight className="h-3 w-3" />
                           </a>
                         ))}
                       </div>
@@ -174,22 +131,15 @@ function NavDropdown({ group }: { group: NavGroup }) {
               })}
             </div>
 
-            <div className="border-t border-border/30 px-6 py-4 flex items-center justify-between">
+            <div className="border-t border-border/30 px-5 py-3.5">
               <Link
-                href="/contact"
+                href="/products"
                 onClick={() => setOpen(false)}
                 className="flex items-center gap-2 text-xs font-semibold text-primary hover:text-violet transition-colors group"
               >
                 <Sparkles className="h-3.5 w-3.5" />
-                Talk to our team
+                View all products
                 <ArrowRight className="h-3 w-3 transition-transform group-hover:translate-x-0.5" />
-              </Link>
-              <Link
-                href="/products"
-                onClick={() => setOpen(false)}
-                className="text-xs text-slate/50 hover:text-surface transition-colors"
-              >
-                Browse all products &rarr;
               </Link>
             </div>
           </div>
@@ -277,7 +227,7 @@ export default function Navbar() {
 
   return (
     <header
-      className={`sticky top-0 z-50 transition-all duration-500 bg-white/95 dark:bg-nav-bg/70 ${scrolled
+      className={`sticky top-0 z-50 transition-all duration-500 bg-white/95 dark:bg-[#011232]/95 ${scrolled
         ? "border-b border-border/40 shadow-lg shadow-primary/5 backdrop-blur-2xl"
         : "border-b border-transparent"
         }`}
@@ -335,8 +285,8 @@ export default function Navbar() {
       </div>
 
       {open && (
-        <div className="fixed left-0 right-0 top-0 z-[9999] h-screen bg-nav-bg/95 backdrop-blur-2xl lg:hidden overflow-y-auto">
-          <div className="flex items-center justify-between px-6 py-4 border-b border-border/30">
+        <div className="fixed left-0 right-0 top-0 z-[9999] h-screen bg-nav-bg/95 dark:bg-[#011232]/95 backdrop-blur-2xl lg:hidden overflow-y-auto">
+          <div className="flex items-center justify-between px-6 py-4 border-b border-border/30 dark:border-border/20">
             <Link href="/" onClick={() => setOpen(false)}>
               <LogoMark size={54} />
             </Link>
@@ -368,12 +318,8 @@ export default function Navbar() {
                             className="flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-medium text-slate hover:text-surface hover:bg-charcoal/50 transition-all"
                             onClick={() => setOpen(false)}
                           >
-                            <div className="h-8 w-8 shrink-0 rounded-lg overflow-hidden bg-charcoal/60 ring-1 ring-border/20 flex items-center justify-center">
-                              {product?.image ? (
-                                <img src={product.image} alt="" className="h-full w-full object-cover" />
-                              ) : (
-                                <div className="h-1.5 w-1.5 rounded-full bg-primary/40" />
-                              )}
+                            <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-charcoal/60 ring-1 ring-border/20">
+                              <div className="h-2.5 w-2.5 rounded-full bg-primary/40" />
                             </div>
                             <div>
                               <div>{item.label}</div>

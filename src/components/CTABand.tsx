@@ -14,7 +14,7 @@ export default function CTABand({
   return (
     <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-primary-deep via-violet to-accent-warm p-[1px]">
       {/* Gradient border wrapper */}
-      <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#1e1b5e] via-[#2d1b69] to-[#0c4a6e] p-12 text-center md:p-20">
+      <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-primary-deep via-primary to-accent px-12 py-12 text-center md:p-20">
         {/* Ambient orbs */}
         <div className="absolute -top-24 -right-24 h-64 w-64 rounded-full bg-violet/30 blur-3xl animate-pulse-glow" />
         <div className="absolute -bottom-24 -left-24 h-64 w-64 rounded-full bg-accent/20 blur-3xl animate-pulse-glow" style={{ animationDelay: "1.5s" }} />
