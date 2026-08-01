@@ -1,4 +1,5 @@
 import Hero from "@/components/Hero";
+import PlatformPillars from "@/components/PlatformPillars";
 import Section, { SectionHeading } from "@/components/Section";
 import ProductCard from "@/components/ProductCard";
 import FeatureCard from "@/components/FeatureCard";
@@ -51,59 +52,8 @@ export default function HomePage() {
       </Section>
 
       {/* ── Platform Pillars ──────────────────── */}
-      <Section id="platform-pillars" glow dark className="py-28 md:py-36">
-        <AnimatedSection>
-          <SectionHeading
-            eyebrow="The Cybelinx Platform"
-            title="Four pillars. One foundation."
-            description="Web & SaaS/PaaS, AI & LLM, DevSecOps, and quantum-ready engineering — all on a unified core for regulated enterprises."
-          />
-        </AnimatedSection>
-        <div className="grid gap-5 md:grid-cols-2">
-          {platformPillars.map((pillar, index) => (
-            <AnimatedSection key={pillar.slug} delay={index * 0.08}>
-              <div className="group relative h-full overflow-hidden rounded-2xl border border-border bg-card-bg p-8 transition-all duration-300 hover:border-primary/40 hover:shadow-card-hover hover:-translate-y-1 md:p-10">
-                {/* Top accent line */}
-                <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-brand opacity-0 group-hover:opacity-100 transition-opacity" />
-                {/* Background glow */}
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/3 to-violet/3 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
-
-                <div className="relative flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
-                  <div className="max-w-xl">
-                    <div className="flex items-center gap-3 mb-3">
-                      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-primary/15 to-violet/15 transition-all group-hover:scale-110">
-                        <pillar.icon className="h-5 w-5 text-primary" />
-                      </div>
-                      <h3 className="font-display text-xl font-bold text-surface md:text-2xl">
-                        {pillar.title}
-                      </h3>
-                    </div>
-                    <p className="text-sm leading-relaxed text-slate">{pillar.description}</p>
-                  </div>
-
-                  <div className="shrink-0 rounded-xl border border-primary/20 bg-primary/5 px-5 py-4 backdrop-blur-sm">
-                    <span className="text-[10px] font-bold uppercase tracking-widest text-primary">Outcome</span>
-                    <p className="mt-1.5 max-w-[200px] text-sm font-semibold text-surface leading-snug">
-                      {pillar.outcome}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </AnimatedSection>
-          ))}
-        </div>
-        
-        <AnimatedSection delay={0.4}>
-          <div className="mt-8 text-center">
-            <Link 
-              href="/technologies" 
-              className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:text-violet transition-colors"
-            >
-              See how platform and DevOps teams use these pillars
-              <ArrowRight className="h-4 w-4" />
-            </Link>
-          </div>
-        </AnimatedSection>
+      <Section id="platform-pillars" glow dark className="py-24 md:py-32">
+        <PlatformPillars />
       </Section>
 
       {/* ── How Cybelinx Is Different ────────── */}

@@ -13,6 +13,8 @@ export type PortfolioContent = {
   };
   tech: string[];
   outcomes: string[];
+  icon?: string;
+  image?: string;
   theme: "indigo" | "teal" | "cyan" | "violet" | "rose" | "blue" | "emerald" | "amber";
   status?: "active" | "phase-2";
 };
@@ -26,6 +28,8 @@ export const portfolios: PortfolioContent[] = [
       ctaLabel: "Talk to Platform Team",
       ctaHref: "/contact",
     },
+    icon: "/assets/icons/icon-ai.png",
+    image: "/assets/products/cybeai-suite.png",
     problem: [
       "Fragmented tech stacks across healthcare, banking, and pharma.",
       "Difficulty maintaining strict compliance and auditability in environments.",
@@ -62,6 +66,8 @@ export const portfolios: PortfolioContent[] = [
       ctaLabel: "Explore CybeHospitality",
       ctaHref: "/products/cybehms",
     },
+    icon: "/assets/icons/icon-hms.png",
+    image: "/assets/products/cybehms.png",
     problem: [
       "Operational silos between front-of-house, clinical teams, and revenue cycle.",
       "Revenue leakage due to disconnected billing and insurance systems.",
@@ -96,6 +102,8 @@ export const portfolios: PortfolioContent[] = [
       ctaLabel: "Explore CybeHealth",
       ctaHref: "/products/cybehealth",
     },
+    icon: "/assets/icons/icon-health.png",
+    image: "/assets/products/cybehealth.png",
     problem: [
       "Fragmented systems between hospital administration and pharmacy workflows.",
       "Manual inventory and dispensing processes leading to errors and waste.",
@@ -130,6 +138,8 @@ export const portfolios: PortfolioContent[] = [
       ctaLabel: "Explore CybeCommerce",
       ctaHref: "/products/cybecommerce",
     },
+    icon: "/assets/icons/icon-commerce.png",
+    image: "/assets/products/cybecommerce.png",
     problem: [
       "Legacy e-commerce systems lack flexibility for omnichannel growth.",
       "Inventory fragmentation across online and offline channels.",
@@ -164,6 +174,8 @@ export const portfolios: PortfolioContent[] = [
       ctaLabel: "Explore CybePharma",
       ctaHref: "/products/cybepharma",
     },
+    icon: "/assets/icons/icon-pharma.png",
+    image: "/assets/products/cybepharma.png",
     problem: [
       "Complex regulatory compliance across R&D and manufacturing.",
       "Data silos delaying digital clinical trials and safety signals.",
@@ -198,6 +210,8 @@ export const portfolios: PortfolioContent[] = [
       ctaLabel: "Explore CybeHRMS",
       ctaHref: "/products/cybehrms",
     },
+    icon: "/assets/icons/icon-hrms.png",
+    image: "/assets/products/cybehrm.png",
     problem: [
       "Fragmented HR tools leading to compliance risks.",
       "Poor employee engagement and disjointed payroll.",
@@ -233,6 +247,8 @@ export const portfolios: PortfolioContent[] = [
       ctaLabel: "Discover CybeBank",
       ctaHref: "/contact",
     },
+    icon: "/assets/icons/icon-bank.png",
+    image: "/assets/products/cybebank.png",
     problem: [
       "Legacy banking cores unable to support agile fintech integrations.",
       "High compliance burden for KYC, KYB, and AML processes.",

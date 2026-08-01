@@ -40,14 +40,15 @@ export default function ProductCard({ product }: { product: Product }) {
 
         {/* Product image with stylized dashboard framing */}
         {product.image && (
-          <div className="relative h-52 w-full overflow-hidden border-b border-border/50 bg-charcoal pt-4 px-4 sm:pt-6 sm:px-6">
+          <div className="relative h-56 w-full overflow-hidden border-b border-border/50 bg-charcoal/80 pt-4 px-4 sm:pt-5 sm:px-5">
             {/* Dashboard Mockup Frame */}
-            <div className="relative h-full w-full rounded-t-xl overflow-hidden border border-border/50 bg-background shadow-sm ring-1 ring-black/5">
+            <div className="relative h-full w-full rounded-t-xl overflow-hidden border border-border/60 bg-background shadow-md ring-1 ring-black/10">
               {/* Traffic lights header */}
-              <div className="absolute top-0 left-0 right-0 h-6 bg-slate/5 border-b border-border/50 flex items-center px-3 gap-1.5 z-20 backdrop-blur-sm">
-                <div className="h-2 w-2 rounded-full bg-rose/40" />
-                <div className="h-2 w-2 rounded-full bg-amber-400/40" />
-                <div className="h-2 w-2 rounded-full bg-emerald-400/40" />
+              <div className="absolute top-0 left-0 right-0 h-6 bg-slate-900/40 border-b border-border/40 flex items-center px-3 gap-1.5 z-20 backdrop-blur-md">
+                <div className="h-2 w-2 rounded-full bg-rose-500/70" />
+                <div className="h-2 w-2 rounded-full bg-amber-500/70" />
+                <div className="h-2 w-2 rounded-full bg-emerald-500/70" />
+                <span className="ml-2 text-[10px] font-mono text-slate-400/70 truncate">cybelinx.ai/{product.slug}</span>
               </div>
               <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-violet/5 z-10 pointer-events-none" />
               <div className="absolute inset-x-0 top-6 bottom-0">
@@ -55,6 +56,7 @@ export default function ProductCard({ product }: { product: Product }) {
                   src={product.image}
                   alt={`${product.name} Dashboard`}
                   fill
+                  unoptimized
                   className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
@@ -78,11 +80,19 @@ export default function ProductCard({ product }: { product: Product }) {
             </div>
           </div>
 
-          {/* Product name */}
+          {/* Product name with branding icon prefix */}
           <h3 
-            className="mt-3 font-display text-xl font-bold text-surface transition-colors md:text-2xl drop-shadow-sm"
+            className="mt-3 font-display text-xl font-bold text-surface transition-colors md:text-2xl drop-shadow-sm flex items-center gap-2.5"
             style={{ '--hover-color': product.colorAccent || 'var(--cb-primary)' } as React.CSSProperties}
           >
+            {product.icon && (
+              <div 
+                className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-white/90 dark:bg-slate-900/90 p-1 shadow-sm"
+                style={{ border: `1px solid ${(product.colorAccent || '#0D47FF')}35` }}
+              >
+                <img src={product.icon} alt={`${product.name} icon`} className="h-full w-full object-contain" />
+              </div>
+            )}
             <span className="group-hover:text-[color:var(--hover-color)] transition-colors">{product.name}</span>
           </h3>
 

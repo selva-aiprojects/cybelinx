@@ -3,12 +3,48 @@
 import Link from "next/link";
 import { useState, useRef, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import { ChevronDown, Menu, X, ArrowRight, Sparkles, ExternalLink, Moon, Sun } from "lucide-react";
+import { 
+  ChevronDown, 
+  Menu, 
+  X, 
+  ArrowRight, 
+  Sparkles, 
+  ExternalLink, 
+  Moon, 
+  Sun, 
+  Users, 
+  Building2, 
+  Pill, 
+  Landmark, 
+  HeartPulse, 
+  ShoppingBag, 
+  Cpu 
+} from "lucide-react";
 import Button from "./Button";
 import { LogoLockup, LogoMark } from "./Logo";
 import { brand } from "@/lib/content";
 import { mainNav, type NavGroup } from "@/lib/navigation";
 import { getPortfolioProduct } from "@/lib/products";
+
+const getProductIcon = (slug: string) => {
+  switch (slug) {
+    case "cybehrms":
+      return Users;
+    case "cybehms":
+      return Building2;
+    case "cybepharma":
+      return Pill;
+    case "cybebank":
+      return Landmark;
+    case "cybehealth":
+      return HeartPulse;
+    case "cybecommerce":
+      return ShoppingBag;
+    case "cybeai-suite":
+    default:
+      return Cpu;
+  }
+};
 
 function NavDropdown({ group }: { group: NavGroup }) {
   const [open, setOpen] = useState(false);
@@ -45,8 +81,12 @@ function NavDropdown({ group }: { group: NavGroup }) {
       onMouseEnter={() => setOpen(true)}
       onMouseLeave={() => setOpen(false)}
     >
-      <button className="flex items-center gap-1 text-sm font-medium text-slate transition-colors hover:text-surface cursor-pointer py-1 group">
-        {group.label}
+      <button
+        onClick={() => setOpen(!open)}
+        className="flex items-center gap-1.5 text-sm font-medium text-slate transition-colors hover:text-surface group py-2"
+        aria-expanded={open}
+      >
+        <span>{group.label}</span>
         <ChevronDown
           className={`h-3.5 w-3.5 transition-all duration-300 ${open ? "rotate-180 translate-y-0.5" : ""} group-hover:text-primary`}
         />
@@ -58,56 +98,75 @@ function NavDropdown({ group }: { group: NavGroup }) {
         style={{ zIndex: 9999 }}
       >
         {group.label === "Products" ? (
-          <div className="overflow-hidden rounded-2xl border border-border/60 bg-nav-bg/95 shadow-xl shadow-primary/5 backdrop-blur-2xl min-w-[320px] dark:bg-slate-950 dark:border-slate-800">
-            <div className="px-5 pt-4 pb-2">
-              <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate/40 dark:text-slate-500">
-                Portfolio
+          <div className="overflow-hidden rounded-3xl border border-border/60 bg-nav-bg/95 shadow-2xl shadow-primary/10 backdrop-blur-2xl w-[720px] dark:bg-slate-950/95 dark:border-slate-800 p-6">
+            
+            <div className="flex items-center justify-between pb-4 mb-4 border-b border-border/40">
+              <div>
+                <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-primary">
+                  Enterprise Platform Portfolio
+                </span>
+                <h3 className="text-sm font-bold text-surface dark:text-slate-100 mt-0.5">
+                  AI-Native Solutions for Regulated Industries
+                </h3>
+              </div>
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-[11px] font-semibold border border-emerald-500/20">
+                <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
+                2 Apps Live in Production
               </span>
-              <h3 className="mt-2 text-sm font-semibold text-surface dark:text-slate-100">
-                Cybelinx products
-              </h3>
             </div>
 
-            <div className="p-2">
-              {group.items.map((item, idx) => {
+            <div className="grid grid-cols-2 gap-3">
+              {group.items.map((item) => {
                 const slug = item.href.replace("/products/", "");
                 const product = getPortfolioProduct(slug);
                 const subProducts = product?.portfolioProducts || [];
-                const isExpanded = expandedProduct === item.href;
+                const accentColor = product?.colorAccent || "#0D47FF";
+                const iconSrc = product?.icon || "/cybelinx-icon.png";
 
                 return (
-                  <div key={item.href} className="space-y-2" style={{ animationDelay: `${idx * 40}ms` }}>
-                    <div
-                      className="group/item flex cursor-pointer items-center justify-between rounded-xl border border-transparent px-4 py-3 transition-all duration-200 hover:border-primary/30 hover:bg-primary/5 relative"
-                      onClick={() => {
-                        if (subProducts.length > 0) {
-                          setExpandedProduct(isExpanded ? null : item.href);
-                        } else {
-                          router.push(item.href);
-                          setOpen(false);
-                        }
-                      }}
-                    >
-                      <div>
-                        <p className="text-sm font-semibold text-surface group-hover/item:text-primary transition-colors">
-                          {item.label}
-                        </p>
-                        <p className="text-xs text-slate/70 dark:text-slate-400">
-                          {product?.category || item.description}
-                        </p>
+                  <div 
+                    key={item.href} 
+                    className="group/item relative rounded-2xl border border-border/40 bg-surface/5 p-3.5 transition-all duration-200 hover:border-primary/40 hover:bg-primary/5 hover:shadow-md cursor-pointer"
+                    onClick={() => {
+                      router.push(item.href);
+                      setOpen(false);
+                    }}
+                  >
+                    <div className="flex items-start gap-3">
+                      <div 
+                        className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl p-1.5 transition-transform duration-200 group-hover/item:scale-105 shadow-sm mt-0.5 bg-white/90 dark:bg-slate-900/90"
+                        style={{
+                          border: `1px solid ${accentColor}35`
+                        }}
+                      >
+                        <img src={iconSrc} alt={`${item.label} icon`} className="h-full w-full object-contain" />
                       </div>
-                      <div className="flex items-center gap-2">
-                        {subProducts.length > 0 && (
-                          <span className="text-xs text-primary/80 dark:text-primary/70">
-                            {isExpanded ? "Hide subitems" : "View subitems"}
-                          </span>
-                        )}
-                        <ArrowRight className={`h-3.5 w-3.5 text-slate/0 transition-all ${isExpanded ? "rotate-90 text-primary/70" : "-translate-x-2 group-hover/item:translate-x-0 group-hover/item:text-primary/60"}`} />
+                      <div className="min-w-0 flex-1">
+                        <div className="flex items-center justify-between gap-2">
+                          <div className="flex items-center gap-1.5 truncate">
+                            <h4 className="text-sm font-bold text-surface group-hover/item:text-primary transition-colors truncate">
+                              {item.label}
+                            </h4>
+                          </div>
+                          {product?.status === "live" && (
+                            <span className="rounded-full bg-emerald-500/10 px-2 py-0.5 text-[9px] font-extrabold uppercase text-emerald-600 border border-emerald-500/20 shrink-0">
+                              Live
+                            </span>
+                          )}
+                          {product?.status === "preview" && (
+                            <span className="rounded-full bg-cyan-500/10 px-2 py-0.5 text-[9px] font-extrabold uppercase text-cyan-600 border border-cyan-500/20 shrink-0">
+                              Preview
+                            </span>
+                          )}
+                        </div>
+                        <p className="mt-1 text-xs leading-snug text-slate/80 line-clamp-2 dark:text-slate-400">
+                          {product?.tagline || item.description}
+                        </p>
                       </div>
                     </div>
 
-                    {subProducts.length > 0 && isExpanded && (
-                      <div className="space-y-2 rounded-2xl bg-slate-100/80 p-3 dark:bg-slate-900/80">
+                    {subProducts.length > 0 && (
+                      <div className="mt-2.5 pt-2.5 border-t border-border/30 flex flex-wrap gap-1.5">
                         {subProducts.map((subItem) => (
                           <a
                             key={subItem.name}
@@ -118,10 +177,10 @@ function NavDropdown({ group }: { group: NavGroup }) {
                               e.stopPropagation();
                               setOpen(false);
                             }}
-                            className="flex items-center justify-between gap-3 rounded-xl px-3 py-2 text-xs text-slate-700 transition hover:bg-white hover:text-primary dark:text-slate-300 dark:hover:bg-slate-800"
+                            className="inline-flex items-center gap-1 rounded-md bg-background/80 px-2 py-0.5 text-[10px] font-medium text-slate hover:text-primary hover:bg-primary/10 border border-border/40 transition-colors"
                           >
-                            <span className="truncate">{subItem.name}</span>
-                            <ArrowRight className="h-3 w-3" />
+                            <span>{subItem.name}</span>
+                            <ArrowRight className="h-2.5 w-2.5 opacity-60" />
                           </a>
                         ))}
                       </div>
@@ -131,17 +190,25 @@ function NavDropdown({ group }: { group: NavGroup }) {
               })}
             </div>
 
-            <div className="border-t border-border/30 px-5 py-3.5">
+            <div className="mt-5 pt-4 border-t border-border/40 flex items-center justify-between">
               <Link
                 href="/products"
                 onClick={() => setOpen(false)}
-                className="flex items-center gap-2 text-xs font-semibold text-primary hover:text-violet transition-colors group"
+                className="inline-flex items-center gap-2 text-xs font-bold text-primary hover:text-violet transition-colors group"
               >
-                <Sparkles className="h-3.5 w-3.5" />
-                View all products
-                <ArrowRight className="h-3 w-3 transition-transform group-hover:translate-x-0.5" />
+                <Sparkles className="h-4 w-4" />
+                Explore All Products & Platform Core
+                <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
+              </Link>
+              <Link
+                href="/contact"
+                onClick={() => setOpen(false)}
+                className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate hover:text-surface transition-colors"
+              >
+                Schedule Demo &rarr;
               </Link>
             </div>
+
           </div>
         ) : (
           <div className="overflow-hidden rounded-2xl border border-border/60 bg-nav-bg/95 shadow-xl shadow-primary/5 backdrop-blur-2xl min-w-[320px]">
@@ -318,13 +385,25 @@ export default function Navbar() {
                             className="flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-medium text-slate hover:text-surface hover:bg-charcoal/50 transition-all"
                             onClick={() => setOpen(false)}
                           >
-                            <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-charcoal/60 ring-1 ring-border/20">
-                              <div className="h-2.5 w-2.5 rounded-full bg-primary/40" />
-                            </div>
+                            {(() => {
+                              const IconComp = getProductIcon(slug);
+                              const accentColor = product?.colorAccent || '#0D47FF';
+                              return (
+                                <div 
+                                  className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl p-2 transition-transform duration-200"
+                                  style={{
+                                    backgroundColor: `${accentColor}18`,
+                                    border: `1px solid ${accentColor}35`
+                                  }}
+                                >
+                                  <IconComp className="h-4 w-4" style={{ color: accentColor }} />
+                                </div>
+                              );
+                            })()}
                             <div>
-                              <div>{item.label}</div>
+                              <div className="font-bold text-surface">{item.label}</div>
                               {item.description && (
-                                <div className="text-xs text-slate/50 mt-0.5">{item.description}</div>
+                                <div className="text-xs text-slate/60 mt-0.5">{item.description}</div>
                               )}
                             </div>
                           </Link>

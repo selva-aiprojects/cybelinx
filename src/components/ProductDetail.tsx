@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Section from "@/components/Section";
 import Button from "@/components/Button";
 import Badge from "@/components/Badge";
@@ -31,7 +32,17 @@ export default function ProductDetail({ product, faqs = [], showPricing = false 
     <>
       <Section className="pt-16">
         <Badge tone={statusTone[product.status]}>{statusLabel[product.status]}</Badge>
-        <h1 className="mt-5 max-w-2xl font-display text-4xl font-extrabold text-surface md:text-5xl">{product.name}</h1>
+        <div className="flex items-center gap-3.5 mt-5">
+          {product.icon && (
+            <div 
+              className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-white/90 dark:bg-slate-900/90 p-2 shadow-md"
+              style={{ border: `1px solid ${(product.colorAccent || '#0D47FF')}40` }}
+            >
+              <img src={product.icon} alt={`${product.name} icon`} className="h-full w-full object-contain" />
+            </div>
+          )}
+          <h1 className="font-display text-4xl font-extrabold text-surface md:text-5xl">{product.name}</h1>
+        </div>
         <p className="mt-2 text-sm font-semibold uppercase tracking-wide text-primary">{product.tagline}</p>
         <p className="mt-5 max-w-xl text-slate">{product.summary}</p>
         <div className="mt-8 flex flex-wrap gap-4">
@@ -49,6 +60,30 @@ export default function ProductDetail({ product, faqs = [], showPricing = false 
             </>
           )}
         </div>
+
+        {/* Dashboard Preview Image */}
+        {product.image && (
+          <div className="mt-12 relative w-full overflow-hidden rounded-2xl border border-border/60 bg-charcoal/80 p-3 sm:p-4 shadow-2xl">
+            <div className="relative h-64 sm:h-96 md:h-[480px] w-full overflow-hidden rounded-xl border border-border/40 bg-background shadow-md">
+              <div className="absolute top-0 left-0 right-0 h-8 bg-slate-900/70 backdrop-blur-md border-b border-border/40 flex items-center px-4 gap-2 z-20">
+                <div className="h-2.5 w-2.5 rounded-full bg-rose-500/80" />
+                <div className="h-2.5 w-2.5 rounded-full bg-amber-500/80" />
+                <div className="h-2.5 w-2.5 rounded-full bg-emerald-500/80" />
+                <span className="ml-3 text-xs font-mono text-slate-300/80 truncate">cybelinx.ai/products/{product.slug}</span>
+              </div>
+              <div className="absolute inset-x-0 top-8 bottom-0">
+                <Image
+                  src={product.image}
+                  alt={`${product.name} Live Dashboard`}
+                  fill
+                  unoptimized
+                  className="object-cover object-top"
+                  sizes="100vw"
+                />
+              </div>
+            </div>
+          </div>
+        )}
       </Section>
 
       {product.portfolioProducts && product.portfolioProducts.length > 0 && (

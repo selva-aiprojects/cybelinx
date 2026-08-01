@@ -62,6 +62,11 @@ export default function AnimatedProductSection({ content, index }: { content: Po
           <div className={`flex flex-col ${!isEven ? "lg:order-2" : ""}`}>
             <motion.div variants={fadeUp}>
               <div className="flex items-center gap-3 mb-4">
+                {content.icon && (
+                  <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-white/90 dark:bg-slate-900/90 p-1 border border-primary/20 shadow-sm">
+                    <img src={content.icon} alt="" className="h-full w-full object-contain" />
+                  </div>
+                )}
                 <span className="slugline block tracking-[0.2em] mb-0">{content.title}</span>
                 {content.status === "phase-2" && (
                   <span className="inline-flex items-center rounded-md bg-amber-500/10 px-2 py-1 text-xs font-medium text-amber-600 ring-1 ring-inset ring-amber-500/20 dark:text-amber-400 dark:ring-amber-400/20">
@@ -122,7 +127,29 @@ export default function AnimatedProductSection({ content, index }: { content: Po
 
           {/* Tech & Outcomes Block (Visual/Card Side) */}
           <div className={`flex flex-col gap-6 ${!isEven ? "lg:order-1" : ""}`}>
-            <motion.div variants={fadeUp} className="spotlight-card p-8 rounded-3xl border-border relative">
+            {content.image && (
+              <motion.div variants={fadeUp} className="w-full mb-2">
+                <div className="relative h-64 sm:h-80 w-full overflow-hidden rounded-2xl border border-border/60 bg-charcoal/80 p-3 shadow-2xl">
+                  <div className="relative h-full w-full overflow-hidden rounded-xl border border-border/40 bg-background shadow-md">
+                    {/* Traffic light dots header */}
+                    <div className="absolute top-0 left-0 right-0 h-6 bg-slate-900/70 border-b border-border/40 flex items-center px-3 gap-1.5 z-20 backdrop-blur-md">
+                      <div className="h-2 w-2 rounded-full bg-rose-500/80" />
+                      <div className="h-2 w-2 rounded-full bg-amber-500/80" />
+                      <div className="h-2 w-2 rounded-full bg-emerald-500/80" />
+                      <span className="ml-2 text-[10px] font-mono text-slate-300/80 truncate">cybelinx.ai/{content.id}</span>
+                    </div>
+                    <div className="absolute inset-x-0 top-6 bottom-0">
+                      <img
+                        src={content.image}
+                        alt={`${content.title} Dashboard`}
+                        className="h-full w-full object-cover object-top transition-transform duration-700 hover:scale-105"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            )}
+          <motion.div variants={fadeUp} className="spotlight-card p-8 rounded-3xl border-border relative">
               <div className="absolute inset-0 bg-gradient-to-b from-white/5 to-transparent pointer-events-none rounded-3xl" />
               <div className="relative z-10">
                 <div className="flex items-center gap-3 mb-6">
