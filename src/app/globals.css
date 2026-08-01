@@ -107,13 +107,17 @@
   --hero-accent-2: rgba(0, 194, 255, 0.10);
   --hero-accent-3: rgba(13, 71, 255, 0.10);
 
-  --glass-bg: rgba(8, 14, 40, 0.60);
-  --glass-border: rgba(13, 71, 255, 0.20);
-  --glass-shadow: 0 8px 32px rgba(13, 71, 255, 0.20);
+  --glass-bg: rgba(6, 10, 30, 0.55);
+  --glass-border: rgba(79, 216, 255, 0.15);
+  --glass-shadow: 0 8px 48px rgba(13, 71, 255, 0.25), inset 0 1px 0 rgba(255,255,255,0.05);
 
-  --glow-primary: rgba(13, 71, 255, 0.35);
-  --glow-cyan: rgba(0, 194, 255, 0.30);
-  --glow-violet: rgba(123, 97, 255, 0.30);
+  --glass-premium-bg: rgba(8, 12, 36, 0.60);
+  --glass-premium-border: rgba(79, 216, 255, 0.18);
+  --glass-premium-shadow: 0 16px 64px rgba(13, 71, 255, 0.30), 0 0 0 1px rgba(79,216,255,0.08), inset 0 1px 0 rgba(255,255,255,0.06);
+
+  --glow-primary: rgba(13, 71, 255, 0.40);
+  --glow-cyan: rgba(0, 194, 255, 0.35);
+  --glow-violet: rgba(123, 97, 255, 0.35);
 
   --gradient-brand: linear-gradient(135deg, #0D47FF 0%, #4FD8FF 50%, #00C2FF 100%);
   --gradient-brand-r: linear-gradient(135deg, #00C2FF 0%, #4FD8FF 50%, #0D47FF 100%);
@@ -428,6 +432,154 @@ body {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+}
+
+/* ─── Premium Glass Utility ─────────────────── */
+.glass-premium {
+  background: var(--glass-premium-bg, rgba(8, 12, 36, 0.60));
+  backdrop-filter: blur(28px) saturate(160%);
+  -webkit-backdrop-filter: blur(28px) saturate(160%);
+  border: 1px solid var(--glass-premium-border, rgba(79, 216, 255, 0.18));
+  box-shadow: var(--glass-premium-shadow);
+  border-radius: 1.25rem;
+  transition: border-color 0.35s ease, box-shadow 0.35s ease, transform 0.35s ease;
+}
+
+.glass-premium:hover {
+  border-color: rgba(79, 216, 255, 0.35);
+  box-shadow: 0 24px 80px rgba(13, 71, 255, 0.35), 0 0 0 1px rgba(79,216,255,0.18), inset 0 1px 0 rgba(255,255,255,0.08);
+  transform: translateY(-4px);
+}
+
+/* ─── Glass Surface (lighter, for cards on dark bg) ─── */
+.glass-surface {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(20px) saturate(140%);
+  -webkit-backdrop-filter: blur(20px) saturate(140%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.06), 0 4px 24px rgba(0,0,0,0.3);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.glass-surface:hover {
+  border-color: rgba(79, 216, 255, 0.25);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.08), 0 8px 40px rgba(13,71,255,0.20);
+  transform: translateY(-3px);
+}
+
+/* ─── Glow Ring (animated border pulse) ─────── */
+.glow-ring {
+  position: relative;
+}
+
+.glow-ring::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  background: linear-gradient(135deg, #0D47FF, #4FD8FF, #7B61FF, #00C2FF, #0D47FF);
+  background-size: 300% 300%;
+  animation: glow-ring-spin 3s linear infinite;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+  filter: blur(6px);
+}
+
+.glow-ring:hover::before,
+.glow-ring.active::before {
+  opacity: 0.7;
+}
+
+@keyframes glow-ring-spin {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ─── Animated Gradient Mesh Background ─────── */
+.bg-gradient-mesh {
+  background:
+    radial-gradient(ellipse 80% 60% at 10% 20%, rgba(13, 71, 255, 0.18) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 50% at 90% 10%, rgba(123, 97, 255, 0.15) 0%, transparent 60%),
+    radial-gradient(ellipse 70% 60% at 50% 90%, rgba(0, 194, 255, 0.12) 0%, transparent 60%),
+    #000018;
+  background-attachment: fixed;
+}
+
+/* ─── Animated gradient shift ───────────────── */
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animate-gradient-shift {
+  background-size: 300% 300%;
+  animation: gradient-shift 8s ease infinite;
+}
+
+/* ─── Gradient border card (::before pseudo) ── */
+.gradient-border-card {
+  position: relative;
+  isolation: isolate;
+}
+
+.gradient-border-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(13,71,255,0.5), rgba(79,216,255,0.4), rgba(123,97,255,0.4));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.gradient-border-card:hover::before {
+  opacity: 1;
+}
+
+/* ─── Frosted divider ───────────────────────── */
+.frosted-divider {
+  height: 1px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(79, 216, 255, 0.3) 25%,
+    rgba(123, 97, 255, 0.4) 50%,
+    rgba(79, 216, 255, 0.3) 75%,
+    transparent 100%
+  );
+  box-shadow: 0 0 12px rgba(79, 216, 255, 0.2);
+}
+
+/* ─── Ambient orb sections ──────────────────── */
+.section-orb-blue {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(13, 71, 255, 0.25), transparent 70%);
+  filter: blur(80px);
+  pointer-events: none;
+}
+
+.section-orb-violet {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(123, 97, 255, 0.20), transparent 70%);
+  filter: blur(80px);
+  pointer-events: none;
+}
+
+.section-orb-cyan {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0, 194, 255, 0.18), transparent 70%);
+  filter: blur(80px);
+  pointer-events: none;
 }
 
 /* ─── Section textures ──────────────────────────── */
