@@ -109,11 +109,11 @@
 
   --glass-bg: rgba(6, 10, 30, 0.55);
   --glass-border: rgba(79, 216, 255, 0.15);
-  --glass-shadow: 0 8px 48px rgba(13, 71, 255, 0.25), inset 0 1px 0 rgba(255,255,255,0.05);
+  --glass-shadow: 0 8px 48px rgba(13, 71, 255, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.05);
 
   --glass-premium-bg: rgba(8, 12, 36, 0.60);
   --glass-premium-border: rgba(79, 216, 255, 0.18);
-  --glass-premium-shadow: 0 16px 64px rgba(13, 71, 255, 0.30), 0 0 0 1px rgba(79,216,255,0.08), inset 0 1px 0 rgba(255,255,255,0.06);
+  --glass-premium-shadow: 0 16px 64px rgba(13, 71, 255, 0.30), 0 0 0 1px rgba(79, 216, 255, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.06);
 
   --glow-primary: rgba(13, 71, 255, 0.40);
   --glow-cyan: rgba(0, 194, 255, 0.35);
@@ -447,7 +447,7 @@ body {
 
 .glass-premium:hover {
   border-color: rgba(79, 216, 255, 0.35);
-  box-shadow: 0 24px 80px rgba(13, 71, 255, 0.35), 0 0 0 1px rgba(79,216,255,0.18), inset 0 1px 0 rgba(255,255,255,0.08);
+  box-shadow: 0 24px 80px rgba(13, 71, 255, 0.35), 0 0 0 1px rgba(79, 216, 255, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.08);
   transform: translateY(-4px);
 }
 
@@ -457,13 +457,13 @@ body {
   backdrop-filter: blur(20px) saturate(140%);
   -webkit-backdrop-filter: blur(20px) saturate(140%);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.06), 0 4px 24px rgba(0,0,0,0.3);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06), 0 4px 24px rgba(0, 0, 0, 0.3);
   transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
 }
 
 .glass-surface:hover {
   border-color: rgba(79, 216, 255, 0.25);
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.08), 0 8px 40px rgba(13,71,255,0.20);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 8px 40px rgba(13, 71, 255, 0.20);
   transform: translateY(-3px);
 }
 
@@ -492,9 +492,17 @@ body {
 }
 
 @keyframes glow-ring-spin {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 /* ─── Animated Gradient Mesh Background ─────── */
@@ -509,9 +517,17 @@ body {
 
 /* ─── Animated gradient shift ───────────────── */
 @keyframes gradient-shift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 .animate-gradient-shift {
@@ -531,7 +547,7 @@ body {
   inset: 0;
   border-radius: inherit;
   padding: 1px;
-  background: linear-gradient(135deg, rgba(13,71,255,0.5), rgba(79,216,255,0.4), rgba(123,97,255,0.4));
+  background: linear-gradient(135deg, rgba(13, 71, 255, 0.5), rgba(79, 216, 255, 0.4), rgba(123, 97, 255, 0.4));
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
@@ -548,12 +564,11 @@ body {
 .frosted-divider {
   height: 1px;
   background: linear-gradient(90deg,
-    transparent 0%,
-    rgba(79, 216, 255, 0.3) 25%,
-    rgba(123, 97, 255, 0.4) 50%,
-    rgba(79, 216, 255, 0.3) 75%,
-    transparent 100%
-  );
+      transparent 0%,
+      rgba(79, 216, 255, 0.3) 25%,
+      rgba(123, 97, 255, 0.4) 50%,
+      rgba(79, 216, 255, 0.3) 75%,
+      transparent 100%);
   box-shadow: 0 0 12px rgba(79, 216, 255, 0.2);
 }
 
@@ -746,6 +761,46 @@ body {
   height: 1px;
   background: linear-gradient(90deg, transparent 0%, var(--cb-primary) 30%, var(--cb-violet) 70%, transparent 100%);
   opacity: 0.3;
+}
+
+/* ─── Animated Conic Border (Platform Pillars) ──── */
+@property --border-angle {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+
+@property --border-c {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #0d47ff;
+}
+
+.animated-border-conic {
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: conic-gradient(from var(--border-angle),
+      transparent 0deg,
+      var(--border-c) 30deg,
+      #4fd8ff 60deg,
+      transparent 100deg,
+      transparent 190deg,
+      #7b61ff 230deg,
+      transparent 280deg,
+      transparent 360deg);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: border-angle-spin 5s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes border-angle-spin {
+  to {
+    --border-angle: 360deg;
+  }
 }
 
 /* ─── Selection & Focus ─────────────────────────── */
