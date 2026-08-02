@@ -116,7 +116,7 @@ export default function Hero() {
   const primaryColor = currentColors[0];
 
   return (
-    <div className="relative overflow-hidden bg-white dark:bg-[#020918]">
+    <div className="relative overflow-hidden bg-background">
       {/* ── Background: animated canvas ─────────── */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
         {/* Grid pattern */}
@@ -160,7 +160,7 @@ export default function Hero() {
         />
 
         {/* Left-to-right readability gradient */}
-        <div className="absolute inset-0 bg-gradient-to-r from-white via-white/85 to-transparent dark:from-[#020918] dark:via-[#020918]/70 dark:to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/85 to-transparent" />
       </div>
 
       {/* ── Main content ─────────────────────────── */}
@@ -179,7 +179,7 @@ export default function Hero() {
             {trustBullets.map((bullet) => (
               <span
                 key={bullet}
-                className="inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-[0.15em] text-slate-600 dark:text-white/50"
+                className="inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-[0.15em] text-slate"
               >
                 <CheckCircle2 className="h-3.5 w-3.5 text-emerald-500" />
                 {bullet}
@@ -219,14 +219,14 @@ export default function Hero() {
 
                 {/* Headline */}
                 <h1
-                  className="font-display text-4xl font-extrabold leading-[1.1] tracking-tight text-gray-900 dark:text-white sm:text-5xl lg:text-6xl"
+                  className="font-display text-4xl font-extrabold leading-[1.1] tracking-tight text-surface sm:text-5xl lg:text-6xl"
                   style={{ whiteSpace: "pre-line" }}
                 >
                   {slide.title}
                 </h1>
 
                 {/* Description */}
-                <p className="max-w-xl text-base leading-relaxed text-gray-600 dark:text-white/60 font-normal">
+                <p className="max-w-xl text-base leading-relaxed text-slate font-normal">
                   {slide.description}
                 </p>
               </motion.div>
@@ -252,22 +252,22 @@ export default function Hero() {
               href="/contact"
               variant="secondary"
               size="lg"
-              className="bg-white dark:bg-white/5 border-gray-200 dark:border-white/15 text-gray-700 dark:text-white font-semibold transition-all hover:border-primary/40 hover:bg-blue-50 dark:hover:bg-white/10"
+              className="bg-card-bg border-border text-surface font-semibold transition-all hover:border-primary/40 hover:bg-primary/5"
             >
               Request Demo
             </Button>
           </div>
 
           {/* Stats row */}
-          <div className="mt-12 grid grid-cols-4 gap-0 border-t border-gray-100 dark:border-white/10 pt-8">
+          <div className="mt-12 grid grid-cols-4 gap-0 border-t border-border/40 pt-8">
             {statsRow.map((s, i) => {
               const Icon = s.icon;
               return (
-                <div key={s.label} className={`flex flex-col ${i > 0 ? "border-l border-gray-100 dark:border-white/10 pl-4" : ""}`}>
-                  <div className="font-display text-2xl sm:text-3xl font-extrabold text-gray-900 dark:text-white tracking-tight">
+                <div key={s.label} className={`flex flex-col ${i > 0 ? "border-l border-border/40 pl-4" : ""}`}>
+                  <div className="font-display text-2xl sm:text-3xl font-extrabold text-surface tracking-tight">
                     {s.value}
                   </div>
-                  <div className="text-[10px] font-bold uppercase tracking-widest text-gray-400 dark:text-white/40 mt-1">
+                  <div className="text-[10px] font-bold uppercase tracking-widest text-slate/70 mt-1">
                     {s.label}
                   </div>
                 </div>
@@ -434,7 +434,7 @@ export default function Hero() {
       </div>
 
       {/* Bottom fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-white dark:from-[#020918] to-transparent pointer-events-none" />
+      <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-background to-transparent pointer-events-none" />
     </div>
   );
 }
