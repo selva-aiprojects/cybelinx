@@ -68,14 +68,14 @@ function ShinyTab({
 
       {/* ── Inner tab card ────────────────────────── */}
       <span
-        className={`relative z-10 flex items-start gap-4 rounded-[14px] p-4 transition-all duration-300 ${
+        className={`relative z-10 flex items-start gap-4 rounded-[14px] p-4 transition-all duration-300 border ${
           isActive
-            ? "bg-white/5 backdrop-blur-md"
-            : "bg-white/[0.03] hover:bg-white/[0.06]"
+            ? "bg-white dark:bg-white/5 border-blue-300 dark:border-white/20 shadow-lg shadow-blue-500/10 dark:shadow-none"
+            : "bg-white/80 hover:bg-white dark:bg-white/[0.03] dark:hover:bg-white/[0.06] border-slate-200/80 dark:border-white/5"
         }`}
         style={
           isActive
-            ? { boxShadow: `0 4px 32px ${accent.glow}30, inset 0 0 0 1px transparent` }
+            ? { boxShadow: `0 8px 30px ${accent.glow}20, inset 0 0 0 1px transparent` }
             : {}
         }
       >
@@ -84,7 +84,7 @@ function ShinyTab({
           {/* Active glow behind icon */}
           {isActive && (
             <span
-              className="absolute -inset-2 rounded-full blur-xl"
+              className="absolute -inset-2 rounded-full blur-xl opacity-60 dark:opacity-100"
               style={{ background: `radial-gradient(circle, ${accent.glow} 0%, transparent 70%)` }}
               aria-hidden
             />
@@ -96,11 +96,11 @@ function ShinyTab({
             style={{
               background: isActive
                 ? `linear-gradient(135deg, ${accent.from}, ${accent.to})`
-                : "rgba(255,255,255,0.07)",
+                : "rgba(13, 71, 255, 0.08)",
               boxShadow: isActive ? `0 4px 20px ${accent.glow}50` : "none",
             }}
           >
-            <Icon className="h-5 w-5" style={{ color: isActive ? "white" : "rgba(255,255,255,0.5)" }} />
+            <Icon className="h-5 w-5" style={{ color: isActive ? "white" : "rgba(15, 23, 42, 0.7)" }} />
           </div>
           {/* Number badge */}
           <span
@@ -108,7 +108,7 @@ function ShinyTab({
             style={{
               background: isActive
                 ? `linear-gradient(135deg, ${accent.from}, ${accent.to})`
-                : "rgba(255,255,255,0.12)",
+                : "rgba(15, 23, 42, 0.15)",
             }}
           >
             {index + 1}
@@ -119,13 +119,13 @@ function ShinyTab({
         <div className="min-w-0 flex-1 py-0.5">
           <h3
             className={`text-sm font-bold transition-colors duration-200 leading-tight ${
-              isActive ? "" : "text-white/60 group-hover:text-white/80"
+              isActive ? "" : "text-slate-800 dark:text-white/70 group-hover:text-slate-900 dark:group-hover:text-white"
             }`}
-            style={isActive ? { color: accent.text } : {}}
+            style={isActive ? { color: accent.from } : {}}
           >
             {pillar.title}
           </h3>
-          <p className={`mt-1 text-xs leading-snug transition-colors ${isActive ? "text-white/50" : "text-white/30"}`}>
+          <p className={`mt-1 text-xs leading-snug transition-colors ${isActive ? "text-slate-600 dark:text-white/60" : "text-slate-500 dark:text-white/40"}`}>
             {pillar.subtitle}
           </p>
         </div>
@@ -135,7 +135,7 @@ function ShinyTab({
           className={`mt-1 h-4 w-4 flex-shrink-0 transition-all duration-300 ${
             isActive ? "translate-x-0 opacity-100" : "-translate-x-2 opacity-0"
           }`}
-          style={{ color: accent.text }}
+          style={{ color: accent.from }}
         />
       </span>
     </motion.button>
@@ -162,21 +162,16 @@ function ContentPanel({
         animate={{ opacity: 1, y: 0, scale: 1 }}
         exit={{ opacity: 0, y: -16, scale: 0.98 }}
         transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-        className="relative h-full overflow-hidden rounded-3xl p-8 md:p-10"
-        style={{
-          background: `linear-gradient(145deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.02) 100%)`,
-          border: `1px solid rgba(255,255,255,0.08)`,
-          boxShadow: `0 0 80px ${accent.glow}20, 0 24px 64px rgba(0,0,0,0.3)`,
-        }}
+        className="relative h-full overflow-hidden rounded-3xl p-8 md:p-10 bg-white/95 border border-slate-200/90 shadow-2xl shadow-blue-500/10 dark:bg-[#070d1e] dark:border-white/10"
       >
         {/* Background orb */}
         <div
-          className="absolute -top-20 -right-20 h-72 w-72 rounded-full blur-3xl pointer-events-none"
+          className="absolute -top-20 -right-20 h-72 w-72 rounded-full blur-3xl pointer-events-none opacity-40 dark:opacity-100"
           style={{ background: `radial-gradient(circle, ${accent.glow}25 0%, transparent 70%)` }}
           aria-hidden
         />
         <div
-          className="absolute -bottom-16 -left-16 h-56 w-56 rounded-full blur-3xl pointer-events-none"
+          className="absolute -bottom-16 -left-16 h-56 w-56 rounded-full blur-3xl pointer-events-none opacity-40 dark:opacity-100"
           style={{ background: `radial-gradient(circle, ${accent.glow}15 0%, transparent 70%)` }}
           aria-hidden
         />
@@ -184,13 +179,13 @@ function ContentPanel({
         {/* Pillar number */}
         <div className="relative flex items-center gap-3 mb-7">
           <span
-            className="font-display text-5xl font-extrabold leading-none opacity-15 select-none"
+            className="font-display text-5xl font-extrabold leading-none opacity-20 select-none"
             style={{ color: accent.from }}
           >
             0{index + 1}
           </span>
           <div className="h-8 w-px rounded-full opacity-20" style={{ background: accent.from }} />
-          <span className="eyebrow-pill" style={{ borderColor: `${accent.from}30`, background: `${accent.from}10`, color: accent.text }}>
+          <span className="eyebrow-pill" style={{ borderColor: `${accent.from}30`, background: `${accent.from}10`, color: accent.from }}>
             Platform Pillar
           </span>
         </div>
@@ -209,21 +204,21 @@ function ContentPanel({
             style={{ background: `radial-gradient(circle at 30% 30%, ${accent.from}20, transparent)` }}
             aria-hidden
           />
-          <Icon className="relative h-8 w-8" style={{ color: accent.text }} />
+          <Icon className="relative h-8 w-8" style={{ color: accent.from }} />
         </div>
 
         {/* Title */}
         <h2
-          className="font-display text-2xl font-extrabold leading-tight text-white md:text-3xl"
+          className="font-display text-2xl font-extrabold leading-tight text-slate-900 dark:text-white md:text-3xl"
         >
           {pillar.title}
         </h2>
-        <p className="mt-2 text-sm font-semibold" style={{ color: accent.text }}>
+        <p className="mt-2 text-sm font-semibold" style={{ color: accent.from }}>
           {pillar.subtitle}
         </p>
 
         {/* Description */}
-        <p className="mt-5 text-sm leading-[1.8] text-white/60 md:text-[15px]">
+        <p className="mt-5 text-sm leading-[1.8] text-slate-600 dark:text-white/70 md:text-[15px]">
           {pillar.description}
         </p>
 
@@ -235,12 +230,12 @@ function ContentPanel({
             border: `1px solid ${accent.from}25`,
           }}
         >
-          <CheckCircle2 className="mt-0.5 h-4 w-4 flex-shrink-0" style={{ color: accent.text }} />
+          <CheckCircle2 className="mt-0.5 h-4 w-4 flex-shrink-0" style={{ color: accent.from }} />
           <div>
-            <span className="block text-[10px] font-bold uppercase tracking-widest mb-1" style={{ color: accent.text }}>
+            <span className="block text-[10px] font-bold uppercase tracking-widest mb-1" style={{ color: accent.from }}>
               Enterprise Outcome
             </span>
-            <p className="text-sm font-semibold text-white/80">{pillar.outcome}</p>
+            <p className="text-sm font-semibold text-slate-900 dark:text-white/90">{pillar.outcome}</p>
           </div>
         </div>
 
@@ -291,7 +286,7 @@ export default function PlatformPillars() {
         <motion.div
           variants={headerItem}
           className="absolute -top-10 left-1/2 h-48 w-48 -translate-x-1/2 rounded-full blur-3xl"
-          style={{ background: "radial-gradient(circle, rgba(13,71,255,0.25), transparent 70%)" }}
+          style={{ background: "radial-gradient(circle, rgba(13,71,255,0.18), transparent 70%)" }}
           aria-hidden
         />
 
@@ -305,7 +300,7 @@ export default function PlatformPillars() {
 
         <motion.h2
           variants={headerItem}
-          className="relative mt-6 font-display text-4xl font-extrabold leading-[1.08] tracking-tight text-white sm:text-5xl md:text-6xl"
+          className="relative mt-6 font-display text-4xl font-extrabold leading-[1.08] tracking-tight text-slate-900 dark:text-white sm:text-5xl md:text-6xl"
         >
           Five pillars.{" "}
           <span className="text-gradient-animated">One foundation.</span>
@@ -313,7 +308,7 @@ export default function PlatformPillars() {
 
         <motion.p
           variants={headerItem}
-          className="relative mt-5 max-w-2xl text-base leading-relaxed text-white/65 md:text-lg"
+          className="relative mt-5 max-w-2xl text-base leading-relaxed text-slate-600 dark:text-white/65 md:text-lg"
         >
           SaaS/PaaS, AI &amp; LLM, DevSecOps, a world-class data platform, and
           quantum-ready engineering — unified on a single regulated enterprise core.

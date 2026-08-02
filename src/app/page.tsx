@@ -52,7 +52,7 @@ export default function HomePage() {
       </Section>
 
       {/* ── Platform Pillars ──────────────────── */}
-      <Section id="platform-pillars" glow dark className="py-24 md:py-32">
+      <Section id="platform-pillars" glow className="py-24 md:py-32">
         <PlatformPillars />
       </Section>
 
@@ -73,7 +73,7 @@ export default function HomePage() {
       </Section>
 
       {/* ── How It Works ──────────────────────── */}
-      <Section id="how-it-works" dark className="py-28 md:py-36">
+      <Section id="how-it-works" className="py-28 md:py-36">
         <AnimatedSection>
           <SectionHeading
             eyebrow="How It Works"

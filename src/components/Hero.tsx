@@ -276,14 +276,12 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* ── RIGHT: Platform Pillars Dark Glass Card ── */}
+        {/* ── RIGHT: Platform Pillars Adaptive Theme Card ── */}
         <div className="lg:col-span-6 xl:col-span-5 flex flex-col justify-center">
           <div
-            className="relative overflow-hidden rounded-3xl p-6 sm:p-7 shadow-2xl transition-all duration-500"
+            className="relative overflow-hidden rounded-3xl p-6 sm:p-7 shadow-2xl transition-all duration-500 bg-white/95 border border-slate-200/90 dark:bg-[#090F26] dark:border-white/10"
             style={{
-              background: "linear-gradient(145deg, #090F26 0%, #060B1E 100%)",
-              border: `1px solid ${primaryColor}40`,
-              boxShadow: `0 24px 64px ${primaryColor}25, 0 0 0 1px rgba(255,255,255,0.05)`,
+              boxShadow: `0 20px 60px ${primaryColor}15, 0 4px 20px rgba(0,0,0,0.04)`,
             }}
           >
             {/* Top glowing ambient line */}
@@ -293,25 +291,24 @@ export default function Hero() {
             />
             {/* Ambient background orb inside card */}
             <div
-              className="absolute -top-24 -right-24 h-64 w-64 rounded-full blur-3xl pointer-events-none"
-              style={{ background: `radial-gradient(circle, ${primaryColor}30 0%, transparent 70%)` }}
+              className="absolute -top-24 -right-24 h-64 w-64 rounded-full blur-3xl pointer-events-none opacity-40 dark:opacity-100"
+              style={{ background: `radial-gradient(circle, ${primaryColor}25 0%, transparent 70%)` }}
             />
 
             {/* Card header */}
-            <div className="relative flex items-center justify-between pb-5 mb-4 border-b border-white/10">
+            <div className="relative flex items-center justify-between pb-4 mb-4 border-b border-slate-100 dark:border-white/10">
               <div className="flex items-center gap-2">
-                <Layers className="h-4 w-4 text-white/70" />
-                <span className="text-xs font-bold uppercase tracking-widest text-white/80">
+                <Layers className="h-4 w-4 text-slate-700 dark:text-white/70" />
+                <span className="text-xs font-bold uppercase tracking-widest text-slate-800 dark:text-white/80">
                   Platform Pillars
                 </span>
               </div>
               <span
-                className="text-[11px] font-mono font-bold px-3 py-1 rounded-full border backdrop-blur-md"
+                className="text-[11px] font-mono font-bold px-3 py-1 rounded-full border shadow-sm"
                 style={{
-                  background: `${primaryColor}20`,
-                  color: "#ffffff",
-                  borderColor: `${primaryColor}50`,
-                  boxShadow: `0 0 12px ${primaryColor}40`,
+                  background: `${primaryColor}12`,
+                  color: primaryColor,
+                  borderColor: `${primaryColor}40`,
                 }}
               >
                 0{activeSlide + 1} / 0{slides.length}
@@ -329,18 +326,18 @@ export default function Hero() {
                   <button
                     key={s.id}
                     onClick={() => setActiveSlide(index)}
-                    className={`group relative flex w-full items-center justify-between rounded-2xl p-3.5 transition-all duration-300 ease-out text-left`}
+                    className={`group relative flex w-full items-center justify-between rounded-2xl p-3.5 transition-all duration-300 ease-out text-left border ${
+                      isActive
+                        ? "bg-slate-50/90 dark:bg-white/[0.08] border-slate-300 dark:border-white/20 shadow-md shadow-slate-200/50 dark:shadow-none"
+                        : "bg-slate-50/40 hover:bg-slate-100/70 border-slate-100 dark:bg-white/[0.02] dark:hover:bg-white/[0.06] dark:border-white/[0.05]"
+                    }`}
                     style={
                       isActive
                         ? {
-                            backgroundColor: `${tabColor}20`,
-                            border: `1px solid ${tabColor}60`,
-                            boxShadow: `0 4px 20px ${tabColor}25`,
+                            borderColor: `${tabColor}60`,
+                            backgroundColor: `${tabColor}0d`,
                           }
-                        : {
-                            backgroundColor: "rgba(255,255,255,0.03)",
-                            border: "1px solid rgba(255,255,255,0.06)",
-                          }
+                        : {}
                     }
                   >
                     {/* Left active glow bar */}
@@ -363,27 +360,26 @@ export default function Hero() {
                         style={{
                           background: isActive
                             ? `linear-gradient(135deg, ${tabColor}, ${tabColor}dd)`
-                            : "rgba(255,255,255,0.07)",
+                            : "rgba(13, 71, 255, 0.06)",
                           border: isActive
                             ? `1px solid ${tabColor}`
-                            : "1px solid rgba(255,255,255,0.1)",
-                          boxShadow: isActive ? `0 4px 14px ${tabColor}50` : "none",
+                            : "1px solid rgba(13, 71, 255, 0.12)",
+                          boxShadow: isActive ? `0 4px 14px ${tabColor}40` : "none",
                         }}
                       >
-                        <Icon className="h-5 w-5 text-white" />
+                        <Icon className={`h-5 w-5 ${isActive ? "text-white" : "text-slate-700 dark:text-white/70"}`} />
                       </div>
 
                       {/* Title & subtitle */}
                       <div className="min-w-0 flex-1">
                         <h3
-                          className="font-display font-bold text-sm sm:text-base leading-tight transition-colors"
-                          style={{ color: isActive ? "#ffffff" : "rgba(255,255,255,0.8)" }}
+                          className="font-display font-bold text-sm sm:text-base leading-tight transition-colors text-slate-900 dark:text-white"
+                          style={{ color: isActive ? tabColor : undefined }}
                         >
                           {s.tabLabel}
                         </h3>
                         <p
-                          className="text-xs mt-0.5 font-medium line-clamp-1 transition-colors"
-                          style={{ color: isActive ? "rgba(255,255,255,0.7)" : "rgba(255,255,255,0.4)" }}
+                          className="text-xs mt-0.5 font-medium line-clamp-1 transition-colors text-slate-500 dark:text-white/50"
                         >
                           {s.tabDesc}
                         </p>
@@ -392,8 +388,9 @@ export default function Hero() {
                       {/* Arrow */}
                       <ChevronRight
                         className={`h-4 w-4 shrink-0 transition-transform ${
-                          isActive ? "translate-x-0.5 text-white" : "text-white/30 group-hover:text-white/60 group-hover:translate-x-0.5"
+                          isActive ? "translate-x-0.5 text-slate-900 dark:text-white" : "text-slate-400 dark:text-white/30 group-hover:text-slate-600 dark:group-hover:text-white/60 group-hover:translate-x-0.5"
                         }`}
+                        style={{ color: isActive ? tabColor : undefined }}
                       />
                     </div>
 
