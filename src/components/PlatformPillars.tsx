@@ -301,23 +301,22 @@ export default function PlatformPillars() {
           className="relative inline-flex items-center gap-2.5 rounded-full border border-primary/30 bg-primary/10 px-5 py-2 text-xs font-bold uppercase tracking-[0.22em] text-primary backdrop-blur-md"
         >
           <Sparkles className="h-3.5 w-3.5 animate-pulse" />
-          The Cybelinx Platform
+          The Cybelinx Platform Architecture
         </motion.span>
 
         <motion.h2
           variants={headerItem}
           className="relative mt-6 font-display text-4xl font-extrabold leading-[1.08] tracking-tight text-slate-900 dark:text-white sm:text-5xl md:text-6xl"
         >
-          Five pillars.{" "}
-          <span className="text-gradient-animated">One foundation.</span>
+          Five Core Platform Pillars.{" "}
+          <span className="text-gradient-animated">One Foundation.</span>
         </motion.h2>
 
         <motion.p
           variants={headerItem}
           className="relative mt-5 max-w-2xl text-base leading-relaxed text-slate-600 dark:text-white/65 md:text-lg"
         >
-          SaaS/PaaS, AI &amp; LLM, DevSecOps, a world-class data platform, and
-          quantum-ready engineering — unified on a single regulated enterprise core.
+          SaaS/PaaS Engineering, AI &amp; LLM Core, Multi-Cloud DevSecOps, Unified Data Platform, and Quantum-Ready Cryptography — powering our 7 enterprise SaaS solutions on a single regulated foundation.
         </motion.p>
 
         <motion.div

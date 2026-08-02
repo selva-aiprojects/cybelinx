@@ -300,7 +300,7 @@ export default function Hero() {
               <div className="flex items-center gap-2">
                 <Layers className="h-4 w-4 text-slate-800 dark:text-white/70" />
                 <span className="text-xs font-bold uppercase tracking-widest text-slate-900 dark:text-white/90">
-                  Platform Pillars
+                  5 Core Platform Pillars
                 </span>
               </div>
               <span
