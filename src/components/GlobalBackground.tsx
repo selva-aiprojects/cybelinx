@@ -6,7 +6,7 @@ export default function GlobalBackground() {
   return (
     <div className="fixed inset-0 overflow-hidden pointer-events-none z-[-1]">
       {/* ── Light theme base ─────────────────────── */}
-      <div className="absolute inset-0 bg-white dark:bg-[#020918]" />
+      <div className="absolute inset-0 bg-gradient-to-br from-[#f8fafc] via-[#f1f5f9] to-[#eff4fb] dark:bg-[#020918]" />
 
       {/* ── Subtle dot grid ──────────────────────── */}
       <div

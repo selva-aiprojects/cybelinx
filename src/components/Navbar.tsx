@@ -98,18 +98,18 @@ function NavDropdown({ group }: { group: NavGroup }) {
         style={{ zIndex: 9999 }}
       >
         {group.label === "Products" ? (
-          <div className="overflow-hidden rounded-3xl border border-border/60 bg-nav-bg/95 shadow-2xl shadow-primary/10 backdrop-blur-2xl w-[720px] dark:bg-slate-950/95 dark:border-slate-800 p-6">
+          <div className="overflow-hidden rounded-3xl border border-slate-200/90 bg-white/98 shadow-2xl shadow-blue-500/15 backdrop-blur-2xl w-[730px] dark:bg-slate-950/98 dark:border-slate-800 p-6">
             
-            <div className="flex items-center justify-between pb-4 mb-4 border-b border-border/40">
+            <div className="flex items-center justify-between pb-4 mb-4 border-b border-slate-100 dark:border-slate-800">
               <div>
                 <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-primary">
                   Enterprise Platform Portfolio
                 </span>
-                <h3 className="text-sm font-bold text-surface dark:text-slate-100 mt-0.5">
+                <h3 className="text-sm font-bold text-slate-900 dark:text-slate-100 mt-0.5">
                   AI-Native Solutions for Regulated Industries
                 </h3>
               </div>
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-[11px] font-semibold border border-emerald-500/20">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 text-[11px] font-bold border border-emerald-500/25">
                 <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
                 2 Apps Live in Production
               </span>
@@ -126,7 +126,11 @@ function NavDropdown({ group }: { group: NavGroup }) {
                 return (
                   <div 
                     key={item.href} 
-                    className="group/item relative rounded-2xl border border-border/40 bg-surface/5 p-3.5 transition-all duration-200 hover:border-primary/40 hover:bg-primary/5 hover:shadow-md cursor-pointer"
+                    className="group/item relative rounded-2xl border p-3.5 transition-all duration-200 hover:shadow-lg cursor-pointer"
+                    style={{
+                      backgroundColor: `${accentColor}0b`,
+                      borderColor: `${accentColor}28`,
+                    }}
                     onClick={() => {
                       router.push(item.href);
                       setOpen(false);
@@ -134,9 +138,9 @@ function NavDropdown({ group }: { group: NavGroup }) {
                   >
                     <div className="flex items-start gap-3">
                       <div 
-                        className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl p-1.5 transition-transform duration-200 group-hover/item:scale-105 shadow-sm mt-0.5 bg-white/90 dark:bg-slate-900/90"
+                        className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl p-1.5 transition-transform duration-200 group-hover/item:scale-105 shadow-md shadow-slate-200/50 dark:shadow-none mt-0.5 bg-white dark:bg-slate-900"
                         style={{
-                          border: `1px solid ${accentColor}35`
+                          border: `1px solid ${accentColor}40`
                         }}
                       >
                         <img src={iconSrc} alt={`${item.label} icon`} className="h-full w-full object-contain" />
@@ -144,29 +148,29 @@ function NavDropdown({ group }: { group: NavGroup }) {
                       <div className="min-w-0 flex-1">
                         <div className="flex items-center justify-between gap-2">
                           <div className="flex items-center gap-1.5 truncate">
-                            <h4 className="text-sm font-bold text-surface group-hover/item:text-primary transition-colors truncate">
+                            <h4 className="text-sm font-bold text-slate-900 dark:text-slate-100 group-hover/item:text-primary transition-colors truncate">
                               {item.label}
                             </h4>
                           </div>
                           {product?.status === "live" && (
-                            <span className="rounded-full bg-emerald-500/10 px-2 py-0.5 text-[9px] font-extrabold uppercase text-emerald-600 border border-emerald-500/20 shrink-0">
+                            <span className="rounded-full bg-emerald-500/10 px-2 py-0.5 text-[9px] font-extrabold uppercase text-emerald-700 dark:text-emerald-400 border border-emerald-500/30 shrink-0">
                               Live
                             </span>
                           )}
                           {product?.status === "preview" && (
-                            <span className="rounded-full bg-cyan-500/10 px-2 py-0.5 text-[9px] font-extrabold uppercase text-cyan-600 border border-cyan-500/20 shrink-0">
+                            <span className="rounded-full bg-cyan-500/10 px-2 py-0.5 text-[9px] font-extrabold uppercase text-cyan-700 dark:text-cyan-400 border border-cyan-500/30 shrink-0">
                               Preview
                             </span>
                           )}
                         </div>
-                        <p className="mt-1 text-xs leading-snug text-slate/80 line-clamp-2 dark:text-slate-400">
+                        <p className="mt-1 text-xs leading-snug text-slate-600 dark:text-slate-400 line-clamp-2 font-medium">
                           {product?.tagline || item.description}
                         </p>
                       </div>
                     </div>
 
                     {subProducts.length > 0 && (
-                      <div className="mt-2.5 pt-2.5 border-t border-border/30 flex flex-wrap gap-1.5">
+                      <div className="mt-2.5 pt-2.5 border-t border-slate-200/60 dark:border-slate-800 flex flex-wrap gap-1.5">
                         {subProducts.map((subItem) => (
                           <a
                             key={subItem.name}
@@ -177,7 +181,7 @@ function NavDropdown({ group }: { group: NavGroup }) {
                               e.stopPropagation();
                               setOpen(false);
                             }}
-                            className="inline-flex items-center gap-1 rounded-md bg-background/80 px-2 py-0.5 text-[10px] font-medium text-slate hover:text-primary hover:bg-primary/10 border border-border/40 transition-colors"
+                            className="inline-flex items-center gap-1 rounded-md bg-white dark:bg-slate-900 px-2 py-0.5 text-[10px] font-bold text-slate-700 dark:text-slate-300 hover:text-primary hover:bg-primary/10 border border-slate-200 dark:border-slate-700 shadow-xs transition-colors"
                           >
                             <span>{subItem.name}</span>
                             <ArrowRight className="h-2.5 w-2.5 opacity-60" />
