@@ -279,9 +279,9 @@ export default function Hero() {
         {/* ── RIGHT: Platform Pillars Adaptive Theme Card ── */}
         <div className="lg:col-span-6 xl:col-span-5 flex flex-col justify-center">
           <div
-            className="relative overflow-hidden rounded-3xl p-6 sm:p-7 shadow-2xl transition-all duration-500 bg-gradient-to-br from-[#f8fafc] via-[#f1f5f9] to-[#eef4ff] border border-slate-300/80 dark:from-[#090F26] dark:to-[#060B1E] dark:border-white/10"
+            className="relative overflow-hidden rounded-3xl p-6 sm:p-7 shadow-2xl transition-all duration-500 bg-slate-100 border border-slate-300/80 dark:bg-[#070D24] dark:border-white/15"
             style={{
-              boxShadow: `0 24px 64px ${primaryColor}20, 0 4px 20px rgba(0,0,0,0.06)`,
+              boxShadow: `0 24px 64px ${primaryColor}25, 0 4px 20px rgba(0,0,0,0.1)`,
             }}
           >
             {/* Top glowing ambient line */}
@@ -291,24 +291,24 @@ export default function Hero() {
             />
             {/* Ambient background orb inside card */}
             <div
-              className="absolute -top-24 -right-24 h-64 w-64 rounded-full blur-3xl pointer-events-none opacity-50 dark:opacity-100"
-              style={{ background: `radial-gradient(circle, ${primaryColor}25 0%, transparent 70%)` }}
+              className="absolute -top-24 -right-24 h-64 w-64 rounded-full blur-3xl pointer-events-none opacity-40 dark:opacity-80"
+              style={{ background: `radial-gradient(circle, ${primaryColor}30 0%, transparent 70%)` }}
             />
 
             {/* Card header */}
             <div className="relative flex items-center justify-between pb-4 mb-4 border-b border-slate-200/80 dark:border-white/10">
               <div className="flex items-center gap-2">
                 <Layers className="h-4 w-4 text-slate-800 dark:text-white/70" />
-                <span className="text-xs font-bold uppercase tracking-widest text-slate-900 dark:text-white/80">
+                <span className="text-xs font-bold uppercase tracking-widest text-slate-900 dark:text-white/90">
                   Platform Pillars
                 </span>
               </div>
               <span
                 className="text-[11px] font-mono font-bold px-3 py-1 rounded-full border shadow-xs"
                 style={{
-                  background: `${primaryColor}15`,
+                  background: `${primaryColor}20`,
                   color: primaryColor,
-                  borderColor: `${primaryColor}45`,
+                  borderColor: `${primaryColor}50`,
                 }}
               >
                 0{activeSlide + 1} / 0{slides.length}
@@ -328,14 +328,14 @@ export default function Hero() {
                     onClick={() => setActiveSlide(index)}
                     className={`group relative flex w-full items-center justify-between rounded-2xl p-3.5 transition-all duration-300 ease-out text-left border ${
                       isActive
-                        ? "bg-white dark:bg-white/[0.08] border-blue-400 dark:border-white/20 shadow-md shadow-blue-500/10 dark:shadow-none"
-                        : "bg-white/80 hover:bg-white border-slate-200/80 dark:bg-white/[0.02] dark:hover:bg-white/[0.06] dark:border-white/[0.05]"
+                        ? "bg-white dark:bg-white/10 border-blue-400 dark:border-white/30 shadow-md shadow-blue-500/10 dark:shadow-none"
+                        : "bg-white/70 hover:bg-white border-slate-200/80 dark:bg-white/[0.03] dark:hover:bg-white/[0.07] dark:border-white/[0.06]"
                     }`}
                     style={
                       isActive
                         ? {
-                            borderColor: `${tabColor}70`,
-                            backgroundColor: `${tabColor}0d`,
+                            borderColor: tabColor,
+                            backgroundColor: `${tabColor}15`,
                           }
                         : {}
                     }

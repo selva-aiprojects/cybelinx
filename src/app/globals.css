@@ -127,53 +127,68 @@
 
 /* ─── Sales Demo Theme (Ultra-Vibrant & Converting) ────────── */
 [data-theme="sales"] {
-  --cb-background: #060515;
+  --cb-background: #050816;
   --cb-surface: #ffffff;
-  --cb-slate: #a3b3d1;
+  --cb-slate: #94a3b8;
   --cb-primary: #00F0FF;
   --cb-primary-deep: #6366F1;
-  --cb-accent: #FF007A;
+  --cb-accent: #8B5CF6;
   --cb-accent-warm: #FFB800;
-  --cb-violet: #B55FE6;
-  --cb-rose: #FF2E63;
-  --cb-live: #00E676;
-  --cb-border: #28194c;
-  --cb-nav-bg: rgba(6, 5, 21, 0.90);
-  --cb-charcoal: #0c0824;
+  --cb-violet: #A855F7;
+  --cb-rose: #EC4899;
+  --cb-live: #10B981;
+  --cb-border: #1e293b;
+  --cb-nav-bg: rgba(5, 8, 22, 0.90);
+  --cb-charcoal: #0b0f2a;
 
-  --card-bg: #0c0827;
-  --card-border: #2e1a5a;
-  --card-shadow: 0 8px 32px rgba(181, 95, 230, 0.20), 0 0 40px rgba(0, 240, 255, 0.12);
+  --card-bg: #0b0f2a;
+  --card-border: #1e293b;
+  --card-shadow: 0 8px 32px rgba(139, 92, 246, 0.20), 0 0 32px rgba(0, 240, 255, 0.12);
   --card-border-hover: #00F0FF;
-  --card-shadow-hover: 0 12px 48px rgba(0, 240, 255, 0.40), 0 0 60px rgba(255, 0, 122, 0.30);
+  --card-shadow-hover: 0 12px 48px rgba(0, 240, 255, 0.35), 0 0 60px rgba(139, 92, 246, 0.25);
 
-  --hero-from: #060515;
-  --hero-via: #120934;
-  --hero-to: #060515;
-  --hero-accent-1: rgba(0, 240, 255, 0.22);
-  --hero-accent-2: rgba(255, 0, 122, 0.18);
-  --hero-accent-3: rgba(181, 95, 230, 0.20);
+  --hero-from: #050816;
+  --hero-via: #0f1338;
+  --hero-to: #050816;
+  --hero-accent-1: rgba(0, 240, 255, 0.20);
+  --hero-accent-2: rgba(139, 92, 246, 0.18);
+  --hero-accent-3: rgba(0, 240, 255, 0.15);
 
-  --glass-bg: rgba(12, 8, 39, 0.70);
+  --glass-bg: rgba(11, 15, 42, 0.75);
   --glass-border: rgba(0, 240, 255, 0.25);
-  --glass-shadow: 0 12px 64px rgba(181, 95, 230, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.10);
+  --glass-shadow: 0 12px 64px rgba(139, 92, 246, 0.30), inset 0 1px 0 rgba(255, 255, 255, 0.10);
 
-  --glass-premium-bg: rgba(14, 9, 44, 0.75);
-  --glass-premium-border: rgba(255, 0, 122, 0.30);
-  --glass-premium-shadow: 0 20px 80px rgba(0, 240, 255, 0.40), 0 0 0 1px rgba(255, 0, 122, 0.20);
+  --glass-premium-bg: rgba(13, 18, 48, 0.80);
+  --glass-premium-border: rgba(0, 240, 255, 0.30);
+  --glass-premium-shadow: 0 20px 80px rgba(0, 240, 255, 0.35), 0 0 0 1px rgba(139, 92, 246, 0.20);
 
-  --glow-primary: rgba(0, 240, 255, 0.50);
-  --glow-cyan: rgba(0, 240, 255, 0.45);
-  --glow-violet: rgba(181, 95, 230, 0.45);
+  --glow-primary: rgba(0, 240, 255, 0.45);
+  --glow-cyan: rgba(0, 240, 255, 0.40);
+  --glow-violet: rgba(139, 92, 246, 0.40);
 
-  --gradient-brand: linear-gradient(135deg, #00F0FF 0%, #B55FE6 50%, #FF007A 100%);
-  --gradient-brand-r: linear-gradient(135deg, #FF007A 0%, #B55FE6 50%, #00F0FF 100%);
+  --gradient-brand: linear-gradient(135deg, #00F0FF 0%, #8B5CF6 50%, #EC4899 100%);
+  --gradient-brand-r: linear-gradient(135deg, #EC4899 0%, #8B5CF6 50%, #00F0FF 100%);
 
   --hero-bg-saas: url('/images/hero-bg-dark.png');
   --hero-bg-devsecops: url('/images/hero-devsecops-dark.png');
   --hero-bg-ai: url('/images/hero-ai-dark.png');
   --hero-bg-quantum: url('/images/hero-quantum-dark.png');
   --hero-bg-data: url('/images/hero-data-dark.png');
+}
+
+/* ─── Sales Mode Automatic Dark Utility Mappings ─────────────── */
+[data-theme="sales"] .dark\:bg-\[\#000b21\],
+[data-theme="sales"] header {
+  background-color: #050816 !important;
+}
+
+[data-theme="sales"] .dark\:bg-\[\#070D24\],
+[data-theme="sales"] .dark\:bg-\[\#070d1e\] {
+  background-color: #0b0f2a !important;
+}
+
+[data-theme="sales"] .dark\:text-white {
+  color: #ffffff !important;
 }
 
 /* ─── Base ──────────────────────────────────────── */

@@ -91,25 +91,31 @@ function ShinyTab({
           )}
           <div
             className={`relative flex h-11 w-11 items-center justify-center rounded-xl transition-all duration-300 ${
-              isActive ? "scale-110" : "scale-100 group-hover:scale-105"
+              isActive ? "scale-110" : "scale-100 group-hover:scale-105 bg-slate-100 dark:bg-white/10"
             }`}
-            style={{
-              background: isActive
-                ? `linear-gradient(135deg, ${accent.from}, ${accent.to})`
-                : "rgba(13, 71, 255, 0.08)",
-              boxShadow: isActive ? `0 4px 20px ${accent.glow}50` : "none",
-            }}
+            style={
+              isActive
+                ? {
+                    background: `linear-gradient(135deg, ${accent.from}, ${accent.to})`,
+                    boxShadow: `0 4px 20px ${accent.glow}50`,
+                  }
+                : {}
+            }
           >
-            <Icon className="h-5 w-5" style={{ color: isActive ? "white" : "rgba(15, 23, 42, 0.7)" }} />
+            <Icon className={`h-5 w-5 ${isActive ? "text-white" : "text-slate-600 dark:text-white/70"}`} />
           </div>
           {/* Number badge */}
           <span
-            className="absolute -top-1.5 -right-1.5 flex h-4 w-4 items-center justify-center rounded-full text-[9px] font-bold text-white"
-            style={{
-              background: isActive
-                ? `linear-gradient(135deg, ${accent.from}, ${accent.to})`
-                : "rgba(15, 23, 42, 0.15)",
-            }}
+            className={`absolute -top-1.5 -right-1.5 flex h-4 w-4 items-center justify-center rounded-full text-[9px] font-bold ${
+              isActive
+                ? "text-white"
+                : "bg-slate-200 text-slate-700 dark:bg-white/20 dark:text-white/80"
+            }`}
+            style={
+              isActive
+                ? { background: `linear-gradient(135deg, ${accent.from}, ${accent.to})` }
+                : {}
+            }
           >
             {index + 1}
           </span>
