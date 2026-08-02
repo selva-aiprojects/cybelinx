@@ -12,6 +12,8 @@ import {
   ExternalLink, 
   Moon, 
   Sun, 
+  Zap,
+  Palette,
   Users, 
   Building2, 
   Pill, 
@@ -277,7 +279,7 @@ export default function Navbar() {
   const [theme, setTheme] = useState("light");
 
   useEffect(() => {
-    const storedTheme = window.localStorage.getItem("theme") as "light" | "dark" | null;
+    const storedTheme = window.localStorage.getItem("theme") as "light" | "dark" | "sales" | null;
     const initialTheme = storedTheme || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
     setTheme(initialTheme);
     document.documentElement.setAttribute("data-theme", initialTheme);
@@ -290,7 +292,9 @@ export default function Navbar() {
   }, []);
 
   const toggleTheme = () => {
-    const nextTheme = theme === "dark" ? "light" : "dark";
+    const themeOrder: ("light" | "dark" | "sales")[] = ["light", "dark", "sales"];
+    const currentIndex = themeOrder.indexOf(theme as any);
+    const nextTheme = themeOrder[(currentIndex + 1) % themeOrder.length];
     setTheme(nextTheme);
     document.documentElement.setAttribute("data-theme", nextTheme);
     window.localStorage.setItem("theme", nextTheme);
@@ -324,10 +328,28 @@ export default function Navbar() {
           <button
             type="button"
             onClick={toggleTheme}
-            aria-label="Toggle dark mode"
-            className="rounded-full p-2 text-slate hover:bg-slate/10 transition-colors"
+            aria-label="Toggle theme mode"
+            title={`Current theme: ${theme.toUpperCase()} (Click to switch)`}
+            className="flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-bold transition-all border border-slate-200 dark:border-white/15 hover:border-primary/40 bg-slate-50 dark:bg-white/5 cursor-pointer"
           >
-            {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+            {theme === "light" && (
+              <>
+                <Moon className="h-3.5 w-3.5 text-slate-700" />
+                <span className="text-slate-700">Light</span>
+              </>
+            )}
+            {theme === "dark" && (
+              <>
+                <Sun className="h-3.5 w-3.5 text-amber-400" />
+                <span className="text-white/90">Dark</span>
+              </>
+            )}
+            {theme === "sales" && (
+              <>
+                <Zap className="h-3.5 w-3.5 text-cyan-400 animate-pulse" />
+                <span className="text-cyan-400 font-extrabold">⚡ Sales</span>
+              </>
+            )}
           </button>
           <Button href="/contact" variant="secondary" size="sm">
             Talk to Sales
@@ -341,10 +363,12 @@ export default function Navbar() {
           <button
             type="button"
             onClick={toggleTheme}
-            aria-label="Toggle dark mode"
-            className="rounded-full p-2 text-slate hover:bg-slate/10 transition-colors"
+            aria-label="Toggle theme mode"
+            className="flex items-center gap-1 rounded-full px-2.5 py-1 text-xs font-bold transition-all border border-slate-200 dark:border-white/15 bg-slate-50 dark:bg-white/5"
           >
-            {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+            {theme === "light" && <Moon className="h-4 w-4 text-slate-700" />}
+            {theme === "dark" && <Sun className="h-4 w-4 text-amber-400" />}
+            {theme === "sales" && <Zap className="h-4 w-4 text-cyan-400 animate-pulse" />}
           </button>
           <button
             className="rounded-lg p-2 text-surface hover:bg-charcoal/50 transition-colors cursor-pointer"
