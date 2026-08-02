@@ -2,7 +2,9 @@ import type { MetadataRoute } from "next";
 import { products } from "@/lib/products";
 import { insights } from "@/lib/content";
 
-const baseUrl = "https://cybelinx.com";
+const baseUrl = process.env.NEXT_PUBLIC_SITE_URL 
+  ? process.env.NEXT_PUBLIC_SITE_URL.replace(/\/$/, "") 
+  : "https://cybelinx.com";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const currentDate = new Date();
