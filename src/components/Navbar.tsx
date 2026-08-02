@@ -283,7 +283,7 @@ export default function Navbar() {
     const initialTheme = storedTheme || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
     setTheme(initialTheme);
     document.documentElement.setAttribute("data-theme", initialTheme);
-    if (initialTheme === "dark" || initialTheme === "sales") {
+    if (initialTheme === "dark") {
       document.documentElement.classList.add("dark");
     } else {
       document.documentElement.classList.remove("dark");
@@ -302,7 +302,7 @@ export default function Navbar() {
     const nextTheme = themeOrder[(currentIndex + 1) % themeOrder.length];
     setTheme(nextTheme);
     document.documentElement.setAttribute("data-theme", nextTheme);
-    if (nextTheme === "dark" || nextTheme === "sales") {
+    if (nextTheme === "dark") {
       document.documentElement.classList.add("dark");
     } else {
       document.documentElement.classList.remove("dark");

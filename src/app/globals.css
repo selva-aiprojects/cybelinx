@@ -125,70 +125,55 @@
   --hero-bg-data: url('/images/hero-data-dark.png');
 }
 
-/* ─── Sales Demo Theme (Ultra-Vibrant & Converting) ────────── */
+/* ─── Sales Demo Theme (Bright, Ultra-Vibrant & Converting) ─── */
 [data-theme="sales"] {
-  --cb-background: #050816;
-  --cb-surface: #ffffff;
-  --cb-slate: #94a3b8;
-  --cb-primary: #00F0FF;
-  --cb-primary-deep: #6366F1;
-  --cb-accent: #8B5CF6;
-  --cb-accent-warm: #FFB800;
-  --cb-violet: #A855F7;
-  --cb-rose: #EC4899;
-  --cb-live: #10B981;
-  --cb-border: #1e293b;
-  --cb-nav-bg: rgba(5, 8, 22, 0.90);
-  --cb-charcoal: #0b0f2a;
+  --cb-background: #f4f0ff;
+  --cb-surface: #0f172a;
+  --cb-slate: #475569;
+  --cb-primary: #4f46e5;
+  --cb-primary-deep: #4338ca;
+  --cb-accent: #d946ef;
+  --cb-accent-warm: #f59e0b;
+  --cb-violet: #9333ea;
+  --cb-rose: #e11d48;
+  --cb-live: #059669;
+  --cb-border: #c7d2fe;
+  --cb-nav-bg: rgba(255, 255, 255, 0.95);
+  --cb-charcoal: #eef2ff;
 
-  --card-bg: #0b0f2a;
-  --card-border: #1e293b;
-  --card-shadow: 0 8px 32px rgba(139, 92, 246, 0.20), 0 0 32px rgba(0, 240, 255, 0.12);
-  --card-border-hover: #00F0FF;
-  --card-shadow-hover: 0 12px 48px rgba(0, 240, 255, 0.35), 0 0 60px rgba(139, 92, 246, 0.25);
+  --card-bg: #ffffff;
+  --card-border: #cbd5e1;
+  --card-shadow: 0 10px 40px rgba(99, 102, 241, 0.12), 0 2px 10px rgba(217, 70, 239, 0.08);
+  --card-border-hover: #4f46e5;
+  --card-shadow-hover: 0 16px 56px rgba(99, 102, 241, 0.22), 0 4px 20px rgba(217, 70, 239, 0.18);
 
-  --hero-from: #050816;
-  --hero-via: #0f1338;
-  --hero-to: #050816;
-  --hero-accent-1: rgba(0, 240, 255, 0.20);
-  --hero-accent-2: rgba(139, 92, 246, 0.18);
-  --hero-accent-3: rgba(0, 240, 255, 0.15);
+  --hero-from: #f0f4ff;
+  --hero-via: #faf5ff;
+  --hero-to: #f0fdfa;
+  --hero-accent-1: rgba(99, 102, 241, 0.15);
+  --hero-accent-2: rgba(217, 70, 239, 0.12);
+  --hero-accent-3: rgba(6, 182, 212, 0.12);
 
-  --glass-bg: rgba(11, 15, 42, 0.75);
-  --glass-border: rgba(0, 240, 255, 0.25);
-  --glass-shadow: 0 12px 64px rgba(139, 92, 246, 0.30), inset 0 1px 0 rgba(255, 255, 255, 0.10);
+  --glass-bg: rgba(255, 255, 255, 0.92);
+  --glass-border: rgba(99, 102, 241, 0.25);
+  --glass-shadow: 0 12px 48px rgba(99, 102, 241, 0.15);
 
-  --glass-premium-bg: rgba(13, 18, 48, 0.80);
-  --glass-premium-border: rgba(0, 240, 255, 0.30);
-  --glass-premium-shadow: 0 20px 80px rgba(0, 240, 255, 0.35), 0 0 0 1px rgba(139, 92, 246, 0.20);
+  --glass-premium-bg: rgba(255, 255, 255, 0.95);
+  --glass-premium-border: rgba(217, 70, 239, 0.30);
+  --glass-premium-shadow: 0 20px 64px rgba(99, 102, 241, 0.20);
 
-  --glow-primary: rgba(0, 240, 255, 0.45);
-  --glow-cyan: rgba(0, 240, 255, 0.40);
-  --glow-violet: rgba(139, 92, 246, 0.40);
+  --glow-primary: rgba(79, 70, 229, 0.25);
+  --glow-cyan: rgba(6, 182, 212, 0.25);
+  --glow-violet: rgba(217, 70, 239, 0.25);
 
-  --gradient-brand: linear-gradient(135deg, #00F0FF 0%, #8B5CF6 50%, #EC4899 100%);
-  --gradient-brand-r: linear-gradient(135deg, #EC4899 0%, #8B5CF6 50%, #00F0FF 100%);
+  --gradient-brand: linear-gradient(135deg, #4f46e5 0%, #d946ef 50%, #06b6d4 100%);
+  --gradient-brand-r: linear-gradient(135deg, #06b6d4 0%, #d946ef 50%, #4f46e5 100%);
 
-  --hero-bg-saas: url('/images/hero-bg-dark.png');
-  --hero-bg-devsecops: url('/images/hero-devsecops-dark.png');
-  --hero-bg-ai: url('/images/hero-ai-dark.png');
-  --hero-bg-quantum: url('/images/hero-quantum-dark.png');
-  --hero-bg-data: url('/images/hero-data-dark.png');
-}
-
-/* ─── Sales Mode Automatic Dark Utility Mappings ─────────────── */
-[data-theme="sales"] .dark\:bg-\[\#000b21\],
-[data-theme="sales"] header {
-  background-color: #050816 !important;
-}
-
-[data-theme="sales"] .dark\:bg-\[\#070D24\],
-[data-theme="sales"] .dark\:bg-\[\#070d1e\] {
-  background-color: #0b0f2a !important;
-}
-
-[data-theme="sales"] .dark\:text-white {
-  color: #ffffff !important;
+  --hero-bg-saas: url('/images/hero-bg.png');
+  --hero-bg-devsecops: url('/images/hero-devsecops.png');
+  --hero-bg-ai: url('/images/hero-ai.png');
+  --hero-bg-quantum: url('/images/hero-quantum.png');
+  --hero-bg-data: url('/images/hero-data.png');
 }
 
 /* ─── Base ──────────────────────────────────────── */
