@@ -22,21 +22,66 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://cybelinx.com"),
   title: {
     default: `${brand.name} — ${brand.tagline}`,
     template: `%s | ${brand.name}`,
   },
   description: brand.description,
+  keywords: [
+    "Cybelinx",
+    "Enterprise AI Platforms",
+    "Cloud Native PaaS",
+    "DevSecOps Automation",
+    "Quantum Ready Computing",
+    "Enterprise HRMS Software",
+    "Hospitality Management System",
+    "Clinical Healthcare Software",
+    "Pharma Commercial Operations",
+    "Multi-Cloud Infrastructure",
+  ],
+  authors: [{ name: "Cybelinx Engineering", url: "https://cybelinx.com" }],
+  creator: "Cybelinx",
+  publisher: "Cybelinx",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
   openGraph: {
-    title: brand.name,
+    title: `${brand.name} — ${brand.tagline}`,
     description: brand.description,
+    url: "https://cybelinx.com",
+    siteName: brand.name,
+    locale: "en_US",
     type: "website",
+    images: [
+      {
+        url: "/cybelinx-branding-kit.png",
+        width: 1200,
+        height: 630,
+        alt: "Cybelinx Enterprise Platform",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${brand.name} — ${brand.tagline}`,
+    description: brand.description,
+    images: ["/cybelinx-branding-kit.png"],
   },
   icons: {
     icon: "/favicon.png",
     apple: "/favicon.png",
   },
 };
+
 
 export default function RootLayout({ children }: { children?: React.ReactNode }) {
   return (
@@ -46,7 +91,40 @@ export default function RootLayout({ children }: { children?: React.ReactNode })
       data-theme="light"
       suppressHydrationWarning
     >
-      <head />
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@graph": [
+                {
+                  "@type": "Organization",
+                  "@id": "https://cybelinx.com/#organization",
+                  "name": brand.name,
+                  "url": "https://cybelinx.com",
+                  "logo": "https://cybelinx.com/cybelinx-logo.png",
+                  "description": brand.description,
+                  "contactPoint": {
+                    "@type": "ContactPoint",
+                    "email": brand.email,
+                    "contactType": "sales",
+                  },
+                },
+                {
+                  "@type": "WebSite",
+                  "@id": "https://cybelinx.com/#website",
+                  "url": "https://cybelinx.com",
+                  "name": brand.name,
+                  "publisher": {
+                    "@id": "https://cybelinx.com/#organization",
+                  },
+                },
+              ],
+            }),
+          }}
+        />
+      </head>
       <body
         className="min-h-screen bg-transparent font-sans text-surface antialiased relative"
         suppressHydrationWarning
