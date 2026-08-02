@@ -14,7 +14,7 @@ import CompactComparisonTable from "@/components/CompactComparisonTable";
 
 export const metadata: Metadata = {
   title: "Platform",
-  description: "Cybelinx is an AI-native platform for web, SaaS/PaaS, multi-cloud DevSecOps, LLM services, and quantum-ready engineering.",
+  description: "Cybelinx builds enduring enterprise technology platforms — unifying AI, SaaS, PaaS, DevOps, cybersecurity, automation, analytics, and cloud infrastructure.",
 };
 
 export default function PlatformPage() {
@@ -22,9 +22,9 @@ export default function PlatformPage() {
     <>
       <Section className="pt-16">
         <PageHeader
-          eyebrow="Platform"
-          title="One unified foundation for every product."
-          description="Cybelinx gives engineering and platform teams a single core for web apps, SaaS/PaaS products, multi-cloud DevSecOps, LLM services, and future quantum workloads — built for regulated enterprises from day one."
+          eyebrow="Platform Architecture"
+          title="Engineering the Future of Enterprise Intelligence."
+          description="Cybelinx provides enterprise and platform engineering teams with an enduring foundation unifying AI, SaaS, PaaS, DevOps, cybersecurity, automation, analytics, and multi-cloud infrastructure — engineered to adapt seamlessly as technology evolves."
         />
       </Section>
 

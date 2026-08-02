@@ -29,15 +29,15 @@ import {
 
 export const brand = {
   name: "Cybelinx",
-  tagline: "AI-native platform for regulated enterprises.",
+  tagline: "Engineering the Future of Enterprise Intelligence",
   description:
-    "Cybelinx is an AI-native platform for regulated enterprises \u2014 unifying web, SaaS/PaaS, multi-cloud DevSecOps, LLM services, and quantum-ready engineering on a single developer-friendly foundation. 200+ enterprises, 12 countries.",
+    "Cybelinx builds enduring enterprise technology platforms — unifying AI, SaaS, PaaS, DevOps, cybersecurity, automation, analytics, cloud, and enterprise platforms — engineered to adapt seamlessly as technology evolves without becoming dated. 200+ enterprises, 12 countries.",
   email: "sales@cybelinx.com",
   address: "No. 41 & 42, 89/5, Prakruthi Township, 1st Block, Horamavu Agara Main Road, Bangalore, Karnataka 560113.",
 };
 
 export const trustMetrics = [
-  { value: "15+", label: "Years engineering products" },
+  { value: "15+", label: "Years engineering platforms" },
   { value: "12", label: "Countries with live deployments" },
   { value: "200+", label: "Enterprise deployments" },
   { value: "99.9%", label: "Platform uptime SLA" },
@@ -220,86 +220,86 @@ export type Differentiator = {
 export const differentiators: Differentiator[] = [
   {
     icon: Package,
-    title: "A shared core, not one-off products",
-    hook: "Most vendors sell a single SaaS product or a generic cloud platform. Cybelinx does both.",
+    title: "Enduring Platforms, Not Custom Dev Services",
+    hook: "Most IT vendors sell one-off software development services or single-purpose apps. Cybelinx builds enduring technology platforms.",
     summary:
-      "We operate multiple vertical SaaS platforms — HR, hospitality, banking, healthcare — all running on the same Kubernetes-native core.",
+      "We build and operate unified enterprise platforms across AI, SaaS, PaaS, DevOps, cybersecurity, automation, analytics, and multi-cloud infrastructure.",
     details: [
-      "One architecture, many products: every new industry solution reuses the same tenant isolation, deployment, observability, and compliance controls — no forks, no parallel stacks.",
-      "Faster product engineering: platform and DevOps teams can launch new enterprise applications on a proven foundation instead of rebuilding plumbing for each idea.",
+      "Enduring foundation: engineered to adapt as technology evolves, avoiding tech debt, codebase forks, or costly replatforming.",
+      "Comprehensive technology scope: seamlessly integrates AI, data analytics, cybersecurity, automated workflows, and multi-cloud orchestration on one core.",
     ],
-    quote: "We're not just a toolkit. We use our own platform to run real products for regulated enterprises, and every new product makes the platform better for developers.",
+    quote: "We don't just write custom code; we build enduring technology platforms that power enterprise intelligence today and evolve naturally into tomorrow.",
   },
   {
     icon: Brain,
     title: "AI-native and LLM-ready by design",
-    hook: "Cloud providers offer AI and LLM services. Dev tools wire them in. Cybelinx is built as an AI-native platform from day zero.",
+    hook: "Cloud providers offer raw AI building blocks. Cybelinx bakes intelligence directly into enterprise platforms from day zero.",
     summary:
-      "Adding AI or LLM features to any product is a first-class capability, not an afterthought.",
+      "AI, analytics, and automated decision engines are core platform capabilities, not bolted-on features.",
     details: [
-      "Unified data and inference layer: ingestion, enrichment, and model orchestration are part of the core, making it straightforward to add ML and LLM flows to HR, RCM, hospitality, or future products.",
-      "Tenant-aware LLM as a service: enterprises can expose secure, compliant LLM APIs with per-tenant isolation, policies, and observability.",
+      "Unified data and inference layer: data ingestion, enrichment, and LLM orchestration are built into the platform core.",
+      "Tenant-aware intelligence: enterprises deploy secure, compliant AI workflows with per-tenant isolation, governance, and audit trails.",
     ],
-    quote: "Instead of bolting AI onto an old stack, Cybelinx treats AI and LLM workloads as first-class citizens of a regulated enterprise platform.",
+    quote: "Cybelinx treats AI, analytics, and automation as fundamental building blocks of modern enterprise platforms.",
   },
   {
     icon: ShieldCheck,
-    title: "Multi-cloud DevSecOps as a service for engineering teams",
-    hook: "Traditional DevSecOps tools secure your pipelines; they don't own the products those pipelines deploy.",
+    title: "Multi-cloud DevSecOps & Cybersecurity",
+    hook: "Standalone security tools protect code, but Cybelinx embeds cybersecurity and DevSecOps into the platform lifecycle.",
     summary:
-      "Cybelinx embeds multi-cloud DevSecOps into the platform itself and uses it to run our own products in production.",
+      "Cybelinx provides built-in DevSecOps pipelines and zero-trust security controls across AWS, Azure, GCP, and Kubernetes.",
     details: [
-      "Built-in multi-cloud pipelines: CI/CD, policies, secrets, compliance checks, and deployment strategies are all part of the platform, ready for AWS, Azure, GCP, and Kubernetes.",
-      "Developer productivity focus: standard pipelines and guardrails reduce ticket churn and manual ops, so developers and platform teams can focus on features instead of constantly rewiring environments.",
+      "Built-in compliance & guardrails: continuous automated security scans, secret management, and compliance controls built into golden paths.",
+      "Developer velocity & safety: platform guardrails enable rapid feature releases without risking regulatory compliance or uptime.",
     ],
-    quote: "We don't just secure other people's apps — we run our own SaaS on the same DevSecOps platform we offer to customers.",
+    quote: "Enduring enterprise platforms require zero-trust security and multi-cloud agility baked directly into the foundation.",
   },
   {
     icon: Building2,
     title: "Built for regulated enterprises, not just startups",
-    hook: "Many SaaS and AI platforms start with startup use cases and try to \"add compliance later.\"",
+    hook: "Many technology platforms target lightweight startup workflows and struggle with enterprise governance.",
     summary:
-      "Cybelinx begins with regulated industries — healthcare, finance, HR, hospitality — and bakes governance into the core.",
+      "Cybelinx is purpose-built for regulated industries — finance, healthcare, pharma, HR, hospitality, and manufacturing.",
     details: [
-      "Compliance-first architecture: schema isolation, auditability, data residency options, and documented controls are part of the design, not add-ons.",
-      "Enterprise lifecycle: SLAs, DR, monitoring, and uptime guarantees are defined for the platform and all products built on it.",
+      "Compliance-first architecture: schema isolation, auditability, data residency options, and SOC 2 / ISO 27001 controls built in.",
+      "Enterprise SLAs & DR: multi-region high availability, automated disaster recovery, and 99.9% uptime guarantees.",
     ],
-    quote: "If compliance is non-negotiable, you shouldn't be stitching together five tools. Cybelinx gives you one platform that already lives in regulated environments.",
+    quote: "When security and compliance are mission-critical, enterprises trust Cybelinx for enduring, enterprise-ready technology platforms.",
   },
   {
     icon: Atom,
-    title: "Future-ready: quantum and advanced engineering",
-    hook: "Quantum and advanced optimization are emerging, but most vendors treat them as separate R&D.",
+    title: "Future-ready: quantum & advanced engineering",
+    hook: "Technology evolves rapidly. Cybelinx platforms are engineered so future innovations slot in without rearchitecture.",
     summary:
-      "Cybelinx designs its data and compute model so future quantum backends can plug into the same platform used for today's AI workloads.",
+      "Our data models, simulation frameworks, and compute abstractions are designed to support post-quantum cryptography and quantum-assisted computing.",
     details: [
-      "Quantum-ready data and workflows: the way we model data, simulations, and analytics is intended to support quantum-assisted optimization and risk analysis when enterprises are ready.",
-      "One foundation for tomorrow's workloads: AI, LLM, and future quantum experiments all share the same secure core.",
+      "Future-proof evolution: quantum encryption, advanced ML models, and new cloud technologies integrate seamlessly.",
+      "One foundation for what's next: protects enterprise investments against technological obsolescence.",
     ],
-    quote: "We build enterprise platforms that are ready for what's next — without asking engineering teams to replatform every time the technology shifts.",
+    quote: "Engineering the future of enterprise intelligence means building platforms that grow stronger with every wave of technological advancement.",
   },
 ];
 
 export const whyCybelinx = [
   {
     icon: Lightbulb,
-    title: "Product-First",
-    description: "We ship SaaS products, not consulting engagements. One codebase, every tenant, continuous delivery — zero forks.",
+    title: "Enduring Platforms",
+    description: "We engineer resilient technology platforms — spanning AI, SaaS, PaaS, DevOps, cybersecurity, and cloud — rather than one-off dev services.",
   },
   {
     icon: Cpu,
-    title: "AI-Native Architecture",
-    description: "Intelligence is embedded into every product workflow — statutory compliance engines, predictive analytics, document intelligence — from day one.",
+    title: "AI & Analytics Native",
+    description: "Intelligence is embedded into every workflow — automated compliance, predictive analytics, and LLM orchestration — from day one.",
   },
   {
     icon: Globe2,
     title: "Enterprise Grade",
-    description: "Multi-tenant, cloud-native, compliance-ready. SOC 2 Type II controls, multi-region DR, and 99.9% uptime SLA for global enterprises.",
+    description: "Multi-tenant, multi-cloud, and compliance-ready. SOC 2 Type II controls, zero-trust security, and 99.9% uptime SLA.",
   },
   {
     icon: Sparkles,
-    title: "Customer-Obsessed",
-    description: "Every product decision starts with the customer. We ship features, listen to feedback, and iterate in production — bi-weekly release cycles.",
+    title: "Future-Proof Design",
+    description: "Architected to evolve gracefully as technology advances — supporting AI agentic workflows, multi-cloud SRE, and post-quantum readiness.",
   },
 ];
 

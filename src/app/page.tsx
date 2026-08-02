@@ -37,9 +37,9 @@ export default function HomePage() {
       <Section id="products" textured glow>
         <AnimatedSection>
           <SectionHeading
-            eyebrow="Product Portfolio"
-            title="Seven platforms. Two live in production, five under active development with design partners."
-            description="Every Cybelinx product is built on the same core — new industries slot in without a rebuild."
+            eyebrow="Enterprise Platforms & Offerings"
+            title="Enduring technology platforms for regulated enterprises."
+            description="From AI agentic workflows to multi-cloud DevSecOps and vertical SaaS/PaaS — built on a unified core that evolves alongside technology."
           />
         </AnimatedSection>
         <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
@@ -61,8 +61,8 @@ export default function HomePage() {
         <AnimatedSection>
           <SectionHeading
             eyebrow="How Cybelinx Is Different"
-            title="Cloud AI platforms give you building blocks. We give you the whole building."
-            description="An AI-native platform, multi-cloud DevSecOps, and a portfolio of regulated SaaS products — all designed to boost developer productivity in enterprise engineering and platform teams."
+            title="Most vendors offer software services or isolated tools. Cybelinx builds enduring technology platforms."
+            description="A unified platform foundation encompassing AI, SaaS, PaaS, DevOps, cybersecurity, automation, analytics, and cloud infrastructure — engineered to adapt as technology shifts."
           />
         </AnimatedSection>
         <AnimatedSection>
