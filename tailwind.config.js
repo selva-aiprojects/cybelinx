@@ -24,8 +24,8 @@ module.exports = {
         charcoal: "var(--cb-charcoal)",
       },
       fontFamily: {
-        sans: ["var(--font-montserrat)", "sans-serif"],
-        display: ["var(--font-montserrat)", "sans-serif"],
+        sans: ["var(--font-inter)", "sans-serif"],
+        display: ["var(--font-space)", "var(--font-inter)", "sans-serif"],
       },
       borderRadius: {
         "2xl": "1rem",

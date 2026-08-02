@@ -5,41 +5,104 @@ import { motion } from "framer-motion";
 export default function GlobalBackground() {
   return (
     <div className="fixed inset-0 overflow-hidden pointer-events-none z-[-1]">
-      {/* Light theme background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-50/30 via-white to-slate-50/50" />
+      {/* ── Light theme base ─────────────────────── */}
+      <div className="absolute inset-0 bg-white dark:bg-[#020918]" />
 
-      {/* Subtle noise texture */}
-      <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCI+PGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjEiIGZpbGw9InJnYmEoMCwwLDAsMC4wMykiLz48L3N2Zz4=')] opacity-30" />
-
-      {/* Subtle light glowing orbs */}
-      <motion.div
-        animate={{
-          x: ["0%", "8%", "-4%", "0%"],
-          y: ["0%", "-8%", "4%", "0%"],
-        }}
-        transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-        className="absolute rounded-full opacity-[0.08]"
+      {/* ── Subtle dot grid ──────────────────────── */}
+      <div
+        className="absolute inset-0"
         style={{
-          top: '-10%', left: '10%', width: '500px', height: '500px',
-          background: 'radial-gradient(circle, #0D47FF, transparent)',
+          backgroundImage: "radial-gradient(rgba(13,71,255,0.045) 1px, transparent 1px)",
+          backgroundSize: "36px 36px",
         }}
       />
 
-      <motion.div
-        animate={{
-          x: ["0%", "-8%", "8%", "0%"],
-          y: ["0%", "12%", "-4%", "0%"],
-        }}
-        transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-        className="absolute rounded-full opacity-[0.06]"
+      {/* ── Light theme: diagonal gradient stripe ── */}
+      <div
+        className="absolute inset-0 dark:hidden"
         style={{
-          bottom: '-10%', right: '10%', width: '600px', height: '600px',
-          background: 'radial-gradient(circle, #00C2FF, transparent)',
+          background:
+            "linear-gradient(135deg, rgba(238,242,255,0.7) 0%, rgba(255,255,255,0) 40%, rgba(240,247,255,0.5) 100%)",
         }}
       />
 
-      {/* Dark theme overrides */}
-      <div className="absolute inset-0 bg-background/0 dark:bg-background/80 dark:backdrop-blur-[2px]" />
+      {/* ── Dark theme: rich deep gradient ─────── */}
+      <div
+        className="absolute inset-0 hidden dark:block"
+        style={{
+          background:
+            "linear-gradient(160deg, #020918 0%, #050d24 50%, #020c1f 100%)",
+        }}
+      />
+
+      {/* ── Primary floating orb (top-left) ─────── */}
+      <motion.div
+        animate={{
+          x: ["0%", "6%", "-3%", "0%"],
+          y: ["0%", "-6%", "3%", "0%"],
+          scale: [1, 1.08, 0.95, 1],
+        }}
+        transition={{ duration: 22, repeat: Infinity, ease: "linear" }}
+        className="absolute rounded-full"
+        style={{
+          top: "-15%",
+          left: "5%",
+          width: "700px",
+          height: "700px",
+          background:
+            "radial-gradient(circle, rgba(13,71,255,0.12) 0%, rgba(13,71,255,0.04) 40%, transparent 70%)",
+          filter: "blur(20px)",
+        }}
+      />
+
+      {/* ── Cyan orb (bottom-right) ──────────────── */}
+      <motion.div
+        animate={{
+          x: ["0%", "-5%", "8%", "0%"],
+          y: ["0%", "10%", "-3%", "0%"],
+          scale: [1, 0.92, 1.05, 1],
+        }}
+        transition={{ duration: 28, repeat: Infinity, ease: "linear" }}
+        className="absolute rounded-full"
+        style={{
+          bottom: "-20%",
+          right: "5%",
+          width: "800px",
+          height: "800px",
+          background:
+            "radial-gradient(circle, rgba(0,194,255,0.10) 0%, rgba(0,194,255,0.03) 40%, transparent 70%)",
+          filter: "blur(24px)",
+        }}
+      />
+
+      {/* ── Violet orb (center-right) ────────────── */}
+      <motion.div
+        animate={{
+          x: ["0%", "4%", "-6%", "0%"],
+          y: ["0%", "-8%", "5%", "0%"],
+        }}
+        transition={{ duration: 35, repeat: Infinity, ease: "linear" }}
+        className="absolute rounded-full"
+        style={{
+          top: "40%",
+          right: "15%",
+          width: "400px",
+          height: "400px",
+          background:
+            "radial-gradient(circle, rgba(123,97,255,0.09) 0%, transparent 70%)",
+          filter: "blur(16px)",
+        }}
+      />
+
+      {/* ── Top accent line ──────────────────────── */}
+      <div
+        className="absolute top-0 left-0 right-0 h-[2px]"
+        style={{
+          background:
+            "linear-gradient(90deg, transparent 0%, #0D47FF 20%, #7B61FF 50%, #00C2FF 80%, transparent 100%)",
+          opacity: 0.5,
+        }}
+      />
     </div>
   );
 }

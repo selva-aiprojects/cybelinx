@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Montserrat } from "next/font/google";
+import { Plus_Jakarta_Sans, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -7,11 +7,18 @@ import GlobalBackground from "@/components/GlobalBackground";
 import CursorParticles from "@/components/CursorParticles";
 import { brand } from "@/lib/content";
 
-const montserrat = Montserrat({
+const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
-  variable: "--font-montserrat",
+  variable: "--font-inter",
   display: "swap",
-  weight: ["300", "400", "500", "600", "700", "800", "900"],
+  weight: ["300", "400", "500", "600", "700", "800"],
+});
+
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  variable: "--font-space",
+  display: "swap",
+  weight: ["300", "400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
@@ -33,9 +40,17 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children?: React.ReactNode }) {
   return (
-    <html lang="en" className={`${montserrat.variable}`} data-theme="light" suppressHydrationWarning>
+    <html
+      lang="en"
+      className={`${plusJakartaSans.variable} ${spaceGrotesk.variable}`}
+      data-theme="light"
+      suppressHydrationWarning
+    >
       <head />
-      <body className="min-h-screen bg-transparent font-sans text-surface antialiased relative" suppressHydrationWarning>
+      <body
+        className="min-h-screen bg-transparent font-sans text-surface antialiased relative"
+        suppressHydrationWarning
+      >
         <GlobalBackground />
         <CursorParticles />
         <Navbar />

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap');
+/* Fonts are loaded via next/font/google in layout.tsx for optimal performance */
 @import "tailwindcss";
 @config "../../tailwind.config.js";
 
@@ -41,14 +41,14 @@
   --cb-border: #e2e8f0;
   /* Light gray border */
   --cb-nav-bg: rgba(255, 255, 255, 0.85);
-  --cb-charcoal: #f1f5f9;
-  /* Light gray for section backgrounds */
+  --cb-charcoal: #f4f7ff;
+  /* Very slightly blue-tinted off-white for section backgrounds */
 
   --card-bg: #FFFFFF;
   --card-border: #e2e8f0;
-  --card-shadow: 0 1px 3px rgba(13, 71, 255, 0.04), 0 4px 16px rgba(13, 71, 255, 0.04);
+  --card-shadow: 0 1px 4px rgba(13, 71, 255, 0.06), 0 4px 20px rgba(13, 71, 255, 0.06);
   --card-border-hover: #0D47FF;
-  --card-shadow-hover: 0 4px 24px rgba(13, 71, 255, 0.10), 0 8px 40px rgba(13, 71, 255, 0.06);
+  --card-shadow-hover: 0 8px 32px rgba(13, 71, 255, 0.14), 0 2px 8px rgba(13, 71, 255, 0.08);
 
   --hero-from: #eef2ff;
   --hero-via: #e0e7ff;
@@ -92,7 +92,7 @@
   --cb-live: #2ab89a;
   --cb-border: #1a2848;
   --cb-nav-bg: rgba(0, 0, 24, 0.85);
-  --cb-charcoal: #0a1030;
+  --cb-charcoal: #070d1e;
 
   --card-bg: #080e28;
   --card-border: #1a2848;
@@ -142,8 +142,19 @@ body {
   color: var(--cb-surface);
   font-family: var(--font-inter);
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
+  font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
   transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* ─── Text balance ──────────────────────── */
+h1, h2, h3, h4 {
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
 }
 
 .font-display {
@@ -763,6 +774,126 @@ body {
   opacity: 0.3;
 }
 
+/* ─── Noise texture overlay ─────────────────────── */
+.bg-noise {
+  position: relative;
+}
+
+.bg-noise::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  opacity: 0.4;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ─── Eyebrow pill ──────────────────────────────── */
+.eyebrow-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.25rem 0.875rem;
+  border-radius: 9999px;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  border: 1px solid rgba(13, 71, 255, 0.2);
+  background: rgba(13, 71, 255, 0.07);
+  color: var(--cb-primary);
+  backdrop-filter: blur(8px);
+}
+
+[data-theme="dark"] .eyebrow-pill {
+  border-color: rgba(79, 216, 255, 0.2);
+  background: rgba(79, 216, 255, 0.07);
+  color: var(--cb-accent-warm);
+}
+
+/* ─── Premium stat card ─────────────────────────── */
+.stat-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1.25rem;
+  border: 1px solid var(--card-border);
+  background: var(--card-bg);
+  box-shadow: var(--card-shadow);
+  padding: 1.5rem;
+  text-align: center;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.stat-card:hover {
+  border-color: var(--card-border-hover);
+  box-shadow: var(--card-shadow-hover);
+  transform: translateY(-4px);
+}
+
+[data-theme="dark"] .stat-card {
+  background: rgba(8, 14, 40, 0.8);
+  border-color: rgba(26, 40, 72, 0.8);
+}
+
+/* ─── Section alt background ────────────────────── */
+.section-alt {
+  background-color: var(--cb-charcoal);
+}
+
+[data-theme="dark"] .section-alt {
+  background-color: var(--cb-charcoal);
+}
+
+/* ─── Animated underline link ───────────────────── */
+.link-underline {
+  position: relative;
+  text-decoration: none;
+}
+
+.link-underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0;
+  height: 1.5px;
+  background: var(--cb-primary);
+  transition: width 0.3s ease;
+  border-radius: 2px;
+}
+
+.link-underline:hover::after {
+  width: 100%;
+}
+
+/* ─── Progress bar animation ────────────────────── */
+@keyframes progress-fill {
+  from { width: 0%; }
+  to { width: 100%; }
+}
+
+.progress-fill {
+  animation: progress-fill linear forwards;
+}
+
+/* ─── Stagger fade in (for mobile menu items) ───── */
+@keyframes stagger-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.stagger-child {
+  animation: stagger-in 0.35s ease forwards;
+  opacity: 0;
+}
+
 /* ─── Animated Conic Border (Platform Pillars) ──── */
 @property --border-angle {
   syntax: "<angle>";
@@ -776,14 +907,15 @@ body {
   initial-value: #0d47ff;
 }
 
-.animated-border-conic {
+.animated-border-conic,
+.animated-conic-border {
   position: absolute;
   inset: -1px;
   border-radius: inherit;
   padding: 1px;
   background: conic-gradient(from var(--border-angle),
       transparent 0deg,
-      var(--border-c) 30deg,
+      var(--border-c, #0d47ff) 30deg,
       #4fd8ff 60deg,
       transparent 100deg,
       transparent 190deg,

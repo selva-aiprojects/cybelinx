@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { Sparkles } from "lucide-react";
 
 interface FlowStep {
   label: string;
@@ -15,6 +15,13 @@ interface ArchitectureFlowProps {
   icon?: React.ReactNode;
 }
 
+const stepColors = [
+  { from: "#0D47FF", to: "#4FD8FF" },
+  { from: "#7B61FF", to: "#C084FC" },
+  { from: "#00C2FF", to: "#4FD8FF" },
+  { from: "#10B981", to: "#0D47FF" },
+];
+
 export default function ArchitectureFlow({ title, steps, outcome, icon }: ArchitectureFlowProps) {
   return (
     <motion.div
@@ -22,11 +29,14 @@ export default function ArchitectureFlow({ title, steps, outcome, icon }: Archit
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6 }}
-      className="rounded-2xl border border-border bg-card-bg p-8 md:p-10 shadow-sm"
+      className="rounded-3xl border border-border bg-card-bg overflow-hidden shadow-sm"
     >
-      <div className="mb-10 flex flex-col gap-4 sm:flex-row sm:items-center justify-between border-b border-border/50 pb-6">
-        <h3 className="font-display text-2xl font-bold text-surface md:text-3xl flex items-center gap-3">
-          {icon || <Sparkles className="h-6 w-6 text-primary" />}
+      {/* Header */}
+      <div className="px-8 pt-8 pb-6 md:px-10 border-b border-border/50 bg-gradient-to-r from-primary/[0.03] to-transparent flex flex-col gap-4 sm:flex-row sm:items-center justify-between">
+        <h3 className="font-display text-xl font-bold text-surface md:text-2xl flex items-center gap-3">
+          <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-primary/10 border border-primary/20">
+            {icon || <Sparkles className="h-4.5 w-4.5 text-primary" />}
+          </div>
           {title}
         </h3>
         <span className="inline-flex items-center gap-1.5 rounded-full bg-live/10 px-3 py-1 text-xs font-semibold text-live border border-live/20 w-fit">
@@ -35,66 +45,108 @@ export default function ArchitectureFlow({ title, steps, outcome, icon }: Archit
         </span>
       </div>
 
-      <div className="relative mb-12 sm:pt-6">
-        {/* Continuous horizontal line (desktop) */}
-        <div className="hidden sm:block absolute top-8 left-[12%] right-[12%] h-px bg-border -translate-y-1/2" />
+      {/* Steps */}
+      <div className="relative px-8 py-10 md:px-10">
+        {/* Continuous horizontal gradient line (desktop) */}
+        <div className="hidden sm:block absolute top-[4.25rem] left-[10%] right-[10%] h-px bg-gradient-to-r from-primary/20 via-primary/50 to-primary/20" />
 
-        {/* Animated fill line */}
+        {/* Animated fill */}
         <motion.div
-          className="hidden sm:block absolute top-8 left-[12%] h-px bg-primary -translate-y-1/2"
+          className="hidden sm:block absolute top-[4.25rem] left-[10%] h-px bg-gradient-to-r from-primary to-accent"
           initial={{ width: "0%" }}
-          whileInView={{ width: "76%" }}
+          whileInView={{ width: "80%" }}
           viewport={{ once: true }}
-          transition={{ duration: 1.5, ease: "easeInOut", delay: 0.2 }}
+          transition={{ duration: 1.8, ease: "easeInOut", delay: 0.3 }}
         />
 
-        <div className="flex flex-col gap-6 sm:flex-row sm:items-stretch sm:justify-between sm:gap-5 relative z-10">
-          {steps.map((step, index) => (
-            <motion.div
-              key={step.label}
-              initial={{ opacity: 0, y: 15 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: index * 0.15 }}
-              className="flex-1 flex flex-col items-center"
-            >
-              {/* Connecting Node (desktop) */}
-              <div className="hidden sm:flex h-3.5 w-3.5 mb-6 rounded-full border-2 border-card-bg bg-border z-20 transition-all duration-500 delay-300 shadow-[0_0_0_4px_var(--card-bg)] relative group-hover:scale-125" />
-
-              {/* Animated active state for node */}
+        <div className="flex flex-col gap-6 sm:flex-row sm:items-stretch sm:justify-between sm:gap-4 relative z-10">
+          {steps.map((step, index) => {
+            const color = stepColors[index % stepColors.length];
+            return (
               <motion.div
-                className="hidden sm:block absolute top-[27px] h-3.5 w-3.5 rounded-full bg-primary z-30"
-                initial={{ scale: 0, opacity: 0 }}
-                whileInView={{ scale: 1, opacity: 1 }}
+                key={step.label}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.3, delay: 0.2 + (index * 0.35) }}
-              />
-
-              {/* Vertical line (mobile) */}
-              {index > 0 && <div className="sm:hidden h-6 w-px bg-border -mt-6 mb-2" />}
-
-              {/* Card */}
-              <div className="w-full h-full rounded-xl border border-border/80 bg-charcoal p-5 hover:border-primary transition-all duration-300 text-left shadow-sm group hover:shadow-[0_0_20px_rgba(59,130,246,0.15)]">
-                <div className="flex items-center gap-2.5 mb-3">
-                  <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded bg-background text-[10px] font-bold text-slate shadow-sm border border-border/50 group-hover:border-primary/50 group-hover:text-primary transition-colors">
+                transition={{ duration: 0.45, delay: index * 0.15 }}
+                className="flex-1 flex flex-col items-center"
+              >
+                {/* Step circle node (desktop) */}
+                <div className="hidden sm:flex mb-7 relative">
+                  {/* Outer glow ring */}
+                  <motion.div
+                    className="absolute inset-[-6px] rounded-full opacity-0"
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    whileInView={{ opacity: 0.3, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: 0.4 + index * 0.35 }}
+                    style={{ background: `radial-gradient(circle, ${color.from}55, transparent)` }}
+                  />
+                  <motion.div
+                    className="relative flex h-6 w-6 items-center justify-center rounded-full text-[10px] font-bold text-white shadow-md z-20"
+                    style={{ background: `linear-gradient(135deg, ${color.from}, ${color.to})` }}
+                    initial={{ scale: 0 }}
+                    whileInView={{ scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.35, delay: 0.25 + index * 0.35, type: "spring", stiffness: 300 }}
+                  >
                     {index + 1}
-                  </span>
-                  <span className="text-xs font-bold uppercase tracking-widest text-surface group-hover:text-primary transition-colors">{step.label}</span>
+                  </motion.div>
                 </div>
-                <p className="text-xs leading-relaxed text-slate">{step.description}</p>
-              </div>
-            </motion.div>
-          ))}
+
+                {/* Vertical connector (mobile) */}
+                {index > 0 && (
+                  <div
+                    className="sm:hidden h-6 w-px mb-2 -mt-6"
+                    style={{ background: `linear-gradient(to bottom, ${stepColors[index - 1].to}, ${color.from})` }}
+                  />
+                )}
+
+                {/* Card */}
+                <div
+                  className="w-full h-full rounded-2xl border p-5 transition-all duration-300 text-left shadow-sm group hover:-translate-y-1"
+                  style={{
+                    borderColor: `${color.from}25`,
+                    background: `linear-gradient(135deg, ${color.from}06, transparent)`,
+                  }}
+                  onMouseEnter={(e) => {
+                    (e.currentTarget as HTMLDivElement).style.borderColor = `${color.from}50`;
+                    (e.currentTarget as HTMLDivElement).style.boxShadow = `0 8px 28px ${color.from}18`;
+                  }}
+                  onMouseLeave={(e) => {
+                    (e.currentTarget as HTMLDivElement).style.borderColor = `${color.from}25`;
+                    (e.currentTarget as HTMLDivElement).style.boxShadow = "";
+                  }}
+                >
+                  <div className="flex items-center gap-2.5 mb-3">
+                    <span
+                      className="flex h-5 w-5 shrink-0 items-center justify-center rounded-md text-[10px] font-bold text-white"
+                      style={{ background: `linear-gradient(135deg, ${color.from}, ${color.to})` }}
+                    >
+                      {index + 1}
+                    </span>
+                    <span className="text-xs font-bold uppercase tracking-widest text-surface">
+                      {step.label}
+                    </span>
+                  </div>
+                  <p className="text-xs leading-relaxed text-slate">{step.description}</p>
+                </div>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
 
-      <div className="rounded-xl border border-primary/20 bg-primary/5 p-5 flex items-start gap-3 backdrop-blur-sm">
-        <div className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary/20 text-primary text-sm font-bold">
-          ✓
+      {/* Outcome */}
+      <div className="mx-8 mb-8 md:mx-10 rounded-2xl border border-primary/20 bg-gradient-to-r from-primary/[0.07] to-accent/[0.04] p-5 flex items-start gap-4">
+        <div className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-primary/15 border border-primary/20">
+          <span className="text-primary text-sm font-bold">✓</span>
         </div>
         <div>
-          <span className="block text-[10px] font-bold uppercase tracking-widest text-primary">Enterprise Outcome</span>
-          <p className="mt-1 text-sm font-semibold text-surface">{outcome}</p>
+          <span className="block text-[10px] font-bold uppercase tracking-widest text-primary mb-1">
+            Enterprise Outcome
+          </span>
+          <p className="text-sm font-semibold text-surface">{outcome}</p>
         </div>
       </div>
     </motion.div>

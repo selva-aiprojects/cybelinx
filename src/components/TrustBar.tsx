@@ -20,51 +20,65 @@ function StatCard({
 }) {
   const Icon = statIcons[index] || TrendingUp;
   const accent = statAccents[index] || "#0D47FF";
-  const isUptime = index === 3;
+  const isLive = index === 3;
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 24, scale: 0.96 }}
+      initial={{ opacity: 0, y: 28, scale: 0.97 }}
       whileInView={{ opacity: 1, y: 0, scale: 1 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.6, delay, ease: [0.22, 1, 0.36, 1] }}
-      whileHover={{ y: -5, transition: { duration: 0.25 } }}
-      className="group relative overflow-hidden rounded-2xl glass-surface gradient-border-card p-6 text-center"
+      transition={{ duration: 0.55, delay, ease: [0.22, 1, 0.36, 1] }}
+      whileHover={{ y: -5, transition: { duration: 0.22 } }}
+      className="stat-card group"
     >
-      {/* Corner glow */}
+      {/* Corner accent glow */}
       <div
-        className="absolute -top-8 -right-8 h-24 w-24 rounded-full blur-2xl opacity-0 group-hover:opacity-40 transition-opacity duration-500 pointer-events-none"
+        className="absolute -top-8 -right-8 h-24 w-24 rounded-full blur-2xl opacity-0 group-hover:opacity-30 transition-opacity duration-500 pointer-events-none"
         style={{ background: `radial-gradient(circle, ${accent}, transparent 70%)` }}
       />
 
-      {/* Icon chip */}
-      <div className="relative flex justify-center mb-3">
-        {isUptime && (
-          <span className="absolute inset-0 m-auto h-10 w-10 rounded-full animate-ping opacity-20" style={{ background: accent }} />
-        )}
+      {/* Icon + Value side-by-side */}
+      <div className="flex items-center justify-center gap-4">
+        {/* Icon chip */}
+        <div className="relative flex-shrink-0">
+          {isLive && (
+            <span
+              className="absolute inset-0 m-auto h-10 w-10 rounded-full animate-ping opacity-15"
+              style={{ background: accent }}
+            />
+          )}
+          <div
+            className="relative flex h-12 w-12 items-center justify-center rounded-2xl"
+            style={{
+              background: `${accent}18`,
+              border: `1px solid ${accent}35`,
+            }}
+          >
+            <Icon className="h-5 w-5" style={{ color: accent }} />
+          </div>
+        </div>
+
+        {/* Stat value */}
         <div
-          className="relative flex h-10 w-10 items-center justify-center rounded-xl mx-auto"
+          className="font-display text-4xl font-extrabold md:text-5xl stat-value bg-clip-text text-transparent leading-none"
           style={{
-            background: `${accent}20`,
-            border: `1px solid ${accent}40`,
+            backgroundImage: `linear-gradient(135deg, var(--cb-surface) 0%, ${accent} 100%)`,
           }}
         >
-          <Icon className="h-4.5 w-4.5" style={{ color: accent }} />
+          {value}
         </div>
       </div>
 
-      {/* Value */}
-      <div
-        className="font-display text-4xl font-extrabold md:text-5xl stat-value bg-clip-text text-transparent"
-        style={{
-          backgroundImage: `linear-gradient(135deg, #ffffff 0%, ${accent} 100%)`,
-        }}
-      >
-        {value}
-      </div>
-      <div className="mt-2 text-xs font-bold uppercase tracking-widest text-slate/60">
+      {/* Label */}
+      <div className="mt-3 text-xs font-bold uppercase tracking-widest text-slate/60">
         {label}
       </div>
+
+      {/* Bottom accent line */}
+      <div
+        className="absolute bottom-0 left-1/2 -translate-x-1/2 h-0.5 w-0 group-hover:w-3/4 rounded-full transition-all duration-500"
+        style={{ background: `linear-gradient(90deg, transparent, ${accent}, transparent)` }}
+      />
     </motion.div>
   );
 }
@@ -89,7 +103,7 @@ export default function TrustBar() {
       <div className="frosted-divider" />
 
       {/* Trust footnote */}
-      <div className="text-center space-y-2">
+      <div className="text-center space-y-1.5">
         <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate/40">
           Trusted by enterprises across 12 countries
         </p>

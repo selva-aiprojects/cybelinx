@@ -18,22 +18,26 @@ export default function Section({
   glow = false,
 }: SectionProps) {
   const bg = dark
-    ? "bg-charcoal section-dark"
+    ? "section-alt section-dark"
     : textured
-    ? "bg-charcoal map-texture"
+    ? "section-alt map-texture"
     : "bg-background";
 
   return (
     <section id={id} className={`relative py-20 md:py-28 overflow-hidden ${bg} ${className}`}>
-      {/* Ambient glow orbs for visually rich sections */}
+      {/* Ambient glow orbs */}
       {glow && (
         <>
           <div
-            className="orb orb-primary h-96 w-96 opacity-20 top-0 right-0"
+            className="orb orb-primary h-[600px] w-[600px] opacity-[0.12] -top-32 -right-32"
             aria-hidden
           />
           <div
-            className="orb orb-violet h-80 w-80 opacity-15 bottom-0 left-0"
+            className="orb orb-violet h-[500px] w-[500px] opacity-[0.08] -bottom-24 -left-24"
+            aria-hidden
+          />
+          <div
+            className="orb orb-cyan h-80 w-80 opacity-[0.06] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
             aria-hidden
           />
         </>
@@ -60,19 +64,19 @@ export function SectionHeading({
 
   return (
     <div className={`mb-14 max-w-3xl ${alignClass}`}>
-      {/* Eyebrow with accent left bar */}
+      {/* Eyebrow */}
       <div
         className={`flex items-center gap-3 ${align === "center" ? "justify-center" : ""}`}
       >
         {align !== "center" && (
-          <span className="h-4 w-0.5 rounded-full bg-gradient-to-b from-primary to-violet" />
+          <span className="h-5 w-0.5 rounded-full bg-gradient-to-b from-primary to-violet shrink-0" />
         )}
-        <span className="slugline">{eyebrow}</span>
+        <span className="eyebrow-pill">{eyebrow}</span>
       </div>
 
       {/* Title */}
       <h2
-        className={`mt-4 font-display text-3xl font-extrabold leading-[1.1] tracking-tight text-surface md:text-4xl lg:text-5xl ${
+        className={`mt-5 font-display text-3xl font-extrabold leading-[1.08] tracking-tight text-surface md:text-4xl lg:text-5xl ${
           gradient ? "gradient-text" : ""
         }`}
       >
@@ -88,3 +92,4 @@ export function SectionHeading({
     </div>
   );
 }
+

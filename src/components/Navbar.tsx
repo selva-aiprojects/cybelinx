@@ -67,7 +67,7 @@ function NavDropdown({ group }: { group: NavGroup }) {
     return (
       <Link
         href={group.href!}
-        className="text-sm font-medium text-slate transition-colors hover:text-surface relative after:absolute after:bottom-[-6px] after:left-0 after:h-[2px] after:w-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full"
+        className="relative text-sm font-semibold text-gray-700 dark:text-white/70 transition-colors hover:text-primary dark:hover:text-white after:absolute after:bottom-[-4px] after:left-0 after:h-[2px] after:w-0 after:bg-primary after:rounded-full after:transition-all after:duration-300 hover:after:w-full"
       >
         {group.label}
       </Link>
@@ -83,7 +83,7 @@ function NavDropdown({ group }: { group: NavGroup }) {
     >
       <button
         onClick={() => setOpen(!open)}
-        className="flex items-center gap-1.5 text-sm font-medium text-slate transition-colors hover:text-surface group py-2"
+        className="flex items-center gap-1.5 text-sm font-semibold text-gray-700 dark:text-white/70 transition-colors hover:text-primary dark:hover:text-white group py-2"
         aria-expanded={open}
       >
         <span>{group.label}</span>
@@ -294,10 +294,11 @@ export default function Navbar() {
 
   return (
     <header
-      className={`sticky top-0 z-50 transition-all duration-500 bg-white/95 dark:bg-[#011232]/95 ${scrolled
-        ? "border-b border-border/40 shadow-lg shadow-primary/5 backdrop-blur-2xl"
-        : "border-b border-transparent"
-        }`}
+      className={`sticky top-0 z-50 transition-all duration-300 bg-white dark:bg-[#000b21] border-b ${
+        scrolled
+          ? "border-border/50 shadow-lg shadow-primary/5 backdrop-blur-2xl"
+          : "border-border/30 shadow-sm"
+      }`}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
         <Link href="/" className="flex items-center shrink-0 group">
@@ -366,9 +367,13 @@ export default function Navbar() {
             </button>
           </div>
           <div className="px-6 py-6 flex flex-col gap-6">
-            {mainNav.map((group) =>
+            {mainNav.map((group, groupIdx) =>
               group.items ? (
-                <div key={group.label}>
+                <div
+                  key={group.label}
+                  className="stagger-child"
+                  style={{ animationDelay: `${groupIdx * 60}ms` }}
+                >
                   <div className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate/40 mb-3">
                     {group.label}
                   </div>

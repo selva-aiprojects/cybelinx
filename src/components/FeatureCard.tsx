@@ -9,11 +9,31 @@ type FeatureCardProps = {
   index?: number;
 };
 
-const iconGradients = [
-  { bg: "from-primary/15 to-violet/15", text: "text-primary", glow: "shadow-glow" },
-  { bg: "from-violet/15 to-rose/15", text: "text-violet", glow: "shadow-glow-violet" },
-  { bg: "from-accent/15 to-primary/15", text: "text-accent", glow: "shadow-glow-cyan" },
-  { bg: "from-live/15 to-accent/15", text: "text-live", glow: "shadow-glow-cyan" },
+const iconStyles = [
+  {
+    bg: "from-primary/12 to-violet/12",
+    iconColor: "var(--cb-primary)",
+    glowColor: "rgba(13,71,255,0.25)",
+    borderColor: "rgba(13,71,255,0.2)",
+  },
+  {
+    bg: "from-violet/12 to-rose/12",
+    iconColor: "var(--cb-violet)",
+    glowColor: "rgba(123,97,255,0.25)",
+    borderColor: "rgba(123,97,255,0.2)",
+  },
+  {
+    bg: "from-accent/12 to-primary/12",
+    iconColor: "var(--cb-accent)",
+    glowColor: "rgba(0,194,255,0.25)",
+    borderColor: "rgba(0,194,255,0.2)",
+  },
+  {
+    bg: "from-live/12 to-accent/12",
+    iconColor: "var(--cb-live)",
+    glowColor: "rgba(16,185,129,0.25)",
+    borderColor: "rgba(16,185,129,0.2)",
+  },
 ];
 
 export default function FeatureCard({
@@ -23,30 +43,57 @@ export default function FeatureCard({
   href,
   index = 0,
 }: FeatureCardProps) {
-  const style = iconGradients[index % iconGradients.length];
+  const style = iconStyles[index % iconStyles.length];
 
   const inner = (
-    <div className="relative h-full flex flex-col overflow-hidden rounded-2xl border border-border bg-card-bg p-6 transition-all duration-300 group-hover:border-primary/40 group-hover:shadow-card-hover group-hover:-translate-y-1">
-      {/* Background glow */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/3 to-violet/3 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
+    <div className="relative h-full flex flex-col overflow-hidden rounded-2xl border border-border bg-card-bg p-6 transition-all duration-300 group-hover:border-primary/40 group-hover:-translate-y-1.5">
+      {/* Subtle background gradient on hover */}
+      <div
+        className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-400 pointer-events-none"
+        style={{
+          background: `radial-gradient(ellipse at 30% 0%, ${style.glowColor} 0%, transparent 60%)`,
+        }}
+      />
+
+      {/* Top accent line on hover */}
+      <div
+        className="absolute top-0 left-0 right-0 h-px opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+        style={{
+          background: `linear-gradient(90deg, transparent, ${style.glowColor}, transparent)`,
+        }}
+      />
 
       {/* Icon */}
       <div
-        className={`relative flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br ${style.bg} transition-all duration-300 group-hover:scale-110 group-hover:${style.glow}`}
+        className={`relative flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br ${style.bg} transition-all duration-300 group-hover:scale-110 group-hover:-rotate-3`}
+        style={{
+          border: `1px solid ${style.borderColor}`,
+          boxShadow: `0 4px 16px ${style.glowColor}`,
+        }}
       >
-        <Icon className={`h-5 w-5 ${style.text}`} />
+        <Icon className="h-5 w-5" style={{ color: style.iconColor }} />
       </div>
 
       {/* Content */}
-      <h3 className="relative mt-5 text-lg font-bold text-surface">{title}</h3>
+      <h3 className="relative mt-5 text-lg font-bold text-surface leading-snug">{title}</h3>
       <p className="relative mt-2 flex-1 text-sm leading-relaxed text-slate">{description}</p>
 
       {href && (
-        <div className="relative mt-5 flex items-center gap-1.5 text-sm font-semibold text-primary transition-all duration-200 group-hover:gap-2.5 group-hover:text-violet">
+        <div className="relative mt-5 flex items-center gap-1.5 text-sm font-semibold transition-all duration-200 group-hover:gap-2.5"
+          style={{ color: style.iconColor }}
+        >
           Learn more
           <ArrowUpRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
         </div>
       )}
+
+      {/* Bottom gradient shadow on hover */}
+      <div
+        className="absolute bottom-0 left-0 right-0 h-16 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
+        style={{
+          background: `linear-gradient(to top, ${style.glowColor}15, transparent)`,
+        }}
+      />
     </div>
   );
 
