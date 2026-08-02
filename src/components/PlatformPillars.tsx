@@ -326,25 +326,26 @@ export default function PlatformPillars() {
         />
       </motion.div>
 
-      {/* ── Vertical Tabs Layout ──────────────────────── */}
+      {/* ── Vertical / Horizontal Tabs Layout ──────────────────────── */}
       <div className="grid lg:grid-cols-5 gap-6 xl:gap-8 items-stretch">
 
-        {/* LEFT: Shiny tab list (2/5 width) */}
-        <div className="lg:col-span-2 flex flex-col gap-3">
+        {/* LEFT: Shiny tab list (2/5 width on desktop, horizontal swipe bar on mobile) */}
+        <div className="lg:col-span-2 flex lg:flex-col overflow-x-auto pb-3 lg:pb-0 gap-3 scrollbar-none snap-x snap-mandatory">
           {platformPillars.map((pillar, index) => (
-            <ShinyTab
-              key={pillar.slug}
-              pillar={pillar}
-              accent={accents[index % accents.length]}
-              index={index}
-              isActive={activeIndex === index}
-              onClick={() => setActiveIndex(index)}
-            />
+            <div key={pillar.slug} className="min-w-[260px] sm:min-w-[280px] lg:min-w-0 flex-shrink-0 lg:flex-shrink snap-align-start">
+              <ShinyTab
+                pillar={pillar}
+                accent={accents[index % accents.length]}
+                index={index}
+                isActive={activeIndex === index}
+                onClick={() => setActiveIndex(index)}
+              />
+            </div>
           ))}
         </div>
 
         {/* RIGHT: Content panel (3/5 width) */}
-        <div className="lg:col-span-3 min-h-[480px]">
+        <div className="lg:col-span-3 min-h-[420px] lg:min-h-[480px]">
           <ContentPanel
             pillar={platformPillars[activeIndex]}
             accent={activeAccent}

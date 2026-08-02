@@ -164,7 +164,7 @@ export default function Hero() {
       </div>
 
       {/* ── Main content ─────────────────────────── */}
-      <div className="relative z-10 w-full mx-auto max-w-7xl px-6 py-16 lg:py-24 grid lg:grid-cols-12 gap-10 items-center min-h-[88vh]">
+      <div className="relative z-10 w-full mx-auto max-w-7xl px-4 sm:px-6 py-10 sm:py-16 lg:py-24 grid lg:grid-cols-12 gap-8 lg:gap-10 items-center min-h-0 lg:min-h-[88vh]">
 
         {/* ── LEFT: Content ────────────────────────── */}
         <div className="lg:col-span-6 xl:col-span-7 flex flex-col justify-center">
@@ -174,7 +174,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="flex flex-wrap items-center gap-3 mb-6"
+            className="flex flex-wrap items-center gap-2 sm:gap-3 mb-4 sm:mb-6"
           >
             {trustBullets.map((bullet) => (
               <span
@@ -196,11 +196,11 @@ export default function Hero() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -16 }}
                 transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-                className="flex flex-col gap-5"
+                className="flex flex-col gap-4 sm:gap-5"
               >
                 {/* Tag pill */}
                 <span
-                  className="inline-flex items-center gap-2 rounded-full border px-4 py-1.5 text-[11px] font-bold uppercase tracking-wider w-fit backdrop-blur-md shadow-sm"
+                  className="inline-flex items-center gap-2 rounded-full border px-3.5 py-1 sm:px-4 sm:py-1.5 text-[10px] sm:text-[11px] font-bold uppercase tracking-wider w-fit backdrop-blur-md shadow-sm"
                   style={{
                     backgroundColor: `${primaryColor}12`,
                     borderColor: `${primaryColor}35`,
@@ -219,14 +219,14 @@ export default function Hero() {
 
                 {/* Headline */}
                 <h1
-                  className="font-display text-4xl font-extrabold leading-[1.1] tracking-tight text-surface sm:text-5xl lg:text-6xl"
+                  className="font-display text-3xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.1] tracking-tight text-surface"
                   style={{ whiteSpace: "pre-line" }}
                 >
                   {slide.title}
                 </h1>
 
                 {/* Description */}
-                <p className="max-w-xl text-base leading-relaxed text-slate font-normal">
+                <p className="max-w-xl text-sm sm:text-base leading-relaxed text-slate font-normal">
                   {slide.description}
                 </p>
               </motion.div>
@@ -234,12 +234,12 @@ export default function Hero() {
           </div>
 
           {/* CTAs */}
-          <div className="mt-8 flex flex-wrap items-center gap-4">
+          <div className="mt-6 sm:mt-8 flex flex-wrap items-center gap-3 sm:gap-4">
             <Button
               href="/products"
               variant="primary"
               size="lg"
-              className="border-none font-bold shadow-lg text-white transition-all duration-300 hover:scale-[1.03] hover:shadow-xl"
+              className="border-none font-bold shadow-lg text-white transition-all duration-300 hover:scale-[1.03] hover:shadow-xl text-sm sm:text-base px-6 py-3"
               style={{
                 backgroundColor: primaryColor,
                 boxShadow: `0 4px 24px ${primaryColor}45`,
@@ -252,19 +252,19 @@ export default function Hero() {
               href="/contact"
               variant="secondary"
               size="lg"
-              className="bg-card-bg border-border text-surface font-semibold transition-all hover:border-primary/40 hover:bg-primary/5"
+              className="bg-card-bg border-border text-surface font-semibold transition-all hover:border-primary/40 hover:bg-primary/5 text-sm sm:text-base px-6 py-3"
             >
               Request Demo
             </Button>
           </div>
 
           {/* Stats row */}
-          <div className="mt-12 grid grid-cols-4 gap-0 border-t border-border/40 pt-8">
+          <div className="mt-8 sm:mt-12 grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-0 border-t border-border/40 pt-6 sm:pt-8">
             {statsRow.map((s, i) => {
               const Icon = s.icon;
               return (
-                <div key={s.label} className={`flex flex-col ${i > 0 ? "border-l border-border/40 pl-4" : ""}`}>
-                  <div className="font-display text-2xl sm:text-3xl font-extrabold text-surface tracking-tight">
+                <div key={s.label} className={`flex flex-col ${i > 0 && i % 2 !== 0 ? "sm:border-l border-border/40 sm:pl-4" : i > 0 ? "border-l border-border/40 pl-4" : ""}`}>
+                  <div className="font-display text-xl sm:text-2xl lg:text-3xl font-extrabold text-surface tracking-tight">
                     {s.value}
                   </div>
                   <div className="text-[10px] font-bold uppercase tracking-widest text-slate/70 mt-1">
