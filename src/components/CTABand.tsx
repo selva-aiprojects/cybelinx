@@ -11,8 +11,8 @@ const trustBadges = [
 ];
 
 export default function CTABand({
-  heading = "Ready to transform your enterprise platform?",
-  subheading = "Book a demo or start a trial of CybeHRMS or CybeHospitality — see what an AI-native platform can do for your team.",
+  heading = "Build the platform your enterprise needs to scale.",
+  subheading = "Schedule a strategy session to explore enterprise-ready solutions for AI, operations, compliance, and digital growth.",
 }: {
   heading?: string;
   subheading?: string;

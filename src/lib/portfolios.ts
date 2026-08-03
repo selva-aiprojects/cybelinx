@@ -276,6 +276,42 @@ export const portfolios: PortfolioContent[] = [
     status: "phase-2",
   },
   {
+    id: "cybefintech",
+    title: "CybeFinTech",
+    hero: {
+      tagline: "AI-native finance operations for portfolio intelligence and smart accounting.",
+      ctaLabel: "Explore CybeFinTech",
+      ctaHref: "/products/cybefintech",
+    },
+    icon: "/assets/icons/icon-bank.png",
+    image: "/assets/products/cybebank.png",
+    problem: [
+      "Finance teams operate across disconnected analytics, spreadsheets, and bookkeeping tools.",
+      "Manual reconciliation slows performance reporting and creates data quality gaps.",
+      "Decision-making is reactive because portfolio metrics and accounting data are not unified.",
+    ],
+    solution: {
+      description: "A unified FinTech layer that combines portfolio intelligence and accounting automation to deliver faster decisions and cleaner financial operations.",
+      capabilities: [
+        "Portfolio analytics, scenario monitoring, and KPI dashboards.",
+        "Automated bookkeeping, reconciliation, and cash flow visibility.",
+        "Accounting workflows paired with decision-ready financial reporting.",
+      ],
+    },
+    tech: [
+      "Real-time match of portfolio data and accounting data sources.",
+      "AI-driven insight engines for variance, forecasting, and risk spotting.",
+      "Secure financial control layer with audit-friendly reporting.",
+    ],
+    outcomes: [
+      "Faster financial decision cycles for portfolio and business leadership.",
+      "Reduced manual bookkeeping effort and reconciliation errors.",
+      "Sharper operational visibility across assets, transactions, and performance.",
+    ],
+    theme: "emerald",
+    status: "active",
+  },
+  {
     id: "cybefin",
     title: "CybeFin",
     hero: {

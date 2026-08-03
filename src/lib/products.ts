@@ -122,6 +122,36 @@ export const products: Product[] = [
     isPlaceholderContent: true,
   },
   {
+    slug: "cybefintech",
+    name: "CybeFinTech",
+    tagline: "AI-native finance operations for portfolio intelligence and decision support",
+    category: "FinTech & Accounting",
+    summary:
+      "A modern finance platform focused on SmartPortfolio to unify portfolio intelligence, investment visibility, and faster decision-making for finance teams.",
+    status: "live",
+    icon: "/assets/icons/icon-bank.png",
+    image: "/assets/products/cybebank.png",
+    colorAccent: "#0EA5E9", // Sky blue
+    appUrl: "https://quantanalysys.vercel.app/",
+    demoUrl: "https://quantanalysys.vercel.app/",
+    portfolioProducts: [
+      { name: "SmartPortfolio", url: "https://quantanalysys.vercel.app", description: "Portfolio intelligence and investment decision support" },
+    ],
+    problem:
+      "Finance teams are often forced to work across disconnected portfolio dashboards, Excel-heavy reporting, and fragmented decision workflows that slow strategic execution.",
+    modules: [
+      { title: "Portfolio Analytics", description: "Track performance, weighted exposure, and scenarios across portfolios in real time." },
+      { title: "Decision Intelligence", description: "Surface forecasts, variance alerts, and KPI insights for faster business decisions." },
+      { title: "Executive Visibility", description: "Deliver clearer, faster reporting across fund and portfolio-level performance." },
+    ],
+    differentiators: [
+      "Focused on portfolio intelligence rather than broad bookkeeping complexity",
+      "Built for faster strategic decision-making in data-rich financial environments",
+      "Designed to support enterprise-grade finance and investment workflows",
+    ],
+    isPlaceholderContent: false,
+  },
+  {
     slug: "cybehealth",
     name: "CybeHealth & Pharma",
     tagline: "Advanced Clinical & Healthcare Operations Platform",

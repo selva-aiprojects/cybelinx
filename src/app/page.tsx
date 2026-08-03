@@ -38,8 +38,8 @@ export default function HomePage() {
         <AnimatedSection>
           <SectionHeading
             eyebrow="Enterprise Platforms & Offerings"
-            title="Enduring technology platforms for regulated enterprises."
-            description="From AI agentic workflows to multi-cloud DevSecOps and vertical SaaS/PaaS — built on a unified core that evolves alongside technology."
+            title="Technology platforms designed for enterprise performance and control."
+            description="From AI-ready operations to secure multi-cloud delivery and industry-specific SaaS — built on a single foundation that scales responsibly with your business."
           />
         </AnimatedSection>
         <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
