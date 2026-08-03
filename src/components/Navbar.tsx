@@ -280,7 +280,7 @@ export default function Navbar() {
   const [theme, setTheme] = useState("light");
 
   useEffect(() => {
-    const storedTheme = window.localStorage.getItem("theme") as "light" | "dark" | "sales" | null;
+    const storedTheme = window.localStorage.getItem("theme") as "light" | "dark" | "sales" | "colorful" | null;
     const initialTheme = storedTheme || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
     setTheme(initialTheme);
     document.documentElement.setAttribute("data-theme", initialTheme);
@@ -298,7 +298,7 @@ export default function Navbar() {
   }, []);
 
   const toggleTheme = () => {
-    const themeOrder: ("light" | "dark" | "sales")[] = ["light", "dark", "sales"];
+    const themeOrder: ("light" | "dark" | "sales" | "colorful")[] = ["light", "dark", "sales", "colorful"];
     const currentIndex = themeOrder.indexOf(theme as any);
     const nextTheme = themeOrder[(currentIndex + 1) % themeOrder.length];
     setTheme(nextTheme);
@@ -319,8 +319,8 @@ export default function Navbar() {
           : "border-border/30 shadow-sm"
       }`}
     >
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-        <Link href="/" className="flex items-center shrink-0 group">
+      <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-6 py-4 lg:gap-8">
+        <Link href="/" className="mr-2 flex items-center shrink-0 group lg:mr-6">
           <span className="hidden sm:block">
             <LogoLockup height={72} />
           </span>
@@ -329,7 +329,7 @@ export default function Navbar() {
           </span>
         </Link>
 
-        <nav className="hidden items-center gap-8 lg:flex shrink-0">
+        <nav className="hidden items-center gap-5 lg:flex lg:gap-6 xl:gap-8 shrink-0">
           {mainNav.map((group) => (
             <NavDropdown key={group.label} group={group} />
           ))}
@@ -361,6 +361,12 @@ export default function Navbar() {
                 <span className="text-cyan-400 font-extrabold">⚡ Sales</span>
               </>
             )}
+            {theme === "colorful" && (
+              <>
+                <Sparkles className="h-3.5 w-3.5 text-pink-500" />
+                <span className="bg-gradient-to-r from-pink-500 via-violet-500 to-cyan-500 bg-clip-text text-transparent font-extrabold">Colorful</span>
+              </>
+            )}
           </button>
           <Button href="/contact" variant="secondary" size="sm">
             Talk to Sales
@@ -380,6 +386,7 @@ export default function Navbar() {
             {theme === "light" && <Moon className="h-4 w-4 text-slate-700" />}
             {theme === "dark" && <Sun className="h-4 w-4 text-amber-400" />}
             {theme === "sales" && <Zap className="h-4 w-4 text-cyan-400 animate-pulse" />}
+            {theme === "colorful" && <Sparkles className="h-4 w-4 text-pink-500" />}
           </button>
           <button
             className="rounded-lg p-2 text-surface hover:bg-charcoal/50 transition-colors cursor-pointer"

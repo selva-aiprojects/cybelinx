@@ -136,6 +136,7 @@ export const products: Product[] = [
     demoUrl: "https://quantanalysys.vercel.app/",
     portfolioProducts: [
       { name: "SmartPortfolio", url: "https://quantanalysys.vercel.app", description: "Portfolio intelligence and investment decision support" },
+      { name: "SmartBooks", url: "https://smartbooks-sys.vercel.app", description: "Accounting and operational visibility companion product" },
     ],
     problem:
       "Finance teams are often forced to work across disconnected portfolio dashboards, Excel-heavy reporting, and fragmented decision workflows that slow strategic execution.",
