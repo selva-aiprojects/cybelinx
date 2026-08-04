@@ -176,49 +176,49 @@
   --hero-bg-data: url('/images/hero-data.png');
 }
 
-/* ─── Colorful Showcase Theme (Bold, Energetic, Creative) ─── */
+/* ─── Colorful Showcase Theme (Bright, premium-light, not dark) ─── */
 [data-theme="colorful"] {
-  --cb-background: #fffaf5;
-  --cb-surface: #1f2937;
-  --cb-slate: #52607a;
-  --cb-primary: #ff5ea8;
-  --cb-primary-deep: #3b1d72;
-  --cb-accent: #2dd4bf;
-  --cb-accent-warm: #fbbf24;
-  --cb-violet: #8b5cf6;
-  --cb-rose: #ff5ea8;
-  --cb-live: #22c55e;
-  --cb-border: #f4d9ff;
-  --cb-nav-bg: rgba(255, 255, 255, 0.95);
-  --cb-charcoal: #fff2f7;
+  --cb-background: #fffafc;
+  --cb-surface: #2e1f43;
+  --cb-slate: #65577a;
+  --cb-primary: #ff5aa8;
+  --cb-primary-deep: #6024b8;
+  --cb-accent: #2ed6c4;
+  --cb-accent-warm: #ffb84d;
+  --cb-violet: #7b61ff;
+  --cb-rose: #ff6e9c;
+  --cb-live: #2ccf6d;
+  --cb-border: #f8dff7;
+  --cb-nav-bg: rgba(255, 255, 255, 0.86);
+  --cb-charcoal: #fff2fb;
 
   --card-bg: #ffffff;
-  --card-border: #f4d9ff;
-  --card-shadow: 0 18px 46px rgba(255, 94, 168, 0.12), 0 10px 24px rgba(139, 92, 246, 0.10);
-  --card-border-hover: #ff5ea8;
-  --card-shadow-hover: 0 26px 60px rgba(255, 94, 168, 0.18), 0 14px 32px rgba(45, 212, 191, 0.12);
+  --card-border: #f7dfff;
+  --card-shadow: 0 18px 46px rgba(255, 90, 168, 0.10), 0 12px 28px rgba(123, 97, 255, 0.07);
+  --card-border-hover: #ff5aa8;
+  --card-shadow-hover: 0 28px 68px rgba(255, 90, 168, 0.16), 0 16px 36px rgba(46, 214, 196, 0.12);
 
   --hero-from: #fff7fb;
-  --hero-via: #f5f3ff;
-  --hero-to: #f0fdfa;
-  --hero-accent-1: rgba(255, 94, 168, 0.14);
-  --hero-accent-2: rgba(45, 212, 191, 0.12);
-  --hero-accent-3: rgba(251, 191, 36, 0.10);
+  --hero-via: #f4efff;
+  --hero-to: #edfff9;
+  --hero-accent-1: rgba(255, 90, 168, 0.15);
+  --hero-accent-2: rgba(46, 214, 196, 0.14);
+  --hero-accent-3: rgba(255, 184, 77, 0.12);
 
-  --glass-bg: rgba(255, 255, 255, 0.90);
-  --glass-border: rgba(139, 92, 246, 0.16);
-  --glass-shadow: 0 16px 42px rgba(31, 41, 55, 0.08);
+  --glass-bg: rgba(255, 255, 255, 0.75);
+  --glass-border: rgba(123, 97, 255, 0.18);
+  --glass-shadow: 0 18px 42px rgba(67, 38, 92, 0.08);
 
-  --glass-premium-bg: rgba(255, 255, 255, 0.94);
-  --glass-premium-border: rgba(255, 94, 168, 0.18);
-  --glass-premium-shadow: 0 24px 54px rgba(139, 92, 246, 0.12);
+  --glass-premium-bg: rgba(255, 255, 255, 0.9);
+  --glass-premium-border: rgba(255, 90, 168, 0.18);
+  --glass-premium-shadow: 0 24px 56px rgba(123, 97, 255, 0.12);
 
-  --glow-primary: rgba(255, 94, 168, 0.18);
-  --glow-cyan: rgba(45, 212, 191, 0.18);
-  --glow-violet: rgba(139, 92, 246, 0.18);
+  --glow-primary: rgba(255, 90, 168, 0.18);
+  --glow-cyan: rgba(46, 214, 196, 0.18);
+  --glow-violet: rgba(123, 97, 255, 0.2);
 
-  --gradient-brand: linear-gradient(135deg, #ff5ea8 0%, #ff8a3d 20%, #fbbf24 40%, #2dd4bf 65%, #8b5cf6 100%);
-  --gradient-brand-r: linear-gradient(135deg, #8b5cf6 0%, #2dd4bf 28%, #ff8a3d 54%, #ff5ea8 100%);
+  --gradient-brand: linear-gradient(135deg, #ff5aa8 0%, #ff8d62 18%, #ffb84d 38%, #2ed6c4 62%, #7b61ff 100%);
+  --gradient-brand-r: linear-gradient(135deg, #7b61ff 0%, #2ed6c4 24%, #ffb84d 50%, #ff5aa8 100%);
 
   --hero-bg-saas: url('/images/hero-bg.png');
   --hero-bg-devsecops: url('/images/hero-devsecops.png');
@@ -226,6 +226,7 @@
   --hero-bg-quantum: url('/images/hero-quantum.png');
   --hero-bg-data: url('/images/hero-data.png');
 }
+
 
 /* ─── Base ──────────────────────────────────────── */
 html {
@@ -235,7 +236,11 @@ html {
 body {
   position: relative;
   overflow-x: hidden;
-  background: var(--cb-background);
+  background:
+    radial-gradient(circle at top left, rgba(255, 90, 168, 0.12), transparent 28%),
+    radial-gradient(circle at top right, rgba(123, 97, 255, 0.10), transparent 30%),
+    radial-gradient(circle at bottom center, rgba(46, 214, 196, 0.12), transparent 32%),
+    var(--cb-background);
   color: var(--cb-surface);
   font-family: var(--font-inter);
   -webkit-font-smoothing: antialiased;

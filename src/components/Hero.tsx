@@ -171,9 +171,9 @@ export default function Hero() {
 
           {/* Trust bullets — top badge row */}
           <motion.div
-            initial={{ opacity: 0, y: -10 }}
+            initial={false}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.25 }}
             className="flex flex-wrap items-center gap-2 sm:gap-3 mb-4 sm:mb-6"
           >
             {trustBullets.map((bullet) => (
@@ -192,10 +192,10 @@ export default function Hero() {
             <AnimatePresence mode="wait">
               <motion.div
                 key={slide.id}
-                initial={{ opacity: 0, y: 24 }}
+                initial={false}
                 animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -16 }}
-                transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+                exit={{ opacity: 0, y: -8 }}
+                transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}
                 className="flex flex-col gap-4 sm:gap-5"
               >
                 {/* Tag pill */}

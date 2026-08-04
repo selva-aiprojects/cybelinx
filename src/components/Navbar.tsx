@@ -281,7 +281,7 @@ export default function Navbar() {
 
   useEffect(() => {
     const storedTheme = window.localStorage.getItem("theme") as "light" | "dark" | "sales" | "colorful" | null;
-    const initialTheme = storedTheme || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+    const initialTheme = storedTheme || "colorful";
     setTheme(initialTheme);
     document.documentElement.setAttribute("data-theme", initialTheme);
     if (initialTheme === "dark") {
