@@ -34,9 +34,25 @@ export default function ContactForm() {
   } = useForm<FormData>({ resolver: zodResolver(schema) });
 
   async function onSubmit(data: FormData) {
-    await new Promise((r) => setTimeout(r, 600));
-    console.log(data);
-    setSubmitted(true);
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.error || "Unable to send your message.");
+      }
+
+      setSubmitted(true);
+    } catch (error) {
+      const message = error instanceof Error ? error.message : "Something went wrong.";
+      alert(message);
+    }
   }
 
   if (submitted) {
