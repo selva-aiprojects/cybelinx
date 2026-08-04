@@ -35,7 +35,7 @@ export function LogoMark({ size = 66, className = "" }: LogoProps) {
 /**
  * LogoLockup: Full logo (icon + wordmark)
  */
-export function LogoLockup({ height = 78, className = "" }: LogoProps) {
+export function LogoLockup({ height = 72, className = "" }: LogoProps) {
   return (
     <div className={`inline-flex items-center shrink-0 ${className}`} style={{ height }}>
       <img

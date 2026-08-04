@@ -322,10 +322,10 @@ export default function Navbar() {
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-6 py-4 lg:gap-8">
         <Link href="/" className="mr-2 flex items-center shrink-0 group lg:mr-6">
           <span className="hidden sm:block">
-            <LogoLockup height={72} />
+            <LogoLockup height={64} />
           </span>
           <span className="block sm:hidden">
-            <LogoLockup height={60} />
+            <LogoLockup height={52} />
           </span>
         </Link>
 
