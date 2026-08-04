@@ -26,7 +26,7 @@ const slides = [
     tag: "Enterprise Intelligence Platform",
     cssVar: "var(--hero-bg-saas)",
     tabLabel: "SaaS & PaaS Platforms",
-    tabDesc: "Multi-tenant enterprise foundation",
+    tabDesc: "Shared enterprise platform foundation",
     color: "#0D47FF",
     icon: Globe2,
   },

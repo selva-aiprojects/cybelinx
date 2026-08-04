@@ -59,9 +59,9 @@ export const platformPillars: PlatformPillar[] = [
     subtitle: "Cloud-native product engineering at scale",
     slug: "web-saas-paas",
     description:
-      "Cloud-native web platforms built on Kubernetes-orchestrated microservices, schema-isolated tenants, and CI/CD pipelines designed for regulated industries. Platform and DevOps teams reuse shared services, templates, and pipelines to launch new vertical SaaS and PaaS solutions faster — without forking code or duplicating compliance work.",
+      "Cloud-native web platforms built on Kubernetes-orchestrated microservices, shared platform services, and CI/CD pipelines designed for regulated industries. Product and platform teams reuse common services, templates, and deployment patterns to launch vertical SaaS and PaaS solutions faster — without duplicating compliance work or rebuilding the same foundation for every product.",
     outcome:
-      "Launch new industry SaaS products from shared infrastructure — no forks, no rebuilds.",
+      "Launch new industry SaaS products from one shared foundation — no forks, no rebuilds.",
   },
   {
     icon: Brain,
