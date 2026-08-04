@@ -27,6 +27,9 @@ export const metadata: Metadata = {
     default: `${brand.name} — ${brand.tagline}`,
     template: `%s | ${brand.name}`,
   },
+  alternates: {
+    canonical: "https://cybelinx.com",
+  },
   description: brand.description,
   keywords: [
     "Cybelinx",
