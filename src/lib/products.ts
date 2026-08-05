@@ -36,11 +36,11 @@ export const products: Product[] = [
     icon: "/assets/icons/icon-hrms.png",
     image: "/assets/products/cybehrm.png",
     colorAccent: "#10B981", // Emerald
-    appUrl: "https://cybehrm.vercel.app/",
-    demoUrl: "https://cybehrm.vercel.app/",
+    appUrl: "https://synthalyst.cybelinx.com",
+    demoUrl: "https://synthalyst.cybelinx.com",
     portfolioProducts: [
-      { name: "SynthalystHRM", url: "https://cybehrm.vercel.app/", description: "Core HR & Payroll System" },
-      { name: "TalentPulse", description: "AI-driven talent acquisition & workforce planning" },
+      { name: "SynthalystHRM", url: "https://synthalyst.cybelinx.com", description: "Core HR & Payroll System" },
+      { name: "TalentPulse", url: "https://talentpulse.cybelinx.com", description: "AI-driven talent acquisition & workforce planning" },
     ],
     problem:
       "Modern enterprises struggle with fragmented HR tools, leading to severe compliance risks, poor employee engagement, disjointed payroll processes, and a lack of real-time workforce visibility.",
@@ -70,10 +70,10 @@ export const products: Product[] = [
     icon: "/assets/icons/icon-hms.png",
     image: "/assets/products/cybehms.png",
     colorAccent: "#F59E0B", // Amber
-    appUrl: "https://ehms-app-eta.vercel.app/",
-    demoUrl: "https://ehms-app-eta.vercel.app/",
+    appUrl: "https://hostsphere.cybelinx.com",
+    demoUrl: "https://hostsphere.cybelinx.com",
     portfolioProducts: [
-      { name: "HostSphere", url: "https://ehms-app-eta.vercel.app/", description: "Enterprise Hospitality Management" }
+      { name: "HostSphere", url: "https://hostsphere.cybelinx.com", description: "Enterprise Hospitality Management" }
     ],
     problem:
       "Legacy hospitality software creates operational silos between front-of-house and back-of-house teams, resulting in delayed service, revenue leakage, and inconsistent guest experiences.",
@@ -136,7 +136,7 @@ export const products: Product[] = [
     demoUrl: "https://quantanalysys.vercel.app/",
     portfolioProducts: [
       { name: "SmartPortfolio", url: "https://quantanalysys.vercel.app", description: "Portfolio intelligence and investment decision support" },
-      { name: "SmartBooks", url: "https://smartbooks-sys.vercel.app", description: "Accounting and operational visibility companion product" },
+      { name: "SmartBooks", url: "http://smartbooks.cybelinx.com", description: "Accounting and operational visibility companion product" },
     ],
     problem:
       "Finance teams are often forced to work across disconnected portfolio dashboards, Excel-heavy reporting, and fragmented decision workflows that slow strategic execution.",
@@ -165,7 +165,7 @@ export const products: Product[] = [
     colorAccent: "#EC4899", // Pink
     portfolioProducts: [
       { name: "Jioplix", url: "https://jioplix.com", description: "Hospital Management" },
-      { name: "Mediflow", url: "https://mediflow-sys.vercel.app", description: "Pharmacy Management" },
+      { name: "Mediflow", url: "https://mediflow.cybelinx.com", description: "Pharmacy Management" },
     ],
     problem:
       "Healthcare providers face immense administrative burdens, siloed patient data, and legacy systems that restrict interoperability and ultimately compromise the quality and speed of patient care.",
@@ -194,7 +194,7 @@ export const products: Product[] = [
     image: "/assets/products/cybecommerce.png",
     colorAccent: "#0a8e6e", // Teal
     portfolioProducts: [
-      { name: "StoreAI-One Commerce", url: "https://storeai-app.vercel.app", description: "AI-powered e-commerce storefront" },
+      { name: "StoreAI-One Commerce", url: "https://storeai.cybelinx.com", description: "AI-powered e-commerce storefront" },
     ],
     isPlaceholderContent: true,
   },
