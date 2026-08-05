@@ -125,49 +125,49 @@
   --hero-bg-data: url('/images/hero-data-dark.png');
 }
 
-/* ─── Sales Demo Theme (Bright, Ultra-Vibrant & Converting) ─── */
+/* ─── Palm Theme (Luxury Emerald & Gold — Professional & Rich) ─── */
 [data-theme="sales"] {
-  --cb-background: #f5f7ff;
-  --cb-surface: #0f172a;
-  --cb-slate: #475569;
-  --cb-primary: #2563eb;
-  --cb-primary-deep: #111827;
-  --cb-accent: #22c1ff;
-  --cb-accent-warm: #f59e0b;
-  --cb-violet: #7c3aed;
-  --cb-rose: #ec4899;
-  --cb-live: #10b981;
-  --cb-border: #dfe9ff;
-  --cb-nav-bg: rgba(255, 255, 255, 0.96);
-  --cb-charcoal: #eef4ff;
+  --cb-background: #faf9f4;
+  --cb-surface: #14231f;
+  --cb-slate: #5d6b66;
+  --cb-primary: #0e7a5f;
+  --cb-primary-deep: #0a3d2e;
+  --cb-accent: #c9a227;
+  --cb-accent-warm: #d4af37;
+  --cb-violet: #7c6a3d;
+  --cb-rose: #b85c38;
+  --cb-live: #2d8a4e;
+  --cb-border: #e6e0d0;
+  --cb-nav-bg: rgba(250, 249, 244, 0.96);
+  --cb-charcoal: #f1ede1;
 
   --card-bg: #ffffff;
-  --card-border: #dfe6f6;
-  --card-shadow: 0 18px 45px rgba(37, 99, 235, 0.10), 0 6px 18px rgba(124, 58, 237, 0.08);
-  --card-border-hover: #2563eb;
-  --card-shadow-hover: 0 22px 60px rgba(37, 99, 235, 0.14), 0 8px 22px rgba(124, 58, 237, 0.10);
+  --card-border: #e4ddc9;
+  --card-shadow: 0 18px 45px rgba(14, 122, 95, 0.10), 0 6px 18px rgba(201, 162, 39, 0.06);
+  --card-border-hover: #0e7a5f;
+  --card-shadow-hover: 0 22px 60px rgba(14, 122, 95, 0.16), 0 8px 22px rgba(201, 162, 39, 0.10);
 
-  --hero-from: #f8fbff;
-  --hero-via: #eef4ff;
-  --hero-to: #f7f0ff;
-  --hero-accent-1: rgba(37, 99, 235, 0.16);
-  --hero-accent-2: rgba(34, 193, 255, 0.14);
-  --hero-accent-3: rgba(124, 58, 237, 0.10);
+  --hero-from: #fbfaf5;
+  --hero-via: #f0ede1;
+  --hero-to: #f7f4e8;
+  --hero-accent-1: rgba(14, 122, 95, 0.14);
+  --hero-accent-2: rgba(201, 162, 39, 0.12);
+  --hero-accent-3: rgba(124, 106, 61, 0.10);
 
   --glass-bg: rgba(255, 255, 255, 0.88);
-  --glass-border: rgba(37, 99, 235, 0.14);
-  --glass-shadow: 0 16px 40px rgba(15, 23, 42, 0.08);
+  --glass-border: rgba(14, 122, 95, 0.16);
+  --glass-shadow: 0 16px 40px rgba(20, 35, 31, 0.08);
 
   --glass-premium-bg: rgba(255, 255, 255, 0.94);
-  --glass-premium-border: rgba(34, 193, 255, 0.20);
-  --glass-premium-shadow: 0 22px 60px rgba(37, 99, 235, 0.12);
+  --glass-premium-border: rgba(201, 162, 39, 0.22);
+  --glass-premium-shadow: 0 22px 60px rgba(14, 122, 95, 0.12);
 
-  --glow-primary: rgba(37, 99, 235, 0.18);
-  --glow-cyan: rgba(34, 193, 255, 0.18);
-  --glow-violet: rgba(124, 58, 237, 0.16);
+  --glow-primary: rgba(14, 122, 95, 0.18);
+  --glow-cyan: rgba(201, 162, 39, 0.18);
+  --glow-violet: rgba(124, 106, 61, 0.16);
 
-  --gradient-brand: linear-gradient(135deg, #1d4ed8 0%, #2563eb 25%, #7c3aed 60%, #22c1ff 100%);
-  --gradient-brand-r: linear-gradient(135deg, #22c1ff 0%, #7c3aed 35%, #2563eb 70%, #0f172a 100%);
+  --gradient-brand: linear-gradient(135deg, #0a3d2e 0%, #0e7a5f 30%, #c9a227 70%, #d4af37 100%);
+  --gradient-brand-r: linear-gradient(135deg, #d4af37 0%, #c9a227 30%, #0e7a5f 70%, #0a3d2e 100%);
 
   --hero-bg-saas: url('/images/hero-bg.png');
   --hero-bg-devsecops: url('/images/hero-devsecops.png');
