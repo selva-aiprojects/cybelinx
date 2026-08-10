@@ -166,7 +166,7 @@ export default function Hero() {
       </div>
 
       {/* ── Main content ─────────────────────────── */}
-      <div className="relative z-10 w-full mx-auto max-w-7xl px-4 sm:px-6 py-10 sm:py-16 lg:py-24 grid lg:grid-cols-12 gap-8 lg:gap-10 items-center min-h-0 lg:min-h-[88vh]">
+      <div className="relative z-10 w-full mx-auto max-w-7xl px-4 sm:px-6 py-10 sm:py-16 lg:py-24 grid lg:grid-cols-12 gap-8 lg:gap-10 items-start min-h-0 lg:min-h-[84vh]">
 
         {/* ── LEFT: Content ────────────────────────── */}
         <div className="lg:col-span-6 xl:col-span-7 flex flex-col justify-center">
@@ -333,7 +333,7 @@ export default function Hero() {
                   <button
                     key={s.id}
                     onClick={() => setActiveSlide(index)}
-                    className={`group relative flex w-full items-center justify-between rounded-2xl p-3.5 transition-all duration-300 ease-out text-left border ${
+                    className={`group relative flex w-full h-[68px] items-center justify-between rounded-2xl px-3.5 py-2.5 transition-all duration-300 ease-out text-left border ${
                       isActive
                         ? "bg-white dark:bg-white/10 border-blue-400 dark:border-white/30 shadow-md shadow-blue-500/10 dark:shadow-none"
                         : "bg-white/70 hover:bg-white border-slate-200/80 dark:bg-white/[0.03] dark:hover:bg-white/[0.07] dark:border-white/[0.06]"
@@ -358,7 +358,7 @@ export default function Hero() {
                       />
                     )}
 
-                    <div className="flex items-center gap-3.5 pl-1.5 w-full">
+                    <div className="flex items-center gap-3.5 pl-1.5 w-full min-w-0">
                       {/* Icon container */}
                       <div
                         className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xl transition-all duration-300 ${
@@ -380,13 +380,13 @@ export default function Hero() {
                       {/* Title & subtitle */}
                       <div className="min-w-0 flex-1">
                         <h3
-                          className="font-display font-bold text-sm sm:text-base leading-tight transition-colors text-slate-900 dark:text-white"
+                          className="font-display font-bold text-xs sm:text-sm leading-tight transition-colors text-slate-900 dark:text-white truncate"
                           style={{ color: isActive ? tabColor : undefined }}
                         >
                           {s.tabLabel}
                         </h3>
                         <p
-                          className="text-xs mt-0.5 font-medium line-clamp-1 transition-colors text-slate-500 dark:text-white/50"
+                          className="text-[11px] sm:text-xs mt-0.5 font-medium line-clamp-1 transition-colors text-slate-500 dark:text-white/50"
                         >
                           {s.tabDesc}
                         </p>
