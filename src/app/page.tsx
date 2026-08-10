@@ -7,6 +7,7 @@ import ArchitectureFlow from "@/components/ArchitectureFlow";
 import CTABand from "@/components/CTABand";
 import AnimatedSection from "@/components/AnimatedSection";
 import ComparisonTable from "@/components/ComparisonTable";
+import ProductNewsSection from "@/components/ProductNewsSection";
 import TrustBar from "@/components/TrustBar";
 import TechStack from "@/components/TechStack";
 import { ArrowRight } from "lucide-react";
@@ -54,6 +55,13 @@ export default function HomePage() {
             </AnimatedSection>
           ))}
         </div>
+      </Section>
+
+      {/* ── Latest Product News & Innovations ──── */}
+      <Section id="product-news" textured glow className="py-20 md:py-28">
+        <AnimatedSection>
+          <ProductNewsSection />
+        </AnimatedSection>
       </Section>
 
       {/* ── How Cybelinx Is Different ────────── */}

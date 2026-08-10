@@ -28,6 +28,7 @@ export const mainNav: NavGroup[] = [
     items: [
       { href: "/technologies", label: "Engineering & DevOps", description: "For engineering and platform teams" },
       { href: "/insights", label: "Insights", description: "Perspectives from our teams" },
+      { href: "/#product-news", label: "Product News", description: "Latest product releases and announcements" },
     ],
   },
   {
@@ -55,5 +56,6 @@ export const footerNav = {
     { href: "/platform", label: "Platform" },
     { href: "/case-studies", label: "Case Studies" },
     { href: "/insights", label: "Insights" },
+    { href: "/#product-news", label: "Product News" },
   ],
 };

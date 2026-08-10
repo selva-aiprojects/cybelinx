@@ -3,12 +3,13 @@ import Link from "next/link";
 import Section from "@/components/Section";
 import PageHeader from "@/components/PageHeader";
 import CTABand from "@/components/CTABand";
+import ProductNewsSection from "@/components/ProductNewsSection";
 import { insights } from "@/lib/content";
 import { ArrowUpRight } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Insights",
-  description: "Technical perspectives on product engineering, cloud platforms, AI in enterprise workflows, and SaaS architecture from the Cybelinx team.",
+  title: "Insights & Product News",
+  description: "Technical perspectives, product announcements, major releases, and cloud platform news from the Cybelinx team.",
 };
 
 export default function InsightsPage() {
@@ -16,13 +17,19 @@ export default function InsightsPage() {
     <>
       <Section className="pt-16">
         <PageHeader
-          eyebrow="Insights"
-          title="Perspectives from the product front line."
-          description="Articles and briefs on building and scaling enterprise SaaS platforms."
+          eyebrow="Insights & Product News"
+          title="Perspectives & product announcements from the front line."
+          description="Explore technical briefs and official release news across our enterprise AI and SaaS platforms."
         />
       </Section>
 
-      <Section textured>
+      {/* Featured Product News Section */}
+      <Section textured glow className="py-16">
+        <ProductNewsSection />
+      </Section>
+
+      <Section textured className="py-16">
+        <h2 className="font-display text-2xl font-bold text-surface mb-8">Engineering & Platform Perspectives</h2>
         <div className="grid gap-6">
           {insights.map((article) => (
             <Link
