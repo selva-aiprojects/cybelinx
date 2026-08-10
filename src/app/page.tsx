@@ -24,26 +24,26 @@ export default function HomePage() {
       <Hero />
 
       {/* ── 5 Core Pillars ─────────────────────── */}
-      <Section id="platform-pillars" glow className="py-16 md:py-24">
+      <Section id="platform-pillars" glow className="py-10 md:py-14">
         <PlatformPillars />
       </Section>
 
       {/* ── Social Proof & Trust ────────────────── */}
-      <Section id="trust" className="pt-0 pb-8 md:pb-12 border-b border-border/50">
+      <Section id="trust" className="pt-0 pb-6 md:pb-8 border-b border-border/50">
         <AnimatedSection>
           <TrustBar />
         </AnimatedSection>
       </Section>
 
       {/* ── Built On Enterprise Foundations ────── */}
-      <Section id="tech-stack" className="py-12 md:py-16 border-b border-border/50">
+      <Section id="tech-stack" className="py-8 md:py-10 border-b border-border/50">
         <AnimatedSection>
           <TechStack />
         </AnimatedSection>
       </Section>
 
       {/* ── Product Portfolio ─────────────────── */}
-      <Section id="products" textured glow>
+      <Section id="products" textured glow className="py-10 md:py-14">
         <AnimatedSection>
           <SectionHeading
             eyebrow="Enterprise Platforms & Offerings"
@@ -61,35 +61,35 @@ export default function HomePage() {
       </Section>
 
       {/* ── Enterprise Transformation Flow Blueprints ── */}
-      <Section id="enterprise-flows" textured glow className="py-16 md:py-24 border-t border-border/40">
+      <Section id="enterprise-flows" textured glow className="py-10 md:py-14 border-t border-border/40">
         <AnimatedSection>
           <EnterpriseFlowsSlider />
         </AnimatedSection>
       </Section>
 
       {/* ── Dynamic Network Topologies ────────────────── */}
-      <Section id="network-ecosystem" className="py-16 md:py-24 border-t border-border/40">
+      <Section id="network-ecosystem" className="py-10 md:py-14 border-t border-border/40">
         <AnimatedSection>
           <DynamicNetworkEcosystem />
         </AnimatedSection>
       </Section>
 
       {/* ── Latest Product News & Innovations ──── */}
-      <Section id="product-news" textured glow className="py-20 md:py-28">
+      <Section id="product-news" textured glow className="py-10 md:py-14">
         <AnimatedSection>
           <ProductNewsSection />
         </AnimatedSection>
       </Section>
 
       {/* ── 30-Minute Strategic Architecture Review ────── */}
-      <Section id="architecture-review" className="py-16 md:py-24 border-t border-border/40">
+      <Section id="architecture-review" className="py-10 md:py-14 border-t border-border/40">
         <AnimatedSection>
           <ArchitectureReviewForm />
         </AnimatedSection>
       </Section>
 
       {/* ── How Cybelinx Is Different ────────── */}
-      <Section id="how-cybelinx-is-different" textured glow>
+      <Section id="how-cybelinx-is-different" textured glow className="py-10 md:py-14">
         <AnimatedSection>
           <SectionHeading
             eyebrow="How Cybelinx Is Different"
@@ -105,7 +105,7 @@ export default function HomePage() {
       </Section>
 
       {/* ── How It Works ──────────────────────── */}
-      <Section id="how-it-works" className="py-28 md:py-36">
+      <Section id="how-it-works" className="py-12 md:py-16">
         <AnimatedSection>
           <SectionHeading
             eyebrow="How It Works"

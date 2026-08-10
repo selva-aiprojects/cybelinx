@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 export default function InsightsPage() {
   return (
     <>
-      <Section className="pt-16">
+      <Section className="pt-12 pb-4">
         <PageHeader
           eyebrow="Insights & Product News"
           title="Perspectives & product announcements from the front line."
@@ -24,11 +24,11 @@ export default function InsightsPage() {
       </Section>
 
       {/* Featured Product News Section */}
-      <Section textured glow className="py-16">
+      <Section textured glow className="py-8">
         <ProductNewsSection />
       </Section>
 
-      <Section textured className="py-16">
+      <Section textured className="py-8">
         <h2 className="font-display text-2xl font-bold text-surface mb-8">Engineering & Platform Perspectives</h2>
         <div className="grid gap-6">
           {insights.map((article) => (

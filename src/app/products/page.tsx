@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 export default function ProductsPage() {
   return (
     <main className="bg-background min-h-screen text-surface relative">
-      <Section className="pt-24 pb-12 border-b border-border/40 relative overflow-hidden">
+      <Section className="pt-16 pb-8 border-b border-border/40 relative overflow-hidden">
         {/* Ambient top glow */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-[400px] bg-primary/20 blur-[140px] rounded-full pointer-events-none" />
         
@@ -29,7 +29,7 @@ export default function ProductsPage() {
         />
 
         {/* Flashy Hero Graphic Banner */}
-        <div className="mt-12 relative w-full max-w-5xl mx-auto h-[320px] sm:h-[420px] rounded-3xl overflow-hidden border border-white/20 shadow-2xl group">
+        <div className="mt-8 relative w-full max-w-5xl mx-auto h-[320px] sm:h-[420px] rounded-3xl overflow-hidden border border-white/20 shadow-2xl group">
           <Image
             src="/assets/products/flashy-hero-banner.png"
             alt="Cybelinx Enterprise Platform Showcase"
@@ -65,8 +65,8 @@ export default function ProductsPage() {
       </div>
 
       {/* Production Ready Enterprise Platforms Showcase */}
-      <Section id="production-platforms" textured glow className="py-20 border-t border-border/40">
-        <div className="text-center max-w-3xl mx-auto mb-12">
+      <Section id="production-platforms" textured glow className="py-10 border-t border-border/40">
+        <div className="text-center max-w-3xl mx-auto mb-10">
           <span className="px-3.5 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-400/30 text-cyan-300 text-xs font-bold uppercase tracking-wider">
             Production-Ready Platforms
           </span>
@@ -122,11 +122,11 @@ export default function ProductsPage() {
       </Section>
 
       {/* Latest Product News & Announcements */}
-      <Section id="product-news" textured glow className="py-24 border-t border-border/40">
+      <Section id="product-news" textured glow className="py-10 border-t border-border/40">
         <ProductNewsSection />
       </Section>
 
-      <Section textured className="py-24">
+      <Section textured className="py-12">
         <CTABand 
           heading="Ready to elevate your enterprise?" 
           subheading="Our platform strategists will help you map capabilities to your industry and compliance requirements."

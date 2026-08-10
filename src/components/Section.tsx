@@ -24,7 +24,7 @@ export default function Section({
     : "bg-background";
 
   return (
-    <section id={id} className={`relative py-20 md:py-28 overflow-hidden ${bg} ${className}`}>
+    <section id={id} className={`relative py-10 md:py-14 overflow-hidden ${bg} ${className}`}>
       {/* Ambient glow orbs */}
       {glow && (
         <>
