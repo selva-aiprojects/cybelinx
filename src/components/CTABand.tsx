@@ -18,16 +18,9 @@ export default function CTABand({
   subheading?: string;
 }) {
   return (
-    <div className="relative overflow-hidden rounded-3xl p-[1.5px]"
-      style={{ background: "linear-gradient(135deg, #0D47FF 0%, #7B61FF 50%, #00C2FF 100%)" }}
-    >
+    <div className="relative overflow-hidden rounded-3xl p-[1.5px] animated-conic-border">
       {/* Inner container */}
-      <div
-        className="relative overflow-hidden rounded-[calc(1.5rem-1.5px)] px-10 py-14 text-center md:px-20 md:py-20"
-        style={{
-          background: "linear-gradient(145deg, #061034 0%, #0a0a2e 40%, #050820 100%)",
-        }}
-      >
+      <div className="glass-premium shiny-card-active relative overflow-hidden rounded-[calc(1.5rem-1.5px)] px-10 py-14 text-center md:px-20 md:py-20 border border-white/20 dark:border-white/15">
         {/* Ambient orbs */}
         <div className="absolute -top-32 -right-32 h-80 w-80 rounded-full blur-3xl animate-pulse-glow pointer-events-none"
           style={{ background: "radial-gradient(circle, rgba(123,97,255,0.35), transparent 70%)" }} />
@@ -46,16 +39,14 @@ export default function CTABand({
         />
 
         {/* Content */}
-        <div className="relative">
+        <div className="relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/8 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-white/70 backdrop-blur-sm mb-6"
-              style={{ background: "rgba(255,255,255,0.06)" }}
-            >
+            <span className="shiny-badge mb-6 cursor-default">
               <Sparkles className="h-3.5 w-3.5" />
               Get Started Today
             </span>
@@ -76,7 +67,7 @@ export default function CTABand({
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.22 }}
-            className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-white/60 md:text-lg"
+            className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-white/70 md:text-lg"
           >
             {subheading}
           </motion.p>
@@ -90,16 +81,16 @@ export default function CTABand({
           >
             <Button
               href="/contact"
-              className="!bg-white !text-primary-deep !font-bold hover:!bg-white/90 !shadow-xl hover:!shadow-2xl hover:!shadow-primary/20"
+              variant="shiny"
               size="lg"
             >
               Book a Demo
             </Button>
             <Button
               href="/products"
-              variant="ghost"
+              variant="glass"
               size="lg"
-              className="!text-white/80 hover:!text-white hover:!bg-white/10 !border !border-white/15"
+              className="text-white hover:text-white"
             >
               Browse Products
               <ArrowRight className="h-4 w-4 ml-1" />

@@ -68,14 +68,14 @@ function ShinyTab({
 
       {/* ── Inner tab card ────────────────────────── */}
       <span
-        className={`relative z-10 flex items-start gap-4 rounded-[14px] p-4 transition-all duration-300 border ${
+        className={`relative z-10 flex items-start gap-4 rounded-[14px] p-4 transition-all duration-300 border glass-card-refined shiny-card ${
           isActive
-            ? "bg-white dark:bg-white/5 border-blue-300 dark:border-white/20 shadow-lg shadow-blue-500/10 dark:shadow-none"
-            : "bg-white/80 hover:bg-white dark:bg-white/[0.03] dark:hover:bg-white/[0.06] border-slate-200/80 dark:border-white/5"
+            ? "bg-white/90 dark:bg-white/10 border-blue-400 dark:border-white/30 shadow-xl shadow-blue-500/15"
+            : "bg-white/60 hover:bg-white/90 dark:bg-white/[0.03] dark:hover:bg-white/[0.07] border-slate-200/80 dark:border-white/10"
         }`}
         style={
           isActive
-            ? { boxShadow: `0 8px 30px ${accent.glow}20, inset 0 0 0 1px transparent` }
+            ? { boxShadow: `0 8px 30px ${accent.glow}25, inset 0 1px 0 rgba(255,255,255,0.6)` }
             : {}
         }
       >
@@ -164,12 +164,15 @@ function ContentPanel({
     <AnimatePresence mode="sync" initial={false}>
       <motion.div
         key={pillar.slug}
-        style={{ gridArea: "1 / 1 / 2 / 2" }}
         initial={{ opacity: 0, scale: 0.98, y: 8 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
         exit={{ opacity: 0, scale: 0.98, y: -8 }}
         transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-        className="relative flex flex-col justify-between h-full overflow-hidden rounded-3xl p-8 md:p-10 bg-white/95 border border-slate-200/90 shadow-2xl shadow-blue-500/10 dark:bg-[#070d1e] dark:border-white/10"
+        className="glass-premium shiny-card-active relative flex flex-col justify-between h-full overflow-hidden rounded-3xl p-8 md:p-10 border border-white/40 dark:border-white/15 shadow-2xl"
+        style={{
+          gridArea: "1 / 1 / 2 / 2",
+          boxShadow: `0 24px 64px ${accent.glow}25, inset 0 1px 0 rgba(255,255,255,0.7)`,
+        }}
       >
         <div>
           {/* Background orb */}

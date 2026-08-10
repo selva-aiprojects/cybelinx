@@ -7,7 +7,7 @@ import { ReactNode } from "react";
 type ButtonProps = {
   href: string;
   children?: ReactNode;
-  variant?: "primary" | "secondary" | "ghost" | "gradient";
+  variant?: "primary" | "secondary" | "ghost" | "gradient" | "glass" | "shiny";
   size?: "sm" | "md" | "lg";
   className?: string;
   target?: string;
@@ -32,17 +32,21 @@ export default function Button({
   };
 
   const base =
-    "relative inline-flex items-center justify-center rounded-xl font-semibold transition-all duration-200 focus-visible:outline-2 focus-visible:outline-primary cursor-pointer select-none";
+    "relative inline-flex items-center justify-center rounded-xl font-semibold transition-all duration-200 focus-visible:outline-2 focus-visible:outline-primary cursor-pointer select-none overflow-hidden";
 
   const variants: Record<string, string> = {
     primary:
-      "bg-gradient-to-r from-primary to-violet text-white shadow-sm shadow-primary/30 hover:shadow-glow hover:brightness-110 active:scale-[0.97]",
+      "shiny-button bg-gradient-to-r from-primary to-violet text-white shadow-md shadow-primary/25 hover:shadow-glow hover:brightness-110 active:scale-[0.97] border border-white/20",
     gradient:
-      "bg-gradient-to-r from-primary via-violet to-accent text-white shadow-sm shadow-primary/30 hover:shadow-glow-lg hover:brightness-110 active:scale-[0.97]",
+      "shiny-button bg-gradient-to-r from-primary via-violet to-accent text-white shadow-lg shadow-primary/30 hover:shadow-glow-lg hover:brightness-110 active:scale-[0.97] border border-white/20",
+    shiny:
+      "shiny-button bg-gradient-to-r from-primary via-accent to-violet text-white shadow-lg shadow-accent/30 hover:shadow-glow-cyan hover:brightness-110 active:scale-[0.97] border border-white/30",
+    glass:
+      "glass-card-refined text-surface hover:border-primary/60 hover:text-primary hover:shadow-glow hover:bg-primary/10 active:scale-[0.97] backdrop-blur-xl border border-white/20 dark:border-white/10",
     secondary:
-      "border border-border bg-background text-surface hover:border-primary/50 hover:text-primary hover:shadow-sm hover:bg-primary/5 active:scale-[0.97]",
+      "border border-border/80 bg-background/80 text-surface hover:border-primary/50 hover:text-primary hover:shadow-sm hover:bg-primary/5 active:scale-[0.97] backdrop-blur-md",
     ghost:
-      "text-slate hover:text-surface hover:bg-charcoal active:scale-[0.97]",
+      "text-slate hover:text-surface hover:bg-charcoal/80 active:scale-[0.97]",
   };
 
   return (
@@ -53,7 +57,7 @@ export default function Button({
       className={`${base} ${sizes[size]} ${variants[variant]} ${className}`}
       style={style}
     >
-      {children}
+      <span className="relative z-10 inline-flex items-center gap-inherit">{children}</span>
     </Link>
   );
 }

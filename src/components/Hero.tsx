@@ -203,10 +203,10 @@ export default function Hero() {
               >
                 {/* Tag pill */}
                 <span
-                  className="inline-flex items-center gap-2 rounded-full border px-3.5 py-1 sm:px-4 sm:py-1.5 text-[10px] sm:text-[11px] font-bold uppercase tracking-wider w-fit backdrop-blur-md shadow-sm h-7 sm:h-8"
+                  className="shiny-badge w-fit text-[10px] sm:text-[11px] h-7 sm:h-8"
                   style={{
-                    backgroundColor: `${primaryColor}12`,
-                    borderColor: `${primaryColor}35`,
+                    backgroundColor: `${primaryColor}14`,
+                    borderColor: `${primaryColor}40`,
                     color: primaryColor,
                   }}
                 >
@@ -214,7 +214,7 @@ export default function Hero() {
                     className="relative h-2 w-2 rounded-full animate-pulse"
                     style={{
                       backgroundColor: primaryColor,
-                      boxShadow: `0 0 8px ${primaryColor}`,
+                      boxShadow: `0 0 10px ${primaryColor}`,
                     }}
                   />
                   {slide.tag}
@@ -240,12 +240,12 @@ export default function Hero() {
           <div className="mt-6 sm:mt-8 flex flex-wrap items-center gap-3 sm:gap-4">
             <Button
               href="/products"
-              variant="primary"
+              variant="shiny"
               size="lg"
-              className="border-none font-bold shadow-lg text-white transition-all duration-300 hover:scale-[1.03] hover:shadow-xl text-sm sm:text-base px-6 py-3"
+              className="font-bold text-white transition-all duration-300 hover:scale-[1.03] text-sm sm:text-base px-6 py-3.5"
               style={{
                 backgroundColor: primaryColor,
-                boxShadow: `0 4px 24px ${primaryColor}45`,
+                boxShadow: `0 8px 32px ${primaryColor}45`,
               }}
             >
               Explore Platform
@@ -253,24 +253,24 @@ export default function Hero() {
             </Button>
             <Button
               href="/contact"
-              variant="secondary"
+              variant="glass"
               size="lg"
-              className="bg-card-bg border-border text-surface font-semibold transition-all hover:border-primary/40 hover:bg-primary/5 text-sm sm:text-base px-6 py-3"
+              className="font-semibold text-sm sm:text-base px-6 py-3.5"
             >
               Request Demo
             </Button>
           </div>
 
           {/* Stats row */}
-          <div className="mt-8 sm:mt-12 grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-0 border-t border-border/40 pt-6 sm:pt-8">
+          <div className="mt-8 sm:mt-12 grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-3 border-t border-border/30 pt-6 sm:pt-8">
             {statsRow.map((s, i) => {
               const Icon = s.icon;
               return (
-                <div key={s.label} className={`flex flex-col ${i > 0 && i % 2 !== 0 ? "sm:border-l border-border/40 sm:pl-4" : i > 0 ? "border-l border-border/40 pl-4" : ""}`}>
-                  <div className="font-display text-xl sm:text-2xl lg:text-3xl font-extrabold text-surface tracking-tight">
+                <div key={s.label} className="glass-card-refined shiny-card flex flex-col items-center justify-center p-3.5 text-center">
+                  <div className="font-display text-xl sm:text-2xl font-extrabold shiny-text tracking-tight">
                     {s.value}
                   </div>
-                  <div className="text-[10px] font-bold uppercase tracking-widest text-slate/70 mt-1">
+                  <div className="text-[10px] font-bold uppercase tracking-widest text-slate mt-1">
                     {s.label}
                   </div>
                 </div>
@@ -286,9 +286,9 @@ export default function Hero() {
           onMouseLeave={() => setIsPaused(false)}
         >
           <div
-            className="relative overflow-hidden rounded-3xl p-6 sm:p-7 shadow-2xl transition-all duration-500 bg-slate-100 border border-slate-300/80 dark:bg-[#070D24] dark:border-white/15"
+            className="glass-premium shiny-card relative overflow-hidden rounded-3xl p-6 sm:p-7 shadow-2xl transition-all duration-500 border border-white/30 dark:border-cyan-400/20"
             style={{
-              boxShadow: `0 24px 64px ${primaryColor}25, 0 4px 20px rgba(0,0,0,0.1)`,
+              boxShadow: `0 24px 64px ${primaryColor}30, inset 0 1px 0 rgba(255,255,255,0.4)`,
             }}
           >
             {/* Top glowing ambient line */}

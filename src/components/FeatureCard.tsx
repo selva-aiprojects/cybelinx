@@ -46,20 +46,15 @@ export default function FeatureCard({
   const style = iconStyles[index % iconStyles.length];
 
   const inner = (
-    <div className="relative h-full flex flex-col overflow-hidden rounded-2xl border border-border bg-card-bg p-6 transition-all duration-300 group-hover:border-primary/40 group-hover:-translate-y-1.5">
+    <div className="glass-card-refined shiny-card relative h-full flex flex-col overflow-hidden rounded-2xl border border-white/30 dark:border-white/10 p-6 transition-all duration-300 group-hover:border-primary/50 group-hover:-translate-y-1.5 shadow-lg">
+      {/* Specular top highlight line */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/50 dark:via-cyan-400/40 to-transparent pointer-events-none z-20" />
+
       {/* Subtle background gradient on hover */}
       <div
-        className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-400 pointer-events-none"
+        className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-400 pointer-events-none z-0"
         style={{
           background: `radial-gradient(ellipse at 30% 0%, ${style.glowColor} 0%, transparent 60%)`,
-        }}
-      />
-
-      {/* Top accent line on hover */}
-      <div
-        className="absolute top-0 left-0 right-0 h-px opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-        style={{
-          background: `linear-gradient(90deg, transparent, ${style.glowColor}, transparent)`,
         }}
       />
 

@@ -24,7 +24,7 @@ export default function ProductCard({ product }: { product: Product }) {
   return (
     <Link href={`/products/${product.slug}`} className="group block cursor-pointer h-full">
       <div
-        className="relative h-full flex flex-col overflow-hidden rounded-2xl border border-border/70 bg-card-bg transition-all duration-300 group-hover:-translate-y-1.5"
+        className="glass-card-refined shiny-card relative h-full flex flex-col overflow-hidden rounded-2xl border border-white/30 dark:border-white/10 transition-all duration-300 group-hover:-translate-y-1.5 shadow-xl"
         style={
           {
             "--card-accent": accent,

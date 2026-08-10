@@ -313,13 +313,16 @@ export default function Navbar() {
 
   return (
     <header
-      className={`sticky top-0 z-50 transition-all duration-300 bg-white dark:bg-[#000b21] border-b ${
+      className={`sticky top-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "border-border/50 shadow-lg shadow-primary/5 backdrop-blur-2xl"
-          : "border-border/30 shadow-sm"
+          ? "bg-white/80 dark:bg-[#000b21]/80 backdrop-blur-2xl border-b border-white/20 dark:border-cyan-500/20 shadow-xl shadow-primary/5"
+          : "bg-white/60 dark:bg-[#000b21]/60 backdrop-blur-xl border-b border-white/10 dark:border-cyan-500/10 shadow-sm"
       }`}
     >
-      <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-6 py-4 lg:gap-8">
+      {/* Specular top highlight line */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/50 dark:via-cyan-400/40 to-transparent pointer-events-none" />
+
+      <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-6 py-3.5 lg:gap-8">
         <Link href="/" className="mr-2 flex items-center shrink-0 group lg:mr-6">
           <span className="hidden sm:block">
             <LogoLockup height={64} />
@@ -341,37 +344,37 @@ export default function Navbar() {
             onClick={toggleTheme}
             aria-label="Toggle theme mode"
             title={`Current theme: ${theme.toUpperCase()} (Click to switch)`}
-            className="flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-bold transition-all border border-slate-200 dark:border-white/15 hover:border-primary/40 bg-slate-50 dark:bg-white/5 cursor-pointer"
+            className="shiny-badge flex items-center gap-1.5 cursor-pointer py-1.5 px-3.5 hover:scale-105 transition-transform"
           >
             {theme === "light" && (
               <>
-                <Moon className="h-3.5 w-3.5 text-slate-700" />
-                <span className="text-slate-700">Light</span>
+                <Moon className="h-3.5 w-3.5 text-primary" />
+                <span className="text-primary font-bold">Light</span>
               </>
             )}
             {theme === "dark" && (
               <>
                 <Sun className="h-3.5 w-3.5 text-amber-400" />
-                <span className="text-white/90">Dark</span>
+                <span className="text-amber-300 font-bold">Dark</span>
               </>
             )}
             {theme === "sales" && (
               <>
-                <Zap className="h-3.5 w-3.5 text-cyan-400 animate-pulse" />
-                <span className="text-cyan-400 font-extrabold">⚡ Sales</span>
+                <Zap className="h-3.5 w-3.5 text-amber-500 animate-pulse" />
+                <span className="text-amber-600 dark:text-amber-400 font-extrabold">⚡ Palm</span>
               </>
             )}
             {theme === "colorful" && (
               <>
                 <Sparkles className="h-3.5 w-3.5 text-pink-500" />
-                <span className="bg-gradient-to-r from-pink-500 via-violet-500 to-cyan-500 bg-clip-text text-transparent font-extrabold">Colorful</span>
+                <span className="shiny-text font-extrabold">Colorful</span>
               </>
             )}
           </button>
-          <Button href="/contact" variant="secondary" size="sm">
+          <Button href="/contact" variant="glass" size="sm">
             Talk to Sales
           </Button>
-          <Button href="/contact" variant="primary" size="sm">
+          <Button href="/contact" variant="shiny" size="sm">
             Get a Demo
           </Button>
         </div>
