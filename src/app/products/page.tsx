@@ -1,11 +1,14 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
 import Section from "@/components/Section";
 import PageHeader from "@/components/PageHeader";
 import CTABand from "@/components/CTABand";
 import AnimatedProductSection from "@/components/AnimatedProductSection";
 import ProductNewsSection from "@/components/ProductNewsSection";
 import { portfolios } from "@/lib/portfolios";
+import { cognivectraPlatforms } from "@/lib/cognivectraContent";
 
 export const metadata: Metadata = {
   title: "CybePlatforms & Product Portfolio",
@@ -60,6 +63,63 @@ export default function ProductsPage() {
           <AnimatedProductSection key={content.id} content={content} index={index} />
         ))}
       </div>
+
+      {/* Production Ready Enterprise Platforms Showcase */}
+      <Section id="production-platforms" textured glow className="py-20 border-t border-border/40">
+        <div className="text-center max-w-3xl mx-auto mb-12">
+          <span className="px-3.5 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-400/30 text-cyan-300 text-xs font-bold uppercase tracking-wider">
+            Production-Ready Platforms
+          </span>
+          <h2 className="mt-4 font-display text-3xl sm:text-4xl font-bold text-white tracking-tight">
+            Enterprise Solutions Ready for Live Deployment
+          </h2>
+          <p className="mt-3 text-base text-slate">
+            Proven multi-tenant architectures engineered for retail, healthcare, fintech, workforce, and higher education.
+          </p>
+        </div>
+
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
+          {cognivectraPlatforms.map((plat) => (
+            <div
+              key={plat.name}
+              className="group p-6 rounded-2xl border border-white/10 bg-slate-900/60 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1.5 hover:border-white/25 flex flex-col justify-between shadow-xl"
+              style={{
+                boxShadow: `0 10px 30px rgba(0,0,0,0.4)`,
+              }}
+            >
+              <div>
+                <div className="flex items-center justify-between gap-2 mb-3">
+                  <span
+                    className="px-2.5 py-1 rounded-full text-[10px] font-mono font-bold uppercase tracking-wider"
+                    style={{
+                      background: `${plat.accent}20`,
+                      color: plat.accent,
+                      border: `1px solid ${plat.accent}40`,
+                    }}
+                  >
+                    {plat.badge}
+                  </span>
+                </div>
+                <h3 className="font-display text-xl font-bold text-white group-hover:text-cyan-300 transition-colors">
+                  {plat.name}
+                </h3>
+                <p className="mt-1 text-xs font-semibold text-cyan-400">{plat.tagline}</p>
+                <p className="mt-3 text-xs text-slate-300 leading-relaxed">{plat.desc}</p>
+              </div>
+
+              <div className="mt-6 pt-4 border-t border-white/10 flex items-center justify-between">
+                <Link
+                  href={plat.href}
+                  className="inline-flex items-center gap-1.5 text-xs font-bold text-cyan-400 group-hover:text-cyan-300"
+                >
+                  <span>Explore Platform</span>
+                  <ArrowUpRight className="h-3.5 w-3.5" />
+                </Link>
+              </div>
+            </div>
+          ))}
+        </div>
+      </Section>
 
       {/* Latest Product News & Announcements */}
       <Section id="product-news" textured glow className="py-24 border-t border-border/40">

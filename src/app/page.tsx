@@ -8,6 +8,9 @@ import CTABand from "@/components/CTABand";
 import AnimatedSection from "@/components/AnimatedSection";
 import ComparisonTable from "@/components/ComparisonTable";
 import ProductNewsSection from "@/components/ProductNewsSection";
+import DynamicNetworkEcosystem from "@/components/DynamicNetworkEcosystem";
+import EnterpriseFlowsSlider from "@/components/EnterpriseFlowsSlider";
+import ArchitectureReviewForm from "@/components/ArchitectureReviewForm";
 import TrustBar from "@/components/TrustBar";
 import TechStack from "@/components/TechStack";
 import { ArrowRight } from "lucide-react";
@@ -57,10 +60,31 @@ export default function HomePage() {
         </div>
       </Section>
 
+      {/* ── Enterprise Transformation Flow Blueprints ── */}
+      <Section id="enterprise-flows" textured glow className="py-16 md:py-24 border-t border-border/40">
+        <AnimatedSection>
+          <EnterpriseFlowsSlider />
+        </AnimatedSection>
+      </Section>
+
+      {/* ── Dynamic Network Topologies ────────────────── */}
+      <Section id="network-ecosystem" className="py-16 md:py-24 border-t border-border/40">
+        <AnimatedSection>
+          <DynamicNetworkEcosystem />
+        </AnimatedSection>
+      </Section>
+
       {/* ── Latest Product News & Innovations ──── */}
       <Section id="product-news" textured glow className="py-20 md:py-28">
         <AnimatedSection>
           <ProductNewsSection />
+        </AnimatedSection>
+      </Section>
+
+      {/* ── 30-Minute Strategic Architecture Review ────── */}
+      <Section id="architecture-review" className="py-16 md:py-24 border-t border-border/40">
+        <AnimatedSection>
+          <ArchitectureReviewForm />
         </AnimatedSection>
       </Section>
 
