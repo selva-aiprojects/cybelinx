@@ -22,59 +22,59 @@ const slides = [
     id: "saas",
     title: "Enterprise platforms\nfor measurable growth.",
     description:
-      "Built for leaders who need resilient SaaS, AI, and cloud foundations that scale with compliance, speed, and operational control.",
-    tag: "Enterprise Intelligence Platform",
+      "Built for leaders who need resilient SaaS, PaaS, AI, and cloud foundations that scale with compliance, speed, and operational control.",
+    tag: "SaaS & PaaS Platform",
     cssVar: "var(--hero-bg-saas)",
-    tabLabel: "SaaS & PaaS Platforms",
-    tabDesc: "Shared enterprise platform foundation",
+    tabLabel: "SaaS & PaaS",
+    tabDesc: "Shared enterprise platform runtime",
     color: "#0D47FF",
     icon: Globe2,
   },
   {
     id: "ai",
-    title: "AI that moves at\nboardroom speed.",
+    title: "Production-ready GenAI &\nML at enterprise scale.",
     description:
-      "Operational intelligence embedded into the core of your workflows — from decision support to automation, analytics, and execution.",
-    tag: "AI & Autonomous Workflows",
+      "Operational intelligence embedded into the core of your workflows — fine-tuned LLMs, agentic RAG, autonomous MLOps, and real-time execution.",
+    tag: "AI/GenAI - ML Production Ready",
     cssVar: "var(--hero-bg-ai)",
-    tabLabel: "AI & Analytics",
-    tabDesc: "LLMs, automation, and insight",
+    tabLabel: "AI/GenAI - ML Production Ready",
+    tabDesc: "Enterprise GenAI, LLMOps & MLOps",
     color: "#7B61FF",
     icon: Brain,
   },
   {
     id: "devsecops",
-    title: "Secure infrastructure\nfor modern enterprise scale.",
+    title: "Zero-Trust Security &\nautomated DevSecOps.",
     description:
-      "Scale securely across AWS, Azure, GCP, and Kubernetes with zero-trust guardrails, automated delivery, and built-in compliance.",
-    tag: "DevSecOps & Cybersecurity",
+      "Scale securely across AWS, Azure, GCP, and Kubernetes with Zero-Trust guardrails, automated SAST/DAST scanning, and built-in compliance.",
+    tag: "Security & DevSecOps",
     cssVar: "var(--hero-bg-devsecops)",
-    tabLabel: "DevSecOps & Security",
-    tabDesc: "Secure multi-cloud delivery",
+    tabLabel: "Security & DevSecOps",
+    tabDesc: "Zero-Trust & automated compliance",
     color: "#00C2FF",
     icon: ShieldCheck,
   },
   {
     id: "data-platform",
-    title: "Unified data, smarter\nenterprise decisions.",
+    title: "Unified data platform &\npredictive analytics.",
     description:
-      "Connect operational data, analytics, and AI into a governed foundation designed for clarity, visibility, and execution at scale.",
-    tag: "Data & Analytics Platform",
+      "Connect operational data, streaming analytics, and AI into a governed open lakehouse foundation designed for clarity and execution at scale.",
+    tag: "Data Platform & Analytics",
     cssVar: "var(--hero-bg-data)",
-    tabLabel: "Data & Analytics",
-    tabDesc: "Lakehouse & operational insight",
+    tabLabel: "Data Platform & Analytics",
+    tabDesc: "Lakehouse & real-time analytics",
     color: "#10B981",
     icon: Database,
   },
   {
     id: "quantum",
-    title: "Built for what comes next.",
+    title: "Quantum Ready Workflow &\npost-quantum security.",
     description:
-      "Future-ready architecture that supports quantum-assisted optimization, stronger security, and continuous innovation without costly replatforming.",
-    tag: "Future-Proof Architecture",
+      "Future-ready architecture supporting post-quantum encryption, hybrid quantum-inspired optimization, and continuous innovation without costly replatforming.",
+    tag: "Quantum Ready Workflow",
     cssVar: "var(--hero-bg-quantum)",
-    tabLabel: "Quantum-Ready",
-    tabDesc: "Strategic flexibility",
+    tabLabel: "Quantum Ready Workflow",
+    tabDesc: "Post-quantum security & hybrid compute",
     color: "#C084FC",
     icon: Atom,
   },
@@ -103,13 +103,15 @@ const themeColors: Record<string, string[]> = {
 
 export default function Hero() {
   const [activeSlide, setActiveSlide] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
 
   useEffect(() => {
+    if (isPaused) return;
     const interval = setInterval(() => {
       setActiveSlide((prev) => (prev + 1) % slides.length);
     }, 8000);
     return () => clearInterval(interval);
-  }, []);
+  }, [isPaused]);
 
   const slide = slides[activeSlide];
   const currentColors = themeColors[slide.id] || themeColors.saas;
@@ -188,19 +190,20 @@ export default function Hero() {
           </motion.div>
 
           {/* Slide content */}
-          <div className="relative">
-            <AnimatePresence mode="wait">
+          <div className="grid grid-cols-1 grid-rows-1 min-h-[240px] sm:min-h-[260px] lg:min-h-[280px]">
+            <AnimatePresence mode="sync" initial={false}>
               <motion.div
                 key={slide.id}
-                initial={false}
+                style={{ gridArea: "1 / 1 / 2 / 2" }}
+                initial={{ opacity: 0, y: 8 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -8 }}
-                transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}
+                transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
                 className="flex flex-col gap-4 sm:gap-5"
               >
                 {/* Tag pill */}
                 <span
-                  className="inline-flex items-center gap-2 rounded-full border px-3.5 py-1 sm:px-4 sm:py-1.5 text-[10px] sm:text-[11px] font-bold uppercase tracking-wider w-fit backdrop-blur-md shadow-sm"
+                  className="inline-flex items-center gap-2 rounded-full border px-3.5 py-1 sm:px-4 sm:py-1.5 text-[10px] sm:text-[11px] font-bold uppercase tracking-wider w-fit backdrop-blur-md shadow-sm h-7 sm:h-8"
                   style={{
                     backgroundColor: `${primaryColor}12`,
                     borderColor: `${primaryColor}35`,
@@ -219,14 +222,14 @@ export default function Hero() {
 
                 {/* Headline */}
                 <h1
-                  className="font-display text-3xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.1] tracking-tight text-surface"
+                  className="font-display text-3xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.1] tracking-tight text-surface min-h-[2.3em]"
                   style={{ whiteSpace: "pre-line" }}
                 >
                   {slide.title}
                 </h1>
 
                 {/* Description */}
-                <p className="max-w-xl text-sm sm:text-base leading-relaxed text-slate font-normal">
+                <p className="max-w-xl text-sm sm:text-base leading-relaxed text-slate font-normal min-h-[3.6em]">
                   {slide.description}
                 </p>
               </motion.div>
@@ -276,8 +279,12 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* ── RIGHT: Platform Pillars Adaptive Theme Card ── */}
-        <div className="lg:col-span-6 xl:col-span-5 flex flex-col justify-center">
+        {/* ── RIGHT: Core Pillars Adaptive Theme Card ── */}
+        <div
+          className="lg:col-span-6 xl:col-span-5 flex flex-col justify-center"
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
+        >
           <div
             className="relative overflow-hidden rounded-3xl p-6 sm:p-7 shadow-2xl transition-all duration-500 bg-slate-100 border border-slate-300/80 dark:bg-[#070D24] dark:border-white/15"
             style={{
@@ -300,7 +307,7 @@ export default function Hero() {
               <div className="flex items-center gap-2">
                 <Layers className="h-4 w-4 text-slate-800 dark:text-white/70" />
                 <span className="text-xs font-bold uppercase tracking-widest text-slate-900 dark:text-white/90">
-                  5 Core Platform Pillars
+                  5 Core Pillars
                 </span>
               </div>
               <span

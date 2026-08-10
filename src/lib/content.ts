@@ -55,53 +55,53 @@ export type PlatformPillar = {
 export const platformPillars: PlatformPillar[] = [
   {
     icon: Globe2,
-    title: "Web & SaaS/PaaS Platforms",
-    subtitle: "Cloud-native product engineering at scale",
-    slug: "web-saas-paas",
+    title: "SaaS & PaaS",
+    subtitle: "Cloud-native product engineering & multi-tenant application runtime",
+    slug: "saas-paas",
     description:
-      "Cloud-native web platforms built on Kubernetes-orchestrated microservices, shared platform services, and CI/CD pipelines designed for regulated industries. Product and platform teams reuse common services, templates, and deployment patterns to launch vertical SaaS and PaaS solutions faster — without duplicating compliance work or rebuilding the same foundation for every product.",
+      "Cloud-native enterprise platform built on Kubernetes microservices, multi-tenant isolation, and shared core modules for regulated industries. Product and platform teams reuse modular services, developer portals, and zero-downtime CI/CD pipelines to deploy vertical SaaS & PaaS solutions rapidly — without duplicating compliance work or codebases.",
     outcome:
-      "Launch new industry SaaS products from one shared foundation — no forks, no rebuilds.",
+      "Deploy high-performance, compliant enterprise SaaS and PaaS solutions from a shared cloud-native foundation.",
   },
   {
     icon: Brain,
-    title: "AI Agentic Workflow Transformation",
-    subtitle: "AI-native by design, not bolted on",
-    slug: "ai-llm",
+    title: "AI/GenAI - ML Production Ready",
+    subtitle: "Enterprise GenAI, LLMOps & autonomous MLOps pipelines",
+    slug: "ai-genai-ml",
     description:
-      "Data ingestion, model orchestration, and governance are baked into the platform. Engineering teams expose secure, tenant-aware LLM APIs — powered by first-party or third-party models — for document analysis, conversational support, and workflow automation, all governed by enterprise policies.",
+      "Production-grade Generative AI, LLMOps, and Machine Learning infrastructure integrated directly into enterprise workflows. Enables fine-tuned LLMs, agentic RAG search, real-time inference, and vector embedding data pipelines backed by strict tenant-aware isolation, guardrails, and audit logging.",
     outcome:
-      "Add AI capabilities to any product without building ML infrastructure from scratch.",
+      "Operationalize enterprise GenAI and ML production pipelines with guaranteed safety, performance, and governance.",
   },
   {
     icon: ShieldCheck,
-    title: "Multi-Cloud Infrastructure & DevSecOps",
-    subtitle: "Ready-made pipelines with built-in compliance",
-    slug: "devsecops",
+    title: "Security & DevSecOps",
+    subtitle: "Zero-Trust architecture & continuous automated compliance",
+    slug: "security-devsecops",
     description:
-      "Standard DevSecOps pipelines handle builds, deploys, security checks, and change tracking across AWS, Azure, GCP, and Kubernetes. Guardrails — not gatekeepers — let teams move fast without violating regulatory constraints. Platform-level policies, templates, and dashboards reduce developer toil.",
+      "Continuous automated DevSecOps pipelines and Zero-Trust security guardrails across AWS, Azure, GCP, and Kubernetes. Automated SAST/DAST code scanning, secret management, container vulnerability gates, and compliance tracking empower developers to move fast while maintaining continuous regulatory compliance.",
     outcome:
-      "Teams focus on features instead of wiring CI/CD and compliance from scratch.",
-  },
-  {
-    icon: Atom,
-    title: "Quantum Analysis & Engineering",
-    subtitle: "Architected for what's next",
-    slug: "quantum",
-    description:
-      "Cybelinx is architected to be quantum-ready: data models, simulation workloads, and AI pipelines are designed so future quantum backends can plug into the same platform for optimization and analysis workloads. Regulated enterprises can experiment with quantum-assisted optimization and risk analysis on the same compliant foundation they use today. Examples include portfolio optimization, supply chain routing, and risk modeling experiments for regulated enterprises.",
-    outcome:
-      "Future-proof your platform — quantum capabilities slot in without rearchitecture.",
+      "Automate security guardrails and multi-cloud compliance without impacting developer velocity or release cycles.",
   },
   {
     icon: Database,
-    title: "World Class Unique Data Platform",
-    subtitle: "Unified data infrastructure for modern workloads",
-    slug: "data-platform",
+    title: "Data Platform & Analytics",
+    subtitle: "Unified modern lakehouse & real-time decision intelligence",
+    slug: "data-platform-analytics",
     description:
-      "A scalable, governed data foundation built on modern lakehouse architecture. Consolidate structured and unstructured data, streamline ETL/ELT pipelines, and enable real-time analytics. Built-in compliance controls ensure data lineage, access governance, and privacy across all enterprise tenants.",
+      "A high-throughput, governed data foundation built on modern open lakehouse standards. Unifies structured and unstructured data, streamlines real-time streaming and ETL/ELT pipelines, and delivers actionable predictive analytics and operational visibility across all enterprise domains.",
     outcome:
-      "Unlock actionable insights and power AI with a unified, secure data platform.",
+      "Unify enterprise data silos into a scalable, real-time data platform powering operational and predictive analytics.",
+  },
+  {
+    icon: Atom,
+    title: "Quantum Ready Workflow",
+    subtitle: "Post-quantum cryptography & hybrid quantum-inspired orchestration",
+    slug: "quantum-ready-workflow",
+    description:
+      "Architected for post-quantum security and advanced compute workflows. Features post-quantum cryptographic primitives (PQC), quantum-inspired optimization algorithms, and hybrid integration layers designed to slot quantum simulators and future QPU accelerators into existing compliant platform workflows.",
+    outcome:
+      "Future-proof enterprise security and optimization workloads with quantum-safe encryption and hybrid quantum workflows.",
   },
 ];
 

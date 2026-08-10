@@ -19,6 +19,11 @@ export default function HomePage() {
     <>
       <Hero />
 
+      {/* ── 5 Core Pillars ─────────────────────── */}
+      <Section id="platform-pillars" glow className="py-16 md:py-24">
+        <PlatformPillars />
+      </Section>
+
       {/* ── Social Proof & Trust ────────────────── */}
       <Section id="trust" className="pt-0 pb-8 md:pb-12 border-b border-border/50">
         <AnimatedSection>
@@ -49,11 +54,6 @@ export default function HomePage() {
             </AnimatedSection>
           ))}
         </div>
-      </Section>
-
-      {/* ── Platform Pillars ──────────────────── */}
-      <Section id="platform-pillars" glow className="py-24 md:py-32">
-        <PlatformPillars />
       </Section>
 
       {/* ── How Cybelinx Is Different ────────── */}

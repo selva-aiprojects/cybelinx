@@ -109,7 +109,7 @@ function NavDropdown({ group }: { group: NavGroup }) {
                   Enterprise SaaS Portfolio
                 </span>
                 <h3 className="text-sm font-bold text-slate-900 dark:text-slate-100 mt-0.5">
-                  8 Regulated SaaS Solutions Powered by 5 Core Platform Pillars
+                  8 Regulated SaaS Solutions Powered by 5 Core Pillars
                 </h3>
               </div>
               <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 text-[11px] font-bold border border-emerald-500/25">

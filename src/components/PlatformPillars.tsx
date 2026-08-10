@@ -161,76 +161,79 @@ function ContentPanel({
   const Icon = pillar.icon;
 
   return (
-    <AnimatePresence mode="wait">
+    <AnimatePresence mode="sync" initial={false}>
       <motion.div
         key={pillar.slug}
-        initial={{ opacity: 0, y: 20, scale: 0.98 }}
-        animate={{ opacity: 1, y: 0, scale: 1 }}
-        exit={{ opacity: 0, y: -16, scale: 0.98 }}
-        transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-        className="relative h-full overflow-hidden rounded-3xl p-8 md:p-10 bg-white/95 border border-slate-200/90 shadow-2xl shadow-blue-500/10 dark:bg-[#070d1e] dark:border-white/10"
+        style={{ gridArea: "1 / 1 / 2 / 2" }}
+        initial={{ opacity: 0, scale: 0.98, y: 8 }}
+        animate={{ opacity: 1, scale: 1, y: 0 }}
+        exit={{ opacity: 0, scale: 0.98, y: -8 }}
+        transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+        className="relative flex flex-col justify-between h-full overflow-hidden rounded-3xl p-8 md:p-10 bg-white/95 border border-slate-200/90 shadow-2xl shadow-blue-500/10 dark:bg-[#070d1e] dark:border-white/10"
       >
-        {/* Background orb */}
-        <div
-          className="absolute -top-20 -right-20 h-72 w-72 rounded-full blur-3xl pointer-events-none opacity-40 dark:opacity-100"
-          style={{ background: `radial-gradient(circle, ${accent.glow}25 0%, transparent 70%)` }}
-          aria-hidden
-        />
-        <div
-          className="absolute -bottom-16 -left-16 h-56 w-56 rounded-full blur-3xl pointer-events-none opacity-40 dark:opacity-100"
-          style={{ background: `radial-gradient(circle, ${accent.glow}15 0%, transparent 70%)` }}
-          aria-hidden
-        />
-
-        {/* Pillar number */}
-        <div className="relative flex items-center gap-3 mb-7">
-          <span
-            className="font-display text-5xl font-extrabold leading-none opacity-20 select-none"
-            style={{ color: accent.from }}
-          >
-            0{index + 1}
-          </span>
-          <div className="h-8 w-px rounded-full opacity-20" style={{ background: accent.from }} />
-          <span className="eyebrow-pill" style={{ borderColor: `${accent.from}30`, background: `${accent.from}10`, color: accent.from }}>
-            Platform Pillar
-          </span>
-        </div>
-
-        {/* Icon */}
-        <div
-          className="relative mb-6 flex h-16 w-16 items-center justify-center rounded-2xl"
-          style={{
-            background: `linear-gradient(135deg, ${accent.from}25, ${accent.to}15)`,
-            border: `1px solid ${accent.from}30`,
-            boxShadow: `0 8px 32px ${accent.glow}30`,
-          }}
-        >
+        <div>
+          {/* Background orb */}
           <div
-            className="absolute inset-0 rounded-2xl animate-pulse"
-            style={{ background: `radial-gradient(circle at 30% 30%, ${accent.from}20, transparent)` }}
+            className="absolute -top-20 -right-20 h-72 w-72 rounded-full blur-3xl pointer-events-none opacity-40 dark:opacity-100"
+            style={{ background: `radial-gradient(circle, ${accent.glow}25 0%, transparent 70%)` }}
             aria-hidden
           />
-          <Icon className="relative h-8 w-8" style={{ color: accent.from }} />
+          <div
+            className="absolute -bottom-16 -left-16 h-56 w-56 rounded-full blur-3xl pointer-events-none opacity-40 dark:opacity-100"
+            style={{ background: `radial-gradient(circle, ${accent.glow}15 0%, transparent 70%)` }}
+            aria-hidden
+          />
+
+          {/* Pillar number */}
+          <div className="relative flex items-center gap-3 mb-7">
+            <span
+              className="font-display text-5xl font-extrabold leading-none opacity-20 select-none"
+              style={{ color: accent.from }}
+            >
+              0{index + 1}
+            </span>
+            <div className="h-8 w-px rounded-full opacity-20" style={{ background: accent.from }} />
+            <span className="eyebrow-pill" style={{ borderColor: `${accent.from}30`, background: `${accent.from}10`, color: accent.from }}>
+              Core Pillar
+            </span>
+          </div>
+
+          {/* Icon */}
+          <div
+            className="relative mb-6 flex h-16 w-16 items-center justify-center rounded-2xl"
+            style={{
+              background: `linear-gradient(135deg, ${accent.from}25, ${accent.to}15)`,
+              border: `1px solid ${accent.from}30`,
+              boxShadow: `0 8px 32px ${accent.glow}30`,
+            }}
+          >
+            <div
+              className="absolute inset-0 rounded-2xl animate-pulse"
+              style={{ background: `radial-gradient(circle at 30% 30%, ${accent.from}20, transparent)` }}
+              aria-hidden
+            />
+            <Icon className="relative h-8 w-8" style={{ color: accent.from }} />
+          </div>
+
+          {/* Title */}
+          <h2
+            className="font-display text-2xl font-extrabold leading-tight text-slate-900 dark:text-white md:text-3xl"
+          >
+            {pillar.title}
+          </h2>
+          <p className="mt-2 text-sm font-semibold" style={{ color: accent.from }}>
+            {pillar.subtitle}
+          </p>
+
+          {/* Description */}
+          <p className="mt-5 text-sm leading-[1.8] text-slate-600 dark:text-white/70 md:text-[15px] min-h-[4.8rem]">
+            {pillar.description}
+          </p>
         </div>
-
-        {/* Title */}
-        <h2
-          className="font-display text-2xl font-extrabold leading-tight text-slate-900 dark:text-white md:text-3xl"
-        >
-          {pillar.title}
-        </h2>
-        <p className="mt-2 text-sm font-semibold" style={{ color: accent.from }}>
-          {pillar.subtitle}
-        </p>
-
-        {/* Description */}
-        <p className="mt-5 text-sm leading-[1.8] text-slate-600 dark:text-white/70 md:text-[15px]">
-          {pillar.description}
-        </p>
 
         {/* Outcome chip */}
         <div
-          className="relative mt-7 flex items-start gap-3 rounded-2xl p-4"
+          className="relative mt-7 flex items-start gap-3 rounded-2xl p-4 min-h-[4.2rem]"
           style={{
             background: `linear-gradient(135deg, ${accent.from}12, ${accent.to}08)`,
             border: `1px solid ${accent.from}25`,
@@ -308,7 +311,7 @@ export default function PlatformPillars() {
           variants={headerItem}
           className="relative mt-6 font-display text-4xl font-extrabold leading-[1.08] tracking-tight text-slate-900 dark:text-white sm:text-5xl md:text-6xl"
         >
-          Five Core Platform Pillars.{" "}
+          5 Core Pillars.{" "}
           <span className="text-gradient-animated">One Foundation.</span>
         </motion.h2>
 
@@ -316,7 +319,7 @@ export default function PlatformPillars() {
           variants={headerItem}
           className="relative mt-5 max-w-2xl text-base leading-relaxed text-slate-600 dark:text-white/65 md:text-lg"
         >
-          SaaS/PaaS Engineering, AI &amp; LLM Core, Multi-Cloud DevSecOps, Unified Data Platform, and Quantum-Ready Cryptography — powering our 7 enterprise SaaS solutions on a single regulated foundation.
+          SaaS &amp; PaaS, AI/GenAI - ML Production Ready, Security &amp; DevSecOps, Data Platform &amp; Analytics, and Quantum Ready Workflow — powering our regulated enterprise platforms on a single foundation.
         </motion.p>
 
         <motion.div
@@ -327,7 +330,7 @@ export default function PlatformPillars() {
       </motion.div>
 
       {/* ── Vertical / Horizontal Tabs Layout ──────────────────────── */}
-      <div className="grid lg:grid-cols-5 gap-6 xl:gap-8 items-stretch">
+      <div className="grid lg:grid-cols-5 gap-6 xl:gap-8 items-start">
 
         {/* LEFT: Shiny tab list (2/5 width on desktop, horizontal swipe bar on mobile) */}
         <div className="lg:col-span-2 flex lg:flex-col overflow-x-auto pb-3 lg:pb-0 gap-3 scrollbar-none snap-x snap-mandatory">
@@ -345,7 +348,7 @@ export default function PlatformPillars() {
         </div>
 
         {/* RIGHT: Content panel (3/5 width) */}
-        <div className="lg:col-span-3 min-h-[420px] lg:min-h-[480px]">
+        <div className="lg:col-span-3 grid grid-cols-1 grid-rows-1 min-h-[480px] lg:min-h-[520px]">
           <ContentPanel
             pillar={platformPillars[activeIndex]}
             accent={activeAccent}
