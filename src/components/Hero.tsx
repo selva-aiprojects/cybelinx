@@ -120,11 +120,15 @@ export default function Hero() {
   const slide = slides[activeSlide];
   const currentColors = themeColors[slide.id] || themeColors.saas;
   const primaryColor = currentColors[0];
-
   return (
     <div className="relative overflow-hidden bg-background">
-      {/* ── Background: animated canvas ─────────── */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
+      {/* ── Background: animated canvas & high-res graphic mesh ─────────── */}
+      <div 
+        className="absolute inset-0 overflow-hidden pointer-events-none z-0 transition-all duration-1000 bg-cover bg-center"
+        style={{
+          backgroundImage: slide.cssVar,
+        }}
+      >
         {/* Grid pattern */}
         <div
           className="absolute inset-0"
