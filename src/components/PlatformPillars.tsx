@@ -287,13 +287,12 @@ export default function PlatformPillars() {
 
   return (
     <>
-      {/* ── Header ──────────────────────────────────── */}
       <motion.div
         ref={headerRef}
         className="relative mx-auto mb-14 flex max-w-3xl flex-col items-center text-center"
         variants={headerContainer}
         initial="hidden"
-        animate={headerInView ? "visible" : "hidden"}
+        animate="visible"
       >
         <motion.div
           variants={headerItem}

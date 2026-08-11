@@ -27,26 +27,26 @@ export default function HomePage() {
       <Hero />
 
       {/* ── 5 Core Pillars ─────────────────────── */}
-      <Section id="platform-pillars" glow className="py-10 md:py-14">
+      <Section id="platform-pillars" glow className="py-6 md:py-8">
         <PlatformPillars />
       </Section>
 
       {/* ── High-Value Core Product Feature Matrix ── */}
-      <Section id="market-offerings" className="py-10 md:py-14 border-t border-border/40">
+      <Section id="market-offerings" className="py-6 md:py-8 border-t border-border/40">
         <AnimatedSection>
           <RegulatedFeatureMatrix />
         </AnimatedSection>
       </Section>
 
       {/* ── Proof-of-Value Architecture Playground ───── */}
-      <Section id="validation-playground" className="py-10 md:py-14 border-t border-border/40">
+      <Section id="validation-playground" className="py-6 md:py-8 border-t border-border/40">
         <AnimatedSection>
           <ArchitectureValidationPlayground />
         </AnimatedSection>
       </Section>
 
       {/* ── Global Regulatory Adaptation Engine ────── */}
-      <Section id="global-regulatory" textured glow className="py-10 md:py-14 border-t border-border/40">
+      <Section id="global-regulatory" textured glow className="py-6 md:py-8 border-t border-border/40">
         <AnimatedSection>
           <GlobalRegulatoryEngine />
         </AnimatedSection>
@@ -67,7 +67,7 @@ export default function HomePage() {
       </Section>
 
       {/* ── Product Portfolio ─────────────────── */}
-      <Section id="products" textured glow className="py-10 md:py-14">
+      <Section id="products" textured glow className="py-6 md:py-8">
         <AnimatedSection>
           <SectionHeading
             eyebrow="Enterprise Offerings & PaaS Architecture"
@@ -104,14 +104,14 @@ export default function HomePage() {
       </Section>
 
       {/* ── Latest Product News & Innovations ──── */}
-      <Section id="product-news" textured glow className="py-10 md:py-14">
+      <Section id="product-news" textured glow className="py-6 md:py-8">
         <AnimatedSection>
           <ProductNewsSection />
         </AnimatedSection>
       </Section>
 
       {/* ── 30-Minute Strategic Architecture Review ────── */}
-      <Section id="architecture-review" className="py-10 md:py-14 border-t border-border/40">
+      <Section id="architecture-review" className="py-6 md:py-8 border-t border-border/40">
         <AnimatedSection>
           <ArchitectureReviewForm />
         </AnimatedSection>

@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 export default function PlatformPage() {
   return (
     <>
-      <Section className="pt-16">
+      <Section className="py-6 md:py-8">
         <PageHeader
           eyebrow="Platform Architecture"
           title="Engineering the Future of Enterprise Intelligence."

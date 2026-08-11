@@ -170,7 +170,7 @@ export default function Hero() {
       </div>
 
       {/* ── Main content ─────────────────────────── */}
-      <div className="relative z-10 w-full mx-auto max-w-7xl px-4 sm:px-6 py-10 sm:py-16 lg:py-24 grid lg:grid-cols-12 gap-8 lg:gap-10 items-start min-h-0 lg:min-h-[84vh]">
+      <div className="relative z-10 w-full mx-auto max-w-7xl px-4 sm:px-6 py-8 sm:py-12 lg:py-14 grid lg:grid-cols-12 gap-8 lg:gap-10 items-start">
 
         {/* ── LEFT: Content ────────────────────────── */}
         <div className="lg:col-span-6 xl:col-span-7 flex flex-col justify-center">
@@ -180,7 +180,7 @@ export default function Hero() {
             initial={false}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.25 }}
-            className="flex flex-wrap items-center gap-2 sm:gap-2.5 mb-4 sm:mb-6"
+            className="flex flex-wrap items-center gap-2 sm:gap-2.5 mb-4"
           >
             {trustSeals.map((seal) => (
               <Link
@@ -200,7 +200,7 @@ export default function Hero() {
           </div>
 
           {/* Slide content */}
-          <div className="grid grid-cols-1 grid-rows-1 min-h-[240px] sm:min-h-[260px] lg:min-h-[280px]">
+          <div className="grid grid-cols-1 grid-rows-1">
             <AnimatePresence mode="sync" initial={false}>
               <motion.div
                 key={slide.id}
@@ -209,7 +209,7 @@ export default function Hero() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -8 }}
                 transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-                className="flex flex-col gap-4 sm:gap-5"
+                className="flex flex-col gap-4"
               >
                 {/* Tag pill */}
                 <span
@@ -232,14 +232,14 @@ export default function Hero() {
 
                 {/* Headline */}
                 <h1
-                  className="font-display text-3xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.1] tracking-tight text-surface min-h-[2.3em]"
+                  className="font-display text-3xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.1] tracking-tight text-surface"
                   style={{ whiteSpace: "pre-line" }}
                 >
                   {slide.title}
                 </h1>
 
                 {/* Description */}
-                <p className="max-w-xl text-sm sm:text-base leading-relaxed text-slate font-normal min-h-[3.6em]">
+                <p className="max-w-xl text-sm sm:text-base leading-relaxed text-slate font-normal">
                   {slide.description}
                 </p>
               </motion.div>
