@@ -41,7 +41,7 @@ export default function ArchitectureReviewForm() {
           </div>
 
           {submitted ? (
-            <div className="p-8 rounded-2xl bg-emerald-950/60 border border-emerald-500/40 text-center relative z-10 animate-in fade-in duration-300">
+            <div className="p-8 rounded-2xl bg-emerald-950/60 border border-emerald-500/40 text-center relative z-10 animate-in fade-in duration-300" role="status" aria-live="polite">
               <div className="h-16 w-16 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center mx-auto mb-4 border border-emerald-500/40">
                 <CheckCircle2 className="h-8 w-8" />
               </div>
@@ -60,10 +60,11 @@ export default function ArchitectureReviewForm() {
             <form onSubmit={handleSubmit} className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-4">
               {/* Full Name */}
               <div className="flex flex-col space-y-2">
-                <label className="text-xs font-bold text-brand-navy-100 uppercase tracking-wider">
+                <label htmlFor="architecture-name" className="text-xs font-bold text-brand-navy-100 uppercase tracking-wider">
                   Full Name *
                 </label>
                 <input
+                  id="architecture-name"
                   type="text"
                   required
                   placeholder="John Doe"
@@ -73,10 +74,11 @@ export default function ArchitectureReviewForm() {
 
               {/* Work Email */}
               <div className="flex flex-col space-y-2">
-                <label className="text-xs font-bold text-brand-navy-100 uppercase tracking-wider">
+                <label htmlFor="architecture-email" className="text-xs font-bold text-brand-navy-100 uppercase tracking-wider">
                   Work Email *
                 </label>
                 <input
+                  id="architecture-email"
                   type="email"
                   required
                   placeholder="john@enterprise.com"
@@ -86,10 +88,11 @@ export default function ArchitectureReviewForm() {
 
               {/* Organization Name */}
               <div className="flex flex-col space-y-2">
-                <label className="text-xs font-bold text-brand-navy-100 uppercase tracking-wider">
+                <label htmlFor="architecture-organization" className="text-xs font-bold text-brand-navy-100 uppercase tracking-wider">
                   Organization Name *
                 </label>
                 <input
+                  id="architecture-organization"
                   type="text"
                   required
                   placeholder="Acme Corp"
@@ -99,10 +102,11 @@ export default function ArchitectureReviewForm() {
 
               {/* Dropdown Selection */}
               <div className="flex flex-col space-y-2">
-                <label className="text-xs font-bold text-brand-navy-100 uppercase tracking-wider">
+                <label htmlFor="architecture-vertical" className="text-xs font-bold text-brand-navy-100 uppercase tracking-wider">
                   Core Focus Vertical *
                 </label>
                 <select
+                  id="architecture-vertical"
                   required
                   defaultValue=""
                   className="w-full bg-brand-navy-900 border border-brand-navy-500 rounded-md p-3 text-sm text-white focus:outline-none focus:border-brand-cyan-400 transition-colors appearance-none"
@@ -117,10 +121,11 @@ export default function ArchitectureReviewForm() {
 
               {/* Full-Width In-depth Textarea */}
               <div className="sm:col-span-2 flex flex-col space-y-2">
-                <label className="text-xs font-bold text-brand-navy-100 uppercase tracking-wider">
+                <label htmlFor="architecture-challenge" className="text-xs font-bold text-brand-navy-100 uppercase tracking-wider">
                   Primary System Bottleneck or Architectural Challenge *
                 </label>
                 <textarea
+                  id="architecture-challenge"
                   required
                   rows={4}
                   placeholder="Describe data ingestion silos, specific scaling pain points, or regulatory blockers..."

@@ -27,6 +27,7 @@ type FormData = z.infer<typeof schema>;
 
 export default function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
   const {
     register,
     handleSubmit,
@@ -34,6 +35,7 @@ export default function ContactForm() {
   } = useForm<FormData>({ resolver: zodResolver(schema) });
 
   async function onSubmit(data: FormData) {
+    setSubmitError(null);
     try {
       const response = await fetch("/api/contact", {
         method: "POST",
@@ -51,13 +53,13 @@ export default function ContactForm() {
       setSubmitted(true);
     } catch (error) {
       const message = error instanceof Error ? error.message : "Something went wrong.";
-      alert(message);
+      setSubmitError(message);
     }
   }
 
   if (submitted) {
     return (
-      <div className="rounded-2xl border border-border bg-background p-10 text-center">
+      <div className="rounded-2xl border border-border bg-background p-10 text-center" role="status" aria-live="polite">
         <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-live/10">
           <span className="text-2xl">✓</span>
         </div>
@@ -69,6 +71,11 @@ export default function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="grid gap-5 rounded-2xl border border-border bg-background p-8 md:p-10" noValidate>
+      {submitError && (
+        <div role="alert" className="rounded-lg border border-rose-300 bg-rose-50 px-4 py-3 text-sm text-rose-800 dark:border-rose-500/40 dark:bg-rose-950/30 dark:text-rose-200">
+          {submitError}
+        </div>
+      )}
       <div className="grid gap-5 md:grid-cols-2">
         <div>
           <label htmlFor="name" className="text-xs font-semibold uppercase tracking-wide text-slate">
@@ -77,9 +84,11 @@ export default function ContactForm() {
           <input
             id="name"
             {...register("name")}
+            aria-invalid={Boolean(errors.name)}
+            aria-describedby={errors.name ? "name-error" : undefined}
             className="mt-2 w-full rounded-md border border-border bg-charcoal px-4 py-3 text-sm text-surface outline-none transition-colors focus:border-primary"
           />
-          {errors.name && <p className="mt-1 text-xs text-accent">{errors.name.message}</p>}
+          {errors.name && <p id="name-error" className="mt-1 text-xs text-rose-600 dark:text-rose-300">{errors.name.message}</p>}
         </div>
         <div>
           <label htmlFor="email" className="text-xs font-semibold uppercase tracking-wide text-slate">
@@ -89,9 +98,11 @@ export default function ContactForm() {
             id="email"
             type="email"
             {...register("email")}
+            aria-invalid={Boolean(errors.email)}
+            aria-describedby={errors.email ? "email-error" : undefined}
             className="mt-2 w-full rounded-md border border-border bg-charcoal px-4 py-3 text-sm text-surface outline-none transition-colors focus:border-primary"
           />
-          {errors.email && <p className="mt-1 text-xs text-accent">{errors.email.message}</p>}
+          {errors.email && <p id="email-error" className="mt-1 text-xs text-rose-600 dark:text-rose-300">{errors.email.message}</p>}
         </div>
       </div>
 
@@ -100,11 +111,13 @@ export default function ContactForm() {
           Company
         </label>
         <input
-          id="company"
-          {...register("company")}
+            id="company"
+            {...register("company")}
+            aria-invalid={Boolean(errors.company)}
+            aria-describedby={errors.company ? "company-error" : undefined}
           className="mt-2 w-full rounded-md border border-border bg-charcoal px-4 py-3 text-sm text-surface outline-none transition-colors focus:border-primary"
         />
-        {errors.company && <p className="mt-1 text-xs text-accent">{errors.company.message}</p>}
+        {errors.company && <p id="company-error" className="mt-1 text-xs text-rose-600 dark:text-rose-300">{errors.company.message}</p>}
       </div>
 
       <div>
@@ -115,6 +128,8 @@ export default function ContactForm() {
           id="interest"
           {...register("interest")}
           defaultValue=""
+          aria-invalid={Boolean(errors.interest)}
+          aria-describedby={errors.interest ? "interest-error" : undefined}
           className="mt-2 w-full rounded-md border border-border bg-charcoal px-4 py-3 text-sm text-surface outline-none transition-colors focus:border-primary"
         >
           <option value="" disabled>
@@ -126,7 +141,7 @@ export default function ContactForm() {
             </option>
           ))}
         </select>
-        {errors.interest && <p className="mt-1 text-xs text-accent">{errors.interest.message}</p>}
+        {errors.interest && <p id="interest-error" className="mt-1 text-xs text-rose-600 dark:text-rose-300">{errors.interest.message}</p>}
       </div>
 
       <div>
@@ -137,9 +152,11 @@ export default function ContactForm() {
           id="message"
           rows={4}
           {...register("message")}
+          aria-invalid={Boolean(errors.message)}
+          aria-describedby={errors.message ? "message-error" : undefined}
           className="mt-2 w-full rounded-md border border-border bg-charcoal px-4 py-3 text-sm text-surface outline-none transition-colors focus:border-primary"
         />
-        {errors.message && <p className="mt-1 text-xs text-accent">{errors.message.message}</p>}
+        {errors.message && <p id="message-error" className="mt-1 text-xs text-rose-600 dark:text-rose-300">{errors.message.message}</p>}
       </div>
 
       <p className="text-xs text-slate/60">

@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { useState, useRef, useEffect } from "react";
-import { useRouter } from "next/navigation";
 import { 
   ChevronDown, 
   Menu, 
@@ -53,7 +52,7 @@ function NavDropdown({ group }: { group: NavGroup }) {
   const [open, setOpen] = useState(false);
   const [expandedProduct, setExpandedProduct] = useState<string | null>(null);
   const menuRef = useRef<HTMLDivElement>(null);
-  const router = useRouter();
+  const menuId = `nav-${group.label.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`;
 
   useEffect(() => {
     if (!open) return;
@@ -64,6 +63,15 @@ function NavDropdown({ group }: { group: NavGroup }) {
     }
     document.addEventListener("mousedown", handleClick);
     return () => document.removeEventListener("mousedown", handleClick);
+  }, [open]);
+
+  useEffect(() => {
+    if (!open) return;
+    const handleEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setOpen(false);
+    };
+    document.addEventListener("keydown", handleEscape);
+    return () => document.removeEventListener("keydown", handleEscape);
   }, [open]);
 
   if (!group.items) {
@@ -83,11 +91,16 @@ function NavDropdown({ group }: { group: NavGroup }) {
       className="relative"
       onMouseEnter={() => setOpen(true)}
       onMouseLeave={() => setOpen(false)}
+      onFocusCapture={() => setOpen(true)}
+      onBlur={(event) => {
+        if (!event.currentTarget.contains(event.relatedTarget)) setOpen(false);
+      }}
     >
       <button
         onClick={() => setOpen(!open)}
         className="flex items-center gap-1.5 text-sm font-semibold text-gray-700 dark:text-white/70 transition-colors hover:text-primary dark:hover:text-white group py-2"
         aria-expanded={open}
+        aria-controls={menuId}
       >
         <span>{group.label}</span>
         <ChevronDown
@@ -96,6 +109,7 @@ function NavDropdown({ group }: { group: NavGroup }) {
       </button>
 
       <div
+        id={menuId}
         className={`absolute left-1/2 -translate-x-1/2 pt-4 transition-all duration-300 ${open ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 -translate-y-3 pointer-events-none"
           }`}
         style={{ zIndex: 9999 }}
@@ -142,17 +156,15 @@ function NavDropdown({ group }: { group: NavGroup }) {
                       const iconSrc = product?.icon || "/assets/icons/icon-ai.png";
 
                       return (
-                        <div 
+                        <Link
+                          href={item.href}
                           key={item.href} 
                           className="group/item relative rounded-xl border p-2.5 transition-all duration-200 hover:shadow-md cursor-pointer text-left"
                           style={{
                             backgroundColor: `${accentColor}08`,
                             borderColor: `${accentColor}25`,
                           }}
-                          onClick={() => {
-                            router.push(item.href);
-                            setOpen(false);
-                          }}
+                          onClick={() => setOpen(false)}
                         >
                           <div className="flex items-start gap-2.5">
                             <div 
@@ -170,7 +182,7 @@ function NavDropdown({ group }: { group: NavGroup }) {
                               </p>
                             </div>
                           </div>
-                        </div>
+                        </Link>
                       );
                     })}
                   </div>
@@ -208,12 +220,10 @@ function NavDropdown({ group }: { group: NavGroup }) {
 
             <div className="p-2">
               {group.items.map((item, idx) => (
-                <div
+                <Link
+                  href={item.href}
                   key={item.href}
-                  onClick={() => {
-                    router.push(item.href);
-                    setOpen(false);
-                  }}
+                  onClick={() => setOpen(false)}
                   className="group/item cursor-pointer rounded-xl px-4 py-3 transition-all duration-200 hover:bg-primary/5 relative"
                   style={{
                     animationDelay: `${idx * 40}ms`,
@@ -233,7 +243,7 @@ function NavDropdown({ group }: { group: NavGroup }) {
                       {item.description}
                     </span>
                   )}
-                </div>
+                </Link>
               ))}
             </div>
 
@@ -259,6 +269,8 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [theme, setTheme] = useState("light");
+  const mobileMenuRef = useRef<HTMLDivElement>(null);
+  const mobileMenuButtonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     const storedTheme = window.localStorage.getItem("theme") as "light" | "dark" | "sales" | "colorful" | null;
@@ -271,6 +283,40 @@ export default function Navbar() {
       document.documentElement.classList.remove("dark");
     }
   }, []);
+
+  useEffect(() => {
+    if (!open) return;
+    const focusMenu = window.setTimeout(() => mobileMenuRef.current?.focus(), 0);
+    return () => {
+      window.clearTimeout(focusMenu);
+      mobileMenuButtonRef.current?.focus();
+    };
+  }, [open]);
+
+  const handleMobileMenuKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
+    if (event.key === "Escape") {
+      event.preventDefault();
+      setOpen(false);
+      return;
+    }
+    if (event.key !== "Tab" || !mobileMenuRef.current) return;
+
+    const focusable = Array.from(
+      mobileMenuRef.current.querySelectorAll<HTMLElement>(
+        'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])',
+      ),
+    );
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    if (!first || !last) return;
+    if (event.shiftKey && document.activeElement === first) {
+      event.preventDefault();
+      last.focus();
+    } else if (!event.shiftKey && document.activeElement === last) {
+      event.preventDefault();
+      first.focus();
+    }
+  };
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -373,9 +419,12 @@ export default function Navbar() {
             {theme === "colorful" && <Sparkles className="h-4 w-4 text-pink-500" />}
           </button>
           <button
+            ref={mobileMenuButtonRef}
             className="h-12 w-12 flex items-center justify-center rounded-full text-brand-navy-800 dark:text-brand-navy-100 hover:bg-brand-navy-50 dark:hover:bg-brand-navy-800/80 focus:outline-none transition-colors cursor-pointer"
             onClick={() => setOpen(!open)}
             aria-label="Toggle Menu"
+            aria-expanded={open}
+            aria-controls="mobile-navigation"
           >
             {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
@@ -384,9 +433,14 @@ export default function Navbar() {
 
       {open && (
         <div 
+          id="mobile-navigation"
+          ref={mobileMenuRef}
           className="fixed inset-0 z-[9999] bg-brand-navy-900/60 backdrop-blur-2xl lg:hidden overflow-y-auto"
           role="dialog"
           aria-modal="true"
+          aria-label="Main navigation"
+          tabIndex={-1}
+          onKeyDown={handleMobileMenuKeyDown}
         >
           <div className="flex items-center justify-between px-6 py-4 border-b border-brand-navy-100 dark:border-brand-navy-800">
             <Link href="/" onClick={() => setOpen(false)}>

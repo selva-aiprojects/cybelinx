@@ -43,7 +43,7 @@ export default function PersonaPathwaySwitcher({ className = "" }: { className?:
   const { mode, setMode } = usePersona();
 
   return (
-    <div className={`inline-flex items-center rounded-2xl border border-border/80 bg-white/80 dark:bg-slate-900/80 p-1.5 backdrop-blur-xl shadow-lg ${className}`}>
+    <div className={`inline-flex max-w-full items-center rounded-2xl border border-border/80 bg-white/80 dark:bg-slate-900/80 p-1.5 backdrop-blur-xl shadow-lg ${className}`} role="group" aria-label="Viewing pathway">
       <span className="px-3 text-[10px] font-extrabold uppercase tracking-widest text-slate-500 dark:text-slate-400 hidden sm:inline-block">
         Viewing Pathway:
       </span>
@@ -51,6 +51,7 @@ export default function PersonaPathwaySwitcher({ className = "" }: { className?:
         <button
           type="button"
           onClick={() => setMode("executive")}
+          aria-pressed={mode === "executive"}
           className={`flex items-center gap-2 rounded-xl px-3.5 py-1.5 text-xs font-bold transition-all duration-300 ${
             mode === "executive"
               ? "bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-md shadow-blue-500/25"
@@ -64,6 +65,7 @@ export default function PersonaPathwaySwitcher({ className = "" }: { className?:
         <button
           type="button"
           onClick={() => setMode("engineering")}
+          aria-pressed={mode === "engineering"}
           className={`flex items-center gap-2 rounded-xl px-3.5 py-1.5 text-xs font-bold transition-all duration-300 ${
             mode === "engineering"
               ? "bg-gradient-to-r from-emerald-600 to-teal-600 text-white shadow-md shadow-emerald-500/25"

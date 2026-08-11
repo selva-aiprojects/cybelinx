@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { X, Lock, Sparkles, CheckCircle2, ArrowRight } from "lucide-react";
 import { Product } from "@/lib/products";
 
@@ -20,6 +20,18 @@ export default function BetaAccessModal({ product, isOpen, onClose }: BetaAccess
     workload: "10k-100k events/day",
     notes: "",
   });
+  const dialogRef = useRef<HTMLDivElement>(null);
+  const previousFocusRef = useRef<HTMLElement | null>(null);
+
+  useEffect(() => {
+    if (!isOpen || !product) return;
+    previousFocusRef.current = document.activeElement as HTMLElement;
+    const focusDialog = window.setTimeout(() => dialogRef.current?.focus(), 0);
+    return () => {
+      window.clearTimeout(focusDialog);
+      previousFocusRef.current?.focus();
+    };
+  }, [isOpen, product]);
 
   if (!isOpen || !product) return null;
 
@@ -32,33 +44,69 @@ export default function BetaAccessModal({ product, isOpen, onClose }: BetaAccess
     }, 800);
   };
 
+  const handleKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
+    if (event.key === "Escape") {
+      event.preventDefault();
+      onClose();
+      return;
+    }
+    if (event.key !== "Tab" || !dialogRef.current) return;
+
+    const focusable = Array.from(
+      dialogRef.current.querySelectorAll<HTMLElement>(
+        'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])',
+      ),
+    );
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    if (!first || !last) return;
+    if (event.shiftKey && document.activeElement === first) {
+      event.preventDefault();
+      last.focus();
+    } else if (!event.shiftKey && document.activeElement === last) {
+      event.preventDefault();
+      first.focus();
+    }
+  };
+
   return (
     <div className="fixed inset-0 z-[10000] flex items-center justify-center p-4 sm:p-6">
       {/* Backdrop */}
       <div
         className="fixed inset-0 bg-slate-950/80 backdrop-blur-md transition-opacity"
         onClick={onClose}
+        aria-hidden="true"
       />
 
       {/* Modal Card */}
-      <div className="relative w-full max-w-lg overflow-hidden rounded-3xl border border-white/20 dark:border-cyan-500/30 bg-white dark:bg-slate-900 p-6 sm:p-8 shadow-2xl transition-all">
+      <div
+        ref={dialogRef}
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="beta-access-title"
+        aria-describedby="beta-access-description"
+        tabIndex={-1}
+        onKeyDown={handleKeyDown}
+        className="relative w-full max-w-lg overflow-hidden rounded-3xl border border-white/20 dark:border-cyan-500/30 bg-white dark:bg-slate-900 p-6 sm:p-8 shadow-2xl transition-all"
+      >
         {/* Close Button */}
         <button
           onClick={onClose}
+          aria-label="Close beta access request"
           className="absolute right-5 top-5 rounded-full p-2 text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-700 dark:hover:text-white transition-colors"
         >
           <X className="h-5 w-5" />
         </button>
 
         {submitted ? (
-          <div className="py-8 text-center flex flex-col items-center">
+          <div className="py-8 text-center flex flex-col items-center" role="status" aria-live="polite">
             <div className="h-14 w-14 rounded-2xl bg-emerald-500/10 text-emerald-500 border border-emerald-500/30 flex items-center justify-center mb-4">
               <CheckCircle2 className="h-8 w-8" />
             </div>
-            <h3 className="font-display text-2xl font-bold text-slate-900 dark:text-white">
+            <h3 id="beta-access-title" className="font-display text-2xl font-bold text-slate-900 dark:text-white">
               Beta Access Request Received
             </h3>
-            <p className="mt-2 text-sm text-slate-600 dark:text-slate-300 max-w-md">
+            <p id="beta-access-description" className="mt-2 text-sm text-slate-600 dark:text-slate-300 max-w-md">
               Thank you for your interest in <span className="font-semibold text-primary">{product.name}</span>. Our enterprise platform team will review your deployment request and issue sandbox access credentials within 24 hours.
             </p>
             <div className="mt-6">
@@ -79,19 +127,20 @@ export default function BetaAccessModal({ product, isOpen, onClose }: BetaAccess
               </span>
             </div>
 
-            <h3 className="font-display text-2xl font-bold text-slate-900 dark:text-white">
+            <h3 id="beta-access-title" className="font-display text-2xl font-bold text-slate-900 dark:text-white">
               Request Early Beta Access to {product.name}
             </h3>
-            <p className="mt-1.5 text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+            <p id="beta-access-description" className="mt-1.5 text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
               {product.summary}
             </p>
 
             <form onSubmit={handleSubmit} className="mt-6 flex flex-col gap-4">
               <div>
-                <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">
+                <label htmlFor="beta-name" className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">
                   Full Name *
                 </label>
                 <input
+                  id="beta-name"
                   type="text"
                   required
                   placeholder="e.g. Sarah Jenkins"
@@ -103,10 +152,11 @@ export default function BetaAccessModal({ product, isOpen, onClose }: BetaAccess
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">
+                  <label htmlFor="beta-email" className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">
                     Work Email *
                   </label>
                   <input
+                    id="beta-email"
                     type="email"
                     required
                     placeholder="sarah@enterprise.com"
@@ -116,10 +166,11 @@ export default function BetaAccessModal({ product, isOpen, onClose }: BetaAccess
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">
+                  <label htmlFor="beta-company" className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">
                     Company / Organization *
                   </label>
                   <input
+                    id="beta-company"
                     type="text"
                     required
                     placeholder="Acme Financial Corp"
@@ -131,10 +182,11 @@ export default function BetaAccessModal({ product, isOpen, onClose }: BetaAccess
               </div>
 
               <div>
-                <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">
+                <label htmlFor="beta-workload" className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">
                   Expected Workload / Scale
                 </label>
                 <select
+                  id="beta-workload"
                   value={formData.workload}
                   onChange={(e) => setFormData({ ...formData, workload: e.target.value })}
                   className="w-full rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950 px-3.5 py-2.5 text-sm text-slate-900 dark:text-white focus:border-primary focus:outline-none"

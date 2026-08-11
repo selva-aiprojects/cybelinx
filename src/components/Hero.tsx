@@ -8,6 +8,8 @@ import DynamicHeroAnimation from "./DynamicHeroAnimation";
 import {
   ArrowRight,
   ChevronRight,
+  Pause,
+  Play,
   CheckCircle2,
   ShieldCheck,
   Zap,
@@ -108,20 +110,33 @@ const themeColors: Record<string, string[]> = {
 export default function Hero() {
   const [activeSlide, setActiveSlide] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
 
   useEffect(() => {
-    if (isPaused) return;
+    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const updatePreference = () => setPrefersReducedMotion(mediaQuery.matches);
+    updatePreference();
+    mediaQuery.addEventListener("change", updatePreference);
+    return () => mediaQuery.removeEventListener("change", updatePreference);
+  }, []);
+
+  useEffect(() => {
+    if (isPaused || prefersReducedMotion) return;
     const interval = setInterval(() => {
       setActiveSlide((prev) => (prev + 1) % slides.length);
     }, 8000);
     return () => clearInterval(interval);
-  }, [isPaused]);
+  }, [isPaused, prefersReducedMotion]);
 
   const slide = slides[activeSlide];
   const currentColors = themeColors[slide.id] || themeColors.saas;
   const primaryColor = currentColors[0];
   return (
-    <div className="relative overflow-hidden bg-background">
+    <section
+      className="relative overflow-hidden bg-background"
+      aria-roledescription="carousel"
+      aria-label="Cybelinx platform capabilities"
+    >
       {/* ── Background: animated canvas & high-res graphic mesh ─────────── */}
       <div 
         className="absolute inset-0 overflow-hidden pointer-events-none z-0 transition-all duration-1000 bg-cover bg-center"
@@ -322,9 +337,13 @@ export default function Hero() {
 
         {/* ── RIGHT: Core Pillars Adaptive Theme Card ── */}
         <div
-          className="lg:col-span-6 xl:col-span-5 flex flex-col justify-center"
+          className="hidden md:flex lg:col-span-6 xl:col-span-5 flex-col justify-center"
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
+          onFocusCapture={() => setIsPaused(true)}
+          onBlur={(event) => {
+            if (!event.currentTarget.contains(event.relatedTarget)) setIsPaused(false);
+          }}
         >
           <div
             className="glass-premium shiny-card relative overflow-hidden rounded-3xl p-6 sm:p-7 shadow-2xl transition-all duration-500 border border-white/30 dark:border-cyan-400/20"
@@ -344,23 +363,35 @@ export default function Hero() {
             />
 
             {/* Card header */}
-            <div className="relative flex items-center justify-between pb-4 mb-4 border-b border-slate-200/80 dark:border-white/10">
+            <div className="relative flex items-center justify-between gap-3 pb-4 mb-4 border-b border-slate-200/80 dark:border-white/10">
               <div className="flex items-center gap-2">
                 <Layers className="h-4 w-4 text-slate-800 dark:text-white/70" />
                 <span className="text-xs font-bold uppercase tracking-widest text-slate-900 dark:text-white/90">
                   5 Core Pillars
                 </span>
               </div>
-              <span
-                className="text-[11px] font-mono font-bold px-3 py-1 rounded-full border shadow-xs"
-                style={{
-                  background: `${primaryColor}20`,
-                  color: primaryColor,
-                  borderColor: `${primaryColor}50`,
-                }}
-              >
-                0{activeSlide + 1} / 0{slides.length}
-              </span>
+              <div className="flex items-center gap-2">
+                <span
+                  className="text-[11px] font-mono font-bold px-3 py-1 rounded-full border shadow-xs"
+                  style={{
+                    background: `${primaryColor}20`,
+                    color: primaryColor,
+                    borderColor: `${primaryColor}50`,
+                  }}
+                >
+                  0{activeSlide + 1} / 0{slides.length}
+                </span>
+                <button
+                  type="button"
+                  onClick={() => setIsPaused((paused) => !paused)}
+                  className="inline-flex min-h-9 min-w-9 items-center justify-center rounded-full border border-border bg-background/90 text-surface transition-colors hover:border-primary hover:text-primary disabled:cursor-not-allowed disabled:opacity-50"
+                  aria-label={isPaused || prefersReducedMotion ? "Play hero slides" : "Pause hero slides"}
+                  aria-pressed={isPaused || prefersReducedMotion}
+                  disabled={prefersReducedMotion}
+                >
+                  {isPaused || prefersReducedMotion ? <Play className="h-3.5 w-3.5" /> : <Pause className="h-3.5 w-3.5" />}
+                </button>
+              </div>
             </div>
 
             {/* Tabs List */}
@@ -374,6 +405,7 @@ export default function Hero() {
                   <button
                     key={s.id}
                     onClick={() => setActiveSlide(index)}
+                    aria-pressed={isActive}
                     className={`group relative flex w-full h-[68px] items-center justify-between rounded-2xl px-3.5 py-2.5 transition-all duration-300 ease-out text-left border ${
                       isActive
                         ? "bg-white dark:bg-white/10 border-blue-400 dark:border-white/30 shadow-md shadow-blue-500/10 dark:shadow-none"
@@ -460,7 +492,18 @@ export default function Hero() {
         </div>
 
         {/* ── Mobile dots ──────────────────────────── */}
-        <div className="flex justify-center gap-2 lg:hidden col-span-12 pt-2">
+        <div className="flex items-center justify-center gap-3 lg:hidden col-span-12 pt-2">
+          <button
+            type="button"
+            onClick={() => setIsPaused((paused) => !paused)}
+            className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-full border border-border bg-background/90 text-surface shadow-sm transition-colors hover:border-primary hover:text-primary disabled:cursor-not-allowed disabled:opacity-50"
+            aria-label={isPaused || prefersReducedMotion ? "Play hero slides" : "Pause hero slides"}
+            aria-pressed={isPaused || prefersReducedMotion}
+            disabled={prefersReducedMotion}
+          >
+            {isPaused || prefersReducedMotion ? <Play className="h-4 w-4" /> : <Pause className="h-4 w-4" />}
+          </button>
+          <div className="flex gap-2" aria-label="Choose a hero slide">
           {slides.map((s, index) => {
             const isActive = index === activeSlide;
             const tabColor = (themeColors[s.id] || themeColors.saas)[0];
@@ -468,21 +511,22 @@ export default function Hero() {
               <button
                 key={s.id}
                 onClick={() => setActiveSlide(index)}
-                className="h-1.5 rounded-full transition-all duration-300"
+                className="h-11 min-w-11 rounded-full transition-all duration-300"
                 style={{
-                  backgroundColor: isActive ? tabColor : "rgba(148,163,184,0.3)",
-                  width: isActive ? "2rem" : "0.5rem",
+                  background: isActive ? tabColor : "rgba(148,163,184,0.25)",
                   boxShadow: isActive ? `0 0 6px ${tabColor}` : "none",
                 }}
-                aria-label={`Go to slide ${index + 1}`}
+                aria-label={`Show slide ${index + 1}: ${s.tabLabel}`}
+                aria-current={isActive ? "true" : undefined}
               />
             );
           })}
+          </div>
         </div>
       </div>
 
       {/* Bottom fade */}
       <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-background to-transparent pointer-events-none" />
-    </div>
+    </section>
   );
 }
