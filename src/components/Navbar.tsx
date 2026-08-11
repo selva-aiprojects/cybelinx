@@ -373,23 +373,27 @@ export default function Navbar() {
             {theme === "colorful" && <Sparkles className="h-4 w-4 text-pink-500" />}
           </button>
           <button
-            className="rounded-lg p-2 text-surface hover:bg-charcoal/50 transition-colors cursor-pointer"
+            className="h-12 w-12 flex items-center justify-center rounded-full text-brand-navy-800 dark:text-brand-navy-100 hover:bg-brand-navy-50 dark:hover:bg-brand-navy-800/80 focus:outline-none transition-colors cursor-pointer"
             onClick={() => setOpen(!open)}
-            aria-label="Toggle menu"
+            aria-label="Toggle Menu"
           >
-            {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
         </div>
       </div>
 
       {open && (
-        <div className="fixed left-0 right-0 top-0 z-[9999] h-screen bg-nav-bg/95 dark:bg-[#011232]/95 backdrop-blur-2xl lg:hidden overflow-y-auto">
-          <div className="flex items-center justify-between px-6 py-4 border-b border-border/30 dark:border-border/20">
+        <div 
+          className="fixed inset-0 z-[9999] bg-brand-navy-900/60 backdrop-blur-2xl lg:hidden overflow-y-auto"
+          role="dialog"
+          aria-modal="true"
+        >
+          <div className="flex items-center justify-between px-6 py-4 border-b border-brand-navy-100 dark:border-brand-navy-800">
             <Link href="/" onClick={() => setOpen(false)}>
               <LogoLockup height={54} />
             </Link>
             <button
-              className="rounded-lg p-2 text-surface hover:bg-charcoal/50 transition-colors cursor-pointer"
+              className="h-10 w-10 flex items-center justify-center text-brand-navy-500 rounded-full hover:bg-brand-navy-50 dark:hover:bg-brand-navy-800 transition-colors cursor-pointer"
               onClick={() => setOpen(false)}
               aria-label="Close menu"
             >

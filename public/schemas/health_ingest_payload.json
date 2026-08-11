@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CybeHealthFHIRIngestionRecord",
+  "type": "object",
+  "required": ["metadata", "patient_encounter", "clinical_payload"],
+  "properties": {
+    "metadata": {
+      "type": "object",
+      "required": ["tenant_id", "ingest_timestamp", "compliance_jurisdiction"],
+      "properties": {
+        "tenant_id": { "type": "string", "pattern": "^ctx_[a-f0-9]{12}$" },
+        "ingest_timestamp": { "type": "string", "format": "date-time" },
+        "compliance_jurisdiction": { "type": "string", "enum": ["ABDM_IN", "HIPAA_US", "GDPR_EU"] }
+      }
+    },
+    "patient_encounter": {
+      "type": "object",
+      "required": ["encounter_id", "fhir_resource_type"],
+      "properties": {
+        "encounter_id": { "type": "string" },
+        "fhir_resource_type": { "type": "string", "const": "Encounter" }
+      }
+    },
+    "clinical_payload": {
+      "type": "object",
+      "required": ["raw_scribe_dictation", "structured_diagnoses"],
+      "properties": {
+        "raw_scribe_dictation": { "type": "string" },
+        "structured_diagnoses": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["icd_10_code", "confidence_score"],
+            "properties": {
+              "icd_10_code": { "type": "string" },
+              "confidence_score": { "type": "number", "minimum": 0.0, "maximum": 1.0 }
+            }
+          }
+        }
+      }
+    }
+  }
+}

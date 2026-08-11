@@ -17,6 +17,7 @@ import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import ArchitectureValidationPlayground from "@/components/ArchitectureValidationPlayground";
 import GlobalRegulatoryEngine from "@/components/GlobalRegulatoryEngine";
+import RegulatedFeatureMatrix from "@/components/RegulatedFeatureMatrix";
 import { products } from "@/lib/products";
 import { whyCybelinx } from "@/lib/content";
 
@@ -28,6 +29,13 @@ export default function HomePage() {
       {/* ── 5 Core Pillars ─────────────────────── */}
       <Section id="platform-pillars" glow className="py-10 md:py-14">
         <PlatformPillars />
+      </Section>
+
+      {/* ── High-Value Core Product Feature Matrix ── */}
+      <Section id="market-offerings" className="py-10 md:py-14 border-t border-border/40">
+        <AnimatedSection>
+          <RegulatedFeatureMatrix />
+        </AnimatedSection>
       </Section>
 
       {/* ── Proof-of-Value Architecture Playground ───── */}

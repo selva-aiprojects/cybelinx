@@ -271,8 +271,35 @@ export default function Hero() {
             </Button>
           </div>
 
+          {/* Verified SVG Trust Badges Alignment */}
+          <div className="mt-8 pt-6 border-t border-brand-navy-100 dark:border-brand-navy-800">
+            <p className="text-xs font-semibold text-brand-navy-500 dark:text-slate-400 uppercase tracking-wider mb-3">
+              Enterprise Compliance Baseline
+            </p>
+            <div className="flex flex-wrap gap-5 items-center opacity-85 hover:opacity-100 transition-all">
+              <div className="flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-brand-navy-800 dark:text-slate-200">
+                <svg className="w-4 h-4 text-brand-cyan-500" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944a11.954 11.954 0 007.834 3.056 11.95 11.95 0 01-1.8 7.375 11.958 11.958 0 01-5.777 4.564a.25.25 0 01-.114 0 11.958 11.958 0 01-5.776-4.564 11.95 11.95 0 01-1.8-7.375zm8.41 3.47a.75.75 0 10-1.152-.96l-2.25 2.7a.75.75 0 001.122.996l1.73-2.077 1.157 1.156a.75.75 0 101.06-1.061l-1.667-1.666z" clipRule="evenodd"/>
+                </svg>
+                SOC 2 Type II
+              </div>
+              <div className="flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-brand-navy-800 dark:text-slate-200">
+                <svg className="w-4 h-4 text-brand-cyan-500" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944a11.954 11.954 0 007.834 3.056 11.95 11.95 0 01-1.8 7.375 11.958 11.958 0 01-5.777 4.564a.25.25 0 01-.114 0 11.958 11.958 0 01-5.776-4.564 11.95 11.95 0 01-1.8-7.375zm8.41 3.47a.75.75 0 10-1.152-.96l-2.25 2.7a.75.75 0 001.122.996l1.73-2.077 1.157 1.156a.75.75 0 101.06-1.061l-1.667-1.666z" clipRule="evenodd"/>
+                </svg>
+                ISO 27001
+              </div>
+              <div className="flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-brand-navy-800 dark:text-slate-200">
+                <svg className="w-4 h-4 text-brand-cyan-500" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944a11.954 11.954 0 007.834 3.056 11.95 11.95 0 01-1.8 7.375 11.958 11.958 0 01-5.777 4.564a.25.25 0 01-.114 0 11.958 11.958 0 01-5.776-4.564 11.95 11.95 0 01-1.8-7.375zm8.41 3.47a.75.75 0 10-1.152-.96l-2.25 2.7a.75.75 0 001.122.996l1.73-2.077 1.157 1.156a.75.75 0 101.06-1.061l-1.667-1.666z" clipRule="evenodd"/>
+                </svg>
+                HIPAA & GDPR Ready
+              </div>
+            </div>
+          </div>
+
           {/* Stats row */}
-          <div className="mt-8 sm:mt-12 grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-3 border-t border-border/30 pt-6 sm:pt-8">
+          <div className="mt-6 sm:mt-8 grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-3 border-t border-border/30 pt-6 sm:pt-8">
             {statsRow.map((s, i) => {
               const Icon = s.icon;
               return (

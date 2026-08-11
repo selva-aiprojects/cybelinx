@@ -1247,6 +1247,24 @@ p {
   outline-offset: 2px;
 }
 
+/* ─── Glowing Node Telemetry Utilities ──────────── */
+.glowing-node-active {
+  box-shadow: 0 0 15px rgba(0, 212, 255, 0.4);
+  animation: rippleGlow 2s infinite ease-in-out;
+}
+
+@keyframes rippleGlow {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+  50% {
+    transform: scale(1.03);
+    opacity: 1;
+    box-shadow: 0 0 25px rgba(0, 212, 255, 0.6);
+  }
+}
+
 /* ─── Reduced motion ────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
   * {

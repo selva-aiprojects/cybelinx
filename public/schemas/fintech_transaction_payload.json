@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CybeFinTechTransactionRecord",
+  "type": "object",
+  "required": ["transaction_id", "ledger_routing", "ledger_metrics"],
+  "properties": {
+    "transaction_id": { "type": "string", "pattern": "^tx_[a-zA-Z0-9]{16}$" },
+    "ledger_routing": {
+      "type": "object",
+      "required": ["source_account_hash", "destination_account_hash"],
+      "properties": {
+        "source_account_hash": { "type": "string" },
+        "destination_account_hash": { "type": "string" }
+      }
+    },
+    "ledger_metrics": {
+      "type": "object",
+      "required": ["fiat_amount", "currency_iso", "processing_latency_ms"],
+      "properties": {
+        "fiat_amount": { "type": "number", "minimum": 0.01 },
+        "currency_iso": { "type": "string", "minLength": 3, "maxLength": 3 },
+        "processing_latency_ms": { "type": "integer", "maximum": 50 }
+      }
+    }
+  }
+}

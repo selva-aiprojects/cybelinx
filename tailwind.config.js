@@ -22,6 +22,21 @@ module.exports = {
         border: "var(--cb-border)",
         "nav-bg": "var(--cb-nav-bg)",
         charcoal: "var(--cb-charcoal)",
+        "brand-navy": {
+          50: "#f0f4f8",
+          100: "#d9e2ec",
+          500: "#334e68",
+          800: "#102a43",
+          900: "#061034",
+        },
+        "brand-cyan": {
+          50: "#e0fcff",
+          400: "#4FD8FF",
+          500: "#00C2FF",
+          700: "#008da6",
+        },
+        "industry-healthcare": "#0a8e6e",
+        "industry-finance": "#0D47FF",
       },
       fontFamily: {
         sans: ["var(--font-inter)", "sans-serif"],

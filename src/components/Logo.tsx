@@ -12,15 +12,15 @@ interface LogoProps {
 const LOGO_LOCKUP_LIGHT_SRC = "/cybelinx-logo.png";
 const LOGO_LOCKUP_DARK_SRC = "/cybelinx-logo-dark.png";
 const LOGO_WORDMARK_SRC = "/cybelinx-wordmark.png";
-const LOGO_ICON_SRC = "/cybelinx-icon.png";
+const LOGO_ICON_SRC = "/cybelinx-logo-embelem.png";
 
 /**
- * LogoMark: Brand icon only
+ * LogoMark: Original brand emblem icon (100% Transparent PNG)
  */
 export function LogoMark({ size = 66, className = "" }: LogoProps) {
   return (
     <div
-      className={`shrink-0 overflow-hidden rounded-lg ${className}`}
+      className={`shrink-0 overflow-hidden ${className}`}
       style={{ width: size, height: size }}
     >
       <img
@@ -33,22 +33,25 @@ export function LogoMark({ size = 66, className = "" }: LogoProps) {
 }
 
 /**
- * LogoLockup: Full logo (icon + wordmark)
+ * LogoLockup: Original full logo lockup (100% Transparent PNG)
+ * Displays natively over all light and dark header & footer background colors.
  */
 export function LogoLockup({ height = 72, className = "" }: LogoProps) {
   return (
     <div className={`inline-flex items-center shrink-0 ${className}`} style={{ height }}>
+      {/* Light Mode Original Logo Image */}
       <img
         src={LOGO_LOCKUP_LIGHT_SRC}
         alt={`${brand.name} - Engineering Intelligent Products`}
         style={{ height, width: "auto" }}
         className="h-full w-auto object-contain transition-transform duration-300 hover:scale-[1.02] dark:hidden"
       />
+      {/* Dark Mode Original Logo Image */}
       <img
         src={LOGO_LOCKUP_DARK_SRC}
         alt={`${brand.name} - Engineering Intelligent Products`}
         style={{ height, width: "auto" }}
-        className="hidden h-full w-auto object-contain transition-transform duration-300 hover:scale-[1.02] dark:block mix-blend-lighten"
+        className="hidden h-full w-auto object-contain transition-transform duration-300 hover:scale-[1.02] dark:block"
       />
     </div>
   );

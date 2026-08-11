@@ -19,35 +19,49 @@ import Section, { SectionHeading } from "./Section";
 const schemas = [
   {
     id: "health-fhir",
-    title: "Clinical HL7/FHIR Stream",
-    domain: "Healthcare (CybeHealth)",
+    title: "Clinical FHIR Scribe & Dictation Stream",
+    domain: "Healthcare (CybeHealth & Pharma)",
+    schemaFile: "/schemas/health_ingest_payload.json",
     sampleJson: `{
-  "resourceType": "Observation",
-  "status": "final",
-  "code": { "coding": [{ "system": "http://loinc.org", "code": "8867-4", "display": "Heart rate" }] },
-  "subject": { "reference": "Patient/IND-ABDM-8829" },
-  "valueQuantity": { "value": 72, "unit": "beats/min" },
-  "complianceGuardrail": "PHI_ANONYMIZED_AES256"
+  "metadata": {
+    "tenant_id": "ctx_8f9a2b4c1e0d",
+    "ingest_timestamp": "2026-08-11T14:30:00Z",
+    "compliance_jurisdiction": "ABDM_IN"
+  },
+  "patient_encounter": {
+    "encounter_id": "enc_9920148",
+    "fhir_resource_type": "Encounter"
+  },
+  "clinical_payload": {
+    "raw_scribe_dictation": "Patient presents with mild persistent hypertension. Prescribed ACE inhibitor.",
+    "structured_diagnoses": [
+      { "icd_10_code": "I10", "confidence_score": 0.98 }
+    ]
+  }
 }`,
     metrics: {
       ingestionRate: "285,000 msg/sec",
       complianceLatency: "1.4 ms",
       inferenceSpeed: "3.8 ms",
-      sanitization: "100% HIPAA & ABDM Verified",
+      sanitization: "100% HIPAA & ABDM Level 2 Verified",
     },
   },
   {
     id: "fintech-iso",
-    title: "ISO 20022 Financial Ledger",
-    domain: "FinTech (CybeFinTech)",
+    title: "Sub-50ms Ledger Execution Payload",
+    domain: "FinTech (CybeFinTech & Banking)",
+    schemaFile: "/schemas/fintech_transaction_payload.json",
     sampleJson: `{
-  "AppHdr": { "MsgDefIdr": "pacs.008.001.08", "CreDt": "2026-08-11T14:20:00Z" },
-  "CdtTrfTxInf": {
-    "PmtId": { "EndToEndId": "E2E-CYBE-991204" },
-    "IntrBkSttlmAmt": { "Ccy": "USD", "Value": 1250000.00 },
-    "DbtrAcct": { "Id": { "Othr": { "Id": "ACC-RESTRICTED-01" } } }
+  "transaction_id": "tx_98a7f6e5d4c3b2a1",
+  "ledger_routing": {
+    "source_account_hash": "hash_88f912a7b",
+    "destination_account_hash": "hash_44e2910c8"
   },
-  "complianceGuardrail": "ZERO_TRUST_AUDIT_LOGGED"
+  "ledger_metrics": {
+    "fiat_amount": 1250000.00,
+    "currency_iso": "USD",
+    "processing_latency_ms": 32
+  }
 }`,
     metrics: {
       ingestionRate: "520,000 transactions/sec",

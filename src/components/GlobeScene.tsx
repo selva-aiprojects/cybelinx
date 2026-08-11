@@ -3,6 +3,7 @@
 import { useRef, useState, useEffect } from "react";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import Image from "next/image";
+import { LogoMark } from "./Logo";
 
 export default function GlobeScene() {
   const containerRef = useRef<HTMLDivElement>(null);
