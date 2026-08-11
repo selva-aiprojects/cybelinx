@@ -15,8 +15,10 @@ import TrustBar from "@/components/TrustBar";
 import TechStack from "@/components/TechStack";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
-import { platformPillars, differentiators, whyCybelinx } from "@/lib/content";
+import ArchitectureValidationPlayground from "@/components/ArchitectureValidationPlayground";
+import GlobalRegulatoryEngine from "@/components/GlobalRegulatoryEngine";
 import { products } from "@/lib/products";
+import { whyCybelinx } from "@/lib/content";
 
 export default function HomePage() {
   return (
@@ -26,6 +28,20 @@ export default function HomePage() {
       {/* ── 5 Core Pillars ─────────────────────── */}
       <Section id="platform-pillars" glow className="py-10 md:py-14">
         <PlatformPillars />
+      </Section>
+
+      {/* ── Proof-of-Value Architecture Playground ───── */}
+      <Section id="validation-playground" className="py-10 md:py-14 border-t border-border/40">
+        <AnimatedSection>
+          <ArchitectureValidationPlayground />
+        </AnimatedSection>
+      </Section>
+
+      {/* ── Global Regulatory Adaptation Engine ────── */}
+      <Section id="global-regulatory" textured glow className="py-10 md:py-14 border-t border-border/40">
+        <AnimatedSection>
+          <GlobalRegulatoryEngine />
+        </AnimatedSection>
       </Section>
 
       {/* ── Social Proof & Trust ────────────────── */}
@@ -46,9 +62,9 @@ export default function HomePage() {
       <Section id="products" textured glow className="py-10 md:py-14">
         <AnimatedSection>
           <SectionHeading
-            eyebrow="Enterprise Platforms & Offerings"
-            title="Technology platforms designed for enterprise performance and control."
-            description="From AI-ready operations to secure multi-cloud delivery and industry-specific SaaS — built on a single foundation that scales responsibly with your business."
+            eyebrow="Enterprise Offerings & PaaS Architecture"
+            title="Certified Enterprise SaaS & Standalone PaaS Infrastructure"
+            description="Operational vertical SaaS products alongside the standalone Cybelinx PaaS core. Pre-live preview modules are available upon Beta access request."
           />
         </AnimatedSection>
         <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
@@ -60,18 +76,23 @@ export default function HomePage() {
         </div>
       </Section>
 
-      {/* ── Enterprise Transformation Flow Blueprints ── */}
-      <Section id="enterprise-flows" textured glow className="py-10 md:py-14 border-t border-border/40">
+      {/* ── Engineering Hub: Blueprints & Telemetry ── */}
+      <Section id="engineering-hub" textured glow className="py-12 md:py-16 border-t border-border/40">
         <AnimatedSection>
-          <EnterpriseFlowsSlider />
+          <SectionHeading
+            eyebrow="Engineering Hub & Telemetry"
+            title="Interactive Technical Blueprints & Dynamic Network Topologies"
+            description="Deep-dive into multi-cloud execution flows, active node clustering, microservice telemetry, and schema-isolated data pipelines."
+          />
         </AnimatedSection>
-      </Section>
-
-      {/* ── Dynamic Network Topologies ────────────────── */}
-      <Section id="network-ecosystem" className="py-10 md:py-14 border-t border-border/40">
-        <AnimatedSection>
-          <DynamicNetworkEcosystem />
-        </AnimatedSection>
+        <div className="mt-8 flex flex-col gap-12">
+          <AnimatedSection>
+            <EnterpriseFlowsSlider />
+          </AnimatedSection>
+          <AnimatedSection>
+            <DynamicNetworkEcosystem />
+          </AnimatedSection>
+        </div>
       </Section>
 
       {/* ── Latest Product News & Innovations ──── */}

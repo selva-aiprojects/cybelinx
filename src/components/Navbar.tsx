@@ -101,97 +101,78 @@ function NavDropdown({ group }: { group: NavGroup }) {
         style={{ zIndex: 9999 }}
       >
         {group.label === "Products" ? (
-          <div className="overflow-hidden rounded-3xl border border-slate-200/90 bg-white/98 shadow-2xl shadow-blue-500/15 backdrop-blur-2xl w-[730px] dark:bg-slate-950/98 dark:border-slate-800 p-6">
+          <div className="overflow-hidden rounded-3xl border border-slate-200/90 bg-white/98 shadow-2xl shadow-blue-500/15 backdrop-blur-2xl w-[780px] dark:bg-slate-950/98 dark:border-slate-800 p-6">
             
             <div className="flex items-center justify-between pb-4 mb-4 border-b border-slate-100 dark:border-slate-800">
               <div>
                 <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-primary">
-                  Enterprise SaaS Portfolio
+                  Categorized Portfolio Architecture
                 </span>
                 <h3 className="text-sm font-bold text-slate-900 dark:text-slate-100 mt-0.5">
-                  8 Regulated SaaS Solutions Powered by 5 Core Pillars
+                  Regulated Markets, Enterprise Operations & Core PaaS Runtime
                 </h3>
               </div>
               <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 text-[11px] font-bold border border-emerald-500/25">
                 <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
-                Portfolio Live
+                Industry Isolated
               </span>
             </div>
 
-            <div className="grid grid-cols-2 gap-3">
-              {group.items.map((item) => {
-                const slug = item.href.replace("/products/", "");
-                const product = getPortfolioProduct(slug);
-                const subProducts = product?.portfolioProducts || [];
-                const accentColor = product?.colorAccent || "#0D47FF";
-                const iconSrc = product?.icon || "/cybelinx-icon.png";
+            <div className="grid grid-cols-3 gap-4">
+              {(["Regulated Markets", "Enterprise Operations", "Core PaaS & AI"] as const).map((catName) => {
+                const catItems = group.items?.filter((item) => item.category === catName) || [];
+                const catBadgeColors: Record<string, string> = {
+                  "Regulated Markets": "text-rose-600 bg-rose-500/10 border-rose-500/30",
+                  "Enterprise Operations": "text-amber-600 bg-amber-500/10 border-amber-500/30",
+                  "Core PaaS & AI": "text-indigo-600 bg-indigo-500/10 border-indigo-500/30",
+                };
 
                 return (
-                  <div 
-                    key={item.href} 
-                    className="group/item relative rounded-2xl border p-3.5 transition-all duration-200 hover:shadow-lg cursor-pointer"
-                    style={{
-                      backgroundColor: `${accentColor}0b`,
-                      borderColor: `${accentColor}28`,
-                    }}
-                    onClick={() => {
-                      router.push(item.href);
-                      setOpen(false);
-                    }}
-                  >
-                    <div className="flex items-start gap-3">
-                      <div 
-                        className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl p-1.5 transition-transform duration-200 group-hover/item:scale-105 shadow-md shadow-slate-200/50 dark:shadow-none mt-0.5 bg-white dark:bg-slate-900"
-                        style={{
-                          border: `1px solid ${accentColor}40`
-                        }}
-                      >
-                        <img src={iconSrc} alt={`${item.label} icon`} className="h-full w-full object-contain" />
-                      </div>
-                      <div className="min-w-0 flex-1">
-                        <div className="flex items-center justify-between gap-2">
-                          <div className="flex items-center gap-1.5 truncate">
-                            <h4 className="text-sm font-bold text-slate-900 dark:text-slate-100 group-hover/item:text-primary transition-colors truncate">
-                              {item.label}
-                            </h4>
-                          </div>
-                          {product?.status === "live" && (
-                            <span className="rounded-full bg-emerald-500/10 px-2 py-0.5 text-[9px] font-extrabold uppercase text-emerald-700 dark:text-emerald-400 border border-emerald-500/30 shrink-0">
-                              Live
-                            </span>
-                          )}
-                          {product?.status === "preview" && (
-                            <span className="rounded-full bg-cyan-500/10 px-2 py-0.5 text-[9px] font-extrabold uppercase text-cyan-700 dark:text-cyan-400 border border-cyan-500/30 shrink-0">
-                              Preview
-                            </span>
-                          )}
-                        </div>
-                        <p className="mt-1 text-xs leading-snug text-slate-600 dark:text-slate-400 line-clamp-2 font-medium">
-                          {product?.tagline || item.description}
-                        </p>
-                      </div>
+                  <div key={catName} className="flex flex-col gap-2">
+                    <div className="pb-1.5 mb-1 border-b border-slate-100 dark:border-slate-800">
+                      <span className={`text-[10px] font-extrabold uppercase tracking-wider px-2 py-0.5 rounded-full border ${catBadgeColors[catName]}`}>
+                        {catName}
+                      </span>
                     </div>
 
-                    {subProducts.length > 0 && (
-                      <div className="mt-2.5 pt-2.5 border-t border-slate-200/60 dark:border-slate-800 flex flex-wrap gap-1.5">
-                        {subProducts.map((subItem) => (
-                          <a
-                            key={subItem.name}
-                            href={subItem.url || item.href}
-                            target={subItem.url?.startsWith("http") ? "_blank" : undefined}
-                            rel={subItem.url?.startsWith("http") ? "noopener noreferrer" : undefined}
-                            onClick={(e) => {
-                              e.stopPropagation();
-                              setOpen(false);
-                            }}
-                            className="inline-flex items-center gap-1 rounded-md bg-white dark:bg-slate-900 px-2 py-0.5 text-[10px] font-bold text-slate-700 dark:text-slate-300 hover:text-primary hover:bg-primary/10 border border-slate-200 dark:border-slate-700 shadow-xs transition-colors"
-                          >
-                            <span>{subItem.name}</span>
-                            <ArrowRight className="h-2.5 w-2.5 opacity-60" />
-                          </a>
-                        ))}
-                      </div>
-                    )}
+                    {catItems.map((item) => {
+                      const slug = item.href.replace("/products/", "");
+                      const product = getPortfolioProduct(slug);
+                      const accentColor = product?.colorAccent || "#0D47FF";
+                      const iconSrc = product?.icon || "/assets/icons/icon-ai.png";
+
+                      return (
+                        <div 
+                          key={item.href} 
+                          className="group/item relative rounded-xl border p-2.5 transition-all duration-200 hover:shadow-md cursor-pointer text-left"
+                          style={{
+                            backgroundColor: `${accentColor}08`,
+                            borderColor: `${accentColor}25`,
+                          }}
+                          onClick={() => {
+                            router.push(item.href);
+                            setOpen(false);
+                          }}
+                        >
+                          <div className="flex items-start gap-2.5">
+                            <div 
+                              className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg p-1 transition-transform duration-200 group-hover/item:scale-105 shadow-xs bg-white dark:bg-slate-900 mt-0.5"
+                              style={{ border: `1px solid ${accentColor}35` }}
+                            >
+                              <img src={iconSrc} alt={`${item.label} icon`} className="h-full w-full object-contain" />
+                            </div>
+                            <div className="min-w-0 flex-1">
+                              <h4 className="text-xs font-bold text-slate-900 dark:text-slate-100 group-hover/item:text-primary transition-colors truncate">
+                                {item.label}
+                              </h4>
+                              <p className="text-[10px] leading-tight text-slate-500 dark:text-slate-400 line-clamp-2 mt-0.5 font-medium">
+                                {item.description}
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      );
+                    })}
                   </div>
                 );
               })}

@@ -86,6 +86,8 @@ export const metadata: Metadata = {
 };
 
 
+import { PersonaProvider } from "@/components/PersonaPathwaySwitcher";
+
 export default function RootLayout({ children }: { children?: React.ReactNode }) {
   return (
     <html
@@ -132,11 +134,13 @@ export default function RootLayout({ children }: { children?: React.ReactNode })
         className="min-h-screen bg-transparent font-sans text-surface antialiased relative"
         suppressHydrationWarning
       >
-        <GlobalBackground />
-        <CursorParticles />
-        <Navbar />
-        <main className="relative z-10">{children}</main>
-        <Footer />
+        <PersonaProvider>
+          <GlobalBackground />
+          <CursorParticles />
+          <Navbar />
+          <main className="relative z-10">{children}</main>
+          <Footer />
+        </PersonaProvider>
       </body>
     </html>
   );

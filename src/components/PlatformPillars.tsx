@@ -322,7 +322,7 @@ export default function PlatformPillars() {
           variants={headerItem}
           className="relative mt-5 max-w-2xl text-base leading-relaxed text-slate-600 dark:text-white/65 md:text-lg"
         >
-          SaaS &amp; PaaS, AI/GenAI - ML Production Ready, Security &amp; DevSecOps, Data Platform &amp; Analytics, and Quantum Ready Workflow — powering our regulated enterprise platforms on a single foundation.
+          Enforcing strict Domain-Driven Design (DDD) platform boundaries between core runtime microservices and vertical domain rules — SaaS/PaaS, AI Production Engine, DevSecOps, Lakehouse Analytics, and PQC Security.
         </motion.p>
 
         <motion.div

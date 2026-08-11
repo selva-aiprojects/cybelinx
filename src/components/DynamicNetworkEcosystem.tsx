@@ -1,7 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { topologyEcosystems, TopologyEcosystem, NetworkNode } from "@/lib/cognivectraContent";
+import Image from "next/image";
+import { topologyEcosystems } from "@/lib/cognivectraContent";
 import { Cpu, Server, Shield, Activity, Sparkles, Layers } from "lucide-react";
 
 export default function DynamicNetworkEcosystem() {
@@ -12,6 +13,18 @@ export default function DynamicNetworkEcosystem() {
 
   return (
     <div className="relative w-full py-12 px-4 sm:px-6 lg:px-8 rounded-3xl bg-slate-950/80 border border-white/10 backdrop-blur-2xl overflow-hidden shadow-2xl">
+      {/* CogniVectra section backdrop image */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <Image
+          src="/assets/cognivectra/hero-engagements.webp"
+          alt=""
+          fill
+          unoptimized
+          className="object-cover opacity-[0.10]"
+        />
+        <div className="absolute inset-0 bg-slate-950/40" />
+      </div>
+
       {/* Atmosphere glow */}
       <div
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-4xl h-[400px] blur-[150px] rounded-full pointer-events-none opacity-30 transition-all duration-700"

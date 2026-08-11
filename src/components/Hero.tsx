@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import Button from "./Button";
 import DynamicHeroAnimation from "./DynamicHeroAnimation";
@@ -20,13 +21,13 @@ import {
 const slides = [
   {
     id: "saas",
-    title: "Enterprise platforms\nfor measurable growth.",
+    title: "Regulated Enterprise Platforms\nPowered by One Secure Runtime.",
     description:
-      "Built for leaders who need resilient SaaS, PaaS, AI, and cloud foundations that scale with compliance, speed, and operational control.",
-    tag: "SaaS & PaaS Platform",
+      "Deploy automated, AI-native workflows across healthcare, banking, and enterprise operations with built-in SOC 2, HIPAA, and ABDM compliance.",
+    tag: "Enterprise SaaS & PaaS Runtime",
     cssVar: "var(--hero-bg-saas)",
-    tabLabel: "SaaS & PaaS",
-    tabDesc: "Shared enterprise platform runtime",
+    tabLabel: "Enterprise SaaS & PaaS",
+    tabDesc: "Regulated multi-tenant runtime core",
     color: "#0D47FF",
     icon: Globe2,
   },
@@ -87,10 +88,13 @@ const statsRow = [
   { value: "99.9%", label: "Uptime SLA", icon: ShieldCheck },
 ];
 
-const trustBullets = [
-  "SOC 2 Type II Certified",
-  "ISO 27001 Compliant",
-  "GDPR & HIPAA Ready",
+import PersonaPathwaySwitcher from "./PersonaPathwaySwitcher";
+
+const trustSeals = [
+  { label: "SOC 2 Type II Certified", href: "/security", badge: "SOC 2" },
+  { label: "ISO 27001 Compliant", href: "/security", badge: "ISO 27001" },
+  { label: "GDPR & HIPAA Ready", href: "/security", badge: "HIPAA/GDPR" },
+  { label: "ABDM Level 2 Certified", href: "/security", badge: "ABDM" },
 ];
 
 const themeColors: Record<string, string[]> = {
@@ -171,23 +175,29 @@ export default function Hero() {
         {/* ── LEFT: Content ────────────────────────── */}
         <div className="lg:col-span-6 xl:col-span-7 flex flex-col justify-center">
 
-          {/* Trust bullets — top badge row */}
+          {/* Trust seals — top badge row */}
           <motion.div
             initial={false}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.25 }}
-            className="flex flex-wrap items-center gap-2 sm:gap-3 mb-4 sm:mb-6"
+            className="flex flex-wrap items-center gap-2 sm:gap-2.5 mb-4 sm:mb-6"
           >
-            {trustBullets.map((bullet) => (
-              <span
-                key={bullet}
-                className="inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-[0.15em] text-slate"
+            {trustSeals.map((seal) => (
+              <Link
+                key={seal.label}
+                href={seal.href}
+                className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100/80 dark:bg-slate-900/80 hover:bg-slate-200 dark:hover:bg-slate-800 border border-slate-200/80 dark:border-slate-800 text-[10px] font-extrabold uppercase tracking-wider text-slate-700 dark:text-slate-300 transition-all hover:scale-105 shadow-xs"
               >
-                <CheckCircle2 className="h-3.5 w-3.5 text-emerald-500" />
-                {bullet}
-              </span>
+                <ShieldCheck className="h-3.5 w-3.5 text-emerald-500 shrink-0" />
+                <span>{seal.label}</span>
+              </Link>
             ))}
           </motion.div>
+
+          {/* Persona Pathway Switcher */}
+          <div className="mb-4">
+            <PersonaPathwaySwitcher />
+          </div>
 
           {/* Slide content */}
           <div className="grid grid-cols-1 grid-rows-1 min-h-[240px] sm:min-h-[260px] lg:min-h-[280px]">

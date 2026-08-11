@@ -1,17 +1,29 @@
 "use client";
 
-import { enterpriseFlows, EnterpriseFlow } from "@/lib/cognivectraContent";
+import { enterpriseFlows } from "@/lib/cognivectraContent";
 import Image from "next/image";
 import { ArrowRight, Sparkles, CheckCircle2 } from "lucide-react";
 
 export default function EnterpriseFlowsSlider() {
   return (
     <div className="relative w-full py-12">
+      {/* CogniVectra section backdrop image */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <Image
+          src="/assets/cognivectra/hero-products.webp"
+          alt=""
+          fill
+          unoptimized
+          className="object-cover opacity-[0.16]"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-950/60 via-slate-950/40 to-slate-950/70" />
+      </div>
+
       {/* Glow background atmosphere */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-5xl h-[400px] bg-primary/10 blur-[150px] rounded-full pointer-events-none" />
 
       {/* Section Heading */}
-      <div className="text-center max-w-3xl mx-auto mb-12">
+      <div className="relative z-10 text-center max-w-3xl mx-auto mb-12">
         <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-semibold uppercase tracking-wider mb-4">
           <Sparkles className="h-3.5 w-3.5 animate-pulse text-primary" />
           <span>Enterprise Transformation Flows</span>
@@ -25,7 +37,7 @@ export default function EnterpriseFlowsSlider() {
       </div>
 
       {/* Horizontal Scrollable Flow Cards */}
-      <div className="flex gap-6 overflow-x-auto pb-8 pt-2 px-4 snap-x snap-mandatory scrollbar-thin scrollbar-thumb-white/20 scrollbar-track-transparent">
+      <div className="relative z-10 flex gap-6 overflow-x-auto pb-8 pt-2 px-4 snap-x snap-mandatory scrollbar-thin scrollbar-thumb-white/20 scrollbar-track-transparent">
         {enterpriseFlows.map((flow) => (
           <div
             key={flow.id}
@@ -104,7 +116,7 @@ export default function EnterpriseFlowsSlider() {
           </div>
         ))}
       </div>
-      <div className="text-center mt-3 text-xs text-slate-400 uppercase tracking-widest font-mono">
+      <div className="relative z-10 text-center mt-3 text-xs text-slate-400 uppercase tracking-widest font-mono">
         ← Drag or scroll to explore enterprise blueprints →
       </div>
     </div>

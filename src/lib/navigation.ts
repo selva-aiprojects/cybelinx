@@ -1,4 +1,9 @@
-export type NavLink = { href: string; label: string; description?: string };
+export type NavLink = { 
+  href: string; 
+  label: string; 
+  description?: string;
+  category?: "Regulated Markets" | "Enterprise Operations" | "Core PaaS & AI";
+};
 
 export type NavGroup = {
   label: string;
@@ -11,14 +16,16 @@ export const mainNav: NavGroup[] = [
   {
     label: "Products",
     items: [
-      { href: "/products/cybehrms", label: "CybeHRMS", description: "AI-native HR & workforce management — Live" },
-      { href: "/products/cybehms", label: "CybeHospitality", description: "Enterprise hospitality management — Live" },
-      { href: "/products/cybepharma", label: "CybePharma Suite", description: "Pharma commercial & compliance" },
-      { href: "/products/cybebank", label: "CybeBank", description: "Digital banking & FinTech platform" },
-      { href: "/products/cybefintech", label: "CybeFinTech", description: "Portfolio intelligence & smart accounting" },
-      { href: "/products/cybehealth", label: "CybeHealth & Pharma", description: "Hospital & pharmacy management" },
-      { href: "/products/cybecommerce", label: "CybeCommerce", description: "Commerce & retail platform" },
-      { href: "/products/cybeai-suite", label: "CybeAI Suite", description: "Enterprise AI product suite" },
+      { href: "/products/cybehealth", label: "CybeHealth & Pharma", description: "Clinical EMR & FHIR interoperability", category: "Regulated Markets" },
+      { href: "/products/cybebank", label: "CybeBank Core", description: "Digital banking & payments preview", category: "Regulated Markets" },
+      { href: "/products/cybefintech", label: "CybeFinTech", description: "Portfolio intelligence & accounting", category: "Regulated Markets" },
+      
+      { href: "/products/cybehrms", label: "CybeHRMS", description: "AI HRMS & statutory payroll engine", category: "Enterprise Operations" },
+      { href: "/products/cybehms", label: "CybeHospitality", description: "HostSphere property & hotel ops", category: "Enterprise Operations" },
+      { href: "/products/cybecommerce", label: "CybeCommerce", description: "StoreAI composable retail commerce", category: "Enterprise Operations" },
+      
+      { href: "/products/cybeai-suite", label: "CybeAI Suite", description: "Production GenAI & LLMOps engine", category: "Core PaaS & AI" },
+      { href: "/platform", label: "Cybelinx Core PaaS", description: "5 Core infrastructure pillars", category: "Core PaaS & AI" },
     ],
   },
   { label: "Industries", href: "/industries" },

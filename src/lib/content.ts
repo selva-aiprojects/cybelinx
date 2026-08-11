@@ -96,12 +96,12 @@ export const platformPillars: PlatformPillar[] = [
   {
     icon: Atom,
     title: "Quantum Ready Workflow",
-    subtitle: "Post-quantum cryptography & hybrid quantum-inspired orchestration",
+    subtitle: "NIST post-quantum cryptography (PQC) standards & hybrid compute",
     slug: "quantum-ready-workflow",
     description:
-      "Architected for post-quantum security and advanced compute workflows. Features post-quantum cryptographic primitives (PQC), quantum-inspired optimization algorithms, and hybrid integration layers designed to slot quantum simulators and future QPU accelerators into existing compliant platform workflows.",
+      "Engineered for immediate post-quantum cryptographic security (NIST PQC ML-KEM & ML-DSA standards) and hybrid optimization algorithms. Provides quantum-safe TLS transport and encryption primitives today, while maintaining clean R&D abstraction layers for QPU accelerators as quantum hardware matures.",
     outcome:
-      "Future-proof enterprise security and optimization workloads with quantum-safe encryption and hybrid quantum workflows.",
+      "Ensure immediate enterprise quantum-safe data protection while building clean abstraction layers for future quantum compute.",
   },
 ];
 
