@@ -40,7 +40,7 @@ export default function CompactComparisonTable() {
   return (
     <div className="w-full overflow-hidden rounded-2xl border border-brand-navy-100 dark:border-brand-navy-800 bg-white dark:bg-brand-navy-900 shadow-xl my-8">
       <div className="overflow-x-auto">
-        <table className="w-full text-left border-collapse">
+        <table className="w-full min-w-[600px] text-left border-collapse">
           <thead>
             <tr className="border-b border-brand-navy-100 dark:border-brand-navy-800 bg-brand-navy-50/70 dark:bg-brand-navy-800/80">
               <th className="px-6 py-5 text-xs font-extrabold uppercase tracking-widest text-brand-navy-900 dark:text-white w-1/4">

@@ -115,7 +115,7 @@ function NavDropdown({ group }: { group: NavGroup }) {
         style={{ zIndex: 9999 }}
       >
         {group.label === "Products" ? (
-          <div className="overflow-hidden rounded-3xl border border-slate-200/90 bg-white/98 shadow-2xl shadow-blue-500/15 backdrop-blur-2xl w-[780px] dark:bg-slate-950/98 dark:border-slate-800 p-6">
+          <div className="overflow-hidden rounded-3xl border border-slate-200/90 bg-white/98 shadow-2xl shadow-blue-500/15 backdrop-blur-2xl w-[780px] max-w-[calc(100vw-2rem)] dark:bg-slate-950/98 dark:border-slate-800 p-6">
             
             <div className="flex items-center justify-between pb-4 mb-4 border-b border-slate-100 dark:border-slate-800">
               <div>
@@ -285,12 +285,16 @@ export default function Navbar() {
   }, []);
 
   useEffect(() => {
-    if (!open) return;
-    const focusMenu = window.setTimeout(() => mobileMenuRef.current?.focus(), 0);
-    return () => {
-      window.clearTimeout(focusMenu);
-      mobileMenuButtonRef.current?.focus();
-    };
+    if (open) {
+      document.body.style.overflow = "hidden";
+      const focusMenu = window.setTimeout(() => mobileMenuRef.current?.focus(), 0);
+      return () => {
+        window.clearTimeout(focusMenu);
+        document.body.style.overflow = "";
+      };
+    } else {
+      document.body.style.overflow = "";
+    }
   }, [open]);
 
   const handleMobileMenuKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {

@@ -41,7 +41,7 @@ export default function EnterpriseFlowsSlider() {
         {enterpriseFlows.map((flow) => (
           <div
             key={flow.id}
-            className="group shrink-0 snap-center w-[340px] sm:w-[420px] rounded-3xl border border-white/10 bg-slate-900/70 p-6 backdrop-blur-xl transition-all duration-500 hover:-translate-y-2 hover:border-white/20 shadow-2xl flex flex-col justify-between"
+            className="group shrink-0 snap-center w-[290px] sm:w-[420px] rounded-3xl border border-white/10 bg-slate-900/70 p-5 sm:p-6 backdrop-blur-xl transition-all duration-500 hover:-translate-y-2 hover:border-white/20 shadow-2xl flex flex-col justify-between"
             style={{
               boxShadow: `0 20px 50px rgba(0,0,0,0.5)`,
               background: `linear-gradient(145deg, rgba(15, 23, 42, 0.8) 0%, ${flow.color} 100%)`,

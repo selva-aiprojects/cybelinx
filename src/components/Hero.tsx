@@ -337,7 +337,7 @@ export default function Hero() {
 
         {/* ── RIGHT: Core Pillars Adaptive Theme Card ── */}
         <div
-          className="hidden md:flex lg:col-span-6 xl:col-span-5 flex-col justify-center"
+          className="flex lg:col-span-6 xl:col-span-5 flex-col justify-center"
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
           onFocusCapture={() => setIsPaused(true)}
@@ -346,7 +346,7 @@ export default function Hero() {
           }}
         >
           <div
-            className="glass-premium shiny-card relative overflow-hidden rounded-3xl p-6 sm:p-7 shadow-2xl transition-all duration-500 border border-white/30 dark:border-cyan-400/20"
+            className="glass-premium shiny-card relative overflow-hidden rounded-3xl p-4 sm:p-7 shadow-2xl transition-all duration-500 border border-white/30 dark:border-cyan-400/20"
             style={{
               boxShadow: `0 24px 64px ${primaryColor}30, inset 0 1px 0 rgba(255,255,255,0.4)`,
             }}
@@ -395,7 +395,7 @@ export default function Hero() {
             </div>
 
             {/* Tabs List */}
-            <div className="relative flex flex-col gap-3">
+            <div className="relative flex flex-col gap-2.5">
               {slides.map((s, index) => {
                 const isActive = index === activeSlide;
                 const tabColor = (themeColors[s.id] || themeColors.saas)[0];
@@ -406,7 +406,7 @@ export default function Hero() {
                     key={s.id}
                     onClick={() => setActiveSlide(index)}
                     aria-pressed={isActive}
-                    className={`group relative flex w-full h-[68px] items-center justify-between rounded-2xl px-3.5 py-2.5 transition-all duration-300 ease-out text-left border ${
+                    className={`group relative flex w-full min-h-[62px] sm:min-h-[68px] items-center justify-between rounded-2xl px-3 sm:px-3.5 py-2 sm:py-2.5 transition-all duration-300 ease-out text-left border ${
                       isActive
                         ? "bg-white dark:bg-white/10 border-blue-400 dark:border-white/30 shadow-md shadow-blue-500/10 dark:shadow-none"
                         : "bg-white/70 hover:bg-white border-slate-200/80 dark:bg-white/[0.03] dark:hover:bg-white/[0.07] dark:border-white/[0.06]"
@@ -492,35 +492,40 @@ export default function Hero() {
         </div>
 
         {/* ── Mobile dots ──────────────────────────── */}
-        <div className="flex items-center justify-center gap-3 lg:hidden col-span-12 pt-2">
+        <div className="flex items-center justify-center gap-3 lg:hidden col-span-12 pt-3 pb-1">
           <button
             type="button"
             onClick={() => setIsPaused((paused) => !paused)}
-            className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-full border border-border bg-background/90 text-surface shadow-sm transition-colors hover:border-primary hover:text-primary disabled:cursor-not-allowed disabled:opacity-50"
+            className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-slate-200 dark:border-white/20 bg-white/80 dark:bg-slate-900/80 text-slate-700 dark:text-slate-200 shadow-sm transition-colors hover:border-primary hover:text-primary disabled:cursor-not-allowed disabled:opacity-50 shrink-0"
             aria-label={isPaused || prefersReducedMotion ? "Play hero slides" : "Pause hero slides"}
             aria-pressed={isPaused || prefersReducedMotion}
             disabled={prefersReducedMotion}
           >
-            {isPaused || prefersReducedMotion ? <Play className="h-4 w-4" /> : <Pause className="h-4 w-4" />}
+            {isPaused || prefersReducedMotion ? <Play className="h-3.5 w-3.5" /> : <Pause className="h-3.5 w-3.5" />}
           </button>
-          <div className="flex gap-2" aria-label="Choose a hero slide">
-          {slides.map((s, index) => {
-            const isActive = index === activeSlide;
-            const tabColor = (themeColors[s.id] || themeColors.saas)[0];
-            return (
-              <button
-                key={s.id}
-                onClick={() => setActiveSlide(index)}
-                className="h-11 min-w-11 rounded-full transition-all duration-300"
-                style={{
-                  background: isActive ? tabColor : "rgba(148,163,184,0.25)",
-                  boxShadow: isActive ? `0 0 6px ${tabColor}` : "none",
-                }}
-                aria-label={`Show slide ${index + 1}: ${s.tabLabel}`}
-                aria-current={isActive ? "true" : undefined}
-              />
-            );
-          })}
+          <div className="flex items-center gap-1.5" aria-label="Choose a hero slide">
+            {slides.map((s, index) => {
+              const isActive = index === activeSlide;
+              const tabColor = (themeColors[s.id] || themeColors.saas)[0];
+              return (
+                <button
+                  key={s.id}
+                  onClick={() => setActiveSlide(index)}
+                  className="h-2 py-3.5 flex items-center justify-center cursor-pointer group"
+                  aria-label={`Show slide ${index + 1}: ${s.tabLabel}`}
+                  aria-current={isActive ? "true" : undefined}
+                >
+                  <span
+                    className="h-2 rounded-full transition-all duration-300 block"
+                    style={{
+                      backgroundColor: isActive ? tabColor : "rgba(148,163,184,0.3)",
+                      width: isActive ? "1.75rem" : "0.5rem",
+                      boxShadow: isActive ? `0 0 8px ${tabColor}` : "none",
+                    }}
+                  />
+                </button>
+              );
+            })}
           </div>
         </div>
       </div>
