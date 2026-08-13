@@ -343,8 +343,9 @@ export default function Navbar() {
   };
 
   return (
-    <header
-      className={`sticky top-0 z-50 transition-all duration-300 ${
+    <>
+      <header
+        className={`sticky top-0 z-50 transition-all duration-300 ${
         scrolled
           ? "bg-white/80 dark:bg-[#000b21]/80 backdrop-blur-2xl border-b border-white/20 dark:border-cyan-500/20 shadow-xl shadow-primary/5"
           : "bg-white/60 dark:bg-[#000b21]/60 backdrop-blur-xl border-b border-white/10 dark:border-cyan-500/10 shadow-sm"
@@ -353,23 +354,23 @@ export default function Navbar() {
       {/* Specular top highlight line */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/50 dark:via-cyan-400/40 to-transparent pointer-events-none" />
 
-      <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-6 py-3.5 lg:gap-8">
-        <Link href="/" className="mr-2 flex items-center shrink-0 group lg:mr-6">
+      <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-3.5 sm:gap-4 sm:px-6 xl:gap-6">
+        <Link href="/" className="mr-1.5 flex items-center shrink-0 group sm:mr-6">
           <span className="hidden sm:block">
             <LogoLockup height={64} />
           </span>
           <span className="block sm:hidden">
-            <LogoLockup height={52} />
+            <LogoLockup height={40} />
           </span>
         </Link>
 
-        <nav className="hidden items-center gap-5 lg:flex lg:gap-6 xl:gap-8 shrink-0">
+        <nav className="hidden items-center gap-5 xl:flex xl:gap-6 shrink-0">
           {mainNav.map((group) => (
             <NavDropdown key={group.label} group={group} />
           ))}
         </nav>
 
-        <div className="hidden items-center gap-3 lg:flex shrink-0">
+        <div className="hidden items-center gap-3 xl:flex shrink-0">
           <button
             type="button"
             onClick={toggleTheme}
@@ -380,25 +381,25 @@ export default function Navbar() {
             {theme === "light" && (
               <>
                 <Moon className="h-3.5 w-3.5 text-primary" />
-                <span className="text-primary font-bold">Light</span>
+                <span className="hidden 2xl:inline text-primary font-bold">Light</span>
               </>
             )}
             {theme === "dark" && (
               <>
                 <Sun className="h-3.5 w-3.5 text-amber-400" />
-                <span className="text-amber-300 font-bold">Dark</span>
+                <span className="hidden 2xl:inline text-amber-300 font-bold">Dark</span>
               </>
             )}
             {theme === "sales" && (
               <>
                 <Zap className="h-3.5 w-3.5 text-amber-500 animate-pulse" />
-                <span className="text-amber-600 dark:text-amber-400 font-extrabold">⚡ Palm</span>
+                <span className="hidden 2xl:inline text-amber-600 dark:text-amber-400 font-extrabold">⚡ Palm</span>
               </>
             )}
             {theme === "colorful" && (
               <>
                 <Sparkles className="h-3.5 w-3.5 text-pink-500" />
-                <span className="shiny-text font-extrabold">Colorful</span>
+                <span className="hidden 2xl:inline shiny-text font-extrabold">Colorful</span>
               </>
             )}
           </button>
@@ -410,7 +411,7 @@ export default function Navbar() {
           </Button>
         </div>
 
-        <div className="flex items-center gap-2 lg:hidden shrink-0">
+        <div className="flex items-center gap-2 xl:hidden shrink-0">
           <button
             type="button"
             onClick={toggleTheme}
@@ -434,17 +435,21 @@ export default function Navbar() {
           </button>
         </div>
       </div>
+    </header>
 
       {open && (
         <div 
           id="mobile-navigation"
           ref={mobileMenuRef}
-          className="fixed inset-0 z-[9999] bg-brand-navy-900/60 backdrop-blur-2xl lg:hidden overflow-y-auto"
+          className="fixed inset-0 z-[9999] bg-background/95 backdrop-blur-2xl dark:bg-brand-navy-900/95 xl:hidden overflow-y-auto"
           role="dialog"
           aria-modal="true"
           aria-label="Main navigation"
           tabIndex={-1}
           onKeyDown={handleMobileMenuKeyDown}
+          onClick={(event) => {
+            if (event.target === event.currentTarget) setOpen(false);
+          }}
         >
           <div className="flex items-center justify-between px-6 py-4 border-b border-brand-navy-100 dark:border-brand-navy-800">
             <Link href="/" onClick={() => setOpen(false)}>
@@ -548,6 +553,6 @@ export default function Navbar() {
           </div>
         </div>
       )}
-    </header>
+    </>
   );
 }

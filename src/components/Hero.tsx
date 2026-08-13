@@ -384,7 +384,7 @@ export default function Hero() {
                 <button
                   type="button"
                   onClick={() => setIsPaused((paused) => !paused)}
-                  className="inline-flex min-h-9 min-w-9 items-center justify-center rounded-full border border-border bg-background/90 text-surface transition-colors hover:border-primary hover:text-primary disabled:cursor-not-allowed disabled:opacity-50"
+                  className="hidden lg:inline-flex min-h-9 min-w-9 items-center justify-center rounded-full border border-border bg-background/90 text-surface transition-colors hover:border-primary hover:text-primary disabled:cursor-not-allowed disabled:opacity-50"
                   aria-label={isPaused || prefersReducedMotion ? "Play hero slides" : "Pause hero slides"}
                   aria-pressed={isPaused || prefersReducedMotion}
                   disabled={prefersReducedMotion}
@@ -492,7 +492,7 @@ export default function Hero() {
         </div>
 
         {/* ── Mobile dots ──────────────────────────── */}
-        <div className="flex items-center justify-center gap-3 lg:hidden col-span-12 pt-3 pb-1">
+        <div className="flex items-center justify-center gap-3 lg:hidden pt-3 pb-1">
           <button
             type="button"
             onClick={() => setIsPaused((paused) => !paused)}
