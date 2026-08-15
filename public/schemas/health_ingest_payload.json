@@ -6,9 +6,9 @@
   "properties": {
     "metadata": {
       "type": "object",
-      "required": ["tenant_id", "ingest_timestamp", "compliance_jurisdiction"],
+      "required": ["org_id", "ingest_timestamp", "compliance_jurisdiction"],
       "properties": {
-        "tenant_id": { "type": "string", "pattern": "^ctx_[a-f0-9]{12}$" },
+        "org_id": { "type": "string", "pattern": "^org_[a-f0-9]{12}$" },
         "ingest_timestamp": { "type": "string", "format": "date-time" },
         "compliance_jurisdiction": { "type": "string", "enum": ["ABDM_IN", "HIPAA_US", "GDPR_EU"] }
       }

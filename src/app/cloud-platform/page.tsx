@@ -32,7 +32,7 @@ const offerings = [
     icon: GitBranch,
     title: "Golden-Path Templates",
     description:
-      "Opinionated scaffolds for new microservices, tenants, and product modules — enforcing standards while eliminating boilerplate.",
+      "Opinionated scaffolds for new microservices, enterprise organizations, and product modules — enforcing standards while eliminating boilerplate.",
   },
   {
     icon: Cloud,
@@ -44,7 +44,7 @@ const offerings = [
     icon: Layers,
     title: "Core",
     description:
-      "Schema-isolated tenant data with per-tenant configuration, feature flags, and subscription management — new tenants are configuration, not forks.",
+      "Schema-isolated enterprise data with per-organization configuration, feature flags, and subscription management — new accounts are configuration, not forks.",
   },
   {
     icon: GitBranch,
@@ -167,7 +167,7 @@ export default function CloudPlatformPage() {
               {
                 label: "Template Scaffolding",
                 description:
-                  "Golden-path templates generate production-ready service skeletons with built-in observability, security policies, and tenant isolation.",
+                  "Golden-path templates generate production-ready service skeletons with built-in observability, security policies, and enterprise data isolation.",
               },
               {
                 label: "Automated Build & Scan",
@@ -180,7 +180,7 @@ export default function CloudPlatformPage() {
                   "Canary deployments with real-time telemetry. AI-driven anomaly detection triggers automatic rollback if thresholds breach.",
               },
             ]}
-            outcome="Product teams ship features weekly with zero-downtime deployments, automated compliance, and self-healing infrastructure across all tenant environments."
+            outcome="Product teams ship features weekly with zero-downtime deployments, automated compliance, and self-healing infrastructure across all organization environments."
           />
         </AnimatedSection>
       </Section>

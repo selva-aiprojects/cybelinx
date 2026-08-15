@@ -70,7 +70,7 @@ export default function TechnologiesPage() {
             steps={[
               { label: "Template & Security Audit", description: "Golden-path scaffolding with automated SAST/DAST scanning, dependency audits, and compliance gates enforced before merge." },
               { label: "Immutable Build & Deploy", description: "Containerized artifacts built once, deployed across multi-region Kubernetes clusters with canary release strategies." },
-              { label: "Live Telemetry & Self-Healing", description: "Continuous observability with AI-driven anomaly detection, automatic failover, and incident response across all tenants." },
+              { label: "Live Telemetry & Self-Healing", description: "Continuous observability with AI-driven anomaly detection, automatic failover, and incident response across all enterprise environments." },
             ]}
             outcome="Product teams ship weekly with zero-downtime deployments, automated compliance, and self-healing infrastructure. 99.9% Uptime SLA, with 99.99% observed across client environments."
           />

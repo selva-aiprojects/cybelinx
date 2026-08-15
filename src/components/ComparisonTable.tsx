@@ -12,7 +12,7 @@ const features = [
     pointSaaS: "check",
   },
   {
-    name: "Multi-tenant data isolation & routing",
+    name: "Enterprise data isolation & routing",
     cybelinx: "check",
     cloudAi: "cross",
     devSecOps: "cross",
@@ -26,7 +26,7 @@ const features = [
     pointSaaS: "cross",
   },
   {
-    name: "Built-in tenant-aware LLM routing",
+    name: "Built-in organization-isolated LLM routing",
     cybelinx: "check",
     cloudAi: "partial",
     devSecOps: "cross",

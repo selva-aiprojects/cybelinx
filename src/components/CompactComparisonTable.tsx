@@ -7,13 +7,13 @@ const rows = [
   {
     category: "Platform vs Single Product",
     vendor: "Single-vertical point SaaS or generic cloud infra",
-    cybelinx: "Unified multi-tenant PaaS core + vertical SaaS suite",
+    cybelinx: "Unified Enterprise PaaS core + vertical SaaS suite",
     highlight: true,
   },
   {
     category: "AI & GenAI Integration",
     vendor: "Third-party add-on or un-isolated prompt wrapper",
-    cybelinx: "Tenant-isolated AI scribes, LLMOps & real-time RAG",
+    cybelinx: "Enterprise-isolated AI scribes, LLMOps & real-time RAG",
     highlight: true,
   },
   {

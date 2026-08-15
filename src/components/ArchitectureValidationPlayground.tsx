@@ -24,7 +24,7 @@ const schemas = [
     schemaFile: "/schemas/health_ingest_payload.json",
     sampleJson: `{
   "metadata": {
-    "tenant_id": "ctx_8f9a2b4c1e0d",
+    "org_id": "org_8f9a2b4c1e0d",
     "ingest_timestamp": "2026-08-11T14:30:00Z",
     "compliance_jurisdiction": "ABDM_IN"
   },

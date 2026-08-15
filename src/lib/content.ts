@@ -56,10 +56,10 @@ export const platformPillars: PlatformPillar[] = [
   {
     icon: Globe2,
     title: "SaaS & PaaS",
-    subtitle: "Cloud-native product engineering & multi-tenant application runtime",
+    subtitle: "Cloud-native product engineering & multi-entity enterprise application runtime",
     slug: "saas-paas",
     description:
-      "Cloud-native enterprise platform built on Kubernetes microservices, multi-tenant isolation, and shared core modules for regulated industries. Product and platform teams reuse modular services, developer portals, and zero-downtime CI/CD pipelines to deploy vertical SaaS & PaaS solutions rapidly — without duplicating compliance work or codebases.",
+      "Cloud-native enterprise platform built on Kubernetes microservices, dedicated enterprise data isolation, and shared core modules for regulated industries. Product and platform teams reuse modular services, developer portals, and zero-downtime CI/CD pipelines to deploy vertical SaaS & PaaS solutions rapidly — without duplicating compliance work or codebases.",
     outcome:
       "Deploy high-performance, compliant enterprise SaaS and PaaS solutions from a shared cloud-native foundation.",
   },
@@ -69,7 +69,7 @@ export const platformPillars: PlatformPillar[] = [
     subtitle: "Enterprise GenAI, LLMOps & autonomous MLOps pipelines",
     slug: "ai-genai-ml",
     description:
-      "Production-grade Generative AI, LLMOps, and Machine Learning infrastructure integrated directly into enterprise workflows. Enables fine-tuned LLMs, agentic RAG search, real-time inference, and vector embedding data pipelines backed by strict tenant-aware isolation, guardrails, and audit logging.",
+      "Production-grade Generative AI, LLMOps, and Machine Learning infrastructure integrated directly into enterprise workflows. Enables fine-tuned LLMs, agentic RAG search, real-time inference, and vector embedding data pipelines backed by strict organization-isolated enclaves, guardrails, and audit logging.",
     outcome:
       "Operationalize enterprise GenAI and ML production pipelines with guaranteed safety, performance, and governance.",
   },
@@ -115,7 +115,7 @@ export const capabilities: Capability[] = [
   {
     icon: Package,
     title: "Architecture",
-    description: "Schema-isolated tenant data with per-tenant configuration, feature flags, and subscription management — new customers are configuration, not a codebase fork.",
+    description: "Schema-isolated multi-org data with per-client configuration, feature flags, and subscription management — new enterprise accounts are configuration, not a codebase fork.",
   },
   {
     icon: Cloud,
@@ -140,7 +140,7 @@ export const capabilities: Capability[] = [
   {
     icon: RefreshCw,
     title: "Continuous Delivery",
-    description: "Bi-weekly releases, zero-downtime canary deployments, and progressive feature flags for safe rollouts across every tenant.",
+    description: "Bi-weekly releases, zero-downtime canary deployments, and progressive feature flags for safe rollouts across every organization environment.",
   },
 ];
 
@@ -238,7 +238,7 @@ export const differentiators: Differentiator[] = [
       "AI, analytics, and automated decision engines are core platform capabilities, not bolted-on features.",
     details: [
       "Unified data and inference layer: data ingestion, enrichment, and LLM orchestration are built into the platform core.",
-      "Tenant-aware intelligence: enterprises deploy secure, compliant AI workflows with per-tenant isolation, governance, and audit trails.",
+      "Organization-aware intelligence: enterprises deploy secure, compliant AI workflows with strict client data isolation, governance, and audit trails.",
     ],
     quote: "Cybelinx treats AI, analytics, and automation as fundamental building blocks of modern enterprise platforms.",
   },
@@ -294,7 +294,7 @@ export const whyCybelinx = [
   {
     icon: Globe2,
     title: "Enterprise Grade",
-    description: "Multi-tenant, multi-cloud, and compliance-ready. SOC 2 Type II controls, zero-trust security, and 99.9% uptime SLA.",
+    description: "Multi-entity, multi-cloud, and compliance-ready. SOC 2 Type II controls, zero-trust security, and 99.9% uptime SLA.",
   },
   {
     icon: Sparkles,
@@ -350,7 +350,7 @@ export const insights = [
       { type: "p", text: "The era of the 'thin wrapper' is over. Enterprises are no longer impressed by SaaS products that merely pass a prompt to a public LLM API and return the response. To build truly intelligent products, engineering teams must deeply integrate AI into the core workflows of the application." },
       { type: "h3", text: "Moving Beyond Wrappers" },
       { type: "p", text: "Intelligent products require context. This means building robust data pipelines that continuously feed enterprise data into vector databases for RAG (Retrieval-Augmented Generation). It requires fine-tuning models on domain-specific vocabulary and workflows." },
-      { type: "p", text: "At Cybelinx, we've architected our platform to treat AI as a core primitive. Every product built on Cybelinx has native access to tenant-isolated vector embeddings and orchestrated LLM routing, allowing product teams to focus on the user experience rather than AI infrastructure." }
+      { type: "p", text: "At Cybelinx, we've architected our platform to treat AI as a core primitive. Every product built on Cybelinx has native access to organization-isolated vector embeddings and orchestrated LLM routing, allowing product teams to focus on the user experience rather than AI infrastructure." }
     ]
   },
   {
@@ -361,7 +361,7 @@ export const insights = [
     content: [
       { type: "p", text: "Scaling a cloud platform isn't just about adding more compute; it's about maturing your operational model. How do you know when your internal platform is ready to support dozens of product teams and hundreds of enterprise clients?" },
       { type: "h3", text: "The Five Signals" },
-      { type: "p", text: "1. Self-Service Provisioning: Product teams can spin up a new, compliant environment without opening a Jira ticket. 2. Immutable Infrastructure: Changes are made via code, not SSH. 3. Zero-Trust Architecture: Network boundaries are strictly enforced between microservices and tenants. 4. Standardized Observability: Telemetry is built into the golden-path templates. 5. Automated Compliance: Security scans and audit logs are generated automatically." },
+      { type: "p", text: "1. Self-Service Provisioning: Product teams can spin up a new, compliant environment without opening a Jira ticket. 2. Immutable Infrastructure: Changes are made via code, not SSH. 3. Zero-Trust Architecture: Network boundaries are strictly enforced between microservices and client environments. 4. Standardized Observability: Telemetry is built into the golden-path templates. 5. Automated Compliance: Security scans and audit logs are generated automatically." },
       { type: "p", text: "Cybelinx provides these five capabilities out-of-the-box, giving your platform engineering team a massive head start." }
     ]
   },

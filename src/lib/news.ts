@@ -87,9 +87,9 @@ export const productNews: ProductNewsItem[] = [
       { label: "Compliance Automation", value: "Continuous ISO 27001" },
     ],
     highlights: [
-      "NIST-approved post-quantum cryptographic primitives protecting tenant data at rest and in transit",
+      "NIST-approved post-quantum cryptographic primitives protecting enterprise customer data at rest and in transit",
       "Continuous DevSecOps golden paths for automated SAST/DAST scanning and secret zeroing",
-      "Schema-isolated multi-tenant data architecture supporting private cloud and hybrid deployments",
+      "Schema-isolated multi-organization data architecture supporting private cloud and hybrid deployments",
     ],
     fullStory: [
       "In response to emerging quantum computing security challenges, Cybelinx has integrated Post-Quantum Cryptography (PQC) primitives into the core CybePlatforms runtime. All platform-level data encryption now incorporates NIST-recommended quantum-safe algorithms alongside traditional RSA/AES standards.",
@@ -127,7 +127,7 @@ export const productNews: ProductNewsItem[] = [
   {
     id: "news-cybepharma-lakehouse",
     slug: "cybepharma-clinical-data-lakehouse-launch",
-    title: "CybePharma R&D Suite Introduces Multi-Tenant Lakehouse & Real-Time Analytics",
+    title: "CybePharma R&D Suite Introduces Enterprise Clinical Lakehouse & Real-Time Analytics",
     subtitle: "Unified clinical trial data hub connects research labs, regulatory filings, and supply chain tracking.",
     date: "2026-04-05",
     category: "R&D Innovation",
@@ -146,7 +146,7 @@ export const productNews: ProductNewsItem[] = [
       "AI predictive analytics forecasting trial milestone risks and supply chain bottlenecks",
     ],
     fullStory: [
-      "CybePharma Suite has expanded its product offerings with a high-throughput, multi-tenant clinical data lakehouse engineered specifically for pharmaceutical R&D organizations.",
+      "CybePharma Suite has expanded its product offerings with a high-throughput, enterprise-isolated clinical data lakehouse engineered specifically for pharmaceutical R&D organizations.",
       "By unifying disparate lab notebooks, patient trial telemetries, and regulatory submission drafts into a governed open lakehouse, pharmaceutical teams accelerate trial evaluation cycles by up to 10x.",
       "The system features built-in 21 CFR Part 11 audit logging, automated data masking, and AI-driven anomaly detection to streamline FDA and EMA compliance filings."
     ],

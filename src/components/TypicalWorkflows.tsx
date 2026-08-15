@@ -5,7 +5,7 @@ import { Copy, Workflow, Brain, Settings2, Activity } from "lucide-react";
 
 const workflows = [
   {
-    title: "Onboard new tenants and environments",
+    title: "Onboard new organizations and environments",
     description: "Use golden-path templates and the developer portal, with tagging, access control, and compliance baselines applied from day one.",
     icon: Copy,
   },
@@ -16,12 +16,12 @@ const workflows = [
   },
   {
     title: "Add AI and LLM features",
-    description: "Plug products into the shared data and model orchestration layer, exposing tenant-aware LLM APIs with centralized governance and observability.",
+    description: "Plug products into the shared data and model orchestration layer, exposing enterprise-isolated LLM APIs with centralized governance and observability.",
     icon: Brain,
   },
   {
     title: "Roll out policies and changes",
-    description: "Use guardrails as code and feature flags, testing safely in subsets of tenants instead of big-bang releases.",
+    description: "Use guardrails as code and feature flags, testing safely in subsets of environments instead of big-bang releases.",
     icon: Settings2,
   },
   {

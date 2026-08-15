@@ -29,7 +29,7 @@ const slides = [
     tag: "Enterprise SaaS & PaaS Runtime",
     cssVar: "var(--hero-bg-saas)",
     tabLabel: "Enterprise SaaS & PaaS",
-    tabDesc: "Regulated multi-tenant runtime core",
+    tabDesc: "Regulated enterprise SaaS runtime core",
     color: "#0D47FF",
     icon: Globe2,
   },

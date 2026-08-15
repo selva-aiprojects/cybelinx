@@ -44,7 +44,7 @@ export default function ProductsPage() {
                 Cybelinx 2026 Core Release
               </span>
               <h3 className="mt-2 text-xl sm:text-2xl font-bold font-display text-white">
-                Multi-Tenant Architecture & Enterprise GenAI Runtime
+                Dedicated Enterprise Architecture & Enterprise GenAI Runtime
               </h3>
             </div>
             <a
@@ -74,7 +74,7 @@ export default function ProductsPage() {
             Enterprise Solutions Ready for Live Deployment
           </h2>
           <p className="mt-3 text-base text-slate">
-            Proven multi-tenant architectures engineered for retail, healthcare, fintech, workforce, and higher education.
+            Proven enterprise architectures engineered for retail, healthcare, fintech, workforce, and higher education.
           </p>
         </div>
 

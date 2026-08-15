@@ -15,11 +15,11 @@ export default function ArchitectureEcosystem() {
     },
     {
       id: "data",
-      name: "Data & Multi-Tenancy",
+      name: "Data & Enterprise Isolation",
       icon: Database,
       color: "bg-violet/10 border-violet/20 text-violet",
       textColor: "text-violet",
-      items: ["Isolated Tenant Schemas", "Vector Embeddings DB", "Distributed Caching", "Automated Backup"],
+      items: ["Isolated Enterprise Schemas", "Vector Embeddings DB", "Distributed Caching", "Automated Backup"],
     },
     {
       id: "infra",
@@ -38,7 +38,7 @@ export default function ArchitectureEcosystem() {
           <span className="slugline">Platform Architecture</span>
           <h3 className="mt-4 font-display text-3xl font-bold text-surface md:text-4xl">The Cybelinx Stack</h3>
           <p className="mt-4 mx-auto max-w-2xl text-base leading-relaxed text-slate">
-            Engineered for strict tenant isolation, high-throughput AI inference, and enterprise-grade reliability across every product.
+            Engineered for strict enterprise data isolation, high-throughput AI inference, and enterprise-grade reliability across every product.
           </p>
         </div>
       </motion.div>

@@ -183,7 +183,7 @@ export const cognivectraPlatforms = [
   {
     name: "StoreAI",
     tagline: "Enterprise GenAI Platform for Retail",
-    desc: "Predictive inventory analytics, customer behavior forecasting, and multi-tenant GenAI runtime.",
+    desc: "Predictive inventory analytics, customer behavior forecasting, and enterprise GenAI runtime.",
     badge: "Production Ready",
     href: "/products/cybecommerce",
     accent: "#ec4899",
@@ -198,7 +198,7 @@ export const cognivectraPlatforms = [
   },
   {
     name: "StewardPlatform",
-    tagline: "Multi-Tenant SaaS Foundation for FinTech",
+    tagline: "Enterprise SaaS Foundation for FinTech",
     desc: "Powering StockSteward algorithmic trading, portfolio risk intelligence, and statutory compliance.",
     badge: "Enterprise Core",
     href: "/products/cybefintech",
@@ -214,7 +214,7 @@ export const cognivectraPlatforms = [
   },
   {
     name: "EduPortal AI",
-    tagline: "Enterprise Multi-Tenant Learning Platform",
+    tagline: "Enterprise Multi-Org Learning Platform",
     desc: "AI personalized learning pathways, automated assessment grading, and institutional analytics.",
     badge: "Production Ready",
     href: "/products",

@@ -42,7 +42,7 @@ export const products: Product[] = [
       compliance: "Localized Statutory Rules (PF, PT, TDS, ESI, Gratuity)",
     },
     engineeringHighlight: {
-      architecture: "Schema-Isolated Multi-Tenant PostgreSQL + Redis Event Bus",
+      architecture: "Dedicated Schema-Isolated Enterprise PostgreSQL + Redis Event Bus",
       apiEndpoints: "RESTful & GraphQL Webhooks with SAML 2.0 / OIDC SSO",
       latency: "< 42ms P99 API Response",
     },
@@ -159,12 +159,12 @@ export const products: Product[] = [
     tagline: "Enterprise GenAI & LLMOps Platform Engine",
     category: "AI Platform",
     summary:
-      "Production-ready enterprise AI infrastructure—tenant-isolated LLM orchestration, agentic RAG search, document intelligence, and real-time vector inference.",
+      "Production-ready enterprise AI infrastructure—privately isolated LLM orchestration, agentic RAG search, document intelligence, and real-time vector inference.",
     status: "live",
     executiveHighlight: {
       roi: "65% Overhead Cut",
       metricLabel: "Enterprise Document & Workflow Processing",
-      compliance: "Tenant-Isolated LLM Guardrails & Audit Logging",
+      compliance: "Privately Isolated LLM Guardrails & Audit Logging",
     },
     engineeringHighlight: {
       architecture: "vLLM / Triton Inference Server + VectorDB Pipeline",
@@ -182,7 +182,7 @@ export const products: Product[] = [
       { title: "Production LLMOps & Guardrails", description: "Model governance, dynamic prompt isolation, PII masking, and audit logging." },
     ],
     differentiators: [
-      "Strict tenant-isolated vector indexing ensuring enterprise IP remains 100% private",
+      "Strictly isolated vector indexing ensuring enterprise IP remains 100% private",
       "Composable architecture that plugs seamlessly into existing cloud microservices",
       "Engineered for high-throughput, low-latency production execution without external API dependencies",
     ],
@@ -220,7 +220,7 @@ export const products: Product[] = [
       "Unified solution spanning boutique hotels, serviced apartments, large resorts, and co-living spaces",
     ],
     stats: [
-      { label: "Tables per tenant", value: "136+" },
+      { label: "Tables per organization", value: "136+" },
       { label: "API endpoints", value: "100+" },
       { label: "Uptime target", value: "99.99%" },
     ],

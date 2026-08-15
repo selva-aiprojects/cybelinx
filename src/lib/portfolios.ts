@@ -39,7 +39,7 @@ export const portfolios: PortfolioContent[] = [
       description: "A unified infrastructure providing secure isolation, DevSecOps pipelines, and AI orchestration for data-intensive verticals.",
       capabilities: [
         "Shared identity, continuous audit trails, and global logging.",
-        "Tenant-aware LLM routing and vector storage for safe AI.",
+        "Organization-isolated LLM routing and vector storage for safe AI.",
         "Configurable compliance profiles per industry (residency, encryption).",
       ],
     },
@@ -51,7 +51,7 @@ export const portfolios: PortfolioContent[] = [
     ],
     outcomes: [
       "Accelerated time-to-market for regulated enterprise apps.",
-      "Zero-downtime deployments across all tenants.",
+      "Zero-downtime deployments across all enterprise clients.",
       "Future-proof architecture supporting complex AI workflows.",
     ],
     theme: "indigo",
@@ -263,7 +263,7 @@ export const portfolios: PortfolioContent[] = [
       ],
     },
     tech: [
-      "Strict pool/silo isolation models for financial tenants.",
+      "Strict pool/silo isolation models for financial enterprises.",
       "Agentic AI for continuous compliance monitoring.",
       "Real-time data streaming architectures.",
     ],

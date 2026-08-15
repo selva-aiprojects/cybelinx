@@ -18,7 +18,7 @@ const securityItems = [
   {
     icon: Lock,
     title: "Encryption",
-    description: "Data is encrypted in transit (TLS 1.3) and at rest (AES-256). Customer data is isolated per tenant with schema-level separation.",
+    description: "Data is encrypted in transit (TLS 1.3) and at rest (AES-256). Customer data is strictly isolated per organization with schema-level separation.",
   },
   {
     icon: Server,
