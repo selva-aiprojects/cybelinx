@@ -194,6 +194,37 @@ export const products: Product[] = [
     isPlaceholderContent: false,
   },
   {
+    slug: "cybeerp",
+    name: "CybeERP",
+    tagline: "Unified enterprise ERP for operations, finance, and business process automation",
+    category: "ERP",
+    summary:
+      "A cloud-native ERP platform designed for enterprises that need a single operating system for finance, procurement, inventory, project execution, and business workflows.",
+    status: "live",
+    image: "/assets/products/cybebank.png",
+    colorAccent: "#22C55E",
+    appUrl: "https://nexora.cybelinx.com/",
+    demoUrl: "https://nexora.cybelinx.com/",
+    portfolioProducts: [
+      { name: "Nexora", url: "https://nexora.cybelinx.com/", description: "Business ERP System" },
+      { name: "Smartbooks", url: "https://smartbooks.cybelinx.com/", description: "Finance & accounting layer" },
+    ],
+    problem:
+      "Modern enterprises still run on siloed ERP modules, leading to slow approvals, inaccurate reporting, duplicate work, and delayed decisions across operational teams.",
+    modules: [
+      { title: "Finance & Accounting", description: "General ledger, receivables, payables, budgets, and real-time financial controls." },
+      { title: "Procurement & Inventory", description: "Vendor management, purchase workflows, stock movement, and asset lifecycle tracking." },
+      { title: "Projects & Operations", description: "Workstreams, cost tracking, project milestones, and cross-functional execution visibility." },
+      { title: "Workflow Automation", description: "Approval chains, audit trails, and AI-assisted process orchestration across departments." },
+    ],
+    differentiators: [
+      "Single operational view across finance, procurement, and execution teams",
+      "Automation of repetitive ERP workflows and approval cycles",
+      "Built for scaling multi-entity, multi-location enterprise operations",
+    ],
+    isPlaceholderContent: false,
+  },
+  {
     slug: "cyberealestate",
     name: "CybeRealEstate",
     tagline: "Property operations, leasing, and portfolio intelligence for modern real-estate businesses",

@@ -23,6 +23,7 @@ export const mainNav: NavGroup[] = [
       { href: "/products/cybehrms", label: "CybeHRMS", description: "AI HRMS & statutory payroll engine", category: "Enterprise Operations" },
       { href: "/products/cybehms", label: "CybeHospitality", description: "HostSphere property & hotel ops", category: "Enterprise Operations" },
       { href: "/products/cybecommerce", label: "CybeCommerce", description: "StoreAI composable retail commerce", category: "Enterprise Operations" },
+      { href: "/products/cybeerp", label: "CybeERP", description: "ERP for finance, ops & process automation", category: "Enterprise Operations" },
       { href: "/products/cyberealestate", label: "CybeRealEstate", description: "Property ops & portfolio intelligence", category: "Enterprise Operations" },
       
       { href: "/products/cybeai-suite", label: "CybeAI Suite", description: "Production GenAI & LLMOps engine", category: "Core PaaS & AI" },
