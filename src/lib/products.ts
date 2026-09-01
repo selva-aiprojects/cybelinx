@@ -20,7 +20,17 @@ export type Product = {
   appUrl?: string;
   demoUrl?: string;
   image?: string;
+  icon?: string;
   colorAccent?: string;
+  executiveHighlight?: {
+    roi: string;
+    metricLabel: string;
+    compliance: string;
+  };
+  engineeringHighlight?: {
+    latency: string;
+    architecture: string;
+  };
   portfolioProducts?: { name: string; url?: string; description?: string }[];
 };
 
