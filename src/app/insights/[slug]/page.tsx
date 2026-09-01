@@ -51,12 +51,24 @@ export default async function InsightArticlePage({ params }: Props) {
             <div className="flex flex-wrap items-center gap-3 text-xs uppercase tracking-wide text-slate mb-6">
               <span className="bg-primary/10 text-primary px-2.5 py-1 rounded font-bold">{insight.category}</span>
               <span>&middot;</span>
+              <span>{insight.readingTime}</span>
+              <span>&middot;</span>
               <span>{insight.date}</span>
             </div>
             
             <h1 className="font-display text-4xl md:text-5xl font-bold text-surface leading-tight">
               {insight.title}
             </h1>
+
+            <div className="mt-6 flex items-center gap-3 border-t border-border/40 pt-6">
+              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-tr from-primary to-violet text-xs font-bold text-white shadow-sm">
+                {insight.author.split(" ").map(n => n[0]).join("")}
+              </div>
+              <div>
+                <div className="text-sm font-bold text-surface">{insight.author}</div>
+                <div className="text-xs text-slate/70">{insight.authorRole} &middot; Cybelinx Engineering</div>
+              </div>
+            </div>
           </div>
         </AnimatedSection>
       </Section>

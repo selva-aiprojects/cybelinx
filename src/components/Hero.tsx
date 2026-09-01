@@ -314,6 +314,10 @@ export default function Hero() {
                 </svg>
                 HIPAA & GDPR Ready
               </div>
+              <div className="flex items-center gap-1.5 rounded-full bg-live/10 border border-live/30 px-3 py-1 text-xs font-bold text-live">
+                <span className="h-1.5 w-1.5 rounded-full bg-live animate-pulse" />
+                200+ Enterprise Deployments &middot; 12 Countries
+              </div>
             </div>
           </div>
 

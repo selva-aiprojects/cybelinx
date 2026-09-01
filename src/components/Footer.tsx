@@ -1,8 +1,11 @@
+"use client";
+
+import { useState } from "react";
 import Link from "next/link";
 import { LogoLockup } from "./Logo";
 import { brand } from "@/lib/content";
 import { footerNav } from "@/lib/navigation";
-import { Linkedin, Twitter, Github, Mail, ShieldCheck } from "lucide-react";
+import { Linkedin, Twitter, Github, Mail, ShieldCheck, Send, CheckCircle2, ArrowRight } from "lucide-react";
 
 const socialLinks = [
   { label: "LinkedIn", href: "https://linkedin.com/company/cybelinx", icon: Linkedin },
@@ -11,9 +14,19 @@ const socialLinks = [
   { label: "Email", href: `mailto:${brand.email}`, icon: Mail },
 ];
 
-const complianceBadges = ["SOC 2 Type II", "ISO 27001", "GDPR", "HIPAA Ready"];
+const complianceBadges = ["SOC 2 Type II", "ISO 27001", "GDPR", "HIPAA Ready", "NIST PQC Ready", "ABDM Compliant"];
 
 export default function Footer() {
+  const [email, setEmail] = useState("");
+  const [subscribed, setSubscribed] = useState(false);
+
+  const handleSubscribe = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (email) {
+      setSubscribed(true);
+    }
+  };
+
   return (
     <footer className="relative overflow-hidden border-t-0 section-alt">
       {/* Top gradient fade from background into footer */}
@@ -42,6 +55,47 @@ export default function Footer() {
       />
 
       <div className="relative mx-auto max-w-7xl px-6 pt-16 pb-10">
+        {/* ── Newsletter Strip ────────────────────────────────────── */}
+        <div className="mb-14 rounded-3xl border border-border/80 bg-background/60 p-6 md:p-8 backdrop-blur-md shadow-sm">
+          <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+            <div>
+              <div className="text-xs font-bold uppercase tracking-widest text-primary">Enterprise Dispatch</div>
+              <h3 className="font-display text-xl md:text-2xl font-bold text-surface mt-1">
+                Stay updated with engineering releases & platform research.
+              </h3>
+              <p className="mt-1.5 text-xs text-slate/70 max-w-xl">
+                Get monthly deep dives on multi-cloud SRE, AI governance, and NIST post-quantum security direct to your inbox.
+              </p>
+            </div>
+
+            {subscribed ? (
+              <div className="inline-flex items-center gap-2 rounded-xl border border-live/30 bg-live/10 px-5 py-3 text-xs font-bold text-live">
+                <CheckCircle2 className="h-4 w-4" />
+                Subscribed to Cybelinx Dispatches!
+              </div>
+            ) : (
+              <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row gap-2.5 w-full lg:w-auto">
+                <input
+                  type="email"
+                  required
+                  placeholder="name@enterprise.com"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="rounded-xl border border-border bg-background px-4 py-2.5 text-xs text-surface placeholder:text-slate/40 focus:border-primary focus:outline-none min-w-[240px]"
+                />
+                <button
+                  type="submit"
+                  className="rounded-xl bg-primary px-5 py-2.5 text-xs font-bold text-white transition-transform hover:scale-105 active:scale-95 flex items-center justify-center gap-1.5 shrink-0"
+                >
+                  <Send className="h-3.5 w-3.5" />
+                  Subscribe
+                </button>
+              </form>
+            )}
+          </div>
+        </div>
+
+        {/* ── Main Nav Grid ────────────────────────────────────────── */}
         <div className="grid grid-cols-2 gap-10 md:grid-cols-4 lg:grid-cols-6">
           {/* Brand column */}
           <div className="col-span-2 lg:col-span-2">
@@ -136,15 +190,16 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Legal */}
+          {/* Legal & Governance */}
           <div>
-            <h4 className="text-xs font-bold uppercase tracking-widest text-surface mb-5">Legal</h4>
+            <h4 className="text-xs font-bold uppercase tracking-widest text-surface mb-5">Trust & Legal</h4>
             <ul className="space-y-3">
               {[
+                { href: "/security", label: "Security & Compliance" },
+                { href: "/ai-governance", label: "AI Ethics & Governance" },
                 { href: "/privacy", label: "Privacy Policy" },
                 { href: "/terms", label: "Terms of Service" },
-                { href: "/security", label: "Security" },
-                { href: "/pricing", label: "Pricing" },
+                { href: "/pricing", label: "Pricing & Plans" },
               ].map((item) => (
                 <li key={item.href}>
                   <Link href={item.href} className="text-sm text-slate/70 transition-colors hover:text-primary link-underline">

@@ -2,10 +2,10 @@
 
 import { trustMetrics } from "@/lib/content";
 import { motion } from "framer-motion";
-import { TrendingUp, Globe2, Server, ShieldCheck } from "lucide-react";
+import { TrendingUp, Globe2, Server, Brain, ShieldCheck } from "lucide-react";
 
-const statIcons = [TrendingUp, Globe2, Server, ShieldCheck];
-const statAccents = ["#0D47FF", "#7B61FF", "#00C2FF", "#10B981"];
+const statIcons = [TrendingUp, Globe2, Server, Brain, ShieldCheck];
+const statAccents = ["#0D47FF", "#7B61FF", "#00C2FF", "#EC4899", "#10B981"];
 
 function StatCard({
   value,
@@ -20,7 +20,7 @@ function StatCard({
 }) {
   const Icon = statIcons[index] || TrendingUp;
   const accent = statAccents[index] || "#0D47FF";
-  const isLive = index === 3;
+  const isLive = index === 4;
 
   return (
     <motion.div
@@ -38,7 +38,7 @@ function StatCard({
       />
 
       {/* Icon + Value side-by-side */}
-      <div className="flex items-center justify-center gap-4">
+      <div className="flex items-center justify-center gap-3">
         {/* Icon chip */}
         <div className="relative flex-shrink-0">
           {isLive && (
@@ -48,7 +48,7 @@ function StatCard({
             />
           )}
           <div
-            className="relative flex h-12 w-12 items-center justify-center rounded-2xl"
+            className="relative flex h-11 w-11 items-center justify-center rounded-2xl"
             style={{
               background: `${accent}18`,
               border: `1px solid ${accent}35`,
@@ -60,7 +60,7 @@ function StatCard({
 
         {/* Stat value */}
         <div
-          className="font-display text-4xl font-extrabold md:text-5xl stat-value bg-clip-text text-transparent leading-none"
+          className="font-display text-3xl font-extrabold md:text-4xl stat-value bg-clip-text text-transparent leading-none"
           style={{
             backgroundImage: `linear-gradient(135deg, var(--cb-surface) 0%, ${accent} 100%)`,
           }}
@@ -70,7 +70,7 @@ function StatCard({
       </div>
 
       {/* Label */}
-      <div className="mt-3 text-xs font-bold uppercase tracking-widest text-slate/60">
+      <div className="mt-3 text-[11px] font-bold uppercase tracking-wider text-slate/60 text-center">
         {label}
       </div>
 
@@ -87,13 +87,13 @@ export default function TrustBar() {
   return (
     <div className="space-y-10">
       {/* Stats grid */}
-      <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
+      <div className="grid grid-cols-2 gap-3.5 sm:grid-cols-3 lg:grid-cols-5">
         {trustMetrics.map((metric, i) => (
           <StatCard
             key={metric.label}
             value={metric.value}
             label={metric.label}
-            delay={i * 0.1}
+            delay={i * 0.08}
             index={i}
           />
         ))}

@@ -40,6 +40,7 @@ export const trustMetrics = [
   { value: "15+", label: "Years engineering platforms" },
   { value: "12", label: "Countries with live deployments" },
   { value: "200+", label: "Enterprise deployments" },
+  { value: "< 200ms", label: "P95 AI inference latency" },
   { value: "99.9%", label: "Platform uptime SLA" },
 ];
 
@@ -340,12 +341,28 @@ export const technologies = [
   "DevSecOps & SRE",
 ];
 
-export const insights = [
+export type InsightArticle = {
+  slug: string;
+  title: string;
+  category: string;
+  date: string;
+  author: string;
+  authorRole: string;
+  readingTime: string;
+  excerpt: string;
+  content: { type: "p" | "h3"; text: string }[];
+};
+
+export const insights: InsightArticle[] = [
   {
     slug: "engineering-intelligent-products",
     title: "Engineering intelligent products in the AI era",
     category: "Product Engineering",
     date: "2026-03-12",
+    author: "Arunachalam V.",
+    authorRole: "Chief Technology Officer",
+    readingTime: "5 min read",
+    excerpt: "Why the era of thin LLM wrappers is dead and how enterprise teams must engineer domain-isolated vector embeddings and RAG pipelines directly into application core runtime.",
     content: [
       { type: "p", text: "The era of the 'thin wrapper' is over. Enterprises are no longer impressed by SaaS products that merely pass a prompt to a public LLM API and return the response. To build truly intelligent products, engineering teams must deeply integrate AI into the core workflows of the application." },
       { type: "h3", text: "Moving Beyond Wrappers" },
@@ -354,10 +371,46 @@ export const insights = [
     ]
   },
   {
+    slug: "ai-payroll-statutory-engine",
+    title: "AI in Payroll: From Static Rules Engines to Generative Copilots",
+    category: "AI & HCM",
+    date: "2026-03-01",
+    author: "Sunita Deshmukh",
+    authorRole: "Principal HCM Architect",
+    readingTime: "6 min read",
+    excerpt: "How automated anomaly detection, state-wise statutory AI rule compilation, and real-time reconciliation prevent millions in compliance penalties before payroll executes.",
+    content: [
+      { type: "p", text: "Traditional payroll systems rely on rigid, hardcoded conditional trees. When statutory legislation changes across multiple states or tax jurisdictions, enterprise teams are forced into urgent software patches and stressful manual spreadsheet validations." },
+      { type: "h3", text: "The Generative Copilot Paradigm" },
+      { type: "p", text: "By combining deterministic calculation engines with LLM-based exception intelligence, modern payroll platforms can preemptively audit attendance, overtime caps, TDS thresholds, and PF/ESI anomalies before salaries are disbursed." },
+      { type: "p", text: "CybeHRMS / Synthalyst demonstrates how an embedded AI copilot eliminates 99%+ of compliance discrepancies across 8 state labor laws simultaneously, without manual payroll review bottlenecks." }
+    ]
+  },
+  {
+    slug: "abdm-compliance-healthcare-saas",
+    title: "ABDM Compliance Deep-Dive: Architectural Blueprint for Indian Healthcare SaaS",
+    category: "Healthcare & Compliance",
+    date: "2026-02-18",
+    author: "Dr. Rajeshwar Iyer",
+    authorRole: "Head of Health Informatics",
+    readingTime: "7 min read",
+    excerpt: "Step-by-step architectural breakdown of FHIR-compliant record bridges, ABHA ID identity resolution, and decentralized health data exchange under Ayushman Bharat Digital Mission.",
+    content: [
+      { type: "p", text: "Integrating healthcare platforms into the Ayushman Bharat Digital Mission (ABDM) is now a mandatory standard for digital health interoperability in India. However, bridging legacy hospital information systems (HIS) with ABDM Milestone 1, 2, and 3 requires stringent security and architecture protocols." },
+      { type: "h3", text: "FHIR-Ready Microservices Architecture" },
+      { type: "p", text: "A robust ABDM integration architecture demands schema isolation, automated cryptographic consent management, and instantaneous conversion between internal EMR structures and standard HL7/FHIR bundles." },
+      { type: "p", text: "In CybeHealth and Jioplix, we decoupled the ABDM gateway into a dedicated asynchronous event-driven microservice, guaranteeing 99.9% uptime and zero data leakage across hospital networks." }
+    ]
+  },
+  {
     slug: "cloud-platform-maturity",
     title: "Five signals your cloud platform is ready to scale",
     category: "Cloud & Platform",
     date: "2026-02-28",
+    author: "Vikram Sengupta",
+    authorRole: "VP of Engineering",
+    readingTime: "5 min read",
+    excerpt: "Key indicators distinguishing a fragile collection of custom scripts from an enterprise-grade internal developer platform powering multi-region Kubernetes workloads.",
     content: [
       { type: "p", text: "Scaling a cloud platform isn't just about adding more compute; it's about maturing your operational model. How do you know when your internal platform is ready to support dozens of product teams and hundreds of enterprise clients?" },
       { type: "h3", text: "The Five Signals" },
@@ -367,9 +420,13 @@ export const insights = [
   },
   {
     slug: "ai-in-enterprise-workflows",
-    title: "Where AI creates ROI in enterprise workflows",
+    title: "Where AI creates genuine ROI in enterprise workflows",
     category: "AI Services",
     date: "2026-02-10",
+    author: "Ananya Roy",
+    authorRole: "VP of AI & ML",
+    readingTime: "4 min read",
+    excerpt: "Moving past generative novelty: practical high-throughput unstructured data extraction, real-time transaction anomaly detection, and automated operational orchestration.",
     content: [
       { type: "p", text: "There is a massive gap between AI hype and actual enterprise ROI. While generative art and creative writing get the headlines, the real value of AI in the enterprise lies in workflow automation." },
       { type: "h3", text: "Practical Automation" },
@@ -379,9 +436,13 @@ export const insights = [
   },
   {
     slug: "ai-native-saas-regulated-enterprises",
-    title: "AI-native SaaS in regulated enterprises",
+    title: "AI-native SaaS in regulated enterprises: Compliance as Code",
     category: "AI & Platform",
     date: "2026-06-15",
+    author: "Arunachalam V.",
+    authorRole: "Chief Technology Officer",
+    readingTime: "6 min read",
+    excerpt: "Addressing data residency, strict multi-tenant isolation, SOC 2 Type II auditability, and preventing customer data leakage in enterprise AI environments.",
     content: [
       { type: "p", text: "Selling AI-powered SaaS to banks, healthcare providers, or government agencies presents a unique challenge: these organizations require strict data residency, isolation, and compliance guarantees that typical AI startups cannot provide." },
       { type: "h3", text: "Compliance as Code" },
@@ -394,6 +455,10 @@ export const insights = [
     title: "Multi-cloud DevSecOps as a service: patterns for platform teams",
     category: "Cloud & Platform",
     date: "2026-05-22",
+    author: "Vikram Sengupta",
+    authorRole: "VP of Engineering",
+    readingTime: "5 min read",
+    excerpt: "Golden-path templates, continuous SAST/DAST verification, and container vulnerability gates across AWS, Azure, and Google Cloud Platform.",
     content: [
       { type: "p", text: "As organizations grow, they inevitably find themselves managing workloads across AWS, GCP, and Azure. Managing DevSecOps pipelines across multiple cloud providers can quickly become an operational nightmare." },
       { type: "h3", text: "The Abstraction Layer" },
@@ -403,9 +468,13 @@ export const insights = [
   },
   {
     slug: "designing-quantum-ready-ai-platforms",
-    title: "Designing for quantum-ready AI platforms",
+    title: "Designing for quantum-ready AI platforms and NIST PQC Standards",
     category: "R&D",
     date: "2026-04-10",
+    author: "Ananya Roy",
+    authorRole: "VP of AI & ML",
+    readingTime: "6 min read",
+    excerpt: "Post-quantum cryptographic primitives (ML-KEM, ML-DSA) and hybrid tensor network optimization layers for tomorrow's quantum computing landscape.",
     content: [
       { type: "p", text: "Quantum computing is no longer just theoretical physics; it is rapidly approaching commercial viability for specific optimization and simulation workloads. Forward-thinking engineering organizations are already designing their platforms to be 'quantum-ready'." },
       { type: "h3", text: "Future-Proofing Architecture" },

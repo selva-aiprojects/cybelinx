@@ -13,8 +13,8 @@ import EnterpriseFlowsSlider from "@/components/EnterpriseFlowsSlider";
 import ArchitectureReviewForm from "@/components/ArchitectureReviewForm";
 import TrustBar from "@/components/TrustBar";
 import TechStack from "@/components/TechStack";
-import { ArrowRight } from "lucide-react";
-import Link from "next/link";
+import CustomerLogoStrip from "@/components/CustomerLogoStrip";
+import IntegrationDirectory from "@/components/IntegrationDirectory";
 import ArchitectureValidationPlayground from "@/components/ArchitectureValidationPlayground";
 import GlobalRegulatoryEngine from "@/components/GlobalRegulatoryEngine";
 import RegulatedFeatureMatrix from "@/components/RegulatedFeatureMatrix";
@@ -53,9 +53,12 @@ export default function HomePage() {
       </Section>
 
       {/* ── Social Proof & Trust ────────────────── */}
-      <Section id="trust" className="pt-0 pb-6 md:pb-8 border-b border-border/50">
+      <Section id="trust" className="pt-0 pb-8 md:pb-12 border-b border-border/50 space-y-12">
         <AnimatedSection>
           <TrustBar />
+        </AnimatedSection>
+        <AnimatedSection delay={0.1}>
+          <CustomerLogoStrip />
         </AnimatedSection>
       </Section>
 
@@ -101,6 +104,13 @@ export default function HomePage() {
             <DynamicNetworkEcosystem />
           </AnimatedSection>
         </div>
+      </Section>
+
+      {/* ── 50+ Pre-Built Enterprise Integrations ── */}
+      <Section id="integrations" textured glow className="py-12 md:py-16 border-t border-border/40">
+        <AnimatedSection>
+          <IntegrationDirectory />
+        </AnimatedSection>
       </Section>
 
       {/* ── Latest Product News & Innovations ──── */}
