@@ -135,7 +135,7 @@ export const products: Product[] = [
     summary:
       "A connected financial and operational stack for accounting, ERP automation, and real-estate business workflows.",
     status: "live",
-    image: "/assets/products/cybebank.png",
+    image: "/assets/products/cybefintech.png",
     colorAccent: "#14B8A6",
     appUrl: "https://smartbooks.cybelinx.com/",
     demoUrl: "https://smartbooks.cybelinx.com/",
@@ -201,7 +201,7 @@ export const products: Product[] = [
     summary:
       "A cloud-native ERP platform designed for enterprises that need a single operating system for finance, procurement, inventory, project execution, and business workflows.",
     status: "live",
-    image: "/assets/products/cybebank.png",
+    image: "/assets/products/cybeerp.png",
     colorAccent: "#22C55E",
     appUrl: "https://nexora.cybelinx.com/",
     demoUrl: "https://nexora.cybelinx.com/",
@@ -232,7 +232,7 @@ export const products: Product[] = [
     summary:
       "A unified real-estate operating platform for property management, leasing, finance, and portfolio performance tracking across residential, commercial, and mixed-use portfolios.",
     status: "live",
-    image: "/assets/products/cybebank.png",
+    image: "/assets/products/cyberealestate.png",
     colorAccent: "#0EA5E9",
     appUrl: "https://estateflow.cybelinx.com/",
     demoUrl: "https://estateflow.cybelinx.com/",

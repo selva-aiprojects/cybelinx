@@ -284,7 +284,7 @@ export const portfolios: PortfolioContent[] = [
       ctaHref: "/products/cybefintech",
     },
     icon: "/assets/icons/icon-bank.png",
-    image: "/assets/products/cybebank.png",
+    image: "/assets/products/cybefintech.png",
     problem: [
       "Finance teams operate across disconnected analytics, spreadsheets, and bookkeeping tools.",
       "Manual reconciliation slows performance reporting and creates data quality gaps.",
@@ -312,6 +312,78 @@ export const portfolios: PortfolioContent[] = [
     status: "active",
   },
   {
+    id: "cybeerp",
+    title: "CybeERP",
+    hero: {
+      tagline: "Unified enterprise ERP for operations, finance, and business process automation.",
+      ctaLabel: "Explore CybeERP",
+      ctaHref: "/products/cybeerp",
+    },
+    icon: "/assets/icons/icon-bank.png",
+    image: "/assets/products/cybeerp.png",
+    problem: [
+      "Modern enterprises still run on siloed ERP modules, leading to slow approvals and duplicate work.",
+      "Inaccurate consolidated reporting and delayed financial reconciliation across subsidiaries.",
+      "Poor cross-functional operational visibility between procurement and finance.",
+    ],
+    solution: {
+      description: "A cloud-native ERP platform connecting finance, procurement, inventory, and cross-functional operations into a unified workflow.",
+      capabilities: [
+        "General ledger, receivables, payables, and automated financial controls.",
+        "Vendor management, purchase workflows, and real-time inventory tracking.",
+        "Multi-entity consolidation and AI-assisted process automation.",
+      ],
+    },
+    tech: [
+      "Unified enterprise ledger and multi-subsidiary database architecture.",
+      "Automated approval workflows and policy-driven routing.",
+      "Real-time analytics and audit trail synchronization.",
+    ],
+    outcomes: [
+      "Single operational view across all procurement and financial teams.",
+      "Significant reduction in monthly financial close cycles.",
+      "Full compliance with enterprise audit and governance standards.",
+    ],
+    theme: "emerald",
+    status: "active",
+  },
+  {
+    id: "cyberealestate",
+    title: "CybeRealEstate",
+    hero: {
+      tagline: "Property operations, leasing, and portfolio intelligence for modern real-estate.",
+      ctaLabel: "Explore CybeRealEstate",
+      ctaHref: "/products/cyberealestate",
+    },
+    icon: "/assets/icons/icon-commerce.png",
+    image: "/assets/products/cyberealestate.png",
+    problem: [
+      "Real-estate operators manage property, leasing, and finance across disconnected tools.",
+      "Delayed rent collection updates, missed renewals, and revenue leakage.",
+      "Lack of real-time portfolio performance visibility across mixed-use assets.",
+    ],
+    solution: {
+      description: "A unified real-estate operating platform for unit management, lease tracking, collections, and automated portfolio intelligence.",
+      capabilities: [
+        "Inventory, unit occupancy, maintenance, and tenant records in one place.",
+        "Automated rent collection, lease renewal reminders, and delinquency workflows.",
+        "Portfolio NOI yields and real-time cash flow analytics.",
+      ],
+    },
+    tech: [
+      "Cloud-native property asset and unit hierarchy models.",
+      "Integrated payment gateway and tenant communications layer.",
+      "AI-assisted portfolio forecasting and occupancy trend modeling.",
+    ],
+    outcomes: [
+      "Portfolio-wide real-time visibility across occupancy and collections.",
+      "Automated recurring leasing workflows and rapid maintenance triage.",
+      "Higher net operating income (NOI) through predictive rent management.",
+    ],
+    theme: "blue",
+    status: "active",
+  },
+  {
     id: "cybefin",
     title: "CybeFin",
     hero: {
@@ -319,6 +391,8 @@ export const portfolios: PortfolioContent[] = [
       ctaLabel: "Discover CybeFin",
       ctaHref: "/contact",
     },
+    icon: "/assets/icons/icon-bank.png",
+    image: "/assets/products/cybefintech.png",
     problem: [
       "Disconnect between healthcare services and financial payments.",
       "Slow and opaque patient financing and reconciliation processes.",
@@ -353,6 +427,8 @@ export const portfolios: PortfolioContent[] = [
       ctaLabel: "Discover CybeInsure",
       ctaHref: "/contact",
     },
+    icon: "/assets/icons/icon-commerce.png",
+    image: "/assets/products/cybecommerce.png",
     problem: [
       "Manual and slow claims processing driving up operational costs.",
       "Inaccurate underwriting due to siloed health and risk data.",
@@ -387,6 +463,8 @@ export const portfolios: PortfolioContent[] = [
       ctaLabel: "Discover Analytics",
       ctaHref: "/contact",
     },
+    icon: "/assets/icons/icon-ai.png",
+    image: "/assets/products/cybeai-suite.png",
     problem: [
       "Data locked in application silos preventing unified reporting.",
       "Lack of self-service BI tools for business users.",
@@ -421,6 +499,8 @@ export const portfolios: PortfolioContent[] = [
       ctaLabel: "Explore Quantum",
       ctaHref: "/contact",
     },
+    icon: "/assets/icons/icon-ai.png",
+    image: "/assets/products/cybeai-suite.png",
     problem: [
       "Core systems unable to leverage upcoming quantum advancements.",
       "High barrier to entry for experimenting with quantum algorithms.",
