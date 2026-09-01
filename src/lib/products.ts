@@ -194,6 +194,36 @@ export const products: Product[] = [
     isPlaceholderContent: false,
   },
   {
+    slug: "cyberealestate",
+    name: "CybeRealEstate",
+    tagline: "Property operations, leasing, and portfolio intelligence for modern real-estate businesses",
+    category: "Real Estate",
+    summary:
+      "A unified real-estate operating platform for property management, leasing, finance, and portfolio performance tracking across residential, commercial, and mixed-use portfolios.",
+    status: "live",
+    image: "/assets/products/cybebank.png",
+    colorAccent: "#0EA5E9",
+    appUrl: "https://estateflow.cybelinx.com/",
+    demoUrl: "https://estateflow.cybelinx.com/",
+    portfolioProducts: [
+      { name: "Estateflow", url: "https://estateflow.cybelinx.com/", description: "Real-Estate ERP & property operations" },
+    ],
+    problem:
+      "Real-estate operators still manage property, leasing, collections, and finance across disconnected tools, leading to delayed updates, missed revenue, and poor portfolio visibility.",
+    modules: [
+      { title: "Property & Unit Management", description: "Track inventory, occupancy, maintenance, and owner/tenant records across a portfolio." },
+      { title: "Lease & Collections", description: "Automate rent collections, renewals, escalations, and delinquency workflows." },
+      { title: "Finance & Accounting", description: "Link property cash flow, vendor bills, expenses, and operational reporting in one place." },
+      { title: "Portfolio Intelligence", description: "Monitor occupancy, NOI, and operating performance with AI-driven portfolio insights." },
+    ],
+    differentiators: [
+      "Portfolio-wide visibility across property operations, leasing, and accounting",
+      "Automation for recurring real-estate workflows such as rent collection and maintenance follow-ups",
+      "Built to support mixed-use, residential, commercial, and managed-property portfolios",
+    ],
+    isPlaceholderContent: false,
+  },
+  {
     slug: "cybeai-suite",
     name: "CybeAI Suite",
     tagline: "Enterprise AI Product Suite",
