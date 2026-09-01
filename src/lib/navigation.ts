@@ -37,6 +37,7 @@ export const mainNav: NavGroup[] = [
     items: [
       { href: "/technologies", label: "Engineering & DevOps", description: "For engineering and platform teams" },
       { href: "/insights", label: "Insights", description: "Perspectives from our teams" },
+      { href: "/branding", label: "Branding Kit & Stationery", description: "Official Letterhead (A4), business cards & logo assets" },
       { href: "/#product-news", label: "Product News", description: "Latest product releases and announcements" },
     ],
   },
@@ -56,6 +57,7 @@ export const footerNav = {
     { href: "/company", label: "About" },
     { href: "/careers", label: "Careers" },
     { href: "/contact", label: "Contact" },
+    { href: "/branding", label: "Brand Kit & Stationery" },
   ],
   capabilities: [
     { href: "/industries", label: "Industries" },
@@ -65,6 +67,7 @@ export const footerNav = {
     { href: "/platform", label: "Platform" },
     { href: "/case-studies", label: "Case Studies" },
     { href: "/insights", label: "Insights" },
+    { href: "/branding", label: "Branding Kits" },
     { href: "/#product-news", label: "Product News" },
   ],
 };
