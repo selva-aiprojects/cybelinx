@@ -16,6 +16,7 @@ export type Product = {
   stats?: { label: string; value: string }[];
   customers?: Customer[];
   isPlaceholderContent?: boolean;
+  requiresBetaAccess?: boolean;
   appUrl?: string;
   demoUrl?: string;
   image?: string;
