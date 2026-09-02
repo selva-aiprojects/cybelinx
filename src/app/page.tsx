@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Hero from "@/components/Hero";
 import PlatformPillars from "@/components/PlatformPillars";
 import Section, { SectionHeading } from "@/components/Section";
@@ -20,6 +21,19 @@ import GlobalRegulatoryEngine from "@/components/GlobalRegulatoryEngine";
 import RegulatedFeatureMatrix from "@/components/RegulatedFeatureMatrix";
 import { products } from "@/lib/products";
 import { whyCybelinx } from "@/lib/content";
+
+export const metadata: Metadata = {
+  title: "AI Product Development Company for Enterprise Intelligence",
+  description:
+    "Cybelinx builds AI-powered products, enterprise SaaS, and cloud-native platforms for banking, healthcare, HCM, pharma, commerce, and operations.",
+  keywords: [
+    "AI product development company",
+    "AI software development company",
+    "enterprise AI solutions",
+    "AI product engineering",
+    "enterprise SaaS products",
+  ],
+};
 
 export default function HomePage() {
   return (

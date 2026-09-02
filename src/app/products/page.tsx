@@ -11,8 +11,17 @@ import { portfolios } from "@/lib/portfolios";
 import { cognivectraPlatforms } from "@/lib/cognivectraContent";
 
 export const metadata: Metadata = {
-  title: "CybePlatforms & Product Portfolio",
-  description: "AI-native platform powering HR, healthcare, pharma, analytics, and quantum-ready workloads.",
+  title: "Enterprise AI Products and SaaS Platforms",
+  description:
+    "Explore Cybelinx enterprise products: CybeHRMS, CybeHospitality, CybePharma Suite, CybeBank, CybeFinTech, CybeHealth, CybeCommerce, and CybeERP.",
+  keywords: [
+    "enterprise AI products",
+    "enterprise SaaS platforms",
+    "AI-powered HRMS",
+    "healthcare management software",
+    "digital banking platform",
+    "enterprise ERP software",
+  ],
 };
 
 export default function ProductsPage() {
