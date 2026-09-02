@@ -44,7 +44,8 @@ export const mainNav: NavGroup[] = [
   {
     label: "Company",
     items: [
-      { href: "/company", label: "About Cybelinx", description: "Mission, story, and leadership" },
+      { href: "/company", label: "About Cybelinx", description: "Mission, story, and global presence" },
+      { href: "/leadership", label: "Board & Leadership", description: "Directors, IT architecture & healthcare domain experts" },
       { href: "/careers", label: "Careers", description: "Build with our product teams" },
       { href: "/contact", label: "Contact", description: "Get in touch with our team" },
     ],
@@ -55,6 +56,7 @@ export const footerNav = {
   products: mainNav[1].items ?? [],
   company: [
     { href: "/company", label: "About" },
+    { href: "/leadership", label: "Leadership & Board" },
     { href: "/careers", label: "Careers" },
     { href: "/contact", label: "Contact" },
     { href: "/branding", label: "Brand Kit & Stationery" },

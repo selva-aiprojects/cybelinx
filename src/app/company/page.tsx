@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import Section from "@/components/Section";
 import PageHeader from "@/components/PageHeader";
 import CTABand from "@/components/CTABand";
 import AnimatedSection from "@/components/AnimatedSection";
+import { boardMembers } from "@/lib/leadership";
 import {
   Building2,
   Globe2,
@@ -192,38 +194,81 @@ export default function CompanyPage() {
         </AnimatedSection>
       </Section>
 
-      {/* ── Leadership ────────────────────────────────────────────────── */}
+      {/* ── Leadership & Board of Directors ────────────────────────────── */}
       <Section textured className="py-12">
         <AnimatedSection>
-          <div className="mb-10">
-            <span className="slugline">Leadership</span>
-            <h2 className="mt-3 font-display text-3xl font-bold text-surface">
-              Built by enterprise platform experts.
-            </h2>
-            <p className="mt-3 max-w-xl text-sm text-slate">
-              Our leadership team brings decades of experience building and scaling enterprise technology platforms across regulated global industries.
-            </p>
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
+            <div>
+              <span className="slugline">Board of Directors & Leadership</span>
+              <h2 className="mt-3 font-display text-3xl font-bold text-surface">
+                Governed by Technology Mastery & Healthcare Domain Experts.
+              </h2>
+              <p className="mt-3 max-w-2xl text-sm text-slate">
+                48+ combined years of enterprise platform architecture and solution design alongside 20+ combined years of frontline clinical healthcare & healthtech entrepreneurship.
+              </p>
+            </div>
+            <Link
+              href="/leadership"
+              className="inline-flex items-center gap-2 rounded-xl bg-primary px-5 py-2.5 text-xs font-bold text-white hover:bg-primary-deep transition-all shrink-0"
+            >
+              View Full Board Profiles &amp; Advisory Charter
+              <Award className="h-4 w-4" />
+            </Link>
           </div>
+
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {leadership.map((leader, i) => {
-              const Icon = leader.icon;
+            {boardMembers.map((member) => {
+              const Icon = member.icon;
               return (
                 <div
-                  key={leader.role}
-                  className="rounded-2xl border border-border bg-background p-6 transition-all hover:-translate-y-1 hover:shadow-lg"
+                  key={member.id}
+                  className="rounded-2xl border border-border bg-background p-6 transition-all hover:-translate-y-1 hover:shadow-lg flex flex-col justify-between"
                 >
-                  {/* Avatar */}
-                  <div
-                    className="flex h-16 w-16 items-center justify-center rounded-2xl text-white font-display text-lg font-bold"
-                    style={{
-                      background: `linear-gradient(135deg, ${leader.color}80, ${leader.color}40)`,
-                      border: `1px solid ${leader.color}30`,
-                    }}
-                  >
-                    <Icon className="h-7 w-7" style={{ color: leader.color }} />
+                  <div>
+                    {/* Photo / Avatar Placeholder */}
+                    <div className="relative mb-4">
+                      <div className="h-20 w-20 rounded-2xl overflow-hidden border border-border bg-surface/5 relative flex items-center justify-center">
+                        <img
+                          src={member.photoUrl}
+                          alt={member.name}
+                          className="h-full w-full object-cover object-top relative z-10"
+                        />
+                        <div
+                          className="absolute inset-0 flex items-center justify-center text-white"
+                          style={{
+                            background: `linear-gradient(135deg, ${member.accentColor}, #061034)`,
+                          }}
+                        >
+                          <span className="font-display font-extrabold text-sm tracking-wider">
+                            {member.initials}
+                          </span>
+                        </div>
+                      </div>
+                      <span
+                        className="absolute -bottom-2 left-0 whitespace-nowrap rounded-full px-2 py-0.5 text-[9px] font-extrabold uppercase tracking-wider text-white shadow-sm"
+                        style={{ background: member.accentColor }}
+                      >
+                        {member.experience}
+                      </span>
+                    </div>
+
+                    <h3 className="font-display font-bold text-base text-surface leading-snug mt-3">
+                      {member.name}
+                    </h3>
+                    <div className="text-[11px] font-semibold text-primary mt-0.5">
+                      {member.role}
+                    </div>
+                    <p className="mt-2.5 text-xs leading-relaxed text-slate">
+                      {member.shortBio}
+                    </p>
                   </div>
-                  <h3 className="mt-4 font-semibold text-surface leading-snug">{leader.role}</h3>
-                  <p className="mt-2 text-xs leading-relaxed text-slate">{leader.description}</p>
+
+                  <Link
+                    href={`/leadership#${member.id}`}
+                    className="mt-4 pt-3 border-t border-border/60 inline-flex items-center gap-1.5 text-xs font-bold text-primary hover:text-primary-deep transition-colors"
+                  >
+                    View Governance Focus &rarr;
+                  </Link>
                 </div>
               );
             })}
