@@ -1,5 +1,39 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
+import { z } from "zod";
+
+const leadSchema = z.object({
+  name: z.string().trim().min(2).max(120),
+  email: z.string().trim().email().max(320),
+  company: z.string().trim().min(2).max(160),
+  interest: z.string().trim().min(1).max(160),
+  message: z.string().trim().min(10).max(5000),
+  website: z.string().max(0).optional(),
+  attribution: z.object({
+    source: z.string().max(120).optional(),
+    medium: z.string().max(120).optional(),
+    campaign: z.string().max(160).optional(),
+    content: z.string().max(160).optional(),
+    landingPage: z.string().max(500).optional(),
+  }).optional(),
+});
+
+const requestLog = new Map<string, number[]>();
+const RATE_LIMIT_WINDOW_MS = 15 * 60 * 1000;
+const RATE_LIMIT_MAX_REQUESTS = 5;
+
+function isRateLimited(request: Request) {
+  const forwardedFor = request.headers.get("x-forwarded-for");
+  const clientKey = forwardedFor?.split(",")[0]?.trim() || request.headers.get("x-real-ip") || "unknown";
+  const now = Date.now();
+  const recentRequests = (requestLog.get(clientKey) || []).filter(
+    (timestamp) => now - timestamp < RATE_LIMIT_WINDOW_MS
+  );
+
+  recentRequests.push(now);
+  requestLog.set(clientKey, recentRequests);
+  return recentRequests.length > RATE_LIMIT_MAX_REQUESTS;
+}
 
 function escapeHtml(value: string) {
   return value.replace(/[&<>"']/g, (character) => ({
@@ -27,6 +61,13 @@ function getLeadRoute(interest: string) {
 
 export async function POST(request: Request) {
   try {
+    if (isRateLimited(request)) {
+      return NextResponse.json(
+        { error: "Too many requests. Please try again later." },
+        { status: 429 }
+      );
+    }
+
     if (!process.env.RESEND_API_KEY) {
       return NextResponse.json(
         { error: "Lead delivery is not configured yet." },
@@ -35,14 +76,17 @@ export async function POST(request: Request) {
     }
 
     const resend = new Resend(process.env.RESEND_API_KEY);
-    const body = await request.json();
-    const { name, email, company, interest, message, attribution = {} } = body;
-
-    if (!name || !email || !company || !interest || !message) {
+    const parsedLead = leadSchema.safeParse(await request.json());
+    if (!parsedLead.success) {
       return NextResponse.json(
         { error: "Please complete all required fields." },
         { status: 400 }
       );
+    }
+
+    const { name, email, company, interest, message, attribution = {} } = parsedLead.data;
+    if (parsedLead.data.website) {
+      return NextResponse.json({ success: true }, { status: 200 });
     }
 
     const routeEnv = getLeadRoute(interest);

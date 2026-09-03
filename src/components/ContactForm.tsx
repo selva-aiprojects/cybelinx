@@ -22,6 +22,7 @@ const schema = z.object({
   company: z.string().min(2, "Enter your company"),
   interest: z.string().min(1, "Select an option"),
   message: z.string().min(10, "Tell us a bit more (10+ characters)"),
+  website: z.string().max(0).optional(),
 });
 
 type FormData = z.infer<typeof schema>;
@@ -170,6 +171,11 @@ export default function ContactForm() {
           className="mt-2 w-full rounded-md border border-border bg-charcoal px-4 py-3 text-sm text-surface outline-none transition-colors focus:border-primary"
         />
         {errors.message && <p id="message-error" className="mt-1 text-xs text-rose-600 dark:text-rose-300">{errors.message.message}</p>}
+      </div>
+
+      <div className="hidden" aria-hidden="true">
+        <label htmlFor="website">Website</label>
+        <input id="website" tabIndex={-1} autoComplete="off" {...register("website")} />
       </div>
 
       <p className="text-xs text-slate/60">
