@@ -12,6 +12,8 @@ CREATE TABLE IF NOT EXISTS leads (
   content VARCHAR(160),
   landing_page VARCHAR(500),
   status VARCHAR(32) NOT NULL DEFAULT 'new',
+  notes TEXT,
+  follow_up_at TIMESTAMPTZ,
   created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
   updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
@@ -20,3 +22,6 @@ CREATE INDEX IF NOT EXISTS leads_email_idx ON leads (LOWER(email));
 CREATE INDEX IF NOT EXISTS leads_interest_idx ON leads (interest);
 CREATE INDEX IF NOT EXISTS leads_status_created_idx ON leads (status, created_at DESC);
 CREATE INDEX IF NOT EXISTS leads_campaign_idx ON leads (campaign);
+
+ALTER TABLE leads ADD COLUMN IF NOT EXISTS notes TEXT;
+ALTER TABLE leads ADD COLUMN IF NOT EXISTS follow_up_at TIMESTAMPTZ;
