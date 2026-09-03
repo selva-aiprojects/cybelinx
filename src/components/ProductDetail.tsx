@@ -28,6 +28,8 @@ type ProductDetailProps = {
 };
 
 export default function ProductDetail({ product, faqs = [], showPricing = false }: ProductDetailProps) {
+  const contactHref = `/contact?interest=${encodeURIComponent(product.name)}`;
+
   return (
     <>
       <Section className="pt-16">
@@ -51,12 +53,12 @@ export default function ProductDetail({ product, faqs = [], showPricing = false 
               <Button href={product.appUrl} target="_blank" rel="noopener noreferrer">
                 Launch Live App
               </Button>
-              <Button href="/contact" variant="secondary">Request Walkthrough</Button>
+              <Button href={contactHref} variant="secondary">Request Walkthrough</Button>
             </>
           ) : (
             <>
-              <Button href="/contact">Request a Demo</Button>
-              <Button href="/contact" variant="secondary">Start Free Trial</Button>
+              <Button href={contactHref}>Request a Demo</Button>
+              <Button href={contactHref} variant="secondary">Start Free Trial</Button>
             </>
           )}
         </div>

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useSearchParams } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
@@ -26,13 +27,25 @@ const schema = z.object({
 type FormData = z.infer<typeof schema>;
 
 export default function ContactForm() {
+  const searchParams = useSearchParams();
+  const initialInterest = searchParams.get("interest") || "";
+  const attribution = {
+    source: searchParams.get("utm_source") || "direct",
+    medium: searchParams.get("utm_medium") || "",
+    campaign: searchParams.get("utm_campaign") || "",
+    content: searchParams.get("utm_content") || "",
+    landingPage: searchParams.get("landing_page") || (typeof document !== "undefined" ? document.referrer : "") || "direct",
+  };
   const [submitted, setSubmitted] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
   const {
     register,
     handleSubmit,
     formState: { errors, isSubmitting },
-  } = useForm<FormData>({ resolver: zodResolver(schema) });
+  } = useForm<FormData>({
+    resolver: zodResolver(schema),
+    defaultValues: { interest: initialInterest },
+  });
 
   async function onSubmit(data: FormData) {
     setSubmitError(null);
@@ -42,7 +55,7 @@ export default function ContactForm() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(data),
+        body: JSON.stringify({ ...data, attribution }),
       });
 
       if (!response.ok) {

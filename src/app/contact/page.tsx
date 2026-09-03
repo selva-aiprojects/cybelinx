@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import Section from "@/components/Section";
 import PageHeader from "@/components/PageHeader";
 import ContactForm from "@/components/ContactForm";
@@ -49,6 +50,8 @@ const routingChannels = [
     color: "#00C2FF",
   },
 ];
+
+const bookingUrl = process.env.NEXT_PUBLIC_CALENDLY_URL || "https://calendly.com/cognivectra-demo/15min";
 
 export default function ContactPage() {
   return (
@@ -132,7 +135,9 @@ export default function ContactPage() {
               <h2 className="font-display text-2xl font-bold text-surface">Send an Inquiry</h2>
               <p className="mt-1 text-sm text-slate">Fill out the parameters below and our engineering team will prepare relevant sandbox access.</p>
             </div>
-            <ContactForm />
+            <Suspense fallback={<div className="rounded-2xl border border-border bg-background p-10 text-center text-sm text-slate">Loading inquiry form...</div>}>
+              <ContactForm />
+            </Suspense>
           </div>
 
           {/* Side Info & Calendar Booking */}
@@ -147,7 +152,9 @@ export default function ContactPage() {
                 Schedule a 30-minute high-bandwidth session directly with our technical team to evaluate fit, architecture compliance, or live pricing.
               </p>
               <a
-                href="mailto:sales@cybelinx.com?subject=Strategic%20Architecture%20Demo%20Request"
+                href={bookingUrl}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="mt-5 flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-primary to-violet py-3 px-4 text-xs font-bold text-white shadow-md transition-transform hover:scale-[1.02] active:scale-[0.98]"
               >
                 <Calendar className="h-4 w-4" />
