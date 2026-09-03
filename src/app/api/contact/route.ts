@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
 import { z } from "zod";
+import { getLeadPool } from "@/lib/db";
 
 const leadSchema = z.object({
   name: z.string().trim().min(2).max(120),
@@ -88,6 +89,33 @@ export async function POST(request: Request) {
     if (parsedLead.data.website) {
       return NextResponse.json({ success: true }, { status: 200 });
     }
+
+    if (!process.env.DATABASE_URL) {
+      return NextResponse.json(
+        { error: "Lead storage is not configured yet." },
+        { status: 503 }
+      );
+    }
+
+    const source = attribution.source || "direct";
+    const pool = getLeadPool();
+    await pool.query(
+      `INSERT INTO leads
+        (name, email, company, interest, message, source, medium, campaign, content, landing_page)
+       VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)`,
+      [
+        name,
+        email,
+        company,
+        interest,
+        message,
+        source,
+        attribution.medium || null,
+        attribution.campaign || null,
+        attribution.content || null,
+        attribution.landingPage || null,
+      ]
+    );
 
     const routeEnv = getLeadRoute(interest);
     const recipient = (routeEnv && process.env[routeEnv]) || process.env.RESEND_TO || "sales@cybelinx.com";
