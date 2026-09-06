@@ -95,7 +95,7 @@ export default function RootLayout({ children }: { children?: React.ReactNode })
     <html
       lang="en"
       className={`${plusJakartaSans.variable} ${spaceGrotesk.variable}`}
-      data-theme="colorful"
+      data-theme="pearl"
       suppressHydrationWarning
     >
       <head>

@@ -268,13 +268,13 @@ function NavDropdown({ group }: { group: NavGroup }) {
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [theme, setTheme] = useState("light");
+  const [theme, setTheme] = useState("pearl");
   const mobileMenuRef = useRef<HTMLDivElement>(null);
   const mobileMenuButtonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
-    const storedTheme = window.localStorage.getItem("theme") as "light" | "dark" | "sales" | "colorful" | null;
-    const initialTheme = storedTheme || "colorful";
+    const storedTheme = window.localStorage.getItem("theme") as "pearl" | "light" | "dark" | "sales" | "colorful" | null;
+    const initialTheme = (storedTheme === "light" ? "pearl" : storedTheme) || "pearl";
     setTheme(initialTheme);
     document.documentElement.setAttribute("data-theme", initialTheme);
     if (initialTheme === "dark") {
@@ -329,8 +329,9 @@ export default function Navbar() {
   }, []);
 
   const toggleTheme = () => {
-    const themeOrder: ("light" | "dark" | "sales" | "colorful")[] = ["light", "dark", "sales", "colorful"];
-    const currentIndex = themeOrder.indexOf(theme as any);
+    const themeOrder: ("pearl" | "dark" | "sales" | "colorful")[] = ["pearl", "dark", "sales", "colorful"];
+    const currentNormalized = theme === "light" ? "pearl" : theme;
+    const currentIndex = themeOrder.indexOf(currentNormalized as any);
     const nextTheme = themeOrder[(currentIndex + 1) % themeOrder.length];
     setTheme(nextTheme);
     document.documentElement.setAttribute("data-theme", nextTheme);
@@ -370,24 +371,25 @@ export default function Navbar() {
           ))}
         </nav>
 
-        <div className="hidden items-center gap-3 xl:flex shrink-0">
+        <div className="hidden items-center gap-2.5 xl:flex shrink-0">
+          {/* Theme switcher */}
           <button
             type="button"
             onClick={toggleTheme}
             aria-label="Toggle theme mode"
-            title={`Current theme: ${theme.toUpperCase()} (Click to switch)`}
-            className="shiny-badge flex items-center gap-1.5 cursor-pointer py-1.5 px-3.5 hover:scale-105 transition-transform"
+            title={`Current theme: ${theme}. Click to switch theme.`}
+            className="flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-bold transition-all border border-border/80 bg-background/80 hover:border-primary/40 hover:bg-background hover:shadow-xs cursor-pointer"
           >
-            {theme === "light" && (
+            {(theme === "pearl" || theme === "light") && (
               <>
-                <Moon className="h-3.5 w-3.5 text-primary" />
-                <span className="hidden 2xl:inline text-primary font-bold">Light</span>
+                <Sparkles className="h-3.5 w-3.5 text-primary animate-pulse" />
+                <span className="hidden 2xl:inline text-primary font-extrabold">✨ Pearl Shining</span>
               </>
             )}
             {theme === "dark" && (
               <>
                 <Sun className="h-3.5 w-3.5 text-amber-400" />
-                <span className="hidden 2xl:inline text-amber-300 font-bold">Dark</span>
+                <span className="hidden 2xl:inline text-amber-300 font-bold">🌙 Dark</span>
               </>
             )}
             {theme === "sales" && (
@@ -399,7 +401,7 @@ export default function Navbar() {
             {theme === "colorful" && (
               <>
                 <Sparkles className="h-3.5 w-3.5 text-pink-500" />
-                <span className="hidden 2xl:inline shiny-text font-extrabold">Colorful</span>
+                <span className="hidden 2xl:inline shiny-text font-extrabold">🎨 Colorful</span>
               </>
             )}
           </button>
@@ -418,7 +420,7 @@ export default function Navbar() {
             aria-label="Toggle theme mode"
             className="flex items-center gap-1 rounded-full px-2.5 py-1 text-xs font-bold transition-all border border-slate-200 dark:border-white/15 bg-slate-50 dark:bg-white/5"
           >
-            {theme === "light" && <Moon className="h-4 w-4 text-slate-700" />}
+            {(theme === "pearl" || theme === "light") && <Sparkles className="h-4 w-4 text-primary" />}
             {theme === "dark" && <Sun className="h-4 w-4 text-amber-400" />}
             {theme === "sales" && <Zap className="h-4 w-4 text-cyan-400 animate-pulse" />}
             {theme === "colorful" && <Sparkles className="h-4 w-4 text-pink-500" />}
