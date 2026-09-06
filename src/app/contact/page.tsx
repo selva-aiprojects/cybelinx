@@ -17,6 +17,12 @@ import {
   ArrowRight,
   Headphones,
   Building,
+  Linkedin,
+  Twitter,
+  Youtube,
+  Github,
+  Facebook,
+  Instagram,
 } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -187,6 +193,36 @@ export default function ContactPage() {
                 <div>
                   <div className="text-xs font-bold uppercase tracking-wider text-slate/60">Global Headquarters</div>
                   <div className="mt-1 text-xs leading-relaxed text-surface">{brand.address}</div>
+                </div>
+              </div>
+
+              {/* Official Social Channels */}
+              <div className="rounded-2xl border border-border bg-background p-5 shadow-xs">
+                <div className="text-xs font-bold uppercase tracking-wider text-slate/60 mb-3">Official Channels &amp; Social</div>
+                <div className="flex items-center gap-2 flex-wrap">
+                  {[
+                    { label: "YouTube", href: brand.social.youtube, icon: Youtube, color: "hover:text-[#FF0000] hover:border-[#FF0000]/40" },
+                    { label: "X (Twitter)", href: brand.social.twitter, icon: Twitter, color: "hover:text-primary hover:border-primary/40" },
+                    { label: "LinkedIn", href: brand.social.linkedin, icon: Linkedin, color: "hover:text-[#0A66C2] hover:border-[#0A66C2]/40" },
+                    { label: "GitHub", href: brand.social.github, icon: Github, color: "hover:text-surface hover:border-border" },
+                    { label: "Facebook", href: brand.social.facebook, icon: Facebook, color: "hover:text-[#1877F2] hover:border-[#1877F2]/40" },
+                    { label: "Instagram", href: brand.social.instagram, icon: Instagram, color: "hover:text-[#E4405F] hover:border-[#E4405F]/40" },
+                  ].map((s) => {
+                    const Icon = s.icon;
+                    return (
+                      <a
+                        key={s.label}
+                        href={s.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={s.label}
+                        title={s.label}
+                        className={`flex h-9 w-9 items-center justify-center rounded-xl border border-border/70 bg-surface/5 text-slate/60 transition-all duration-300 hover:bg-surface/10 hover:-translate-y-0.5 ${s.color}`}
+                      >
+                        <Icon className="h-4 w-4" />
+                      </a>
+                    );
+                  })}
                 </div>
               </div>
             </div>

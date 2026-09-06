@@ -75,6 +75,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
+    site: brand.social.twitterHandle,
+    creator: brand.social.twitterHandle,
     title: `${brand.name} — ${brand.tagline}`,
     description: brand.description,
     images: ["/cybelinx-branding-kit.png"],
@@ -110,6 +112,15 @@ export default function RootLayout({ children }: { children?: React.ReactNode })
                   "url": "https://cybelinx.com",
                   "logo": "https://cybelinx.com/cybelinx-logo.png",
                   "description": brand.description,
+                  "sameAs": [
+                    brand.social.youtube,
+                    brand.social.twitter,
+                    "https://twitter.com/cybelinx",
+                    brand.social.linkedin,
+                    brand.social.github,
+                    brand.social.facebook,
+                    brand.social.instagram,
+                  ],
                   "contactPoint": {
                     "@type": "ContactPoint",
                     "email": brand.email,

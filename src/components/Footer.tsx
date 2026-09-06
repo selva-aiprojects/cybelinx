@@ -5,12 +5,15 @@ import Link from "next/link";
 import { LogoLockup } from "./Logo";
 import { brand } from "@/lib/content";
 import { footerNav } from "@/lib/navigation";
-import { Linkedin, Twitter, Github, Mail, ShieldCheck, Send, CheckCircle2, ArrowRight } from "lucide-react";
+import { Linkedin, Twitter, Youtube, Github, Facebook, Instagram, Mail, ShieldCheck, Send, CheckCircle2, ArrowRight } from "lucide-react";
 
 const socialLinks = [
-  { label: "LinkedIn", href: "https://linkedin.com/company/cybelinx", icon: Linkedin },
-  { label: "Twitter / X", href: "https://twitter.com/cybelinx", icon: Twitter },
-  { label: "GitHub", href: "https://github.com/cybelinx", icon: Github },
+  { label: "LinkedIn", href: brand.social.linkedin, icon: Linkedin },
+  { label: "X (Twitter)", href: brand.social.twitter, icon: Twitter },
+  { label: "YouTube", href: brand.social.youtube, icon: Youtube },
+  { label: "GitHub", href: brand.social.github, icon: Github },
+  { label: "Facebook", href: brand.social.facebook, icon: Facebook },
+  { label: "Instagram", href: brand.social.instagram, icon: Instagram },
   { label: "Email", href: `mailto:${brand.email}`, icon: Mail },
 ];
 
@@ -110,7 +113,7 @@ export default function Footer() {
             </p>
 
             {/* Social links */}
-            <div className="mt-6 flex items-center gap-2">
+            <div className="mt-6 flex items-center gap-2 flex-wrap">
               {socialLinks.map((s) => {
                 const Icon = s.icon;
                 return (

@@ -34,6 +34,15 @@ export const brand = {
     "Cybelinx builds enduring enterprise technology platforms — unifying AI, SaaS, PaaS, DevOps, cybersecurity, automation, analytics, cloud, and enterprise platforms — engineered to adapt seamlessly as technology evolves without becoming dated. 200+ enterprises, 12 countries.",
   email: "sales@cybelinx.com",
   address: "No. 41 & 42, 89/5, Prakruthi Township, 1st Block, Horamavu Agara Main Road, Bangalore, Karnataka 560113.",
+  social: {
+    youtube: "https://www.youtube.com/channel/UCVozEKmPMTt4gI1zw-4ra8g",
+    twitter: "https://x.com/cybelinx",
+    twitterHandle: "@cybelinx",
+    linkedin: "https://linkedin.com/company/cybelinx",
+    github: "https://github.com/cybelinx",
+    facebook: "https://facebook.com/cybelinx",
+    instagram: "https://instagram.com/cybelinx",
+  },
 };
 
 export const trustMetrics = [
