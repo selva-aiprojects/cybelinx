@@ -8,7 +8,7 @@ import CTABand from "@/components/CTABand";
 import AnimatedSection from "@/components/AnimatedSection";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
-import { platformPillars, differentiators, capabilities } from "@/lib/content";
+import { brand, platformPillars, differentiators, capabilities } from "@/lib/content";
 
 import CompactComparisonTable from "@/components/CompactComparisonTable";
 
@@ -23,7 +23,7 @@ export default function PlatformPage() {
       <Section className="py-6 md:py-8">
         <PageHeader
           eyebrow="Platform Architecture"
-          title="Engineering the Future of Enterprise Intelligence."
+          title={`${brand.tagline}.`}
           description="Cybelinx provides enterprise and platform engineering teams with an enduring foundation unifying AI, SaaS, PaaS, DevOps, cybersecurity, automation, analytics, and multi-cloud infrastructure — engineered to adapt seamlessly as technology evolves."
         />
       </Section>

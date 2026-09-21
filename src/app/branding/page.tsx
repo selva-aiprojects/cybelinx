@@ -824,7 +824,7 @@ export default function BrandingKitPage() {
                         CYBELINX
                       </div>
                       <div className="text-[6.5pt] text-slate-300 font-medium tracking-wider mb-2.5 relative z-10">
-                        Engineering the Future of Enterprise Intelligence
+                        {brand.tagline}
                       </div>
 
                       <div className="flex gap-1.5 justify-center mb-2.5 relative z-10">
@@ -893,7 +893,7 @@ export default function BrandingKitPage() {
                         className="w-10 h-10 object-contain mb-1.5 drop-shadow-[0_0_8px_rgba(0,194,255,0.6)]"
                       />
                       <div className="font-display text-[10.5pt] font-extrabold tracking-[0.2em] text-white">CYBELINX</div>
-                      <div className="text-[5.5pt] text-slate-300 mb-2">Engineering the Future of Enterprise Intelligence</div>
+                      <div className="text-[5.5pt] text-slate-300 mb-2">{brand.tagline}</div>
                       <div className="font-display text-[6pt] font-bold text-[#00C2FF] tracking-widest">WWW.CYBELINX.COM</div>
                     </div>
                   </div>

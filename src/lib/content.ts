@@ -29,7 +29,7 @@ import {
 
 export const brand = {
   name: "Cybelinx",
-  tagline: "Engineering the Future of Enterprise Intelligence",
+  tagline: "Intellect by Design, Autonomy by Choice",
   description:
     "Cybelinx builds enduring enterprise technology platforms — unifying AI, SaaS, PaaS, DevOps, cybersecurity, automation, analytics, cloud, and enterprise platforms — engineered to adapt seamlessly as technology evolves without becoming dated. 200+ enterprises, 12 countries.",
   email: "sales@cybelinx.com",

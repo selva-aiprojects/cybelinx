@@ -1026,7 +1026,7 @@ business_cards_html = f"""<!DOCTYPE html>
         </div>
 
         <div class="back-wordmark">CYBELINX</div>
-        <div class="back-tagline">Engineering the Future of Enterprise Intelligence</div>
+        <div class="back-tagline">Intellect by Design, Autonomy by Choice</div>
 
         <div class="back-pills">
           <span class="back-pill">AI & GenAI</span>
@@ -1227,7 +1227,7 @@ card_sheet_html = f"""<!DOCTYPE html>
         <div class="back-box">
           <img src="{emblem_b64}" style="width:38px; height:38px; object-fit:contain; margin-bottom:4px; filter:drop-shadow(0 0 8px rgba(0,194,255,0.5));" />
           <div style="font-family:'Space Grotesk'; font-size:10pt; font-weight:800; letter-spacing:0.2em; color:#fff; margin-bottom:1px;">CYBELINX</div>
-          <div style="font-size:4.8pt; color:#94a3b8; margin-bottom:6px;">Engineering the Future of Enterprise Intelligence</div>
+          <div style="font-size:4.8pt; color:#94a3b8; margin-bottom:6px;">Intellect by Design, Autonomy by Choice</div>
           <div style="display:flex; gap:3px; justify-content:center; margin-bottom:6px;">
             <span style="font-size:4.2pt; font-weight:700; color:#4fd8ff; background:rgba(79,216,255,0.1); border:1px solid rgba(79,216,255,0.2); border-radius:99px; padding:1px 4px;">AI & GenAI</span>
             <span style="font-size:4.2pt; font-weight:700; color:#4fd8ff; background:rgba(79,216,255,0.1); border:1px solid rgba(79,216,255,0.2); border-radius:99px; padding:1px 4px;">SaaS/PaaS</span>

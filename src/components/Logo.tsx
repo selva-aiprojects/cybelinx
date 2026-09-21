@@ -42,14 +42,14 @@ export function LogoLockup({ height = 72, className = "" }: LogoProps) {
       {/* Light Mode Original Logo Image */}
       <img
         src={LOGO_LOCKUP_LIGHT_SRC}
-        alt={`${brand.name} - Engineering Intelligent Products`}
+        alt={`${brand.name} - ${brand.tagline}`}
         style={{ height, width: "auto" }}
         className="h-full w-auto object-contain transition-transform duration-300 hover:scale-[1.02] dark:hidden"
       />
       {/* Dark Mode Original Logo Image */}
       <img
         src={LOGO_LOCKUP_DARK_SRC}
-        alt={`${brand.name} - Engineering Intelligent Products`}
+        alt={`${brand.name} - ${brand.tagline}`}
         style={{ height, width: "auto" }}
         className="hidden h-full w-auto object-contain transition-transform duration-300 hover:scale-[1.02] dark:block"
       />
