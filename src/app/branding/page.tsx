@@ -811,16 +811,16 @@ export default function BrandingKitPage() {
                       />
 
                       {/* Glowing center emblem */}
-                      <div className="relative w-14 h-14 mb-2 z-10 flex items-center justify-center">
+                      <div className="relative w-10 h-10 mb-1.5 z-10 flex items-center justify-center">
                         <div className="absolute inset-0 rounded-full bg-[#00C2FF]/30 blur-md animate-pulse" />
                         <img
                           src="/cybelinx-logo-embelem.png"
                           alt="Cybelinx Emblem"
-                          className="w-full h-full object-contain relative z-10 drop-shadow-[0_0_12px_rgba(0,194,255,0.7)]"
+                          className="w-full h-full object-contain relative z-10 drop-shadow-[0_0_10px_rgba(0,194,255,0.7)]"
                         />
                       </div>
 
-                      <div className="font-display text-[13pt] font-extrabold tracking-[0.24em] text-white relative z-10">
+                      <div className="font-display text-[10pt] font-extrabold tracking-[0.24em] text-white relative z-10">
                         CYBELINX
                       </div>
                       <div className="text-[6.5pt] text-slate-300 font-medium tracking-wider mb-2.5 relative z-10">
@@ -890,9 +890,9 @@ export default function BrandingKitPage() {
                       <img
                         src="/cybelinx-logo-embelem.png"
                         alt="Emblem"
-                        className="w-10 h-10 object-contain mb-1.5 drop-shadow-[0_0_8px_rgba(0,194,255,0.6)]"
+                        className="w-8 h-8 object-contain mb-1 drop-shadow-[0_0_8px_rgba(0,194,255,0.6)]"
                       />
-                      <div className="font-display text-[10.5pt] font-extrabold tracking-[0.2em] text-white">CYBELINX</div>
+                      <div className="font-display text-[8.5pt] font-extrabold tracking-[0.2em] text-white">CYBELINX</div>
                       <div className="text-[5.5pt] text-slate-300 mb-2">{brand.tagline}</div>
                       <div className="font-display text-[6pt] font-bold text-[#00C2FF] tracking-widest">WWW.CYBELINX.COM</div>
                     </div>

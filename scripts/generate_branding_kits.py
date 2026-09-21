@@ -847,14 +847,14 @@ business_cards_html = f"""<!DOCTYPE html>
 
   .back-glow-container {{
     position: relative;
-    width: 48px;
-    height: 48px;
-    margin-bottom: 6px;
+    width: 36px;
+    height: 36px;
+    margin-bottom: 4px;
     z-index: 2;
   }}
   .back-glow-ring {{
     position: absolute;
-    inset: -8px;
+    inset: -6px;
     border-radius: 50%;
     background: radial-gradient(circle, rgba(0, 194, 255, 0.35) 0%, rgba(13, 71, 255, 0) 70%);
     animation: pulse 3s ease-in-out infinite alternate;
@@ -865,12 +865,12 @@ business_cards_html = f"""<!DOCTYPE html>
     object-fit: contain;
     position: relative;
     z-index: 2;
-    filter: drop-shadow(0 0 12px rgba(0, 194, 255, 0.6));
+    filter: drop-shadow(0 0 10px rgba(0, 194, 255, 0.6));
   }}
 
   .back-wordmark {{
     font-family: 'Space Grotesk', sans-serif;
-    font-size: 12pt;
+    font-size: 9.5pt;
     font-weight: 800;
     letter-spacing: 0.22em;
     color: #FFFFFF;
@@ -1225,8 +1225,8 @@ card_sheet_html = f"""<!DOCTYPE html>
       {''.join([f'''
       <div class="sheet-card">
         <div class="back-box">
-          <img src="{emblem_b64}" style="width:38px; height:38px; object-fit:contain; margin-bottom:4px; filter:drop-shadow(0 0 8px rgba(0,194,255,0.5));" />
-          <div style="font-family:'Space Grotesk'; font-size:10pt; font-weight:800; letter-spacing:0.2em; color:#fff; margin-bottom:1px;">CYBELINX</div>
+          <img src="{emblem_b64}" style="width:28px; height:28px; object-fit:contain; margin-bottom:3px; filter:drop-shadow(0 0 8px rgba(0,194,255,0.5));" />
+          <div style="font-family:'Space Grotesk'; font-size:7.5pt; font-weight:800; letter-spacing:0.2em; color:#fff; margin-bottom:1px;">CYBELINX</div>
           <div style="font-size:4.8pt; color:#94a3b8; margin-bottom:6px;">Intellect by Design, Autonomy by Choice</div>
           <div style="display:flex; gap:3px; justify-content:center; margin-bottom:6px;">
             <span style="font-size:4.2pt; font-weight:700; color:#4fd8ff; background:rgba(79,216,255,0.1); border:1px solid rgba(79,216,255,0.2); border-radius:99px; padding:1px 4px;">AI & GenAI</span>
